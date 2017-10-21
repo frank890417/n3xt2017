@@ -1,0 +1,137 @@
+$colorBlue: #071747
+$colorRed: #e6326a
+$colorBgRed: #f4556f
+
+.pageIndex
+  font-family: 'Nunito Sans'
+  // padding-top: 60px
+
+section
+  padding-top: 150px
+  padding-bottom: 150px
+
+  &.blue
+    background-color: $colorBlue
+    color: white
+    hr
+      background-color: $colorRed
+  &.red
+    background-color: $colorRed
+    color: white
+    hr
+      background-color: white
+    color: white
+  &.white
+    background-color: white
+    color: $colorBlue
+    hr
+      background-color: $colorRed
+  h1
+    font-size: 100px
+    font-weight: 900
+  h2
+    font-size: 42px
+    font-weight: 900
+  
+  p
+    font-size: 18px
+    line-height: 1.67
+    text-align: justify
+  hr
+    border: none
+    margin-top: 24px
+    margin-bottom: 36px
+    width: 65px
+    height: 9px
+    margin-left: 0
+
+.btn
+  padding: 8px 50px
+  border-radius: 80px
+  margin-top: 60px
+  line-height: 1.6
+  font-size: 20px
+  font-weight: 300
+
+  &.red
+    background-color: $colorRed
+    color: white
+    &:hover
+      background-color: white
+      color: $colorBlue
+  &.blue
+    background-color: $colorBlue
+    color: white
+    &:hover
+      background-color: white
+      color: $colorBlue
+  &.white
+    background-color: transparent
+    color: white
+    &:hover
+      background-color: white
+      color: $colorBlue
+    &.ghost
+      background-color: transparent
+      border: solid 1px white
+      color: white
+      &:hover
+        background-color: white
+        color: $colorBlue
+        border: solid 1px white
+
+section.sectionHero
+  height: 100vh
+  display: flex
+  align-items: center
+  ul.numbers
+    list-style: none
+    padding: 0
+    li
+      display: inline-block
+      padding: 10px 40px
+      padding-left: 0
+
+      .title 
+        opacity: 0.8
+        font-size: 24px
+        font-weight: bold
+
+      .number
+        font-size: 42px
+        color: white
+
+section.sectionCaption
+  background: linear-gradient(104deg, #f4556f, #e8366b 87%, #e6336a 98%, #e6326a)
+
+section.sectionPlatform
+  padding-bottom: 300px
+
+
+section.sectionPhoto
+  margin-left: 120px
+  margin-top: -150px
+  background-color: $colorBgRed
+
+section.sectionEvent
+  h3
+    background-color: $colorBlue
+    color: white
+    padding: 50px 20px
+    font-size: 36px
+    font-weight: 900
+    white-space: nowrap
+    span.big
+      font-size: 52px
+
+
+section.sectionContact
+  input,textarea
+    margin-bottom: 12px
+    background-color: transparent
+    border: none
+    border-bottom: solid 3px white
+
+    &:focus
+      border-bottom-color: $colorRed
+      outline: none

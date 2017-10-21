@@ -14,8 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+    <div>
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -71,6 +71,7 @@
             </div>
         </nav>
 
+        <App id="app"/>
         @yield('content')
     </div>
 

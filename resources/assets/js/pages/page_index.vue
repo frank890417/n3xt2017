@@ -1,6 +1,7 @@
 <template lang="pug">
 .pageIndex
   section.sectionHero.blue
+    video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
     .container
       .row
         .col-sm-12
@@ -26,6 +27,10 @@
     .container
       .row
         .col-sm-6 
+          h3 
+            span Connecting
+            br
+            span Infinity
         .col-sm-6
           h2 n3xtcon is a haven for creative authenticity.
           hr

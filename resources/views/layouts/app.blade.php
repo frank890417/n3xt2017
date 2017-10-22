@@ -75,6 +75,11 @@
         @yield('content')
     </div>
 
+    <script>
+    if (document.domain.indexOf("rsrapid2017.dev")!=-1){
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
+      }
+    </script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

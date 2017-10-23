@@ -1,6 +1,9 @@
 $colorBlue: #071747
 $colorRed: #e6326a
 $colorBgRed: #f4556f
+$colorPurple: #5753a1
+$colorLightBlue: #4977c0
+
 
 .pageIndex
   font-family: 'Source+Sans+Pro'
@@ -51,12 +54,19 @@ section
     height: 10px
     margin-left: 0
 
+  .block
+    width: 150%
+    height: 600px
+    transform: skewX(-10deg)
+    &.blue
+      background-color: $colorLightBlue
+
 .btn
-  padding: 6px 40px
+  padding: 8px 36px
   border-radius: 80px
   margin-top: 60px
   line-height: 1.6
-  font-size: 18px
+  font-size: 16px
   font-weight: 400
   opacity: 0.9
   &.red
@@ -134,6 +144,13 @@ section.sectionCaption
       padding: 5px 10px
       display: inline-block
 
+.sectionLen
+  img
+    position: absolute
+    left: 0
+    top: 0
+    transform: scaleX(-1)
+
 section.sectionPlatform
   padding-bottom: 300px
 
@@ -144,6 +161,23 @@ section.sectionPhoto
   background-color: $colorBgRed
 
 section.sectionEvent
+  .event
+    h2
+      background-color: white
+      display: inline-block
+      padding: 10px 20px
+      padding-right: 0
+    &.purple
+      h2
+        color: $colorPurple
+    &.red
+      h2
+        color: $colorRed
+    p
+      width: 100%
+      max-width: 320px
+      margin-top: 30px
+
   h3
     background-color: $colorBlue
     color: white
@@ -153,6 +187,14 @@ section.sectionEvent
     white-space: nowrap
     span.big
       font-size: 52px
+
+.sectionPartner
+  .logo
+    width: 200px
+    filter: saturate(0%)
+    margin: 20px
+    &:hover
+      filter: saturate(100%)
 
 
 section.sectionContact

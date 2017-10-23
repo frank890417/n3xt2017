@@ -27,10 +27,11 @@
     .container
       .row
         .col-sm-6 
-          h3 
+          h2.rotateCaption
             span Connecting
             br
-            span Infinity
+            span Infinity.
+          //.whiteCircle
           img(src="/img/s2_people.png")
         .col-sm-6
           h2 n3xtcon is a haven for creative authenticity.
@@ -53,6 +54,9 @@
     .container
       .row
         .col-sm-6
+          .circle Event
+          .circle Mentorship<br>Program
+          .circle Workshop
         .col-sm-6 
           h2 A platform for industry insight, and the newest technology trends.
           hr
@@ -64,8 +68,15 @@
         .col-sm-12
           h2 Event Photos
           hr
-
-          h4  For  Young Entrepreneurs <br>&amp; Professionals
+          h4 For Young Entrepreneurs <br>&amp; Professionals
+      .row.rowPhoto
+        .col-sm-8
+          img(src="https://lh3.googleusercontent.com/0i0LQCLjOKdrQxMkQmd3WHMGi6GhrdxIDcjRuZIcmRbOCGVhzv6Kc-OMEGNKBTuAk6aUv09Z_YGNKeP4Jp2s2_GbUFGThk84ZuMQEt0BKDLI2FTM8A2Q1SkJxrPNmRIUHw-Pl-q4pc3sNN9Dm5hBJMbyFDnKbYF7tmQmxcioz0PWlE_prDFiWaq9wzzI02ScBScNF_8gl0L2qXej__1tTGIdTDzGCkIQaUBZwHq3Y-q1xg5dUKR4Vs_9JRQr2nHd8DJh1HEaFtV1cCy4IuLEOJAxs83JJ6TzJubry93qQpTFxKraCZq3GO7WzsO2j02ok9ZVehQM3-AGijiBIJW8875MvrMekMjQoAPEt4uV8ggK1LXAyNqBg0pB6883lLtbA5oAkN50rMNtpCVUH-Ocr3lzrWNL9Pw62rr3RTzt8wPMZ-cV93EPv68QxwR2yN7FkP4zc-gkK81Q0Wym9eU0qMhZhODvWZ0aE8NHDBu_C-DHi6iA_1TzoJrFGXrwZbuI8CQCzTsYqenMEBPUkqBUUCTiLr3os55MTqKMG85uhsDRUxrl8dfIMREvcvZTvxVtJNA9wHMFw4Q1zhYrUFPNrbxWwAGvd1S4ZrXW3pq7IqGCDEyfm40jGxE5cyDq88N-gQ2tIWKPVoLkeJYZCihP8pETTK64JZSDQBc=w1387-h924-no")
+        .col-sm-4
+          img(src="https://lh3.googleusercontent.com/0i0LQCLjOKdrQxMkQmd3WHMGi6GhrdxIDcjRuZIcmRbOCGVhzv6Kc-OMEGNKBTuAk6aUv09Z_YGNKeP4Jp2s2_GbUFGThk84ZuMQEt0BKDLI2FTM8A2Q1SkJxrPNmRIUHw-Pl-q4pc3sNN9Dm5hBJMbyFDnKbYF7tmQmxcioz0PWlE_prDFiWaq9wzzI02ScBScNF_8gl0L2qXej__1tTGIdTDzGCkIQaUBZwHq3Y-q1xg5dUKR4Vs_9JRQr2nHd8DJh1HEaFtV1cCy4IuLEOJAxs83JJ6TzJubry93qQpTFxKraCZq3GO7WzsO2j02ok9ZVehQM3-AGijiBIJW8875MvrMekMjQoAPEt4uV8ggK1LXAyNqBg0pB6883lLtbA5oAkN50rMNtpCVUH-Ocr3lzrWNL9Pw62rr3RTzt8wPMZ-cV93EPv68QxwR2yN7FkP4zc-gkK81Q0Wym9eU0qMhZhODvWZ0aE8NHDBu_C-DHi6iA_1TzoJrFGXrwZbuI8CQCzTsYqenMEBPUkqBUUCTiLr3os55MTqKMG85uhsDRUxrl8dfIMREvcvZTvxVtJNA9wHMFw4Q1zhYrUFPNrbxWwAGvd1S4ZrXW3pq7IqGCDEyfm40jGxE5cyDq88N-gQ2tIWKPVoLkeJYZCihP8pETTK64JZSDQBc=w1387-h924-no")
+          img(src="https://lh3.googleusercontent.com/0i0LQCLjOKdrQxMkQmd3WHMGi6GhrdxIDcjRuZIcmRbOCGVhzv6Kc-OMEGNKBTuAk6aUv09Z_YGNKeP4Jp2s2_GbUFGThk84ZuMQEt0BKDLI2FTM8A2Q1SkJxrPNmRIUHw-Pl-q4pc3sNN9Dm5hBJMbyFDnKbYF7tmQmxcioz0PWlE_prDFiWaq9wzzI02ScBScNF_8gl0L2qXej__1tTGIdTDzGCkIQaUBZwHq3Y-q1xg5dUKR4Vs_9JRQr2nHd8DJh1HEaFtV1cCy4IuLEOJAxs83JJ6TzJubry93qQpTFxKraCZq3GO7WzsO2j02ok9ZVehQM3-AGijiBIJW8875MvrMekMjQoAPEt4uV8ggK1LXAyNqBg0pB6883lLtbA5oAkN50rMNtpCVUH-Ocr3lzrWNL9Pw62rr3RTzt8wPMZ-cV93EPv68QxwR2yN7FkP4zc-gkK81Q0Wym9eU0qMhZhODvWZ0aE8NHDBu_C-DHi6iA_1TzoJrFGXrwZbuI8CQCzTsYqenMEBPUkqBUUCTiLr3os55MTqKMG85uhsDRUxrl8dfIMREvcvZTvxVtJNA9wHMFw4Q1zhYrUFPNrbxWwAGvd1S4ZrXW3pq7IqGCDEyfm40jGxE5cyDq88N-gQ2tIWKPVoLkeJYZCihP8pETTK64JZSDQBc=w1387-h924-no")
+          img(src="https://lh3.googleusercontent.com/0i0LQCLjOKdrQxMkQmd3WHMGi6GhrdxIDcjRuZIcmRbOCGVhzv6Kc-OMEGNKBTuAk6aUv09Z_YGNKeP4Jp2s2_GbUFGThk84ZuMQEt0BKDLI2FTM8A2Q1SkJxrPNmRIUHw-Pl-q4pc3sNN9Dm5hBJMbyFDnKbYF7tmQmxcioz0PWlE_prDFiWaq9wzzI02ScBScNF_8gl0L2qXej__1tTGIdTDzGCkIQaUBZwHq3Y-q1xg5dUKR4Vs_9JRQr2nHd8DJh1HEaFtV1cCy4IuLEOJAxs83JJ6TzJubry93qQpTFxKraCZq3GO7WzsO2j02ok9ZVehQM3-AGijiBIJW8875MvrMekMjQoAPEt4uV8ggK1LXAyNqBg0pB6883lLtbA5oAkN50rMNtpCVUH-Ocr3lzrWNL9Pw62rr3RTzt8wPMZ-cV93EPv68QxwR2yN7FkP4zc-gkK81Q0Wym9eU0qMhZhODvWZ0aE8NHDBu_C-DHi6iA_1TzoJrFGXrwZbuI8CQCzTsYqenMEBPUkqBUUCTiLr3os55MTqKMG85uhsDRUxrl8dfIMREvcvZTvxVtJNA9wHMFw4Q1zhYrUFPNrbxWwAGvd1S4ZrXW3pq7IqGCDEyfm40jGxE5cyDq88N-gQ2tIWKPVoLkeJYZCihP8pETTK64JZSDQBc=w1387-h924-no")
+          
   section.sectionEvent.white
     .container
       .row
@@ -117,9 +128,9 @@
           
         .col-sm-6
           .form-group
-            input.form-control
-            input.form-control
-            textarea.form-control
+            input.form-control(placeholder="Name")
+            input.form-control(placeholder="Email")
+            textarea.form-control(placeholder="Message")
             .btn.red Send
   section.sectionCopyright.blue
     .container

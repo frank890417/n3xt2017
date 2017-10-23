@@ -8,7 +8,7 @@
 import store from "./store"
 import router from "./router"
 import App from "./App.vue"
-
+import $ from 'jquery'
 require('./bootstrap')
 
 window.Vue = require('vue')
@@ -20,6 +20,10 @@ window.Vue = require('vue')
  */
 
 // Vue.component('example', require('./components/Example.vue'));
+
+$(window).scroll(()=>{
+    store.commit('setScrollTop',$(window).scrollTop())
+})
 
 const app = new Vue({
     el: '#app',

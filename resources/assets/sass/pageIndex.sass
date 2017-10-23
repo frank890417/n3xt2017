@@ -4,16 +4,21 @@ $colorBgRed: #f4556f
 $colorPurple: #5753a1
 $colorLightBlue: #4977c0
 
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
 
 .pageIndex
   font-family: 'Source+Sans+Pro'
+  width: 100%
+  overflow: hidden
   // padding-top: 60px
   h1,h2,h3
     font-family: 'Khula'
   
 section
-  padding-top: 150px
-  padding-bottom: 150px
+  padding-top: 120px
+  padding-bottom: 120px
 
   &.blue
     background-color: $colorBlue
@@ -33,23 +38,24 @@ section
       background-color: $colorRed
   h1
     font-size: 100px
-    font-weight: 700
+    font-weight: 800
     //font-weight: 500
   h2
     font-size: 42px
-    font-weight: 700
+    font-weight: 800
+    line-height: 1.5
     //font-weight: 500
   
   p
     font-size: 18px
     line-height: 1.67
     // text-align: justify
-    font-weight: 400
+    font-weight: 300
     opacity: 0.5
   hr
     border: none
     margin-top: 24px
-    margin-bottom: 36px
+    margin-bottom: 48px
     width: 60px
     height: 10px
     margin-left: 0
@@ -137,14 +143,31 @@ section.sectionHero
 
 section.sectionCaption
   background: linear-gradient(104deg, #f4556f, #e8366b 87%, #e6336a 98%, #e6326a)
-  h3
+  padding-bottom: 0
+  padding-top: 200px
+
+  .whiteCircle
+    +size(150px)
+    background-color: white
+    border-radius: 50%
+    position: absolute
+    left: 250px
+    top: 50px
+    mix-blend-mode: screen
+
+  h2.rotateCaption
+    transform: translateX(90px) rotate(90deg)
+    transform-origin: 0% 0%
+    margin-top: -150px
     span
       background-color: #fff
       color: $colorBlue
       padding: 5px 10px
       display: inline-block
+      margin-bottom: 20px
 
 .sectionLen
+  padding-top: 0px
   img
     position: absolute
     left: 0
@@ -154,11 +177,60 @@ section.sectionCaption
 section.sectionPlatform
   padding-bottom: 300px
 
+  .circle
+    +size(150px)
+    background-color: #fff
+    color: $colorBlue
+    border-radius: 100%
+    font-size: 17px
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: 900
+    cursor: pointer
+    text-align: center
+    position: relative
+    &:before
+      content: ""
+      display: block
+      +size(100%)
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%)
+      transition: 0.5s
+      border: solid 1px white
+      border-radius: 100%
+    &:hover
+      background-color: $colorBgRed
+      color: white
+      &:before
+        +size(120%)
+        border-color: $colorBgRed
+
+    &:nth-child(1)
+      +size(120px)
+      margin-left: 50px
+    &:nth-child(2)
+      +size(140px)
+      margin-left: 280px
+    &:nth-child(3)
+      +size(160px)
+      margin-left: -10px
+
+      
+
 
 section.sectionPhoto
-  margin-left: 120px
+  margin-left: 80px
   margin-top: -150px
   background-color: $colorBgRed
+
+  img
+    width: 100%
+  .rowPhoto
+    transform: translateX(-200px)
+
 
 section.sectionEvent
   .event
@@ -181,13 +253,17 @@ section.sectionEvent
   h3
     background-color: $colorBlue
     color: white
-    padding: 50px 20px
+    padding: 40px 20px
     font-size: 36px
     font-weight: 900
+    display: inline-block
+    position: relative
+    z-index: 1
     white-space: nowrap
+    padding-right: -50px
     span.big
       font-size: 52px
-
+      margin-top: 50px
 .sectionPartner
   .logo
     width: 200px
@@ -195,7 +271,6 @@ section.sectionEvent
     margin: 20px
     &:hover
       filter: saturate(100%)
-
 
 section.sectionContact
   input,textarea

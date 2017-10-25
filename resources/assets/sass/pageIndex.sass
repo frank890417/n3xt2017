@@ -231,6 +231,25 @@ section.sectionPhoto
   
   img
     width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+
+    &:hover
+      &:before
+        position: absolute
+        background-color: $colorBlue
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+
+
+    &:after
+      display: inline-block
+      content: "See Photo >"
+      color: white
 
     &.big
       width: auto
@@ -264,6 +283,9 @@ section.sectionEvent
       display: inline-block
       padding: 10px 20px
       padding-right: 0
+    .infos
+      position: relative
+      z-index: 1
     &.purple
       h2
         color: $colorPurple
@@ -274,23 +296,28 @@ section.sectionEvent
       width: 100%
       max-width: 320px
       margin-top: 30px
-    .month
-	    font-weight: 700 
-    .month
-      font-size: 160px
-      font-family: 'Khula'
+  .month
+    position: absolute
+    right: 0
+    bottom: 0
+    z-index: 4
+    font-weight: 700 
+  .month
+    font-size: 160px
+    font-family: 'Khula'
 
-    .block
-      width: 500px
-      height: 450px
-      transform: skewX(-10deg)
-      background-color: #fff
-      position: absolute
-      top: 0
-      &.blue
-        background-color: $colorLightBlue
-      &.purple
-        background-color: $colorPurple
+  .block
+    width: 500px
+    height: 450px
+    transform: skewX(-10deg)
+    background-color: #fff
+    position: absolute
+    bottom: 0
+    margin-left: 250px
+    &.blue
+      background-color: $colorLightBlue
+    &.purple
+      background-color: $colorPurple
   h3
     background-color: $colorBlue
     color: white
@@ -323,3 +350,7 @@ section.sectionContact
     &:focus
       border-bottom-color: $colorRed
       outline: none
+
+section.sectionCopyright
+  padding-top: 50px
+  padding-bottom: 50px

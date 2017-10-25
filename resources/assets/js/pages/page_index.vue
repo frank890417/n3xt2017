@@ -5,7 +5,8 @@
     .container
       .row
         .col-sm-12
-          h1 Unleash<br>the Future.
+          slideIn
+            h1 Unleash<br>the Future.
           h4 SOCAL’s fast growing multi-discipline platform for entrepreneurs
           hr
           h5 FOR UPDATES & EXCLUSIVE OFFERS
@@ -27,28 +28,37 @@
     .container
       .row
         .col-sm-6 
-          h2.rotateCaption
-            span Connecting
-            br
-            span Infinity.
+          slideIn
+            h2.rotateCaption
+              span Connecting
+              br
+              span Infinity.
           //.whiteCircle
-          img(src="/img/s2_people.png")
+          slideIn.left
+            img(src="/img/s2_people.png")
         .col-sm-6
-          h2 n3xtcon is a haven for creative authenticity.
-          hr
-          p We believe entrepreneurialspirit is an immutable individual trait that cannot be smothered. n3xt con’s missionis to establish an environment in which such spirit not only flourishes but inspires more people to make a long lasting impact in their lives and beyond.
+          slideIn
+            h2 n3xtcon is a haven for creative authenticity.
+          slideIn
+            hr
+          slideIn
+            p We believe entrepreneurialspirit is an immutable individual trait that cannot be smothered. n3xt con’s missionis to establish an environment in which such spirit not only flourishes but inspires more people to make a long lasting impact in their lives and beyond.
           .btn.blue About us
   section.sectionLen.blue
     .container
       .row
         .col-sm-6 
-          h2 Sees the future<br>through an<br>entrepreneurial lens
-          hr
-          p Our team consists of individuals from creative, business, technology, and science backgrounds, and it is our dream to expand our community with such diversity across the world.<br><br>On the one hand, we promote scalability while innovating on a global scale, but on the other hand, we want to emphasize the unlimited potential for any innovative problem-solving ideas in daily life.
+          slideIn
+            h2 Sees the future<br>through an<br>entrepreneurial lens
+          slideIn
+            hr
+          slideIn
+            p Our team consists of individuals from creative, business, technology, and science backgrounds, and it is our dream to expand our community with such diversity across the world.<br><br>On the one hand, we promote scalability while innovating on a global scale, but on the other hand, we want to emphasize the unlimited potential for any innovative problem-solving ideas in daily life.
           .btn.red About us
         .col-sm-6
           .block.blue
-          img(src="/img/s2_people.png")
+          slideIn.left
+            img(src="/img/s2_people.png")
 
   section.sectionPlatform.blue
     .container
@@ -58,10 +68,12 @@
           .circle Mentorship<br>Program
           .circle Workshop
         .col-sm-6 
-          h2 A platform for industry insight, and the newest technology trends.
-          hr
-          p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
-          .btn.red Explore Events
+          slideIn
+            h2 A platform for industry insight, and the newest technology trends.
+          slideIn
+            hr
+            p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
+            .btn.red Explore Events
   section.sectionPhoto.red
     .container
       .row
@@ -78,35 +90,37 @@
       .row
         .col-sm-12
           h4.pull-right For Young Entrepreneurs <br>&amp; Professionals
-  section.sectionEvent.white
+  section.sectionFeatureEvent.white
     .container
       .row
         .col-sm-6 
-          h2 Featured Event
-          hr
-          h4 9/7/2017   THU.  6PM /  UCS EEB 132 
-          .event
-            h3 Building United Communities:<br>
-              span.big Job and Professional Journey
-          p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. 
-          .btn.red RSVP Now
+          slideIn
+            h2 Featured Event
+            hr
+            h4 9/7/2017   THU.  6PM /  UCS EEB 132 
+            .event
+              h3 Building United Communities:<br>
+                span.big Job and Professional Journey
+            p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. 
+            .btn.red RSVP Now
         .col-sm-6 
           .block.blue
       
   section.sectionEvent.blue
     .container
       .row
-        .col-sm-6 
+        .col-sm-12
           h2 Annual Timeline
           hr
+        .col-sm-6 
           .event.purple
-            h4 9/7/2017   THU.  6PM
-            h2 WORKSHOP
-            p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts.. 
-            .month Sep.
+            .infos
+              h4 9/7/2017   THU.  6PM
+              h2 WORKSHOP
+              p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts.. 
+          .month Sep.
           .btn.ghost.white RSVP Now
           .block.purple
-        .col-sm-6 
   section.sectionPartner.white.text-center
     .container
       .row
@@ -144,9 +158,13 @@
   </template>
 
 <script>
-  export default {
+import slideIn from '../components/slideIn'
+export default {
     mounted() {
       console.log('Component mounted.')
+    },
+    components: {
+      slideIn
     }
   }
 </script>

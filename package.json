@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "gsap": "^1.20.3",
     "slick-carousel": "^1.7.1",
     "vue-slider-component": "^2.4.3",
     "vue-youtube-embed": "^2.1.2"

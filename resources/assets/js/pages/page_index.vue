@@ -67,9 +67,9 @@
     .container
       .row
         .col-sm-6
-          .circle Event
-          .circle Mentorship<br>Program
-          .circle Workshop
+          slideIn.scale.circle Event
+          slideIn.scale.circle Mentorship<br>Program
+          slideIn.scale.circle Workshop
         .col-sm-6 
           slideIn
             h2 A platform for industry insight, and the newest technology trends.
@@ -186,12 +186,24 @@
 
 <script>
 import slideIn from '../components/slideIn'
+import {mapState} from 'vuex'
 export default {
     mounted() {
       console.log('Component mounted.')
+      //autoresize textarea
+      $('textarea').each(function () {
+        this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+      }).on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+      });
+
     },
     components: {
       slideIn
+    },
+    computed:{
+      ...mapState(['scrollTop'])
     }
   }
 </script>

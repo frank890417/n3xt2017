@@ -9,11 +9,44 @@ import store from "./store"
 import router from "./router"
 import App from "./App.vue"
 import $ from 'jquery'
+import {TweenMax} from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
+import {mapState} from 'vuex'
+window.TweenMax=TweenMax
 require('./bootstrap')
 
 window.Vue = require('vue')
 
-/**
+var softScroll=false;
+
+if (softScroll){
+
+    $(function(){ 
+        
+        var $window = $(window);
+        var scrollTime = 1;
+        var scrollDistance = 50;
+        
+        $window.on("mousewheel DOMMouseScroll", function(event){
+            
+            event.preventDefault(); 
+            
+            var delta = event.originalEvent.wheelDelta/40 || -event.originalEvent.detail/0.5;
+            var scrollTop = $window.scrollTop();
+            var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+            
+            TweenMax.to($window, scrollTime, {
+                scrollTo : { y: finalScroll, autoKill:true },
+                ease: Power2.easeOut,
+                overwrite: 10             
+            });
+            // console.log(finalScroll);
+        });
+    });
+    
+}
+    
+    /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
@@ -33,5 +66,8 @@ const app = new Vue({
         App
     },
     mounted(){
+    },
+    computed:{
+      ...mapState(['scrollTop'])
     }
 });

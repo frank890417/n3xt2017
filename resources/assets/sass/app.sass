@@ -11,7 +11,15 @@
 @import "./pageIndex"
 
 nav.navbar.navbar-default
-  background-color: transparent
+  transition: 0.5s
+  box-shadow: 0px 0px 10px rgba(black,0.3)
   .navbar-header,.navbar-nav
     a
-      color: white
+      color: $colorBlue
+      transition: 0.5s
+  &.at_top
+    background-color: transparent
+    .navbar-header,.navbar-nav
+      a
+        color: white
+        

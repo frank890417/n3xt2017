@@ -52,4 +52,11 @@ export default {
   &.active
     opacity: 1
     transform: translateX(0px)
+.slideIn.scale
+  opacity: 0
+  transition: 0.6s
+  transform: scale(0.5)
+  &.active
+    opacity: 1
+    transform: scale(1)
 </style>

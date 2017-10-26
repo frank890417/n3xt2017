@@ -185,7 +185,7 @@
           .form-group
             input.form-control(placeholder="Name")
             input.form-control(placeholder="Email")
-            textarea.form-control(placeholder="Message")
+            textarea.form-control(placeholder="Message", rows="3")
             .btn.red Send
   section.sectionCopyright.blue
     .container

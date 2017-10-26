@@ -60,16 +60,22 @@
             .btn.red About us
         .col-sm-6
           .block.blue
-          slideIn.left
-            img(src="/img/s2_people.png")
+          img(src="https://lh3.googleusercontent.com/8pO3FYkdFqofAitFIcY4NMjhZncCQiBzZNKKJ8xP5M-9ykQHhSNb155DzeZr84zppC3EWR26BSso5MdF13wgexhI8CU-M39cwmX7FGWZD4IqOdV0Chb49RxTlX1SeFqpvpYzmggYG1lOYE2kDQmCN_eEmWerCpJdEjkQZ-EmiN99X7uqHzLNNgavm2_e2SGZx_OrdoRsW9nBGGRIqvB0Uk6vBfwrm-X76YF5_9-BqWyFniOAwXtPgCaymB3CnyMPs668mGRVJ3lhUf0OM7vKI3r9ctVxv4zbvehkJrt94tNUu3JWtfRcX1LWA6Tn0YFDiX3ZAzZa1uuiIWnt8EoIln_sgxO6Dm49mB7SpwGyaGW4h8nuYru4-OHHO291EUXRg79wJynUQ03OOlPkWBzbmivOiTOb9Hu3eQ94dIFdp4iwtrzS82aLX16GDtKrQH1H6D0T7As1i6U7c60CoKzk4BwletUH70axRUur3nHHqAnCb7gTsmDNjpCEIwl4h-wt-qQsosTiOfOvNuHblltLJgAZTrob1utYMyq8llcuOpkSygeVz9tpGtAFrSL_nQmjiBDcb0a99BNBYMyJhVUHZwznVnaqFVCS67bcp1Q3QBLV2AWFyLk_HzHj1_Jv0y070vKpejO5la-LroTFV34l6DxrnABMqi5va_A=w1406-h937-no")
 
+            
   section.sectionPlatform.blue
     .container
       .row
         .col-sm-6
           slideIn.scale.circle Event
           slideIn.scale.circle Mentorship<br>Program
-          slideIn.scale.circle Workshop
+          slideIn.scale.circle Workshop {{`translateY(#{scrollTop/5}px)`}}
+          .circle.c1(:style="{transform: `translateY(#{scrollTop/5}px)`}")
+          .circle.c2(:style="{transform: `translateY(#{scrollTop/5}px)`}")
+          .circle.c3(:style="{transform: `translateY(#{scrollTop/5}px)`}")
+          .circle.c4(:style="{transform: `translateY(#{scrollTop/5}px)`}")
+          .circle.c5(:style="{transform: `translateY(#{scrollTop/5}px)`}")
+          .circle.c6(:style="{transform: `translateY(#{scrollTop/5}px)`}")
         .col-sm-6 
           slideIn
             h2 A platform for industry insight, and the newest technology trends.
@@ -99,19 +105,20 @@
   section.sectionFeatureEvent.white
     .container
       .row
-        .col-sm-6 
+        .col-sm-6.col-event-info
           slideIn
             h2 Featured Event
             hr
             h4 9/7/2017   THU.  6PM /  UCS EEB 132 
             .event
-              h3 Building United Communities:<br>
-                span.big Job and Professional Journey
+              h3 Some Subtitles here:<br>
+                span.big Idea in the Age of Tech
             p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. 
             .btn.red RSVP Now
         .col-sm-6 
-          slideIn.left
+          slideIn.left.col-img
             .block.blue
+            img(src="/img/20171023 Event Banner Idea in the Age of Tech-03.jpg", href="https://goo.gl/photos/QQxauWqGwsoWSQEEA" , target="_blank")
       
   section.sectionEvent.blue
     .container
@@ -129,8 +136,10 @@
                   p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts.. 
               .month Sep.
               .btn.ghost.white RSVP Now
-              slideIn.left
+              .blockImg
                 .block.purple
+                img(src="https://lh3.googleusercontent.com/E8xWYLExhL98VFZbINtVZcUkz-I0_0FZnniscXOVxCp_he-0vri6s9F6M1F0czfinhczdUsdwiSe051vv5jzm9DEz_8RGztwaAMztbz4GszHWbrHAF1rPokHSByrk8-szqvVmK9Plo_l3LQBfyNvhI0zr69lIl4MIIhrAxg8K6kZaJo_sKLxYGZUb0NOb_siPMcosfd091etgT07RobriCly84gKrZAc33g0mLgTVQuBNEKHY3Vy5qAT5mWCR2bAkIgc0Opqv3dZDUEqNW3AblMQlQKENgCrbq2HRvSrk20Od8PhBjRpFlRO-PKpN40TXhDvEiw_yJBOg8kOw7LJf-8_iKWpoHYonYS_km1CAhDO7Ucy4ApW-oA8BNK2n6OStPCoC7gb6ggYvP9wc0AsRIWLCnDrFGp5AC4B6NXDneOB2UP8xXiXFowoxwTYDnTer2_biWgo_C-wCToe5F4SbAozcCcj4jEiV9dseGl2OB-G2Zcqevmx3xvIYAInmjLa0pszN0LJEDqY-zdsW50CONFLhP69adyca2ogeE0-IXlvDfYWU4FWvQCB1z3HY558lN4IuTpiJNKZmrMV4lKnhBtSNuk09M3k2OMGdRaKmVwSZJ4Ckdz9cYw5zkifE-ScB_wmra_5e4M62gQiYsJ_ss7wazYL6VgOAUY=w1406-h937-no" , target="_blank")
+      
           
           .col-sm-6
             slideIn.left.eventContainer
@@ -141,8 +150,10 @@
                   p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts.. 
               .month Sep.
               .btn.ghost.white RSVP Now
-              slideIn.left
+              .blockImg
                 .block.purple
+                img(src="https://lh3.googleusercontent.com/Y7TFjrgslGUqFAMB6AfKEoU23_TzElEC1LY1fOpEZyWfqGVktRuWDn4pzbk7ZQpN8R5_RO2sKuH9Wmq2LVhppfFYNnT4ylxMbYVALa1Qip73GGWsVAyBzyVqbsTIuL8wgmgZktIVo7gvZGs8HOwKkuQEuIFIFJ0f-JH09PmD5bpiczJFr4bs932h2ViX7VRwuKPu8PUOlVJzVfxy1L8D7emcMh-Yg5zLKCM8D02jvm0czbXt2EPaVN-EVRr8O2tQROnTR7YaHNX_XKlrKUa_8-QGjKog_sz8Ip36GI92-X1Bf432PAilixjprR4KavYMkjKr4jVX_oBY3-67wp7xwHf09Fc79dN0hQY1EJ5wNZGRLcYwlwvCGa4k_yfrrkS-VqW1P78OZUKWkDKYpQ_V6JcqI8vgPFWdmhYikfrPuYJKTNRM68fOg3UqVpR0xPQ0chujh1sENa4PpXS9MWAVNGrOOiMZXpATOpfZ5rYpbJPxa8Fv7q-Wue8F0uOlZSvI0ZUfTG5RtqpA6yXbV9NlEtE_tilKn5V_6vzJHwXnWciRDdVvoQqzO3tJ53znSGdBT3hKGFAEVA4_nPzcwQb3H4CdQM3kOB3pLkC2H0QTNNAn2IgQgW70_4wNTVYWWvoLup_Ssy8Jm5QnZvGmFe-wnRo0y4b3hKRY8XY=w1406-h937-no" , target="_blank")
+      
   section.sectionPartner.white.text-center
     .container
       .row

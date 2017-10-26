@@ -69,7 +69,7 @@
         .col-sm-6
           slideIn.scale.circle Event
           slideIn.scale.circle Mentorship<br>Program
-          slideIn.scale.circle Workshop {{`translateY(#{scrollTop/5}px)`}}
+          slideIn.scale.circle Workshop
           .circle.c1(:style="{transform: `translateY(#{scrollTop/5}px)`}")
           .circle.c2(:style="{transform: `translateY(#{scrollTop/5}px)`}")
           .circle.c3(:style="{transform: `translateY(#{scrollTop/5}px)`}")

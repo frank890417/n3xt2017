@@ -17,10 +17,12 @@ class Tickets extends Migration
         Schema::create('tickets',function($table){
             
             $table->increments('id');
-            $table->string("type");
-            $table->double("price");
-            $table->text("note");
-            $table->string("link",400);
+            $table->integer('event_id')->nullable();
+            $table->string("title")->default("");
+            $table->string("type")->default("");
+            $table->double("price")->default(0);
+            $table->text("note")->nullable();
+            $table->string("link",400)->default("");
             $table->timestamps();
         });
         

@@ -16,13 +16,16 @@ class Events extends Migration
         //
         Schema::create('events',function($table){
             $table->increments('id');
+            $table->string("cover")->default("");
+            $table->string("type")->default("");
+            $table->string("title")->default("");
+            $table->string("subtitle")->default("");
+            $table->json("tag");
+            $table->text("description")->nullable();
             $table->datetime("start_datetime");
             $table->datetime("end_datetime");
-            $table->string("title");
-            $table->json("tag");
-            $table->text("description");
-            $table->string("venue");
-            $table->string("address");        
+            $table->string("venue")->default("");
+            $table->string("address")->default("");        
             $table->timestamps();
         });
 

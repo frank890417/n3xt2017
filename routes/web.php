@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/manage/event', 'HomeController@manage');
+Route::get('/manage/event/{id}', 'HomeController@manage');

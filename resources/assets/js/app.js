@@ -8,6 +8,7 @@
 import store from "./store"
 import router from "./router"
 import App from "./App.vue"
+import AppManage from "./AppManage.vue"
 import $ from 'jquery'
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
@@ -58,12 +59,32 @@ $(window).scroll(()=>{
     store.commit('setScrollTop',$(window).scrollTop())
 })
 
+
+
+Vue.mixin({
+    methods: {
+        strip_tags(txt) {
+            let result = ("" + txt).replace(/(<([^>]+)>)/ig, "")
+            return result
+        },
+        get_event_status_translate(txt) {
+            switch (txt) {
+                case "UNCONFIRMED":
+                    return "已報名待確認"
+                case "CONFIRMED", 'registed':
+                    return "已報名與確認"
+            }
+            return "未報名"
+        },
+    }
+})
+
 const app = new Vue({
     el: '#app',
     router,
     store,
     components: {
-        App
+        App, AppManage
     },
     mounted(){
     },

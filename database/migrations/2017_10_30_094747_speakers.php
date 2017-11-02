@@ -16,13 +16,14 @@ class Speakers extends Migration
         //
         Schema::create('speakers',function($table){
             $table->increments('id');
-            $table->string("name");
-            $table->string("company");
-            $table->string("position");
-            $table->string("email");
-            $table->text("bio");
-            $table->string("headshot");
-            $table->text("qa");
+            $table->integer('event_id')->nullable();
+            $table->string("name")->default("");
+            $table->string("company")->default("");
+            $table->string("position")->default("");
+            $table->string("email")->default("");
+            $table->text("bio")->nullable();
+            $table->string("headshot")->default("");
+            $table->text("qa")->nullable();
             $table->timestamps();
         });
         

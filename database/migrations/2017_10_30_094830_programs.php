@@ -16,10 +16,11 @@ class Programs extends Migration
         //
         Schema::create('programs',function($table){
             $table->increments('id');
+            $table->integer('event_id')->nullable();
+            $table->string("title")->default("");
+            $table->text("description")->nullable();
             $table->datetime("start_datetime");
             $table->datetime("end_datetime");
-            $table->string("title");
-            $table->text("description");
             $table->timestamps();
         });
         

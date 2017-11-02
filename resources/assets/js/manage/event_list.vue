@@ -1,14 +1,39 @@
 <template lang="pug">
-div
-  br
-  br
-  br
-  br
+div.manage_event_list
   .container
-    ul.list-group
-      li.list-group-item(v-for = "event in events")
-        h4 {{event.title}}
-        router-link.btn.btn-primary(:to="'/manage/event/'+event.id") Edit
+    .row
+      .col-sm-12
+        h1 Event List Manage
+        hr
+      .col-sm-12
+        .panel.panel-default
+          .panel-heading Event List
+          .panel-body
+            ul.list-group
+              li.list-group-item(v-for = "(event,eid) in events")
+                .row
+                  .col-sm-2
+                    img(:src="event.cover", style="width: 100%")
+                  .col-sm-10
+                    h4 {{eid+1}} | {{event.title}}
+                      router-link.btn.btn-primary.pull-right(:to="'/manage/event/'+event.id") Edit
+                    p.disabled {{event.start_datetime}} - {{event.end_datetime}}
+              li.list-group-item
+                router-link.btn.btn-default(to="/manage/event/new") + Add New Event
+
+      .col-sm-12
+        h1 Speaker List Manage
+        hr
+      .col-sm-12
+        .panel.panel-default
+          .panel-heading Speaker List
+          .panel-body
+            ul.list-group
+              li.list-group-item(v-for = "(event,eid) in events")
+                h4 {{eid+1}} | {{event.title}}
+                  router-link.btn.btn-primary.pull-right(:to="'/manage/event/'+event.id") Edit
+              li.list-group-item
+                router-link.btn.btn-default(to="/manage/event/new") + Add New Event
 </template>
 
 <script>

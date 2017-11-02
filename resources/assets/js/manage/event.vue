@@ -5,14 +5,13 @@
         .col-sm-12
           ol.breadcrumb
             li.breadcrumb-item 
-              router-link(to="/activity") Manage Event List
+              router-link(to="/manage/event") Manage Event List
             li.breadcrumb-item.active Event Edit
-          br
           h2(v-if="event_id") Edit- {{ strip_tags(event.title) }}
-            br
+            
             button.btn.btn-danger.pull-right(@click="deleteActivity") Delete
             button.btn.btn-primary.pull-right(@click="updateActivity") Save
-          h2(v-else) Add - {{ strip_tags(event.title) }}
+          h2(v-else) New Event - {{ strip_tags(event.title) }}
             button.btn.btn-primary.pull-right(@click="updateActivity") Save
           hr
 
@@ -55,13 +54,13 @@
               .form-group
                 labal.col-sm-3 StartTime
                 .col-sm-9
-                  input.form-control(v-model="event.start_datetime")
+                  input.form-control(v-model="event.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")
                 br
                 br
               .form-group
                 labal.col-sm-3 EndTime
                 .col-sm-9
-                  input.form-control(v-model="event.end_datetime")
+                  input.form-control(v-model="event.end_datetime", placeholder="yyyy/mm/dd hh:mm:ss")
                 br
                 br
               .form-group
@@ -155,12 +154,12 @@
                             .col-sm-2
                               h5 Start datetime
                             .col-sm-10
-                              input.form-control(v-model="program.start_datetime")                                       
+                              input.form-control(v-model="program.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")                                       
                           .row.form-group
                             .col-sm-2
                               h5 End datetime
                             .col-sm-10
-                              input.form-control(v-model="program.end_datetime")     
+                              input.form-control(v-model="program.end_datetime", placeholder="yyyy/mm/dd hh:mm:ss")    
                           hr
                           br
                   .form-group
@@ -210,6 +209,7 @@ export default {
         title: "",
         description: "",
         place: "",
+        tag: [],
         speaker: [],
         time_detail: "",
         register_info: "",
@@ -227,12 +227,15 @@ export default {
     VueEditor , default_pic_selector
   },
   mounted(){
-     Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
-      this.event = res.data
-      this.event.tag = JSON.parse(this.event.tag)
+    Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
+      this.setEvent(res.data)
     })
   },
   methods: {
+    setEvent(event){
+      event.tag = JSON.parse(event.tag)
+      this.event = event
+    },
     deleteActivity(){
 
     },
@@ -240,15 +243,26 @@ export default {
       this.event.cover = obj.url
     },
     updateActivity(){
-      Axios.post("/api/event/"+this.$route.params.id,{
-        params: {
+      if (this.$route.path=="/manage/event/new"){
+        Axios.post("/api/event",{
           _method: "POST",
           ...this.event
-        }
-      }).then((res)=>{
-        // this.event = res.data
-        // this.event.tag = JSON.parse(this.event.tag)
-      })
+          
+        }).then((res)=>{
+          this.setEvent(res.data)
+          alert("Create Success!")
+        })
+      }else{
+        Axios.post("/api/event/"+this.$route.params.id,{
+          _method: "PATCH",
+          ...this.event
+          
+        }).then((res)=>{
+          this.setEvent(res.data)
+          alert("Save Success!")
+        })
+      }
+      
 
     }
   }

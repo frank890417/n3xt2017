@@ -17,9 +17,9 @@ class Agencies extends Migration
         Schema::create('agencies',function($table){
             $table->increments('id');
             $table->integer('event_id')->nullable();
-            $table->string("name")->default("");;
-            $table->string("link")->default("");;
-            $table->string("logo")->default("");;
+            $table->string("name")->nullable();
+            $table->string("link")->nullable();
+            $table->string("logo")->nullable();
             $table->timestamps();
         });
     }

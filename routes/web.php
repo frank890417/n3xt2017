@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return redirect()->to('/manage/event');
+});
+Route::get('/manage', function () {
+    return redirect()->to('/manage/event');
+});
 Route::get('/manage/event', 'HomeController@manage');
 Route::get('/manage/event/{id}', 'HomeController@manage');
+Route::get('/manage/event/new', 'HomeController@manage');

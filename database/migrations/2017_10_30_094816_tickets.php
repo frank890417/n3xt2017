@@ -18,11 +18,11 @@ class Tickets extends Migration
             
             $table->increments('id');
             $table->integer('event_id')->nullable();
-            $table->string("title")->default("");
-            $table->string("type")->default("");
+            $table->string("title")->nullable();
+            $table->string("type")->nullable();
             $table->double("price")->default(0);
             $table->text("note")->nullable();
-            $table->string("link",400)->default("");
+            $table->string("link",400)->nullable();
             $table->timestamps();
         });
         

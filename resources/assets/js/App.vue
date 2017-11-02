@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div(:class="app_class")
   navbar
   transition(name='fade', mode='out-in')
     router-view(:key="$route.path")
@@ -15,6 +15,11 @@ export default {
   },
   components:{
     navbar
+  },
+  computed:{
+    app_class(){
+      return 'route'+this.$route.path.replace(/\//g,'_')
+    }
   }
 
 }

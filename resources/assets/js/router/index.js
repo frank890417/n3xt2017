@@ -8,8 +8,10 @@ import manage_event_list from '../manage/event_list.vue'
 const routes = [
   { path: '/', component: page_index },
   { path: '/home', component: page_index, props: true },
+  { path: '/manage/event/new', component: manage_event, props: true },
   { path: '/manage/event/:id', component: manage_event, props: true },
   { path: '/manage/event', component: manage_event_list },
+  
 ]
 const router = new VueRouter({
   routes,

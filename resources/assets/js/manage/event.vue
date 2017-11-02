@@ -138,7 +138,7 @@
                       .col-sm-12
                         .container-fluid
                           h4(style="width: 100%") {{programId+1}}. {{program.title}}
-                            .btn.btn-danger.pull-right(@click="event.program.splice(programId,1)") 刪除
+                            .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") 刪除
                           .row.form-group
                             .col-sm-2
                               h5 Title
@@ -160,11 +160,12 @@
                               h5 End datetime
                             .col-sm-10
                               input.form-control(v-model="program.end_datetime", placeholder="yyyy/mm/dd hh:mm:ss")    
+                          
                           hr
                           br
                   .form-group
                     .col-sm-12
-                      .btn.btn-default.form-control(@click="event.speaker.push({name: '',description:'',headshot:''})") + 新增
+                      .btn.btn-default.form-control(@click="event.program.push({title: '',description:'',start_datetime:'',end_datetime: ''})") + 新增
                       br
                       br
                       br
@@ -264,6 +265,18 @@ export default {
       }
       
 
+    },
+    deleteProgram(program,pid){
+      if (confirm("Are you sure to delete program?")){
+
+        Axios.post("/api/program/"+program.id,{
+          _method: "DELETE",
+        }).then((res)=>{
+          // this.setEvent(res.data)
+          alert("delete Success!")
+        })
+        this.event.program.splice(this.pid,1)
+      }
     }
   }
 }

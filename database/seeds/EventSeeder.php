@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Event;
 use App\Ticket;
 use App\Program;
+use App\Speaker;
 class EventSeeder extends Seeder
 {
     /**
@@ -108,6 +109,27 @@ class EventSeeder extends Seeder
             "start_datetime" => "2017/10/14 15:00:00",
             "end_datetime" => "2017/10/14 16:00:00",
         ]);
+
+        Speaker::create([
+            "name" => "Natasha Foster-Owens",
+            "company" => "HBO",
+            "position" => "VP of Production",
+            "email" => "",
+            "bio" => "Versatile and dynamic entertainment industry professional, who is highly motivated, exceptionally organized and disciplined. A quick thinker with in-depth knowledge of all aspects of film and television production, with both hands-on and corporate experience. Strong aptitude for creative problem solving in fast-paced environments. Superior oral and written communication.",
+            "headshot" => "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/18d/364/2300415.jpg",
+            "qa" => "",
+        ]);
+        Speaker::create([
+            "name" => "Jessica Yuhara",
+            "company" => "Fullscreen Media",
+            "position" => "Former Associate Director of Strategic Development",
+            "email" => "",
+            "bio" => "Fullscreen Media   University of Southern California - Marshall School of Business",
+            "headshot" => "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAznAAAAJGNiY2MxNGZkLTgxZGMtNDczYi1iOWE3LWNmNzA4MDU1MzhlYQ.jpg",
+            "qa" => "",
+        ]);
+
+        
 
     }
 }

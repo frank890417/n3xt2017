@@ -29,11 +29,15 @@ div.manage_event_list
           .panel-heading Speaker List
           .panel-body
             ul.list-group
-              li.list-group-item(v-for = "(event,eid) in events")
-                h4 {{eid+1}} | {{event.title}}
-                  router-link.btn.btn-primary.pull-right(:to="'/manage/event/'+event.id") Edit
+              li.list-group-item(v-for = "(speaker,spid) in speakers")
+                .row
+                  .col-sm-1
+                    img(:src="speaker.headshot", style="width: 100%")
+                  .col-sm-11
+                    h4 {{spid+1}} | {{speaker.name}}
+                      router-link.btn.btn-primary.pull-right(:to="'/manage/speaker/'+speaker.id") Edit
               li.list-group-item
-                router-link.btn.btn-default(to="/manage/event/new") + Add New Event
+                router-link.btn.btn-default(to="/manage/speaker/new") + Add New Event
 </template>
 
 <script>
@@ -41,7 +45,8 @@ import Axios from 'axios'
 export default {
   data() {
     return {
-      events: []
+      events: [],
+      speakers: []
     }
   },
   components:{
@@ -49,6 +54,9 @@ export default {
   mounted(){
     Axios.get("/api/event").then((res)=>{
       this.events = res.data
+    })
+    Axios.get("/api/speaker").then((res)=>{
+      this.speakers = res.data
     })
     
   }

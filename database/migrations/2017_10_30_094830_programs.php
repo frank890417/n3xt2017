@@ -18,6 +18,7 @@ class Programs extends Migration
             $table->increments('id');
             $table->integer('event_id')->nullable();
             $table->string("title")->nullable();
+            $table->string("subtitle")->nullable();
             $table->text("description")->nullable();
             $table->datetime("start_datetime");
             $table->datetime("end_datetime");

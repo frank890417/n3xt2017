@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import page_index from '../pages/page_index.vue'
 import manage_event from '../manage/event.vue'
+import manage_speaker from '../manage/speaker.vue'
 import manage_event_list from '../manage/event_list.vue'
 
 const routes = [
@@ -10,6 +11,8 @@ const routes = [
   { path: '/home', component: page_index, props: true },
   { path: '/manage/event/new', component: manage_event, props: true },
   { path: '/manage/event/:id', component: manage_event, props: true },
+  { path: '/manage/speaker/new', component: manage_speaker, props: true },
+  { path: '/manage/speaker/:id', component: manage_speaker, props: true },
   { path: '/manage/event', component: manage_event_list },
   
 ]

@@ -110,7 +110,8 @@ class EventSeeder extends Seeder
             "end_datetime" => "2017/10/14 16:00:00",
         ]);
 
-        Speaker::create([
+        Speaker::truncate();
+        $sp1 = Speaker::create([
             "name" => "Natasha Foster-Owens",
             "company" => "HBO",
             "position" => "VP of Production",
@@ -119,7 +120,7 @@ class EventSeeder extends Seeder
             "headshot" => "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/000/18d/364/2300415.jpg",
             "qa" => "",
         ]);
-        Speaker::create([
+        $sp2 = Speaker::create([
             "name" => "Jessica Yuhara",
             "company" => "Fullscreen Media",
             "position" => "Former Associate Director of Strategic Development",
@@ -129,6 +130,9 @@ class EventSeeder extends Seeder
             "qa" => "",
         ]);
 
+        $event->speaker = "[ ".$sp1->id.",".$sp2->id."]";
+        $event->save();
+        
         
 
     }

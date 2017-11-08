@@ -90,40 +90,22 @@
               .form-group
                 labal.col-sm-3 Speaker
                 .col-sm-9
-                  .form-group(v-for="(speaker,speakerId) in event.speaker", style="margin-top: 10px")
-                    .row
+                  .form-group(style="margin-top: 10px")
+                    .row(v-for="(speaker,sid) in event.speaker")
                       .col-sm-12
                         .container-fluid
-                          h4(style="width: 100%") {{speakerId+1}}. {{speaker.name}}
-                            .btn.btn-danger.pull-right(@click="event.speaker.splice(speakerId,1)") 刪除
-                          .row.form-group
-                            .col-sm-2
-                              h5 姓名
-                            .col-sm-10
-                              input.form-control(v-model="speaker.name", placeholder="姓名")
-                          .row.form-group
-                            .col-sm-2
-                              h5 照片
-                            .col-sm-10(style="display: flex")
-                              .imgs
-                                img(:src="speaker.cover" , style="width: 80px")
-                              .control(style="width: 100%")
-                                input.form-control(v-model="speaker.cover", placeholder="照片網址")
-                                default_pic_selector(@select_pic="(obj)=>{event.speaker[speakerId].cover=obj.url}")
-                          
-                          .row.form-group
-                            .col-sm-2
-                              h5 描述
-                            .col-sm-10
-                              VueEditor.ve(:id ="'speaker_description_'+speakerId", v-model="speaker.description")                          
-                          .row.form-group
-                            .col-sm-2
-                              h5 其他
-                            .col-sm-10
-                              VueEditor.ve(:id ="'speaker_other_'+speakerId", v-model="speaker.other")                  
-                          hr
-                          br
+                          h4(style="width: 100%") {{sid+1}}. {{speakers.find(o=>o.id==speaker).name}}
+                            .btn.btn-danger.pull-right(@click="event.speaker.splice(sid,1)") 刪除
                   .form-group
+                    .row
+                      .col-sm-12
+                        .col-sm-6
+                          input.form-control( list = "speakers", v-model="temp_speaker_name")
+                          datalist#speakers
+                            option(v-for="speaker in speakers" :value="speaker.name") 
+                        .col-sm-6
+                          .btn.btn-primary.pull-right(@click="event.speaker.push(speakers.find(o=>o.name==temp_speaker_name).id)") 加入
+                  //.form-group
                     .col-sm-12
                       .btn.btn-default.form-control(@click="event.speaker.push({name: '',description:'',headshot:''})") + 新增
                       br
@@ -199,6 +181,7 @@
 <script>
 import default_pic_selector from '../default_pic_selector.vue'
 import { VueEditor } from 'vue2-editor'
+import {mapState } from 'vuex'
 import Axios from 'axios'
 export default {
   data() {
@@ -215,7 +198,8 @@ export default {
         time_detail: "",
         register_info: "",
         cover: "",
-        album: []
+        album: [],
+        temp_speaker_name: ""
       },
       activityTypeOptions: [
         {tag:'Workshop',value:'workshop'},
@@ -235,6 +219,7 @@ export default {
   methods: {
     setEvent(event){
       event.tag = JSON.parse(event.tag)
+      event.speaker = JSON.parse(event.speaker)
       this.event = event
     },
     deleteActivity(){
@@ -278,6 +263,9 @@ export default {
         this.event.program.splice(this.pid,1)
       }
     }
+  },
+  computed: {
+    ...mapState(['speakers'])
   }
 }
 </script>

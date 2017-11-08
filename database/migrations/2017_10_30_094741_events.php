@@ -20,7 +20,8 @@ class Events extends Migration
             $table->string("type")->nullable();
             $table->string("title")->nullable();
             $table->string("subtitle")->nullable();
-            $table->json("tag");
+            $table->json("tag")->nullable();
+            $table->json("speaker")->nullable();
             $table->text("description")->nullable();
             $table->datetime("start_datetime");
             $table->datetime("end_datetime");

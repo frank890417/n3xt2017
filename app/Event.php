@@ -8,13 +8,13 @@ class Event extends Model
 {
     //
     protected $fillable = [
-        'title','cover', 'subtitle', 'tag', 'description','start_datetime','end_datetime','venue','address',
+        'title','cover', 'subtitle', 'tag', 'description','start_datetime','end_datetime','venue','address','speaker',
     ];
 
-    public function speaker()
-    {
-        return $this->hasMany('App\Speaker');
-    }
+    // public function speaker()
+    // {
+    //     return $this->hasMany('App\Speaker');
+    // }
 
     public function program()
     {

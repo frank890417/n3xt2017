@@ -15,7 +15,7 @@ class EventController extends Controller
     public function show($id){
         $result = Event::where("id",$id)
                     ->with('ticket')
-                    ->with('speaker')
+                    // ->with('speaker')
                     ->with('program')
                     ->first();
         return $result;
@@ -26,7 +26,7 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->update($inputs);
         $result =  $event->with('ticket')
-                    ->with('speaker')
+                    // ->with('speaker')
                     ->with('program')
                     ->first();
 

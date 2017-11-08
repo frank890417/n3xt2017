@@ -244,9 +244,9 @@ export default {
 
 
     },
-    // select_pic_headshot(obj){
-    //   this.speaker.headshot = obj.url
-    // },
+    select_pic_headshot(obj){
+      this.speaker.headshot = obj.url
+    },
     updateSpeaker(){
       if (this.$route.path=="/manage/speaker/new"){
         Axios.post("/api/speaker",{

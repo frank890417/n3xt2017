@@ -191,12 +191,22 @@
 import default_pic_selector from '../default_pic_selector.vue'
 import { VueEditor } from 'vue2-editor'
 import Axios from 'axios'
+import store from '../store'
 export default {
   data() {
     return {
       event_id: this.$route.params.id,
       newTag: "",
-      speaker: {},
+      speaker: {
+        name: "",
+        company: "",
+        position: "",
+        qa: "",
+        event_id: null,
+        email: "",
+        bio: "",
+
+      },
       activityTypeOptions: [
         {tag:'Workshop',value:'workshop'},
         {tag:'Event',value:'event'},
@@ -208,9 +218,14 @@ export default {
     VueEditor , default_pic_selector
   },
   mounted(){
-    Axios.get("/api/speaker/"+this.$route.params.id).then((res)=>{
-      this.setSpeaker(res.data)
-    })
+    if (this.event_id){
+      Axios.get("/api/speaker/"+this.$route.params.id).then((res)=>{
+        this.setSpeaker(res.data)
+      })
+
+    }
+  },
+  computed: {
   },
   methods: {
     setSpeaker(speaker){
@@ -218,6 +233,15 @@ export default {
       this.speaker = speaker
     },
     deleteSpeaker(){
+      if (confirm("Are you sure to delete speaker?")){
+        Axios.post("/api/speaker/"+this.$route.params.id,{
+          _method: "DELETE"
+        }).then((res)=>{
+          alert("Delete Success!")
+          this.$router.push("/manage/event")
+        })
+      }
+
 
     },
     // select_pic_headshot(obj){
@@ -241,6 +265,7 @@ export default {
           alert("Save Success!")
         })
       }
+      store.dispatch("loadSpeakers");
     },
     // deleteProgram(program,pid){
     //   if (confirm("Are you sure to delete program?")){

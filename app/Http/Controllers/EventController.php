@@ -23,6 +23,7 @@ class EventController extends Controller
     public function update($id){
         $inputs = Input::all();
         $inputs['tag'] = json_encode($inputs['tag']);
+        $inputs['speaker'] = json_encode($inputs['speaker']);
         $event = Event::find($id);
         $event->update($inputs);
         $result =  $event->with('ticket')
@@ -40,6 +41,7 @@ class EventController extends Controller
     public function store(){
         $inputs = Input::all();
         $inputs['tag'] = json_encode($inputs['tag']);
+        $inputs['speaker'] = json_encode($inputs['speaker']);
         $event = Event::create($inputs);
         return $event;
     }

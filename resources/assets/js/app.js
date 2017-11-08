@@ -87,10 +87,7 @@ const app = new Vue({
         App, AppManage
     },
     mounted(){
-        axios.get("/api/speaker").then((res)=>{
-            store.commit("setSpeakers",res.data)
-        })
-        store.commit
+      store.dispatch("loadSpeakers")
     },
     computed:{
       ...mapState(['scrollTop'])

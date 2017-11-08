@@ -16,6 +16,11 @@ const store = new Vuex.Store({
     }
   },
   actions: {
+    loadSpeakers(){
+      axios.get("/api/speaker").then((res) => {
+        store.commit("setSpeakers", res.data)
+      })
+    }
   }
 })
 export default store

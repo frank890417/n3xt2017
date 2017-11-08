@@ -94,20 +94,20 @@
                     .row(v-for="(speaker,sid) in event.speaker")
                       .col-sm-12
                         .container-fluid
-                          h4(style="width: 100%") {{sid+1}}. {{speakers.find(o=>o.id==speaker).name}}
-                            .btn.btn-danger.pull-right(@click="event.speaker.splice(sid,1)") 刪除
+                          h4(style="width: 100%", v-if="speakers.find(o=>o.id==speaker)") {{sid+1}}. {{speakers.find(o=>o.id==speaker).name}}
+                            .btn.btn-danger.pull-right(@click="event.speaker.splice(sid,1)") -
                   .form-group
                     .row
                       .col-sm-12
                         .col-sm-6
                           input.form-control( list = "speakers", v-model="temp_speaker_name")
-                          datalist#speakers
+                          datalist#speakers(v-if="event.speaker.length")
                             option(v-for="speaker in speakers" :value="speaker.name") 
                         .col-sm-6
-                          .btn.btn-primary.pull-right(@click="event.speaker.push(speakers.find(o=>o.name==temp_speaker_name).id)") 加入
+                          .btn.btn-primary.pull-right(@click="event.speaker.push(speakers.find(o=>o.name==temp_speaker_name).id)") Add
                   //.form-group
                     .col-sm-12
-                      .btn.btn-default.form-control(@click="event.speaker.push({name: '',description:'',headshot:''})") + 新增
+                      .btn.btn-default.form-control(@click="event.speaker.push({name: '',description:'',headshot:''})") + Add
                       br
                       br
                       br
@@ -120,7 +120,7 @@
                       .col-sm-12
                         .container-fluid
                           h4(style="width: 100%") {{programId+1}}. {{program.title}}
-                            .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") 刪除
+                            .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") -
                           .row.form-group
                             .col-sm-2
                               h5 Title
@@ -183,6 +183,8 @@ import default_pic_selector from '../default_pic_selector.vue'
 import { VueEditor } from 'vue2-editor'
 import {mapState } from 'vuex'
 import Axios from 'axios'
+import store from '../store'
+
 export default {
   data() {
     return {
@@ -198,9 +200,9 @@ export default {
         time_detail: "",
         register_info: "",
         cover: "",
-        album: [],
-        temp_speaker_name: ""
+        album: []
       },
+      temp_speaker_name: "",
       activityTypeOptions: [
         {tag:'Workshop',value:'workshop'},
         {tag:'Event',value:'event'},
@@ -212,6 +214,8 @@ export default {
     VueEditor , default_pic_selector
   },
   mounted(){
+
+    store.dispatch("loadSpeakers");
     Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
       this.setEvent(res.data)
     })
@@ -223,6 +227,13 @@ export default {
       this.event = event
     },
     deleteActivity(){
+      if (confirm("Are you sure to delete event?")){
+        Axios.post("/api/event/"+this.$route.params.id,{
+          _method: "DELETE"
+        }).then((res)=>{
+          alert("Delete Success!")
+        })
+      }
 
     },
     select_pic_cover(obj){

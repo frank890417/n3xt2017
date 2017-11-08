@@ -37,7 +37,7 @@ div.manage_event_list
                     h4 {{spid+1}} | {{speaker.name}}
                       router-link.btn.btn-primary.pull-right(:to="'/manage/speaker/'+speaker.id") Edit
               li.list-group-item
-                router-link.btn.btn-default(to="/manage/speaker/new") + Add New Event
+                router-link.btn.btn-default(to="/manage/speaker/new") + Add New Speaker
 </template>
 
 <script>

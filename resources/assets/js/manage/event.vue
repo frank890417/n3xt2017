@@ -54,13 +54,14 @@
               .form-group
                 labal.col-sm-3 StartTime
                 .col-sm-9
-                  input.form-control(v-model="event.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")
+                  datePicker(v-model="event.start_datetime", name="event_start_time", :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")
+                  //- input.form-control(v-model="event.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")
                 br
                 br
               .form-group
                 labal.col-sm-3 EndTime
                 .col-sm-9
-                  input.form-control(v-model="event.end_datetime", placeholder="yyyy/mm/dd hh:mm:ss")
+                  datePicker(v-model="event.end_datetime", name="event_end_time", :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")
                 br
                 br
               .form-group
@@ -184,6 +185,7 @@ import { VueEditor } from 'vue2-editor'
 import {mapState } from 'vuex'
 import Axios from 'axios'
 import store from '../store'
+import datePicker from 'vue-bootstrap-datetimepicker'
 
 export default {
   data() {
@@ -211,7 +213,7 @@ export default {
     }
   },
   components:{
-    VueEditor , default_pic_selector
+    VueEditor , default_pic_selector, datePicker
   },
   mounted(){
 

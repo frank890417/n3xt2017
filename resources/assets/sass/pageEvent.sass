@@ -1,22 +1,138 @@
 .pageEvent
+  .photoBlock
+    min-height: 40vh
+    background-size: 120% auto
+    background-position: center center
+    cursor: pointer
+    position: relative
+    padding: 0
+    +trans
+    .content
+      content: ""
+      background-color: $colorBlue
+      color: white
+      padding: 20px 80px
+      display: flex
+      justify-content: center
+      // align-items: center
+      flex-direction: column
+      hr
+        width: 50px
+        height: 10px
+        background-color: $colorRed
+      h2,h3,hr
+        opacity: 0
+        transform: translateY(40px)
+        +trans
+      h3
+        color: $colorRed
+        margin: 0
+        transition-delay: 0.1s
+      h2 
+        transition-delay: 0.2s
+        margin: 0
+      +ab_full
+      opacity: 0
+      +trans
+    &:hover
+      background-size: 130% auto
+      .content
+        background-color: rgba($colorBlue,0.85)
+        opacity: 1
+        h2,h3,hr
+          opacity: 1
+          transform: translateY(0)
+
   .sectionRecommend
     padding-top: 0
     padding-bottom: 0
-    .rblock
-      min-height: 50vh
-      background-size: 120% auto
-      background-position: center center
-      cursor: pointer
-      position: relative
-      padding: 0
-      +trans
-      &:before
-        content: ""
-        background-color: $colorBlue
-        +ab_full
-        opacity: 0
-        +trans
-      &:hover
-        background-size: 130% auto
+
+  .sectionSchedule
+    .datetag
+      background-color: $colorRed
+      padding: 2px 15px
+      border-radius: 40px
+      display: inline-block
+      position: absolute
+      left: -50px
+      font-size: 18px
+    .timeline
+      li
+        display: flex
+        border-left: 1px solid white
+        padding-left: 20px
+        position: relative
         &:before
-          opacity: 0.8
+          content: ""
+          +size(10px)
+          background-color: white
+          position: absolute
+          left: -5px
+          top: 10px
+          border-radius: 50%
+
+        .time
+          font-size: 20px
+          margin-right: 15px
+          font-style: italic
+        .content
+          font-size: 18px
+
+      display: flex
+      flex-direction: column
+
+  .sectionGuest
+    position: relative
+    h2
+      transform-origin: left top
+      transform: rotate(90deg)
+      font-size: 80px
+      color: $colorRed
+      position: absolute
+    .speakers
+      display: flex
+      list-style: none
+      padding: 0
+      .place,.name
+        font-weight: 700
+      .headshot
+        min-height: 320px
+        background-size: cover
+        +bxshadow
+        
+      .place
+        color: $colorRed
+        margin-top: 50px
+    &:before
+      content: ""
+      height: 50px
+      background-color: $colorRed
+      position: absolute
+      width: 100%
+      bottom: 50px
+      
+  .sectionPhotos
+    $pHeight: 250px
+    padding-bottom: 0
+    .row
+      margin: 0
+      [class^='col']
+        padding: 0
+        min-height: $pHeight
+        &.red
+          background-color: $colorRed
+        &.blue
+          background-color: $colorRed
+    .rowPhotos
+      margin-left: -15px
+      margin-right: -15px
+
+    .photoBlock
+      min-height: $pHeight
+
+    .photoBlock.left
+      min-height: $pHeight*3
+
+  .sectionOranizers
+    // padding-top: 0
+    // padding-bottom: 0

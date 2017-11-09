@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default" :class="{ 'at_top':!scrollTop, 'navbar-fixed-top': $route.path=='/' }">
+  <nav class="navbar navbar-default" :class="{ 'at_top':!scrollTop, 'navbar-fixed-top': $route.path=='/' ||  $route.path=='/event' }">
     <div class="container">
         <div class="navbar-header">
 

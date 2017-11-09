@@ -15,10 +15,14 @@
 @mixin size($w,$h:$w)
   width: $w
   height: $h
-  
+
 @mixin ab_full
   position: absolute
   +size(100%)
+  
+@mixin bxshadow
+  box-shadow: 0px 0px 20px rgba(black,0.3)
+
 
 @import "./pageIndex"
 @import "./pageEvent"

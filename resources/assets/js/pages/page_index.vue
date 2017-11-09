@@ -1,5 +1,5 @@
 <template lang="pug">
-.pageIndex
+.page.pageIndex
   section.sectionHero.blue
     video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
     .container
@@ -187,17 +187,13 @@
             input.form-control(placeholder="Email")
             textarea.form-control(placeholder="Message", rows="3")
             .btn.red Send
-  section.sectionCopyright.blue
-    .container
-      .row
-        .col-sm-12
-          p.text-center Copyright © 2017  |  n3xt con  |  Los Angeles, California<br>n3xt con is 501(c)(3) non-profit organization.
-              
+  section_footer
   </template>
 
 <script>
 import slideIn from '../components/slideIn'
 import {mapState} from 'vuex'
+import section_footer from '../components/section_footer'
 export default {
     mounted() {
       console.log('Component mounted.')
@@ -211,7 +207,7 @@ export default {
 
     },
     components: {
-      slideIn
+      slideIn,section_footer
     },
     computed:{
       ...mapState(['scrollTop'])

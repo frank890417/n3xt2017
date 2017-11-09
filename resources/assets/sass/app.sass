@@ -8,7 +8,21 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
 
+
+@mixin trans($s:0.5s)
+  transition: $s
+
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+  
+@mixin ab_full
+  position: absolute
+  +size(100%)
+
 @import "./pageIndex"
+@import "./pageEvent"
+@import "./common"
 
 .route_
   nav.navbar.navbar-default
@@ -23,4 +37,4 @@
       .navbar-header,.navbar-nav
         a
           color: white
-          
+  

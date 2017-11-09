@@ -26,6 +26,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
+                <li><router-link to="/event">Events</router-link></li>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
                 <li class="dropdown">

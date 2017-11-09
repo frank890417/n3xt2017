@@ -24,6 +24,16 @@
     &.white, &.grey
       background-color: white
       color: $colorBlue
+      .btn
+        &.red
+          &:hover
+            background-color: $colorBlue
+            color: white
+        &.blue
+          &:hover
+            background-color: lighten($colorBlue,5)
+            color: white
+
       hr
         background-color: $colorRed
     &.grey
@@ -68,7 +78,7 @@
     font-weight: 400
     opacity: 0.9
     &.red
-      background-color: $colorBgRed
+      background-color: $colorRed
       color: white
       &:hover
         background-color: white
@@ -96,8 +106,10 @@
 
 
 section.sectionFooter
-  padding-top: 50px
+  padding-top: 100px
   padding-bottom: 50px
   .logo
+    width: 100%
+    max-width: 100px
     margin-bottom: 40px
 

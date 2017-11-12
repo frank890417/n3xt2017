@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="985px" height="768px" viewBox="0 0 985 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 16</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="17.7555006%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FE7073" offset="0%"></stop>
+            <stop stop-color="#E6326A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="17.7555006%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#E6326A" offset="0%"></stop>
+            <stop stop-color="#FE7173" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="17.7555006%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#F2506F" offset="0%"></stop>
+            <stop stop-color="#FD6E73" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="index-page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="index" transform="translate(-455.000000, -384.000000)">
+            <g id="Group-16" transform="translate(455.000000, 384.000000)">
+                <g id="Group-12" transform="translate(0.000000, 139.000000)">
+                    <polygon id="Path-2" fill="url(#linearGradient-1)" points="329.5 197 0 536.00578 265.442424 609 718 596.587156 698.43302 375.738766 553.931327 294.068657 503.905455 304.368119 422 294.068657"></polygon>
+                    <polygon id="Path-2" fill="url(#linearGradient-2)" points="803.415583 0 371 296.205632 624.483962 629 1118 520.210078 1118 452.064801 956.577378 154.007781 861.352655 0"></polygon>
+                    <polygon id="Path-2" fill="url(#linearGradient-3)" points="622 629 1111.11691 543.801003 1200 523.816054 973.374101 178.286789 859.30752 0 801.263113 0"></polygon>
+                    <polygon id="Path-5" fill="url(#linearGradient-1)" points="329.5 197 279 487 426 298.5"></polygon>
+                </g>
+                <path d="M820.514653,33 C819.535077,30.352025 819,27.4884995 819,24.5 C819,10.9690236 829.969024,0 843.5,0 C857.030976,0 868,10.9690236 868,24.5 C868,30.9733458 865.489459,36.8603233 861.388919,41.2403903 L841.938462,76 L820,33 L820.514653,33 Z M843,34 C848.522847,34 853,29.5228475 853,24 C853,18.4771525 848.522847,14 843,14 C837.477153,14 833,18.4771525 833,24 C833,29.5228475 837.477153,34 843,34 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                <path d="M209.5,396 C258.833333,312.333333 301.166667,288.333333 336.5,324 C480.5,38 653,28.2980235 827,106.410747" id="Path-6" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="10"></path>
+            </g>
+        </g>
+    </g>
+</svg>

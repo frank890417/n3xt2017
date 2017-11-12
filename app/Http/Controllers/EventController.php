@@ -12,7 +12,7 @@ class EventController extends Controller
     public function index(){
         return Event::all();
     }
-    public function show($id){
+    puhblic function show($id){
         $result = Event::where("id",$id)
                     ->with('ticket')
                     // ->with('speaker')

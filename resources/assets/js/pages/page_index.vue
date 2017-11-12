@@ -1,7 +1,8 @@
 <template lang="pug">
 .page.pageIndex
   section.sectionHero.blue
-    video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
+    img.mountain(src="/img/mountain.svg")
+    //video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
     .container
       .row
         .col-sm-12
@@ -85,7 +86,7 @@
           slideIn
             .btn.red Explore Events
   section.sectionPhoto.red
-    .container
+    .container-fluid
       .row
         .col-sm-12
           slideIn

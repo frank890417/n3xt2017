@@ -13,7 +13,11 @@
 
             <!-- Branding Image -->
             <router-link class="navbar-brand" to="/">
-                n3xtcon
+                <!-- n3xtcon -->
+                <div class="logowraper">
+                    <img class="logo white" src="/img/Logo.svg" alt="">
+                    <img class="logo black" src="/img/LogoBlack.svg" alt="">
+                </div>
             </router-link>
         </div>
 

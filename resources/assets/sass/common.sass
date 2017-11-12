@@ -113,6 +113,60 @@
     &.grey
       background-color: #f2f2f2
 
+
+//照片hover效果統一
+
+.photoBlock
+  min-height: 40vh
+  background-size: 120% auto
+  background-position: center center
+  cursor: pointer
+  position: relative
+  padding: 0
+  +trans
+  .content
+    content: ""
+    background-color: $colorBlue
+    color: white
+    padding: 20px 80px
+    display: flex
+    justify-content: center
+    // align-items: center
+    flex-direction: column
+    hr
+      width: 0px
+      height: 8px
+      background-color: $colorRed
+    h2,h3,hr
+      opacity: 0
+      transform: translateY(40px)
+      +trans
+    hr
+      transform: none
+      transition-delay: 0.3s
+      margin-bottom: 25px
+    h3
+      color: $colorRed
+      margin: 0
+      transition-delay: 0.1s
+    h2 
+      transition-delay: 0.2s
+      margin: 0
+    +ab_full
+    opacity: 0
+    +trans
+  &:hover
+    background-size: 130% auto
+    .content
+      background-color: rgba($colorBlue,0.85)
+      opacity: 1
+      h2,h3,hr
+        opacity: 1
+        transform: translateY(0)
+      hr
+        width: 40px
+
+
 section.sectionFooter
   padding-top: 100px
   padding-bottom: 50px

@@ -4,6 +4,7 @@
     .container
       .row
         .col-sm-5
+          .date SEP.7
           h2 
             span.small Building United Communities:
             | <br>Job and Professional Journey
@@ -70,25 +71,29 @@
       .row.rowPhotos
         .col-sm-8
           .photoBlock.left(style='background-image:url(https://lh3.googleusercontent.com/Ic7hKXDc4puv_7Ul-xq9swhmco6nhNwaA-KcxhQX7DebQQgIA5iLtcQDluNVpZ35zQ7h-HkHrJVSthrstfkUiXqbD1S8_r1BNOFSY_TbzJ6sQT1sSbBoC4QQ4mARUfCikLWhGOv8jWdtiIz4UIdISKbhVCwVVly4_oEDCraF5FXabQxnNt0hCaPjDHI4SAbwS4pGe9np887rmtxGdmTpkjgTuQh-zW4D0pU6NaPfoNfI8QWX8rb0MjSp8g0lZyuf7bKue67T4aWZAPUKmoJWPSq5HEA49ESn_os8otvHGET1ImDG0zsCyk11cPbzjDwqzBw9vPBSIzRBh7gXQ2jSYgYVdWDdnmmxFdXfxRjZc9lkbPQsjMV6BjT4Vf4GT-kRH4tY8mvyXfOtlhjRZ_2GkpZA9BGOU374qdQ_qOELSTe_GO7jtra_hOvtof3nd14hMclQFgSpUE7oeV3zym858IElyRW8OKZq-74fEE6-Kvc6Zqs4e6K3CQeDjyBQXlWyKo0eEmV5gDny8hVdsCIS6DBNCP-4twWrG2fXclLB9dQIEeyB481Mk54GaYSmH0a7wg5cD_pXiSNwVnwTdtgh1uQDS72cqGT21QwhThCZ2PY0FApj1ZWqxwNyW6hpXbJu_sGt4BU-KBK-dfvy0yJdr_qnvL6ls1DCJjc=w1370-h913-no)')
-            .content See more        
+            .content
+              h3 See More
         .col-sm-4
           .row
             .col-sm-5.red
             .col-sm-7
 
               .photoBlock(style='background-image:url(https://lh3.googleusercontent.com/GuJq9yBO6-MFRazHjHVxXvCdSnQzy0Dz6fuUpmuxIwXUqPET_5aw5qLea2BCL6q84cN3GhvApE3KD1VizNEkiGVCLrTkge15SMiDznTR-DIJB5XI2KptxCF74Aw5mv5sHxIy1PX6LLempzvqbFvauI8a0XAnnoK6uoP6JiIMbO682mTTfAWp94WUbVmfN1et6LeHDp-wP4l5Dcboteo-AqnGdS6_AYCDcClNBS-35sTiR9l7aiVmIH8WLiKjf9P3DFFXCNtTT3DnrQT71vwRUXjB4PDxdbS2pXim4MZL3nnC0y1QMKk4x1igWQHSikQKTc1bobpNCA65Ui2ovSsM6AH9fbz4aD80nAiOI_O1Bn4Fre42MVss5_XZhgvPrRG77Zzo8GnobDQ38LKdZFG92MHKOLWQeaTCdUjPE6tDSdya7JmPQ0KQr50cudxppoK-J_Zd2hfvNAYFv9m0JbJC4tpKg1tBt2paZqDI3fSjkMH7TRAmEjn36kponJhrIA0H7MTBXrDOc9P8d0ZWSgzHRlOVSUj_D-cRHGUZBoATYKfrHeVC0C2xunQfGejzAybd_kapDQoTiH40EBSjLzQu3C69F00PMvCKDJOvz1saMpDwKs_fuUKgt3L2iqth4zsftavBjUj7IUmHGPf4g2J0_oQ755V72RpTxB8=w1370-h913-no)')
-                .content See more        
+                .content
+                  h3 See More
             
           .row
             .col-sm-7
               .photoBlock(style='background-image:url(https://lh3.googleusercontent.com/nY4ZmIQBCm_2cS1A0XepKm9abck6YO6piMLwEutm06Ygk9Aw5F9NzG8PvujfP5Tv-MOTfE1AECecmtBtB1YOAixtgr624QHhOL8cH5oIRlYpjCCDI-6OCgh_ImPYRrquRVEv2V9PieplZSptCJn_iJ_SbtP4iFlfRNDkrPU0Y-XTmoNYwp366xFaRQt_4DqXIb7hVB0I6PGvlu70RXBY6YELICCk3I7XzzZyyYFSTCM27e_fEJlOwUvAYI5aqHghb8EYTfX-Ty_f09Rqia4MV_4VZd2xOoM1st-H6LsOtZYBzDzlUIwpXV7zWQIgn5SOQodeaIaXbZ2MFibyyAKbT2TwddtoSfK8joLNRRyChqXDSBA0lmE0_uAdIlQS6aa4s2Y7fn0G26ILlu-zr88avfrj-QQVs8FWf1Xjwa5MAJV_6_FESzo_T6OVoqT370O9DojE4t2MZWF5bVOo0fJxJNf4vRWFskXasZ3XpsapEC_IdHuI0t-XlCgbAm88pt-FfQiwUNE003wID9Nqfv-8VFBwou8dKZYGGoSpJu6s_D92owhoA1kcAKivjQap6Mmv6e6sgk3kRogLxp4TzaPaNldSbBDk1lpxGZQJu7eOf6KFvB_1lb39zukXa23FI3_jmgs_uU0Cr3pACt9eJjysO43QLSSeT3x8CT4=w586-h390-no)')
-                .content See more        
+                .content
+                  h3 See More
             .col-sm-5
         
           .row
             .col-sm-12
               .photoBlock(style='background-image:url(https://lh3.googleusercontent.com/FeM9Sq_Eu9os3QNIZHx2zbRvaDZqzprqekFTnSJ_Iqax4J6E6xJtoIku6diRLlgHujmqKmJXFpS2gKawB1KosOcyioepsHhpEdL4sW85tKSqsyOIQBUIuxqYJyVmvd4-YjjyAYj6AEuag0CtKsF4hPMlmT0gE8mOl1U_yyZk52B2NPtF6WEE6_qj53kuaNkkNWM1Yz81XXlABTBTHWxyO3wLRlReHfuCuDUvOVU6YQIs-52AvbhzsZitsyo0Xv-CrcaCzep29ELjftfqE2eelC3AJP4uaif1drU-qxI6drJySKzN89eTbScODlQngmNgkPfIGkvK6gCqlso6EKiBGKjbJf23aUKLvqviIt_0DhejLf1Tv3BjZwCRR-PgWELGkt_Okwxz1KOE5ap9D1ALeMdZ-GOb10O09lm3NcyDKVGHca8EDzdWJXJHfm0Wte9zbiSmvFGr-qcEGyy9XGLJ_pLRRL9BbqU0GH3V3_X5qygLjjG6PRL_Uzzud-Ak88IaC-zELfHxRSPx-DI_IZVIMM96j1gR5Gpt-riauXRbN8mulRZ8j-1jTqp2g1lIlbRYYhpMnDbkPIm54Sv7en0KkVzoIqaPUE5lBHqGNvcPkfZAxWJZWzg5jtTwaXeKc3LYFQBvURDNeO8doSh7eBithcwIxcpRALj36_w=w586-h390-no)')
-                .content See more        
+                .content
+                  h3 See More
   section.sectionOranizers.white
     .container
       .row

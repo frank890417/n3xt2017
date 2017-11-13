@@ -112,7 +112,7 @@
           p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership. .col-sm-7
           .btn.blue Contact us
         .col-sm-7
-          h1 Ticket Panel
+          iframe(src="https://www.eventbrite.com/tickets-external?eid=39386599379&ref=etckt")
 
   section.sectionRecommend      
     .container-fluid

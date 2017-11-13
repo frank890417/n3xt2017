@@ -8,6 +8,6 @@ class Speaker extends Model
 {
     //
     protected $fillable = [
-        'name', 'company', 'position', 'email', 'bio', 'headshot', 'qa'
+        'name', 'company', 'position','description', 'email', 'bio', 'headshot', 'qa'
     ];
 }

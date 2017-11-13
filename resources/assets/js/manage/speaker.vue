@@ -60,6 +60,12 @@
             .panel-heading Detail
             .panel-body
               .form-group
+                labal.col-sm-3 Short Description
+                .col-sm-9
+                  textarea.form-control(v-model="speaker.description")
+                  br
+                  br
+              .form-group
                 labal.col-sm-3 Bio
                 .col-sm-9
                   VueEditor.ve(:id ="'bio'", v-model="speaker.bio" )

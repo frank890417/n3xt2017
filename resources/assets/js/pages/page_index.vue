@@ -115,7 +115,7 @@
               h3 Some Subtitles here:<br>
                 span.big Idea in the Age of Tech
             p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. 
-            .btn.red RSVP Now
+            router-link.btn.red(to="/event") RSVP Now
         .col-sm-6 
           slideIn.left.col-img
             .block.blue

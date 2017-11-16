@@ -24,15 +24,19 @@
   box-shadow: 0px 0px 20px rgba(black,0.3)
 
 
+@import "./pageLoading"
 @import "./pageIndex"
 @import "./pageEvent"
+@import "./pageEventList"
 @import "./common"
+
+*
+  font-family: 'Source Sans Pro'
 
 html,body
   overflow-x: hidden
+
   
-
-
 nav.navbar.navbar-default
   transition: 0.5s
   box-shadow: 0px 0px 10px rgba(black,0.3)
@@ -55,6 +59,9 @@ nav.navbar.navbar-default
     a
       color: $colorBlue
       transition: 0.5s
+      font-size: 16px
+      &:hover
+        color: $colorRed
 
 .route_
   nav.navbar.navbar-default
@@ -62,6 +69,7 @@ nav.navbar.navbar-default
       background-color: transparent
       padding-top: 15px
       padding-bottom: 15px
+      box-shadow: 0px 0px 20px transparent
       img
         height: 50px
         margin-top: -10px
@@ -73,14 +81,19 @@ nav.navbar.navbar-default
       .navbar-header,.navbar-nav
         a
           color: white
+          &:hover
+            color: $colorRed
   
 
-.route_event
+[class^="route_event"]
   nav.navbar.navbar-default
     &.at_top
       box-shadow: 0px 0px rgba(black,0)
 
-
+#app
+  &.loading
+    max-height: 100vh
+    overflow: hidden
 
 //transition effect
 //-------------------------

@@ -138,26 +138,29 @@ import slideIn from '../components/slideIn'
 import section_footer from '../components/section_footer'
 
 export default {
-    components: {
-      slideIn,section_footer
-    },
-    data(){
-      return {
-        event: null
-      }
-    },
-    mounted(){
-      axios.get("/api/event/1").then(res=>{
-        this.event=res.data
-        this.event.speaker = JSON.parse(this.event.speaker)
-        this.event.speaker.forEach((id,index)=>{
-          axios.get("/api/speaker/"+id).then(res2=>{
-            Vue.set(this.event.speaker,index,res2.data)
-          })
+  props: [
+    'id'
+  ],
+  components: {
+    slideIn,section_footer
+  },
+  data(){
+    return {
+      event: null
+    }
+  },
+  mounted(){
+    axios.get(`/api/event/${this.id}`).then(res=>{
+      this.event=res.data
+      this.event.speaker = JSON.parse(this.event.speaker)
+
+      this.event.speaker.forEach((id,index)=>{
+        axios.get("/api/speaker/"+id).then(res2=>{
+          Vue.set(this.event.speaker,index,res2.data)
         })
       })
-    }
-
+    })
+  }
 }
 </script>
 

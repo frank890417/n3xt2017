@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default" :class="{ 'at_top':!scrollTop, 'navbar-fixed-top': $route.path=='/' ||  $route.path=='/event' }">
+  <nav class="navbar navbar-default" :class="{ 'at_top':!scrollTop, 'navbar-fixed-top': fixed }">
     <div class="container">
         <div class="navbar-header">
 
@@ -61,7 +61,7 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-
+    props: ['fixed'],
     computed:{
       ...mapState(['scrollTop'])
     }

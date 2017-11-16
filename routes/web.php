@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/event', function () {
     return view('layouts/app');
 });
+Route::get('/event/{id}', function () {
+    return view('layouts/app');
+});
 
 Auth::routes();
 

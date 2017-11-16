@@ -38,12 +38,14 @@ export default {
       return result
     },
     fixed(){
-      let result =  [/^\/$/,/^\/event\/.*$/].some(reg=>{
-        console.log(this.$route.path)
-        return this.$route.path.match(reg)
-      })
-      console.log(result)
-      return result
+      //只要不是管理介面都使用fixed的導覽列
+      return ['/login','/manage'].every(route=>this.$route.path.indexOf(route)!=0) 
+      // let result =  [/^\/$/,/^\/event\/.*$/].some(reg=>{
+      //   console.log(this.$route.path)
+      //   return this.$route.path.match(reg)
+      // })
+      // console.log(result)
+      // return result
     }
   }
 

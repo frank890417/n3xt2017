@@ -29,66 +29,13 @@
 @import "./pageEvent"
 @import "./pageEventList"
 @import "./common"
+@import "./nav"
 
 *
   font-family: 'Source Sans Pro'
 
 html,body
   overflow-x: hidden
-
-  
-nav.navbar.navbar-default
-  transition: 0.5s
-  box-shadow: 0px 0px 10px rgba(black,0.3)
-  border-bottom: rgba(white,0)
-  padding-top: 5px
-  padding-bottom: 5px
-  .logowraper
-    position: relative
-  img
-    height: 45px
-    margin-top: -10px
-    transition: 0.5s
-    &.black
-      position: absolute
-      transition: 0.5s
-      opacity: 1
-      top: 0
-      left: 0
-  .navbar-header,.navbar-nav
-    a
-      color: $colorBlue
-      transition: 0.5s
-      font-size: 16px
-      &:hover
-        color: $colorRed
-
-.route_
-  nav.navbar.navbar-default
-    &.at_top
-      background-color: transparent
-      padding-top: 15px
-      padding-bottom: 15px
-      box-shadow: 0px 0px 20px transparent
-      img
-        height: 50px
-        margin-top: -10px
-        &.black
-          opacity: 0
-
-        
-
-      .navbar-header,.navbar-nav
-        a
-          color: white
-          &:hover
-            color: $colorRed
-  
-
-[class^="route_event"]
-  nav.navbar.navbar-default
-    &.at_top
-      box-shadow: 0px 0px rgba(black,0)
 
 #app
   &.loading

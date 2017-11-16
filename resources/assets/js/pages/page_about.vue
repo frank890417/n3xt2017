@@ -1,0 +1,21 @@
+<template lang="pug">
+.page.pageAbout
+  section.sectionHero.blue
+    //img.mountain(src="/img/mountain.svg", :style="{transform: `translateY(${scrollTop/10}px)`}")
+    //video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
+    .container
+      .row
+        .col-sm-12
+          h1 About
+
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

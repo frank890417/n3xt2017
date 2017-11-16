@@ -30,15 +30,19 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
+                <li><router-link to="/about">About</router-link></li>
                 <li><router-link to="/event">Events</router-link></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+                <li><router-link to="/speaker">Speakers</router-link></li>
+                <li><router-link to="/blog">Blog</router-link></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu" role="menu">
+
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
                         <li>
                             <a href="/logout"
                                 onclick="event.preventDefault();

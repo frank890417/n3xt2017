@@ -1,10 +1,11 @@
 <template lang="pug">
 .page.pageEventList
-  section.sectionHero
+  section.sectionHero.blue
     .container
       .row
         .col-sm-12
           h2 Event List
+          hr
         .col-sm-12
           ul.list-group
             li.list-group-item(v-for="event in events")

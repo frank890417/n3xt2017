@@ -4,6 +4,9 @@ Vue.use(VueRouter)
 import page_index from '../pages/page_index.vue'
 import page_event from '../pages/page_event.vue'
 import page_event_list from '../pages/page_event_list.vue'
+import page_speaker from '../pages/page_speaker.vue'
+import page_about from '../pages/page_about.vue'
+import page_blog from '../pages/page_blog.vue'
 import manage_event from '../manage/event.vue'
 import manage_speaker from '../manage/speaker.vue'
 import manage_event_list from '../manage/event_list.vue'
@@ -11,6 +14,10 @@ import manage_event_list from '../manage/event_list.vue'
 const routes = [
   { path: '/', component: page_index },
   { path: '/home', component: page_index, props: true },
+  { path: '/event', component: page_event_list, props: true },
+  { path: '/speaker', component: page_speaker, props: true },
+  { path: '/about', component: page_about},
+  { path: '/blog', component: page_blog, props: true },
   { path: '/event', component: page_event_list, props: true },
   { path: '/event/:id', component: page_event, props: true },
   { path: '/manage/event/new', component: manage_event, props: true },

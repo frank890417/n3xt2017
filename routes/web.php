@@ -17,6 +17,15 @@ Route::get('/', function () {
 Route::get('/event', function () {
     return view('layouts/app');
 });
+Route::get('/about', function () {
+    return view('layouts/app');
+});
+Route::get('/speaker', function () {
+    return view('layouts/app');
+});
+Route::get('/blog', function () {
+    return view('layouts/app');
+});
 Route::get('/event/{id}', function () {
     return view('layouts/app');
 });

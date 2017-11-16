@@ -23,7 +23,7 @@ export default {
   mounted(){
     setInterval(()=>{
       this.setLoading(false)
-    },3000)
+    },500)
   },
   methods:{
     ...mapMutations(['setLoading'])

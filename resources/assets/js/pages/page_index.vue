@@ -18,16 +18,16 @@
             ul.numbers
               li 
                 .title Attendies
-                .number 500+
+                .number {{ incNumber(500) }}+
               li 
                 .title Speakers
-                .number 40+
+                .number {{ incNumber(40) }}+
               li 
                 .title Sessions
-                .number 20+
+                .number {{ incNumber(20) }}+
               li 
                 .title Pitch Teams
-                .number 10+
+                .number {{ incNumber(10) }}+
   section.sectionCaption.red
     .container
       .row
@@ -195,6 +195,9 @@
 import slideIn from '../components/slideIn'
 import {mapState} from 'vuex'
 import section_footer from '../components/section_footer'
+import Rx from 'rxjs/Rx'
+import VueRx from 'vue-rx'
+
 export default {
     mounted() {
       console.log('Component mounted.')
@@ -212,6 +215,28 @@ export default {
     },
     computed:{
       ...mapState(['scrollTop'])
+    },
+    methods:{
+      incNumber(num){
+        return Math.ceil(this.easeOutSource*num)
+      }
+    },
+    subscriptions(){
+
+      //x^2 square ease-out function
+      var stepCount = 150
+      var arlist = Rx.Observable.from(Array.from({length: stepCount})
+                        .map((d,i)=> -Math.pow((i-stepCount)/stepCount,2)+1 ))
+      var $timeInterval = Rx.Observable.interval(20)      
+      let result = Rx.Observable.from(arlist)
+        .zip($timeInterval)
+        .take(stepCount)
+        .map(o=>o[0])
+      //zip -> together take the latest element and compact together
+
+      return {
+        easeOutSource: result
+      }
     }
   }
 </script>

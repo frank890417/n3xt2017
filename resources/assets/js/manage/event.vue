@@ -73,7 +73,12 @@
                 br
                 br
         .col-sm-8
-          .panel.panel-default
+          .button-group
+            .btn(@click="panel='detail'"  ,:class="{'btn-primary':panel=='detail' }") Detail
+            .btn(@click="panel='speaker'" ,:class="{'btn-primary':panel=='speaker' }") Speaker
+            .btn(@click="panel='program'" ,:class="{'btn-primary':panel=='program' }") Program
+            .btn(@click="panel='album'"   ,:class="{'btn-primary':panel=='album' }") Album
+          .panel.panel-default(v-show="panel=='detail'")
             .panel-heading Detail
             .panel-body
               .form-group
@@ -88,24 +93,31 @@
                   VueEditor.ve(:id ="'register_info'", v-model="event.register_info")
                   br
                   br
-              .form-group
-                labal.col-sm-3 Speaker
-                .col-sm-9
+          .panel.panel-default(v-show="panel=='speaker'")
+            .panel-heading Speaker
+            .panel-body
+              .row
+                .col-sm-12
                   .form-group(style="margin-top: 10px")
-                    .row(v-for="(speaker,sid) in event.speaker")
-                      .col-sm-12
-                        .container-fluid
-                          h4(style="width: 100%", v-if="speakers.find(o=>o.id==speaker)") {{sid+1}}. {{speakers.find(o=>o.id==speaker).name}}
-                            .btn.btn-danger.pull-right(@click="event.speaker.splice(sid,1)") -
+                    .container-fluid
+                      .row(v-for="(speaker,sid) in event.speaker")
+                        .col-sm-12.list-group
+                          .list-group-item
+                            .row(v-if="speakers.find(o=>o.id==speaker)")
+                              .col-sm-2
+                                img(:src="speakers.find(o=>o.id==speaker).headshot", style="width: 100%")
+                              .col-sm-10
+                                h4(style="width: 100%") {{sid+1}}. {{speakers.find(o=>o.id==speaker).name}}
+                                  .btn.btn-danger.pull-right(@click="event.speaker.splice(sid,1)") -
                   .form-group
                     .row
                       .col-sm-12
                         .col-sm-6
                           input.form-control( list = "speakers", v-model="temp_speaker_name")
-                          datalist#speakers(v-if="event.speaker.length")
+                          datalist#speakers(v-if="speakers.length")
                             option(v-for="speaker in speakers" :value="speaker.name") 
                         .col-sm-6
-                          .btn.btn-primary.pull-right(@click="event.speaker.push(speakers.find(o=>o.name==temp_speaker_name).id)") Add
+                          .btn.btn-primary.pull-right(@click="event.speaker.push(speakers.find(o=>o.name==temp_speaker_name).id);temp_speaker_name=''") Add
                   //.form-group
                     .col-sm-12
                       .btn.btn-default.form-control(@click="event.speaker.push({name: '',description:'',headshot:''})") + Add
@@ -113,46 +125,53 @@
                       br
                       br
                       br
-              .form-group
-                labal.col-sm-3 Program
-                .col-sm-9
-                  .form-group(v-for="(program,programId) in event.program", style="margin-top: 10px")
-                    .row
-                      .col-sm-12
-                        .container-fluid
-                          h4(style="width: 100%") {{programId+1}}. {{program.title}}
-                            .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") -
-                          .row.form-group
-                            .col-sm-2
-                              h5 Title
-                            .col-sm-10
-                              input.form-control(v-model="program.title", placeholder="姓名")
+          .panel.panel-default(v-show="panel=='program'")
+            .panel-heading Programs
+            .panel-body
+              .form-group(v-for="(program,programId) in event.program", style="margin-top: 10px")
 
-                          .row.form-group
-                            .col-sm-2
-                              h5 Description
-                            .col-sm-10
-                              VueEditor.ve(:id ="'program_description_'+programId", v-model="program.description")                          
-                          .row.form-group
-                            .col-sm-2
+                .row
+                  .col-sm-12
+                    .container-fluid
+                      h4(style="width: 100%") {{programId+1}}. {{program.title}}
+                        .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") -
+                      .row.form-group
+                        .col-sm-2
+                          h5 Title
+                        .col-sm-10
+                          input.form-control(v-model="program.title", placeholder="姓名")
+
+                      .row.form-group
+                        .col-sm-2
+                          h5 Description
+                        .col-sm-10
+                          VueEditor.ve(:id ="'program_description_'+programId", v-model="program.description")                          
+                      .row.form-group
+                        .col-sm-6
+                          .row
+                            .col-sm-3
                               h5 Start datetime
-                            .col-sm-10
+                            .col-sm-9
                               input.form-control(v-model="program.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")                                       
-                          .row.form-group
-                            .col-sm-2
+                        .col-sm-6
+                          .row
+                            .col-sm-3
                               h5 End datetime
-                            .col-sm-10
+                            .col-sm-9
                               input.form-control(v-model="program.end_datetime", placeholder="yyyy/mm/dd hh:mm:ss")    
-                          
-                          hr
-                          br
-                  .form-group
-                    .col-sm-12
-                      .btn.btn-default.form-control(@click="event.program.push({title: '',description:'',start_datetime:'',end_datetime: ''})") + 新增
+                      
+                      hr
                       br
-                      br
-                      br
-                      br
+              .form-group
+                .col-sm-12
+                  .btn.btn-default.form-control(@click="event.program.push({title: '',description:'',start_datetime:'',end_datetime: ''})") + 新增
+                  br
+                  br
+                  br
+                  br
+          .panel.panel-default(v-show="panel=='album'")
+            .panel-heading Album
+            .panel-body
               .form-group
                 .row
                   .col-sm-12
@@ -162,7 +181,7 @@
                       .col-sm-9
                         .row
                           .col-sm-3
-                            img(:src="pic.image", style="width: 100%")
+                            img(:src="pic.image", style="width: 100%;background-color: #eee;")
                           .col-sm-9
                             input.form-control(v-model="event.album[picid].image" ,placeholder="照片網址")
                             textarea.form-control(v-model="event.album[picid].caption", placeholder="描述")
@@ -192,6 +211,7 @@ export default {
     return {
       event_id: this.$route.params.id,
       newTag: "",
+      panel: "detail",
       event: {
         type: "activity",
         title: "",
@@ -226,6 +246,9 @@ export default {
     setEvent(event){
       event.tag = JSON.parse(event.tag)
       event.speaker = JSON.parse(event.speaker)
+      if (!event.album){
+        event.album=Array.from({length: 4},()=>({image: "",caption: ""}))
+      }
       this.event = event
     },
     deleteActivity(){

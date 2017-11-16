@@ -7,13 +7,14 @@
           h2 Event List
           hr
         .col-sm-12
-          ul.list-group
+          ul.list-group.rowEvent
             li.list-group-item(v-for="event in events")
               router-link.row(:to="'/event/'+event.id")
-                .col-sm-2
-                  img(:src="event.cover", style='width: 100%')
-                .col-sm-10
-                  h4 {{event.title}}
+                .col-sm-4
+                  img.cover(:src="event.cover", style='width: 100%')
+                .col-sm-8
+                  h3 {{event.title}}
+                  p {{event.description.replace(/\<.*?\>/g,'').slice(0,200)}}
                   
 
    
@@ -31,6 +32,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>

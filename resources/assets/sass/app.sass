@@ -26,6 +26,7 @@
 
 @import "./pageLoading"
 @import "./pageIndex"
+@import "./pageAbout"
 @import "./pageEvent"
 @import "./pageEventList"
 @import "./common"
@@ -36,6 +37,11 @@
 
 html,body
   overflow-x: hidden
+
+
+.container
+  @media (min-width: 1200px)
+    width: 1280px
 
 #app
   &.loading

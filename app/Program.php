@@ -8,6 +8,6 @@ class Program extends Model
 {
     //
     protected $fillable = [
-        'title', 'description', 'start_datetime','end_datetime','created_at','updated_at'
+        'title', 'description','event_id', 'start_datetime','end_datetime','created_at','updated_at'
     ];
 }

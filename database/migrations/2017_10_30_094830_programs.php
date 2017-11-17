@@ -20,8 +20,8 @@ class Programs extends Migration
             $table->string("title")->nullable();
             $table->string("subtitle")->nullable();
             $table->text("description")->nullable();
-            $table->datetime("start_datetime");
-            $table->datetime("end_datetime");
+            $table->datetime("start_datetime")->nullable();
+            $table->datetime("end_datetime")->nullable();
             $table->timestamps();
         });
         

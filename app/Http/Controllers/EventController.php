@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Input;
 use App\Event;
+use App\Program;
 class EventController extends Controller
 {
     //
@@ -26,6 +27,12 @@ class EventController extends Controller
         $inputs['speaker'] = json_encode($inputs['speaker']);
         $event = Event::find($id);
         $event->update($inputs);
+        if ($inputs['program']){
+            foreach ($inputs['program'] as $program){
+                $p = Program::find($program['id']);
+                $p->update($program);
+            }
+        }
         $result =  $event->with('ticket')
                     // ->with('speaker')
                     ->with('program')

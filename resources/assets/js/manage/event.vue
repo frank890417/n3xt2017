@@ -128,13 +128,18 @@
           .panel.panel-default(v-show="panel=='program'")
             .panel-heading Programs
             .panel-body
-              .form-group(v-for="(program,programId) in event.program", style="margin-top: 10px")
-
-                .row
-                  .col-sm-12
-                    .container-fluid
-                      h4(style="width: 100%") {{programId+1}}. {{program.title}}
+              .row
+                .col-sm-3
+                  ul.list-group(v-for="(program,programId) in event.program", style="margin-top: 10px")
+                    li.list-group-item(:class="{active: nowProgramId==programId}",
+                                       @click="nowProgramId=programId") 
+                      h4 {{programId+1}}. {{program.title}}
                         .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") -
+                      h5 {{program.start_datetime}}
+                .col-sm-9
+                  .form-group(v-for="(program,programId) in [event.program[nowProgramId]]", style="margin-top: 10px")
+                    .container-fluid
+                      h4(style="width: 100%") {{program.title}}
                       .row.form-group
                         .col-sm-2
                           h5 Title
@@ -164,7 +169,7 @@
                       br
               .form-group
                 .col-sm-12
-                  .btn.btn-default.form-control(@click="event.program.push({title: '',description:'',start_datetime:'',end_datetime: ''})") + 新增
+                  .btn.btn-default.form-control(@click="newProgram") + 新增
                   br
                   br
                   br
@@ -212,6 +217,7 @@ export default {
       event_id: this.$route.params.id,
       newTag: "",
       panel: "detail",
+      nowProgramId: 0,
       event: {
         type: "activity",
         title: "",
@@ -287,6 +293,19 @@ export default {
       
 
     },
+    newProgram(){
+      
+      Axios.post("/api/program/",{
+        _method: "POST",
+        event_id: this.$route.params.id,
+        title: "",
+        description: "",
+      }).then((res)=>{
+        console.log(res.data)
+        this.event.program.push(res.data)
+      })
+      
+    },
     deleteProgram(program,pid){
       if (confirm("Are you sure to delete program?")){
 
@@ -295,8 +314,8 @@ export default {
         }).then((res)=>{
           // this.setEvent(res.data)
           alert("delete Success!")
+          this.event.program.splice(pid,1)
         })
-        this.event.program.splice(this.pid,1)
       }
     }
   },

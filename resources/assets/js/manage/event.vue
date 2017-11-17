@@ -78,6 +78,7 @@
             .btn(@click="panel='speaker'" ,:class="{'btn-primary':panel=='speaker' }") Speaker
             .btn(@click="panel='program'" ,:class="{'btn-primary':panel=='program' }") Program
             .btn(@click="panel='album'"   ,:class="{'btn-primary':panel=='album' }") Album
+            .btn(@click="panel='organizer'"   ,:class="{'btn-primary':panel=='organizer' }") Organizer
           .panel.panel-default(v-show="panel=='detail'")
             .panel-heading Detail
             .panel-body
@@ -199,6 +200,13 @@
                   .col-sm-12
                     .btn.btn-primary(@click="event.album.push({image:'',caption:''})") 新增照片
 
+          .panel.panel-default(v-show="panel=='organizer'")
+            .panel-heading Organizers
+            .panel-body
+              .form-group
+                .row
+                  .col-sm-12
+                    label 
             br
             br
           </template>
@@ -254,7 +262,10 @@ export default {
       event.speaker = JSON.parse(event.speaker)
       if (!event.album){
         event.album=Array.from({length: 4},()=>({image: "",caption: ""}))
+      }else{
+        event.album = JSON.parse(event.album)
       }
+      console.log(event.album)
       this.event = event
     },
     deleteActivity(){

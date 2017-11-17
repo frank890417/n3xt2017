@@ -192,7 +192,7 @@
   </template>
 
 <script>
-import slideIn from '../components/slideIn'
+
 import {mapState} from 'vuex'
 import Rx from 'rxjs/Rx'
 import VueRx from 'vue-rx'
@@ -210,7 +210,7 @@ export default {
 
     },
     components: {
-      slideIn
+      
     },
     computed:{
       ...mapState(['scrollTop'])

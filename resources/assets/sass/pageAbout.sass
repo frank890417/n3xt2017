@@ -7,9 +7,15 @@
       color: $colorRed
     .logo
       position: absolute
-      right: 40px
+      right: 30px
       top: 100px
-      width: 40vw
+      width: 40min
+      z-index: 1
+      &.line
+        opacity: 0.15
+        right: 15vw
+        top: 140px
+        z-index: 0
   .sectionWhat
     padding-top: 0
     padding-bottom: 0
@@ -20,6 +26,7 @@
       padding-right: 50px
       background-color: white
       position: relative
+      z-index: 1
       +bxshadow
       &:before
         content: ""
@@ -35,9 +42,31 @@
     padding-top: 0
     padding-bottom: 0
     background-color: $colorBlue
+    ul.numbers
+      list-style: none
+      padding: 0
+      margin-top: 20px
+      display: flex
+      li
+        // display: inline-block
+        padding: 10px 50px
+        padding-left: 0
+        flex: 1
+
+        .title 
+          opacity: 0.8
+          font-size: 24px
+          font-weight: bold
+          color: $colorRed
+          white-space: nowrap
+
+        .number
+          font-size: 42px
+          font-weight: 700
+          // color: white
     .colContent
-      padding-top: 150px
-      padding-bottom: 150px
+      padding-top: 50px
+      padding-bottom: 50px
       background-color: white
       position: relative
       +bxshadow

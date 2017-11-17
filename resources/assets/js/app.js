@@ -88,10 +88,10 @@ Vue.mixin({
 
 //sections
 import section_footer from './components/section_footer'
-
+import slideIn from './components/slideIn'
 //footer global
 Vue.component("section_footer",section_footer)
-
+Vue.component("slideIn", slideIn)
 const app = new Vue({
     el: '#app',
     router,
@@ -106,4 +106,34 @@ const app = new Vue({
     computed:{
       ...mapState(['scrollTop'])
     }
+});
+
+
+//smooth scroll
+
+
+import { TweenMax } from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
+window.TweenMax = TweenMax
+$(function () {
+
+    var $window = $(window);
+    var scrollTime = 1;
+    var scrollDistance = 50;
+
+    $window.on("mousewheel DOMMouseScroll", function (event) {
+
+        event.preventDefault();
+
+        var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail / 0.5;
+        var scrollTop = $window.scrollTop();
+        var finalScroll = scrollTop - parseInt(delta * scrollDistance);
+
+        TweenMax.to($window, scrollTime, {
+            scrollTo: { y: finalScroll, autoKill: true },
+            ease: Power2.easeOut,
+            overwrite: 10
+        });
+        // console.log(finalScroll);
+    });
 });

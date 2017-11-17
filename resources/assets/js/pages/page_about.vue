@@ -10,7 +10,12 @@
           h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
           hr
           h5 
-        img.logo(src="/img/logoSymbolShadow.svg",:style="{transform: `translateY(#{scrollTop/5}px)`}")
+
+        img.logo.line(src="/img/logoSymbolLine.svg")
+        img.logo(src="/img/logoSymbolShadow.svg",:style="{transform: `translate(0,${parseInt(scrollTop/8)}px`}")
+        
+    
+    
   section.sectionWhat.white
     .container
       .row
@@ -22,23 +27,38 @@
   section.sectionDo.blue
     .container
       .row
-        .col-sm-6
+        slideIn.col-sm-6
           img(src="https://lh3.googleusercontent.com/J97buJ0AuD6ZdTxg7EDG9k6pPkbFuXvuDpLb0ITWpcUCspIPrHkx5l2YNSFR_iwebAF23wP8-0acxTh-BK973FetsaBZ5F5UJmcZoL1Fg8WMsAZRmo0MFAOMNvvAUoSTXG2pWqmmnT0u9gz2Q9Zjy10b3muiTFNPYDaaLBFdaAsoBgolk6p6bZFpDAl31amXEvmq_rhV-2OfYnZKMBrsCQRqnmotuS7j95ipyBRHStYIBB0QJYMLpTo3n2Uzf31mkczMqj5GmywOAHgpQ-aVOVVfIyCLPpoIhb_5hchoYVNXM4GXYnBja8_bGUWVMX8479nIbORjIJZGtBBNFc8hCJffToH73EOwuhJ127nJHXYaTKfFbFCeL_d-GGo53DOZzaakk8ZXRl8-7sQJwpCQnjjUaqt1XZ44H5IDwBDBGOkbmcO4gF2M2ydRAeOVjgk2NmifrEXPK8v_G7m9RK-_Mm3jaGqRbmISa7UsZkFiLakmY9XaklFmFezF2UnFOhnpOoaCFGgzA9YVP4RApZTqoShT8Xxft_VIk8CwM-Queg5aewLxocP1PYCzGM1GVujRzApdchOTA7IdMcTKLI5PppxEb5LG-Wtfydl6tyuHW593SC5JuBx8D-DQK6g2SsE2qp_WLbbe_Pr-yY-8Y5ANYN0BvOdKT-wbjE8=w1442-h961-no" style="width: calc(100% - 50px)")
           
         .col-sm-6
-          h3.titleSmall About us
-          h2 What we do?
-          hr
-          p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
+          slideIn
+            h3.titleSmall About us
+            h2 What we do?
+            hr
+            p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
 
   section.sectionMission.white
     .container
       .row
-        .col-sm-7.colContent
+        .col-sm-8.colContent
           h2 Mission & Vision statement
           hr
           p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
-        .col-sm-5.colPic
+          br
+          ul.numbers 
+            li 
+              .title Attendies
+              .number 500+
+            li 
+              .title Speakers
+              .number 40+
+            li 
+              .title Sessions
+              .number 20+
+            li 
+              .title Pitch Teams
+              .number 10+
+        .col-sm-4.colPic(:style="picParallax")
 
           img(src="http://n3xt2017.dev/img/s2_people.png")
 
@@ -46,12 +66,13 @@
     .container
       .row
         .col-sm-6
-          h3.titleSmall People working with us
-          h2 Team & Culture
-          hr
-          p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
+          slideIn
+            h3.titleSmall People working with us
+            h2 Team & Culture
+            hr
+            p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
 
-        .col-sm-6
+        slideIn.col-sm-6.left
           img(src="/img/grapgicCircle.svg")
 
   
@@ -88,7 +109,7 @@
           h2 Sponsorship & Donation 
           hr
 
-      .row
+      slideIn.row
         .col-sm-3
           .card
             img
@@ -131,8 +152,23 @@
 <script>
 import {mapState} from 'vuex'
 export default {
+    data(){
+      return {
+        picTop: -1
+      }
+    },
+    mounted(){
+      this.picTop = $(".colPic").offset().top 
+    },
     computed:{
-      ...mapState(['scrollTop'])
+      ...mapState(['scrollTop']),
+      picParallax(){
+        if (this.picTop>-1){
+          return {transform: `translateY(${parseInt((this.scrollTop-this.picTop)/20+30)}px)`}
+        }
+        return {}
+        
+      }
     },
 }
 </script>

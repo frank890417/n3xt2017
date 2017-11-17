@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="930px" height="516px" viewBox="0 0 930 516" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>grapgicCircle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="grapgicCircle">
+            <g id="Group-7">
+                <circle id="Oval-2" fill="#485FA9" cx="438" cy="258" r="258"></circle>
+                <circle id="Oval-2" stroke="#979797" opacity="0.209999993" cx="258" cy="258" r="258"></circle>
+                <circle id="Oval-2-Copy-2" fill="#E5316A" cx="672" cy="258" r="258"></circle>
+                <path d="M555.5,28 C639.472286,70.5964045 697,157.59738 697,258 C697,358.40262 639.472286,445.403596 555.5,488 C471.527714,445.403596 414,358.40262 414,258 C414,157.59738 471.527714,70.5964045 555.5,28 Z" id="Combined-Shape" fill="#58539F"></path>
+            </g>
+        </g>
+    </g>
+</svg>

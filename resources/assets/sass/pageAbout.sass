@@ -1,7 +1,71 @@
 .page.pageAbout
   
+  .sectionHero
+    padding-top: 200px
+    padding-bottom: 150px
+    h3
+      color: $colorRed
+    .logo
+      position: absolute
+      right: 40px
+      top: 100px
+      width: 40vw
   .sectionWhat
-    //background-color: $colorBlue
+    padding-top: 0
+    padding-bottom: 0
+    background-color: $colorBlue
+    .colContent
+      padding-top: 50px
+      padding-bottom: 50px
+      padding-right: 50px
+      background-color: white
+      position: relative
+      +bxshadow
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: white
+        right: 100%
+        top: 0
+        z-index: 2
+
+  .sectionMission
+    padding-top: 0
+    padding-bottom: 0
+    background-color: $colorBlue
+    .colContent
+      padding-top: 150px
+      padding-bottom: 150px
+      background-color: white
+      position: relative
+      +bxshadow
+      // z-index: 5
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: white
+        right: 100%
+        top: 0
+        z-index: 2
+
+    .colPic
+      background-color: $colorBgRed
+      top: -100px
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: $colorBgRed
+        left: 0
+        top: 0
+        +bxshadow
+      img
+        transform: scaleX(-1)
 
 
   .sectionOpening
@@ -38,6 +102,16 @@
       transition: 0.5s
       box-shadow: 0px 0px 20px rgba(black,0.1)
       cursor: pointer
+      margin-bottom: 20px
+
+      p
+        opacity: 1
+
+      ul
+        margin-top: 50px
+        opacity: 0.5
+
+
       h3
         font-family: "khula"
         font-weight: 900

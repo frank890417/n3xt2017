@@ -86,6 +86,12 @@ Vue.mixin({
     }
 })
 
+//sections
+import section_footer from './components/section_footer'
+
+//footer global
+Vue.component("section_footer",section_footer)
+
 const app = new Vue({
     el: '#app',
     router,

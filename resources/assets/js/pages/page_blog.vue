@@ -6,8 +6,8 @@
     .container
       .row
         .col-sm-12
-          h1 Blog
-
+          h2 Blog
+  section_footer
 </template>
 
 <script>

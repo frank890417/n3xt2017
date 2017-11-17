@@ -32,6 +32,8 @@ class ProgramController extends Controller
     public function store(){
         $inputs = Input::all();
         $program = Program::create($inputs);
+        
+        $program = Program::find($program->id);
         return $program;
     }
 }

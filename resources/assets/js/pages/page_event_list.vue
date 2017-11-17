@@ -17,7 +17,7 @@
                   p {{event.description.replace(/\<.*?\>/g,'').slice(0,200)}}
                   
 
-   
+  section_footer
 </template>
 
 <script>

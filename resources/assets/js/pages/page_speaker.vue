@@ -6,7 +6,8 @@
     .container
       .row
         .col-sm-12
-          h1 Speaker
+          h2 Speaker
+  section_footer
 </template>
 
 <script>

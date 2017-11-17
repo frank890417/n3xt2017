@@ -194,7 +194,6 @@
 <script>
 import slideIn from '../components/slideIn'
 import {mapState} from 'vuex'
-import section_footer from '../components/section_footer'
 import Rx from 'rxjs/Rx'
 import VueRx from 'vue-rx'
 
@@ -211,7 +210,7 @@ export default {
 
     },
     components: {
-      slideIn,section_footer
+      slideIn
     },
     computed:{
       ...mapState(['scrollTop'])

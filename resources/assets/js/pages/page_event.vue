@@ -28,7 +28,7 @@
               .time {{p.start_datetime.split(' ')[1].slice(0,5)}}- {{p.end_datetime.split(' ')[1].slice(0,5)}}
               .content
                 p {{p.title}}
-          ul.timeline
+          //ul.timeline
             .datetag Sep.8
             li(v-for="i in 2")
               .time 06:00-06:30

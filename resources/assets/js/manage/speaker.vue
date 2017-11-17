@@ -208,6 +208,7 @@ export default {
         company: "",
         position: "",
         qa: "",
+        headshot: "",
         event_id: null,
         email: "",
         bio: "",

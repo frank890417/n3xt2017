@@ -24,10 +24,12 @@
         .col-sm-8
           ul.timeline
             .datetag Sep.7
-            li(v-for="p in event.program")
+            li(v-for="(p,pid) in event.program")
               .time {{p.start_datetime.split(' ')[1].slice(0,5)}}- {{p.end_datetime.split(' ')[1].slice(0,5)}}
-              .content
-                p {{p.title}}
+              .content( @click="toggle('#des'+pid)")
+                h4 {{p.title}}
+                  span(v-if="p.description")   ▾
+                p(v-html="p.description",:id="'des'+pid")
           //ul.timeline
             .datetag Sep.8
             li(v-for="i in 2")
@@ -158,9 +160,19 @@ export default {
       this.event.speaker.forEach((id,index)=>{
         axios.get("/api/speaker/"+id).then(res2=>{
           Vue.set(this.event.speaker,index,res2.data)
+          
         })
       })
+      Vue.nextTick(()=>{
+        this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+      })
     })
+  },
+  methods:{
+    toggle(sel){
+      console.log(sel)
+      $(sel).slideToggle(0)
+    }
   }
 }
 </script>

@@ -72,9 +72,9 @@ if (softScroll){
 
 // Vue.component('example', require('./components/Example.vue'));
 
-$(window).scroll(()=>{
-    store.commit('setScrollTop',$(window).scrollTop())
-})
+// $(window).scroll(()=>{
+    // store.commit('setScrollTop',$(window).scrollTop())
+// })
 
 
 
@@ -116,9 +116,8 @@ const app = new Vue({
     components: {
         App, AppManage
     },
-    mounted(){
-        store.dispatch("loadSpeakers")
-        store.dispatch("loadEvents")
+    mounted() {
+        store.dispatch("init")
     },
     computed:{
       ...mapState(['scrollTop'])

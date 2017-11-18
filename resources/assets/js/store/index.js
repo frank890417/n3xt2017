@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Rx from 'rxjs/Rx'
+import VueRx from 'vue-rx'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -8,7 +10,9 @@ const store = new Vuex.Store({
     speakers: [],
     events: [],
     loading: true,
-    pageTemplate: " - n3xtcon"
+    pageTemplate: " - n3xtcon",
+    scrollStream$: Rx.Observable.fromEvent(document, 'scroll').startWith(0).map(e => window.scrollY),
+    resizeStream$: Rx.Observable.fromEvent(window, 'resize')
   },
   mutations: {
     setScrollTop(state,value){
@@ -26,14 +30,29 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    loadSpeakers(){
+    //初始化網站所有東西（event / data)
+    init(context){
+      context.state.scrollStream$.subscribe(
+        (sctop) => {
+          context.commit("setScrollTop",sctop)
+        }
+      )
+      context.state.resizeStream$.subscribe((o)=>{
+      })
+      context.dispatch("loadDatas")
+    },
+    loadDatas(context) {
+      context.dispatch("loadSpeakers")
+      context.dispatch("loadEvents")
+    },
+    loadSpeakers(context){
       axios.get("/api/speaker").then((res) => {
-        store.commit("setSpeakers", res.data)
+        context.commit("setSpeakers", res.data)
       })
     },
-    loadEvents() {
+    loadEvents(context) {
       axios.get("/api/event").then((res) => {
-        store.commit("setEvents", res.data)
+        context.commit("setEvents", res.data)
       })
     }
   }

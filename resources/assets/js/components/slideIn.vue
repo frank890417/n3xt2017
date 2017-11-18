@@ -1,37 +1,48 @@
 <template lang="pug">
-div.slideIn(:class="{active: scrollTop>elTop}")
+.slideIn(:class="{active: activeClass}")
   slot
-    h2 hello {{scrollTop}} / {{elTop}}
+    h2 hello {{activeClass}} 
+  //- h2 {{activeClass}}
 </template>
 
 <script>
 import $ from 'jquery'
 import {mapState} from 'vuex'
+import Rx from 'rxjs/Rx'
+import VueRx from 'vue-rx'
+
 export default {
   data(){
     return {
-      elTop: 0  
-
+      elTop: 0,
+      r: parseInt(Math.random()*100),
     }
   },
   computed: {
-    ...mapState(['scrollTop']),
+    ...mapState(['scrollStream$','resizeStream$']),
   },
   methods:{
     updateElTop(){
-      this.elTop=$(this.$el).offset().top - $(window).outerHeight()*0.8
+      this.elTop= $(this.$el).offset().top - $(window).outerHeight()*0.8
+      console.log(this.elTop)
     }
   },
   mounted(){
     this.updateElTop()
+    let _this = this
+    //如果尺寸有變動(event stream)就重新抓取元素位置
+    this.resizeStream$.subscribe(()=>{
+      this.updateElTop()
+    })
+
   },
-  watch:{
-    scrollTop(){
-      if (this.$el){
-        this.updateElTop()
-      }else{
-        this.elTop= 0
-      }
+  subscriptions(){
+    //取得scrollStream(滑動位置)轉換為超過此物件的stream，並指取變化值
+    let result = this.scrollStream$
+      .map(scrollTop=>scrollTop>this.elTop)
+      .distinctUntilChanged()
+    return {
+      activeClass: result
     }
   }
 }

@@ -42,4 +42,12 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+router.afterEach(() => {
+  //for scroll observable to generate new value for created components
+  setTimeout(() => {
+    window.scrollTo(0, 1)
+    window.scrollTo(0, 0)
+  }, 1000)
+})
+
 export default router

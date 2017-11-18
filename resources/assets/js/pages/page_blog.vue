@@ -13,6 +13,10 @@
 <script>
 export default {
 
+  metaInfo: {
+    title: 'Blog', // set a title
+    titleTemplate: require("../data/common").default.titleTemplate
+  },
 }
 </script>
 

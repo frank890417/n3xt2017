@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+import Meta from 'vue-meta'
+Vue.use(Meta)
+
 import page_index from '../pages/page_index.vue'
 import page_event from '../pages/page_event.vue'
 import page_event_list from '../pages/page_event_list.vue'
@@ -10,6 +14,8 @@ import page_blog from '../pages/page_blog.vue'
 import manage_event from '../manage/event.vue'
 import manage_speaker from '../manage/speaker.vue'
 import manage_event_list from '../manage/event_list.vue'
+
+
 
 const routes = [
   { path: '/', component: page_index },

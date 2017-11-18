@@ -18,7 +18,17 @@ import Vue from 'vue'
 import VueRx from 'vue-rx'
 import Rx from 'rxjs/Rx'
 
+
 Vue.use(VueRx, Rx)
+
+import VueAnalytics from 'vue-analytics'
+
+if (document.domain != "zashare2017.dev") {
+    Vue.use(VueAnalytics, {
+        id: 'UA-52977512-23',
+        router
+    })
+}
 
 window.TweenMax=TweenMax
 require('./bootstrap')
@@ -69,6 +79,13 @@ $(window).scroll(()=>{
 
 
 Vue.mixin({
+    //set vue-meta template
+    data() {
+        return {
+            titleTemplate: "- n3xtcon",
+
+        }
+    },
     methods: {
         strip_tags(txt) {
             let result = ("" + txt).replace(/(<([^>]+)>)/ig, "")

@@ -152,24 +152,29 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-    data(){
-      return {
-        picTop: -1
+ 
+  metaInfo: {
+    title: 'About', // set a title,
+    titleTemplate: require("../data/common").default.titleTemplate
+  },
+  data(){
+    return {
+      picTop: -1
+    }
+  },
+  mounted(){
+    this.picTop = $(".colPic").offset().top 
+  },
+  computed:{
+    ...mapState(['scrollTop']),
+    picParallax(){
+      if (this.picTop>-1){
+        return {transform: `translateY(${parseInt((this.scrollTop-this.picTop)/20+30)}px)`}
       }
-    },
-    mounted(){
-      this.picTop = $(".colPic").offset().top 
-    },
-    computed:{
-      ...mapState(['scrollTop']),
-      picParallax(){
-        if (this.picTop>-1){
-          return {transform: `translateY(${parseInt((this.scrollTop-this.picTop)/20+30)}px)`}
-        }
-        return {}
-        
-      }
-    },
+      return {}
+      
+    }
+  },
 }
 </script>
 

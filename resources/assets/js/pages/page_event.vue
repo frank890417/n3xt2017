@@ -141,6 +141,13 @@ import slideIn from '../components/slideIn'
 import section_footer from '../components/section_footer'
 
 export default {
+  
+  metaInfo() {
+    return {
+      title: ()=>this.event.title,
+      titleTemplate: require("../data/common").default.titleTemplate
+    } // set a title
+  },
   props: [
     'id'
   ],

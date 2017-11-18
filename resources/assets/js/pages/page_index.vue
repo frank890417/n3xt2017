@@ -198,6 +198,9 @@ import Rx from 'rxjs/Rx'
 import VueRx from 'vue-rx'
 
 export default {
+    metaInfo: {
+      title: 'n3xtcon', // set a title
+    },
     mounted() {
       console.log('Component mounted.')
       //autoresize textarea

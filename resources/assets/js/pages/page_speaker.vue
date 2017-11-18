@@ -12,7 +12,10 @@
 
 <script>
 export default {
-
+  metaInfo: {
+    title: 'Speaker', // set a title
+    titleTemplate: require("../data/common").default.titleTemplate
+  },
 }
 </script>
 

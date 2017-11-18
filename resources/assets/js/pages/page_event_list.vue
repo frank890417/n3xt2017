@@ -23,6 +23,10 @@
 <script>
 import {mapState} from 'vuex'
 export default {
+  metaInfo: {
+    title: 'Events', // set a title
+    titleTemplate: require("../data/common").default.titleTemplate
+  },
   mounted(){
     
   },

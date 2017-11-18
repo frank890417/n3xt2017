@@ -7,7 +7,8 @@ const store = new Vuex.Store({
     scrollTop: 0,
     speakers: [],
     events: [],
-    loading: true
+    loading: true,
+    pageTemplate: " - n3xtcon"
   },
   mutations: {
     setScrollTop(state,value){

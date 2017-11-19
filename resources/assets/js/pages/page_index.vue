@@ -170,16 +170,12 @@
     .container
       .row
         .col-sm-6
-          slideIn
-            h2 Contact us
-          slideIn
-            hr
-          
-          slideIn
-            p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership.
-            .infos
-              .email Email |  info@n3xtcon.com
-              .call Call ​| (213) 536-1923
+          h2 Contact us
+          hr
+          p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership.
+          .infos
+            .email Email |  info@n3xtcon.com
+            .call Call ​| (213) 536-1923
           
         .col-sm-6
           .form-group

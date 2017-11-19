@@ -14,7 +14,6 @@
           slideIn  
             h5 FOR UPDATES & EXCLUSIVE OFFERS
             .btn.red Subscribe
-          slideIn
             ul.numbers
               li 
                 .title Attendies
@@ -47,7 +46,7 @@
             hr
           slideIn
             p We believe entrepreneurialspirit is an immutable individual trait that cannot be smothered. n3xt con’s missionis to establish an environment in which such spirit not only flourishes but inspires more people to make a long lasting impact in their lives and beyond.
-            .btn.blue About us
+            router-link.btn.blue(to='/about') About us
   section.sectionLen.blue
     .container
       .row
@@ -58,7 +57,7 @@
             hr
           slideIn
             p Our team consists of individuals from creative, business, technology, and science backgrounds, and it is our dream to expand our community with such diversity across the world.<br><br>On the one hand, we promote scalability while innovating on a global scale, but on the other hand, we want to emphasize the unlimited potential for any innovative problem-solving ideas in daily life.
-            .btn.red About us
+            router-link.btn.red(to='/about') About us
         .col-sm-6
           .block.blue
           img(src="https://lh3.googleusercontent.com/8pO3FYkdFqofAitFIcY4NMjhZncCQiBzZNKKJ8xP5M-9ykQHhSNb155DzeZr84zppC3EWR26BSso5MdF13wgexhI8CU-M39cwmX7FGWZD4IqOdV0Chb49RxTlX1SeFqpvpYzmggYG1lOYE2kDQmCN_eEmWerCpJdEjkQZ-EmiN99X7uqHzLNNgavm2_e2SGZx_OrdoRsW9nBGGRIqvB0Uk6vBfwrm-X76YF5_9-BqWyFniOAwXtPgCaymB3CnyMPs668mGRVJ3lhUf0OM7vKI3r9ctVxv4zbvehkJrt94tNUu3JWtfRcX1LWA6Tn0YFDiX3ZAzZa1uuiIWnt8EoIln_sgxO6Dm49mB7SpwGyaGW4h8nuYru4-OHHO291EUXRg79wJynUQ03OOlPkWBzbmivOiTOb9Hu3eQ94dIFdp4iwtrzS82aLX16GDtKrQH1H6D0T7As1i6U7c60CoKzk4BwletUH70axRUur3nHHqAnCb7gTsmDNjpCEIwl4h-wt-qQsosTiOfOvNuHblltLJgAZTrob1utYMyq8llcuOpkSygeVz9tpGtAFrSL_nQmjiBDcb0a99BNBYMyJhVUHZwznVnaqFVCS67bcp1Q3QBLV2AWFyLk_HzHj1_Jv0y070vKpejO5la-LroTFV34l6DxrnABMqi5va_A=w1406-h937-no")
@@ -84,7 +83,7 @@
             hr
             p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
           slideIn
-            .btn.red Explore Events
+            router-link.btn.red(to='/event') Explore Events
   section.sectionPhoto.red
     .container-fluid
       .row

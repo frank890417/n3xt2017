@@ -9,7 +9,7 @@
         .col-sm-12
           ul.list-group.rowEvent
             li.list-group-item(v-for="event in events")
-              router-link.row(:to="'/event/'+event.id")
+              router-link.row(:to="getEventRoute(event,{link: true})")
                 .col-sm-4
                   img.cover(:src="event.cover", style='width: 100%')
                 .col-sm-8
@@ -32,6 +32,8 @@ export default {
   },
   computed:{
     ...mapState(['events'])
+  },
+  methods: {
   }
 }
 </script>

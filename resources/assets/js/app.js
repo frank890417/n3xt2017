@@ -100,6 +100,19 @@ Vue.mixin({
             }
             return "未報名"
         },
+
+        getEventRoute(event,options) {
+            let gen_options = Object.assign({ link: true }, options)
+            let prefix = '/event/n/'
+            if (!gen_options.link) prefix = ''
+
+            if (event.routename) {
+                return prefix + event.routename
+            } else {
+                return this.strip_tags(prefix + event.title).replace(/\s/g, "_")
+                // return '/event/'+event.id
+            }
+        }
     }
 })
 

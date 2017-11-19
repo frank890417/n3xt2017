@@ -21,6 +21,26 @@ class EventController extends Controller
                     ->first();
         return $result;
     }
+    public function getEventByRoutename($routename){
+        $result = Event::where("routename",$routename)
+                    ->with('ticket')
+                    // ->with('speaker')
+                    ->with('program')
+                    ->first();
+        if ($result) {
+            return $result;
+        }
+        $result = Event::where("title",str_replace("_"," ",strip_tags($routename)) )
+                    ->with('ticket')
+                    // ->with('speaker')
+                    ->with('program')
+                    ->first();
+        if ($result) {
+            return $result;
+        }
+        
+
+    }
     public function update($id){
         $inputs = Input::all();
         $inputs['tag'] = json_encode($inputs['tag']);

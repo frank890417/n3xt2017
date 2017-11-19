@@ -25,6 +25,7 @@ const routes = [
   { path: '/about', component: page_about},
   { path: '/blog', component: page_blog, props: true },
   { path: '/event', component: page_event_list, props: true },
+  { path: '/event/n/:routename', component: page_event, props: true },
   { path: '/event/:id', component: page_event, props: true },
   { path: '/manage/event/new', component: manage_event, props: true },
   { path: '/manage/event/:id', component: manage_event, props: true },

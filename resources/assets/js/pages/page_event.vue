@@ -149,7 +149,7 @@ export default {
     } // set a title
   },
   props: [
-    'id'
+    'id','routename'
   ],
   components: {
     slideIn,section_footer
@@ -160,7 +160,9 @@ export default {
     }
   },
   mounted(){
-    axios.get(`/api/event/${this.id}`).then(res=>{
+    //if custom route exist then get by name, else get by id
+    let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
+    axios.get(apiurl).then(res=>{
       this.event=res.data
       this.event.speaker = JSON.parse(this.event.speaker)
 

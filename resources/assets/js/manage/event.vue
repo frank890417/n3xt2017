@@ -52,6 +52,13 @@
                 br
                 br
               .form-group
+                labal.col-sm-3 Custom Route
+                .col-sm-9
+                  input.form-control(v-model="event.routename",
+                                    :placeholder="getEventRoute(event,{link: false})")
+                br
+                br
+              .form-group
                 labal.col-sm-3 StartTime
                 .col-sm-9
                   datePicker(v-model="event.start_datetime", name="event_start_time", :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")

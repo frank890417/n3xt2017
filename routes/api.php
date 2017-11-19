@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('upload',"ApiController@upload_image");
+Route::get("/event/n/{routename}","EventController@getEventByRoutename");
 Route::resource('event',"EventController");
 Route::resource('program',"ProgramController");
 Route::resource('speaker',"SpeakerController");

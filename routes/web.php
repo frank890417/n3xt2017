@@ -45,6 +45,11 @@ Route::get('/manage/event', 'HomeController@manage');
 Route::get('/manage/event/{id}', 'HomeController@manage');
 Route::get('/manage/event/new', 'HomeController@manage');
 
+Route::get('/manage/post', 'HomeController@manage');
+Route::get('/manage/post/{id}', 'HomeController@manage');
+Route::get('/manage/post/new', 'HomeController@manage');
+
+
 Route::get('/manage/speaker', 'HomeController@manage');
 Route::get('/manage/speaker/{id}', 'HomeController@manage');
 Route::get('/manage/speaker/new', 'HomeController@manage');

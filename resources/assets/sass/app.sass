@@ -23,8 +23,26 @@
 @mixin bxshadow
   box-shadow: 0px 0px 20px rgba(black,0.3)
 
+@mixin flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
 
+=colExtend($direction: "right",$color: inherit)
+  &:before
+    content: ""
+    position: absolute
+    width: calc(100% + 1200px)
+    height: 100%
+    background-color: $color
+    @if ($direction=="right")
+      left: 100%
+    @else
+      right: 100%
+    top: 0
+    z-index: 2
 
+@import "./theme"
 @import "./pageLoading"
 @import "./pageIndex"
 @import "./pageAbout"

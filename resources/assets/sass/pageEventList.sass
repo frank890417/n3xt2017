@@ -1,4 +1,61 @@
 .pageEventList
   section.sectionHero
-    padding-top: 60px
-    min-height: 100vh
+    padding-top: 200px
+    padding-bottom: 150px
+    h3
+      color: $colorRed
+
+  section.sectionSpot
+    .row
+      display: flex
+    .col-cover
+      background-size: cover
+      background-position: center center
+      +bxshadow
+      position: relative
+      top: 30px
+      // margin-left: -350px
+    .col-info
+      padding: 30px 35px
+      +bxshadow
+      position: relative
+      top: -30px
+      .eng
+        @extend .theme.blue
+        padding: 15px
+        display: inline-block
+        margin: 0
+        line-height: 1em
+      +colExtend
+
+  section.sectionList
+    .row
+      display: flex
+      margin-left: 0
+      margin-right: 0
+    .row-event
+      margin-bottom: 80px
+    .col-cover
+      background-size: cover
+      background-position: center center
+      +bxshadow
+      position: relative
+      top: 10px
+      // margin-left: -350px
+
+    .col-info
+      padding: 30px 35px
+      +bxshadow
+      position: relative
+      top: -10px
+      .title
+        font-size: 34px
+      .eng
+        @extend .theme.blue
+        padding: 15px
+        display: inline-block
+        margin: 0
+        margin-left: -35px
+        padding-left: 20px
+        line-height: 1em
+        font-size: 24px

@@ -16,10 +16,27 @@ class EventSeeder extends Seeder
     {
         //
         Event::truncate();
+
+        $event = Event::create([
+            "type" => "workshop",
+            "title" => "Building United Communities: Job and Professional Journey",
+            "subtitle" => "",
+            "tag" => "[\"test\",\"good\"]",
+            "description" => "Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. Most of the engineering graduate students will have to job-hunt after graduation. It is important to learn how to handle employee/ employer conflict (Department of Labor), what are the most-updated policies and regulations for working VISA/ Employment-Based Permanent Residency / immigration (USCIS and one of the biggest immigration attorney in Los Angeles), and get direct responses from the officials before you kickstart.",
+            "venue" => "University of Southern California",
+            "cover" =>  "/storage/img/uploaded/2017_11_26_05_14_39_20171023%20Event%20Banner%20Idea%20in%20the%20Age%20of%20Tech-03.jpg",
+            "start_datetime" => "2017/9/7 18:00:00",
+            "end_datetime" => "2017/9/7 21:00:00",
+            "address" => "University of Southern California EEB 132",
+        ]);
+
+
+
         $event = Event::create([
             "type" => "workshop",
             "title" => "Entertainment One to Infinity: A Personal Reflection on Success",
             "subtitle" => "",
+            "cover" => "/storage/img/uploaded/2017_11_17_05_31_57_BEN_0003.jpg",
             "tag" => "[\"test\",\"good\"]",
             "description" => "Join David Li and his three guests for a candid and intimate discussion of business, creative process and the idea of success in the entertainment space. If you are a creative or an entertainment business professional, this would be a great opportunity to get fresh perspective from three different backgrounds. Come, listen, get inspired and establish the network that may help you forge the path you have yet to discover.",
             "venue" => "Bergamot Station",
@@ -134,6 +151,20 @@ class EventSeeder extends Seeder
         $event->save();
         
         
+        $event = Event::create([
+            "type" => "workshop",
+            "title" => "​​Ideas in the Age of Tech: Redesigning audience engagement",
+            "subtitle" => "",
+            "tag" => "[\"test\",\"good\"]",
+            "description" => "A discussion on how technology has shaped the way that we share and process information. Industry leaders in media and content delivery platforms discuss evolving strategies and challenges for engaging today's audiences and what the emerging communication technologies could mean for the future of ideas in society, business and tech.",
+            "venue" => "Pamplona 89",
+            "cover" =>  "/storage/img/uploaded/2017_11_26_05_14_39_20171023%20Event%20Banner%20Idea%20in%20the%20Age%20of%20Tech-03.jpg",
+            "start_datetime" => "2017/11/9 14:00:00",
+            "end_datetime" => "2017/11/9 18:00:00",
+            "address" => "229 W 31st St, Los Angeles, CA 90007",
+        ]);
+
+
 
     }
 }

@@ -25,6 +25,7 @@ class Posts extends Migration
             $table->string("link",500)->nullable();
             $table->text("content")->nullable();
             $table->integer("agency")->nullable();
+            $table->boolean("stick")->default(false);
             $table->timestamps();
         });
         

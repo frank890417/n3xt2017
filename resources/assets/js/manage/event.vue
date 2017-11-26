@@ -7,7 +7,7 @@
             li.breadcrumb-item 
               router-link(to="/manage/event") Manage Event List
             li.breadcrumb-item.active Event Edit
-          h2(v-if="event_id") Edit- {{ strip_tags(event.title) }}
+          h2(v-if="event" ) Edit- {{ strip_tags(event.title) }}
             
             button.btn.btn-danger.pull-right(@click="deleteActivity") Delete
             button.btn.btn-primary.pull-right(@click="updateActivity") Save
@@ -22,14 +22,14 @@
               .form-group
                 labal.col-sm-3 Type
                 .col-sm-9
-                  select.form-control(v-model="event.type")
+                  select.form-control(v-if="event"  v-model="event.type")
                     option(v-for="op in activityTypeOptions", :value="op.value") {{op.tag}}
                 br
                 br
               .form-group
                 labal.col-sm-3 Title
                 .col-sm-9
-                  input.form-control(v-model="event.title")
+                  input.form-control(v-if="event" v-model="event.title")
                 br
                 br
               .form-group
@@ -101,7 +101,7 @@
                   VueEditor.ve(:id ="'register_info'", v-model="event.register_info")
                   br
                   br
-          .panel.panel-default(v-show="panel=='speaker'")
+          .panel.panel-default(v-if="panel=='speaker'")
             .panel-heading Speaker
             .panel-body
               .row
@@ -133,10 +133,10 @@
                       br
                       br
                       br
-          .panel.panel-default(v-show="panel=='program'")
+          .panel.panel-default(v-if="panel=='program'")
             .panel-heading Programs
             .panel-body
-              .row
+              .row(v-if="event.program && event.program.length")
                 .col-sm-3
                   ul.list-group(v-for="(program,programId) in event.program", style="margin-top: 10px")
                     li.list-group-item(:class="{active: nowProgramId==programId}",
@@ -145,7 +145,11 @@
                         .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") -
                       h5 {{program.start_datetime}}
                 .col-sm-9
-                  .form-group(v-for="(program,programId) in [event.program[nowProgramId]]", style="margin-top: 10px")
+                  .form-group(
+                    v-if="event.program && event.program.length",
+                    v-for="(program,programId) in [event.program[nowProgramId]]", 
+                    style="margin-top: 10px")
+
                     .container-fluid
                       h4(style="width: 100%") {{program.title}}
                       .row.form-group
@@ -182,7 +186,7 @@
                   br
                   br
                   br
-          .panel.panel-default(v-show="panel=='album'")
+          .panel.panel-default(v-if="panel=='album'")
             .panel-heading Album
             .panel-body
               .form-group
@@ -207,7 +211,7 @@
                   .col-sm-12
                     .btn.btn-primary(@click="event.album.push({image:'',caption:''})") 新增照片
 
-          .panel.panel-default(v-show="panel=='organizer'")
+          .panel.panel-default(v-if="panel=='organizer'")
             .panel-heading Organizers
             .panel-body
               .form-group
@@ -338,7 +342,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['speakers'])
+    ...mapState(['speakers']),
+    nowProgram(){
+      return this.event.program[this.nowProgramId]
+    }
   }
 }
 </script>

@@ -23,6 +23,11 @@ const store = new Vuex.Store({
     },
     setEvents(state,value){
       state.events=value
+      state.events = state.events.sort( (a,b)=>{
+        let st = new Date(a.start_datetime)
+        let ed = new Date(b.start_datetime)
+        return st < ed
+      } )
     },
     setLoading(state, value) {
       state.loading = value
@@ -53,6 +58,7 @@ const store = new Vuex.Store({
     loadEvents(context) {
       axios.get("/api/event").then((res) => {
         context.commit("setEvents", res.data)
+
       })
     }
   }

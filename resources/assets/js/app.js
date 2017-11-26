@@ -112,15 +112,33 @@ Vue.mixin({
                 return this.strip_tags(prefix + event.title).replace(/\s/g, "_")
                 // return '/event/'+event.id
             }
+        },
+
+        getDateText(datetime){
+            let time = new Date(datetime)
+            var eng_tag = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+            var eng_month = eng_tag[ time.getMonth() -1 ]
+            return eng_month + ". " + time.getDay()
+        },
+        getDurationText(start_datetime, end_datetime) {
+            let st = this.getDateText(start_datetime)
+            let ed = this.getDateText(end_datetime)
+            if (st==ed){
+                return st
+            }else{
+                return st+ "-"+ed.split(". ")[1]
+            }
         }
     }
 })
 
 //sections
 import section_footer from './components/section_footer'
+import section_contact from './components/section_contact'
 import slideIn from './components/slideIn'
 //footer global
-Vue.component("section_footer",section_footer)
+Vue.component("section_footer", section_footer)
+Vue.component("section_contact", section_contact)
 Vue.component("slideIn", slideIn)
 const app = new Vue({
     el: '#app',

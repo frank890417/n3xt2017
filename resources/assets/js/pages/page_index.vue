@@ -165,24 +165,7 @@
             img.logo(src="http://www.crosscamp.us/wp-content/uploads/2015/03/CrossCampus.png")
             img.logo(src="https://liaoyuanavatar.imgix.net/upload/feed/image/159911bb496-57ea9af32cb6a8ad7e63e2c1-a1412a8bb2bd8775?fit=max&w=960&h=600")
             img.logo(src="http://media.marketwire.com/attachments/201005/598031_Logo_300dpi_noline_nochinese.jpg")
-
-  section.sectionContact.blue
-    .container
-      .row
-        .col-sm-6
-          h2 Contact us
-          hr
-          p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership.
-          .infos
-            .email Email |  info@n3xtcon.com
-            .call Call ​| (213) 536-1923
-          
-        .col-sm-6
-          .form-group
-            input.form-control(placeholder="Name")
-            input.form-control(placeholder="Email")
-            textarea.form-control(placeholder="Message", rows="3")
-            .btn.red Send
+  section_contact
   section_footer
   </template>
 

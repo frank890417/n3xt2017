@@ -8,12 +8,35 @@
   section.sectionSpot
     .row
       display: flex
+      &:hover
+        text-decoration: none
     .col-cover
       background-size: cover
-      background-position: center center
-      +bxshadow
       position: relative
       top: 30px
+      padding: 0
+      .cover
+        position: absolute
+        +size(100%)
+        +bxshadow
+        background-size: cover
+        background-position: center center
+        width: calc(50vw)
+        right: 0
+        // transform: translateX(-10vw)
+        //left: -50vw
+
+      h4
+        margin-top: -60px
+        color: white
+        font-size: 36px
+        font-weight: 700
+        .month
+          font-weight: 500
+          margin-left: 24px
+          font-size: 26px
+          opacity: 0.4
+
       // margin-left: -350px
     .col-info
       padding: 30px 35px
@@ -28,19 +51,64 @@
         line-height: 1em
       +colExtend
 
+  section.sectionCata
+    position: relative
+    .bars
+      position: absolute
+      right: 0px
+    .bar
+      +size(50vw,200px)
+      background-color: $colorBgRed
+      margin-top: -25px
+      transform: skewX(-10deg)
+      +bxshadow
+      
+      &:nth-child(1)
+        z-index: 3
+        margin-top: 0
+        overflow: hidden
+        img
+          width: 100%
+          transform: skewX(10deg)
+          margin-top: -50px
+      &:nth-child(2)
+        margin-right: 120px
+        background-color: $colorLightBlue
+        z-index: 2
+        transform: skewX(-10deg) translateX(-50px)
+      &:nth-child(3)
+        background-color: $colorPurple
+        z-index: 1
+        transform: skewX(-10deg) translateX(-100px)
+
+      
+
   section.sectionList
     .row
       display: flex
       margin-left: 0
       margin-right: 0
+
     .row-event
       margin-bottom: 80px
+
+      &:hover
+        text-decoration: none
+        .col-cover
+          transform: translate(-5px,-5px) scale(1.01)
+          background-size: auto 110%
+        .col-info
+          transform: translate(5px,5px)
+
+
+
     .col-cover
-      background-size: cover
+      background-size: auto 105%
       background-position: center center
       +bxshadow
       position: relative
       top: 10px
+      
       // margin-left: -350px
 
     .col-info
@@ -48,8 +116,13 @@
       +bxshadow
       position: relative
       top: -10px
+      z-index: 1
       .title
         font-size: 34px
+        .date
+          font-size: 22px
+          font-weight: 700
+          
       .eng
         @extend .theme.blue
         padding: 15px

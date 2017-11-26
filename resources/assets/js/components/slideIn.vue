@@ -1,7 +1,7 @@
 <template lang="pug">
 .slideIn(:class="{active: activeClass}")
   slot
-    h2 hello {{activeClass}} 
+    //h2 hello {{activeClass}} 
   //- h2 {{activeClass}}
 </template>
 

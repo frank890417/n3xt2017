@@ -146,6 +146,7 @@
               li Content 1 of something
               li Content 2 of blabal
             .btn.red Sponsor
+  section_contact
   section_footer
 </template>
 

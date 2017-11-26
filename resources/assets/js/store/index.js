@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     scrollTop: 0,
     speakers: [],
     events: [],
+    posts: [],
     loading: true,
     pageTemplate: " - n3xtcon",
     scrollStream$: Rx.Observable.fromEvent(document, 'scroll').startWith(0).map(e => window.scrollY),
@@ -28,6 +29,9 @@ const store = new Vuex.Store({
         let ed = new Date(b.start_datetime)
         return st < ed
       } )
+    },
+    setPosts(state, value) {
+      state.posts = value
     },
     setLoading(state, value) {
       state.loading = value
@@ -49,6 +53,7 @@ const store = new Vuex.Store({
     loadDatas(context) {
       context.dispatch("loadSpeakers")
       context.dispatch("loadEvents")
+      context.dispatch("loadPosts")
     },
     loadSpeakers(context){
       axios.get("/api/speaker").then((res) => {
@@ -58,6 +63,12 @@ const store = new Vuex.Store({
     loadEvents(context) {
       axios.get("/api/event").then((res) => {
         context.commit("setEvents", res.data)
+
+      })
+    },
+    loadPosts(context) {
+      axios.get("/api/post").then((res) => {
+        context.commit("setPosts", res.data)
 
       })
     }

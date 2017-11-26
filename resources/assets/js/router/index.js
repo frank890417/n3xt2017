@@ -13,6 +13,7 @@ import page_about from '../pages/page_about.vue'
 import page_blog from '../pages/page_blog.vue'
 import manage_event from '../manage/event.vue'
 import manage_speaker from '../manage/speaker.vue'
+import manage_post from '../manage/post.vue'
 import manage_event_list from '../manage/event_list.vue'
 
 
@@ -31,6 +32,8 @@ const routes = [
   { path: '/manage/event/:id', component: manage_event, props: true },
   { path: '/manage/speaker/new', component: manage_speaker, props: true },
   { path: '/manage/speaker/:id', component: manage_speaker, props: true },
+  { path: '/manage/post/new', component: manage_post, props: true },
+  { path: '/manage/post/:id', component: manage_post, props: true },
   { path: '/manage/event', component: manage_event_list },
   
 ]

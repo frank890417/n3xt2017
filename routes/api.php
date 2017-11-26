@@ -22,3 +22,4 @@ Route::get("/event/n/{routename}","EventController@getEventByRoutename");
 Route::resource('event',"EventController");
 Route::resource('program',"ProgramController");
 Route::resource('speaker',"SpeakerController");
+Route::resource('post',"PostController");

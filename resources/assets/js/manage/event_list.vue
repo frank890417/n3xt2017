@@ -38,6 +38,25 @@ div.manage_event_list
                       router-link.btn.btn-primary.pull-right(:to="'/manage/speaker/'+speaker.id") Edit
               li.list-group-item
                 router-link.btn.btn-default(to="/manage/speaker/new") + Add New Speaker
+
+
+      .col-sm-12
+        h1 Post List Manage
+        hr
+      .col-sm-12
+        .panel.panel-default
+          .panel-heading Post List
+          .panel-body
+            ul.list-group
+              li.list-group-item(v-for = "(post,spid) in posts")
+                .row
+                  .col-sm-1
+                    img(:src="post.cover", style="width: 100%")
+                  .col-sm-11
+                    h4 {{spid+1}} | {{post.title}}
+                      router-link.btn.btn-primary.pull-right(:to="'/manage/post/'+post.id") Edit
+              li.list-group-item
+                router-link.btn.btn-default(to="/manage/post/new") + Add New Speaker
 </template>
 
 <script>
@@ -46,7 +65,9 @@ export default {
   data() {
     return {
       events: [],
-      speakers: []
+      speakers: [],
+      posts: [],
+      
     }
   },
   components:{
@@ -57,6 +78,9 @@ export default {
     })
     Axios.get("/api/speaker").then((res)=>{
       this.speakers = res.data
+    })
+    Axios.get("/api/post").then((res)=>{
+      this.posts = res.data
     })
     
   }

@@ -5,7 +5,7 @@
         .col-sm-12
           ol.breadcrumb
             li.breadcrumb-item 
-              router-link(to="/manage/post") Manage Post List
+              router-link(to="/manage/event") Manage Event List
             li.breadcrumb-item.active Post Edit
           h2(v-if="post" ) Edit- {{ strip_tags(post.title) }}
             
@@ -60,6 +60,14 @@
                   default_pic_selector(@select_pic="select_pic_cover")
                 br
                 br
+
+              .form-group
+                labal.col-sm-3 Sticktop
+                .col-sm-9
+                  input.form-control(type="checkbox" v-model="post.stick")
+                br
+                br
+
         .col-sm-8
           .panel.panel-default(v-show="panel=='detail'")
             .panel-heading Content

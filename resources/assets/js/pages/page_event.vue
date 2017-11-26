@@ -120,17 +120,25 @@
   section.sectionRecommend      
     .container-fluid
       .row
-        .col-sm-6.photoBlock(style="background-image: url(https://lh3.googleusercontent.com/C51Q1loNuouObe-HOh89iB_Z0OuY9Bp2xAvT6Q9mq9hScldvey625lxNCNL2Kodm7DrXDp0AmDFG3WNrroPtd6xi4BF-zdJUfo86isYhYhysSoomOT_Fr5w5iIDw0FKcgjKU0QCblek2TWIrp3wEZjZ2CFb1JzWR3uVefJ7QyPF2iSDcRfYGIp67Czm8HTul9ZUvYXYVzw3wPj7e8bUaIhdrv57rZ96LYlHERhKHKbhM2chac1nt2anOJWM46cVyeQ30YVowOrhrGqBC5s44QwiKwRfFa1NNApR3KgRuB8igLRS8oBqXKKgZW7w5YQB32gdzJq35Q6Qsgbhl962t9grEahPT5rVUnINtT3UCkBVaaNazWmsa4AM_swgDc8JlmgdqXNvSRdpe0ljIeyccN8t008FFDpsGpWDDckSA_SdXM89w6XThKaekzE_cLy9oXpPzd20Wg1a4-iRmNPDBDPNvtOVx9hQhEgG2gXGNPa5NYQuJ5gNWyKXMUl0BREUuiMZl1_qHmBqKxzVMNrnEwdl7gZV0DYZdNQIqG9WyqOHzXpW01pgtRWhct5juq_nnDp-WUi5cU83HglMOHgTuO9crkrHe04ems7H2j1Rgl8jUDFUmqb2AYdht98snoHYUgOW1W26devocyqcxcviQ1KsX5_jcpynXnJ4=w477-h318-no)")
-          .content
-            hr
-            h3 Previous Event
-            h2 Building United Communities
-
-        .col-sm-6.photoBlock(style="background-image: url(https://lh3.googleusercontent.com/Ic7hKXDc4puv_7Ul-xq9swhmco6nhNwaA-KcxhQX7DebQQgIA5iLtcQDluNVpZ35zQ7h-HkHrJVSthrstfkUiXqbD1S8_r1BNOFSY_TbzJ6sQT1sSbBoC4QQ4mARUfCikLWhGOv8jWdtiIz4UIdISKbhVCwVVly4_oEDCraF5FXabQxnNt0hCaPjDHI4SAbwS4pGe9np887rmtxGdmTpkjgTuQh-zW4D0pU6NaPfoNfI8QWX8rb0MjSp8g0lZyuf7bKue67T4aWZAPUKmoJWPSq5HEA49ESn_os8otvHGET1ImDG0zsCyk11cPbzjDwqzBw9vPBSIzRBh7gXQ2jSYgYVdWDdnmmxFdXfxRjZc9lkbPQsjMV6BjT4Vf4GT-kRH4tY8mvyXfOtlhjRZ_2GkpZA9BGOU374qdQ_qOELSTe_GO7jtra_hOvtof3nd14hMclQFgSpUE7oeV3zym858IElyRW8OKZq-74fEE6-Kvc6Zqs4e6K3CQeDjyBQXlWyKo0eEmV5gDny8hVdsCIS6DBNCP-4twWrG2fXclLB9dQIEeyB481Mk54GaYSmH0a7wg5cD_pXiSNwVnwTdtgh1uQDS72cqGT21QwhThCZ2PY0FApj1ZWqxwNyW6hpXbJu_sGt4BU-KBK-dfvy0yJdr_qnvL6ls1DCJjc=w1370-h913-no)")
-          .content
-            hr
-            h3 Next Event
-            h2 Building United Communities
+        .col-sm-6
+          router-link.photoBlock(
+            :style="`background-image: url(${navEvent.pre.cover})`",
+            :to= "getEventRoute(navEvent.pre,{link: true})",
+            v-if="navEvent.pre")
+            .content
+              hr
+              h3 Previous Event
+              h2(v-html="navEvent.pre.title")
+        .col-sm-6
+          router-link.photoBlock(
+            :style="`background-image: url(${navEvent.post.cover})`",
+            :to= "getEventRoute(navEvent.post,{link: true})",
+            v-if="navEvent.post")
+            .content
+              hr
+              h3 Next Event
+              //h2 Building United Communities
+              h2(v-html="navEvent.post.title")
   section_footer
 
 
@@ -139,6 +147,7 @@
 <script>
 import slideIn from '../components/slideIn'
 import section_footer from '../components/section_footer'
+import {mapState} from 'vuex'
 
 export default {
   
@@ -181,6 +190,30 @@ export default {
     toggle(sel){
       console.log(sel)
       $(sel).slideToggle(0)
+    }
+  },
+  computed:{
+    ...mapState(["events"]),
+    navEvent(){
+      let currentIndex = -1
+      if (this.events){
+        this.events.forEach((d,i)=>{
+          console.log(d.id,this.event.id  )
+          if (d.id==this.event.id){
+            currentIndex = i
+          }
+        })
+        let pre = this.events[currentIndex-1]
+        let post = this.events[currentIndex+1]
+        
+        return {
+          pre: pre,
+          post: post,
+          currentIndex
+        }        
+      }else{
+        return []
+      }
     }
   }
 }

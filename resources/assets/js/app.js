@@ -140,6 +140,13 @@ Vue.mixin({
             }else{
                 return st+ "-"+ed.split(". ")[1]
             }
+        },
+        cssbg(url) {
+            let result = {
+                'background-image': `url("${url}")`
+            }
+            // console.log(result)
+            return result
         }
     }
 })

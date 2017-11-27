@@ -65,25 +65,26 @@
      
   section.sectionSpeakers.white   
     .row
-      .col-sm-3(v-for="i in 4")
-        .person
-          h3 Speaker name
-          h4 Company Name or position
+      .col-sm-3(v-for="speaker in speakers.slice(0,4)")
+        .person(:style="cssbg(speaker.headshot)")
+          h3 {{speaker.name}}
+          h4 {{speaker.position}}<br>{{speaker.company}}
     .row
-      .col-sm-3(v-for="i in 2")
-        .person
-          h3 Speaker name
-          h4 Company Name or position
+      .col-sm-3(v-for="speaker in speakers.slice(4,6)")
+        .person(:style="cssbg(speaker.headshot)")
+          h3 {{speaker.name}}
+          h4 {{speaker.position}}<br>{{speaker.company}}
     
+
       .col-sm-6
         .redBlock
           .hand
           h2 Some Title<br>or Slogan<br>about n3xt or spirit
     .row
-      .col-sm-3(v-for="i in 4")
-        .person
-          h3 Speaker name
-          h4 Company Name or position
+      .col-sm-3(v-for="speaker in speakers.slice(6)")
+        .person(:style="cssbg(speaker.headshot)")
+          h3 {{speaker.name}}
+          h4 {{speaker.position}}<br>{{speaker.company}}
     
 
 
@@ -91,11 +92,21 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
+  // prop: ["speakers"],
   metaInfo: {
     title: 'Speaker', // set a title
     titleTemplate: require("../data/common").default.titleTemplate
   },
+  computed:{
+    ...mapState(['speakers','scrollTop'])
+
+  },
+  methods:{
+    
+  }
 }
 </script>
 

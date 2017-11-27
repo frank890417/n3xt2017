@@ -33,9 +33,15 @@
     "vuex": "^2.4.0"
   },
   "dependencies": {
+    "asyncawait": "^1.0.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "bluebird": "^3.5.1",
+    "csv-parse": "^2.0.0",
+    "docx2html": "^1.1.0",
     "dropzone": "^5.2.0",
     "gsap": "^1.20.3",
+    "mammoth": "^1.4.3",
+    "mysql": "^2.15.0",
     "rxjs": "^5.5.2",
     "slick-carousel": "^1.7.1",
     "vue": "^2.5.2",
@@ -44,6 +50,7 @@
     "vue-slider-component": "^2.4.3",
     "vue-strap": "^1.1.37",
     "vue-youtube-embed": "^2.1.2",
-    "vue2-editor": "^2.0.26"
+    "vue2-editor": "^2.0.26",
+    "word-extractor": "^0.1.4"
   }
 }

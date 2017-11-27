@@ -28,14 +28,16 @@ div.manage_event_list
         .panel.panel-default
           .panel-heading Speaker List
           .panel-body
+            input(v-model="keyword")
             ul.list-group
-              li.list-group-item(v-for = "(speaker,spid) in speakers")
-                .row
-                  .col-sm-1
-                    img(:src="speaker.headshot", style="width: 100%")
-                  .col-sm-11
-                    h4 {{spid+1}} | {{speaker.name}}
-                      router-link.btn.btn-primary.pull-right(:to="'/manage/speaker/'+speaker.id") Edit
+              .row
+                .col-sm-4(v-for = "(speaker,spid) in filteredSpeaker", style="height: 80px")
+                  .row
+                    .col-sm-2
+                      img(:src="speaker.headshot", style="width: 100%")
+                    .col-sm-10
+                      h4 {{spid+1}} | {{speaker.name}}
+                        router-link.btn.btn-primary.pull-right(:to="'/manage/speaker/'+speaker.id") Edit
               li.list-group-item
                 router-link.btn.btn-default(to="/manage/speaker/new") + Add New Speaker
 
@@ -47,7 +49,9 @@ div.manage_event_list
         .panel.panel-default
           .panel-heading Post List
           .panel-body
-            ul.list-group
+            br
+            router-link.btn.btn-default(to="/manage/post/new") + Add New Speaker
+            ul.list-group                 
               li.list-group-item(v-for = "(post,spid) in posts")
                 .row
                   .col-sm-1
@@ -55,8 +59,7 @@ div.manage_event_list
                   .col-sm-11
                     h4 {{spid+1}} | {{post.title}}
                       router-link.btn.btn-primary.pull-right(:to="'/manage/post/'+post.id") Edit
-              li.list-group-item
-                router-link.btn.btn-default(to="/manage/post/new") + Add New Speaker
+    
 </template>
 
 <script>
@@ -67,6 +70,7 @@ export default {
       events: [],
       speakers: [],
       posts: [],
+      keyword: ""
       
     }
   },
@@ -83,6 +87,12 @@ export default {
       this.posts = res.data
     })
     
+  },
+  computed:{
+    filteredSpeaker(){
+      return this.speakers
+        .filter(speaker=>speaker.name.toLowerCase().indexOf(this.keyword.toLowerCase())!=-1)
+    }
   }
 }
 </script>

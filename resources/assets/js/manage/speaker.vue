@@ -68,13 +68,17 @@
               .form-group
                 labal.col-sm-3 Bio
                 .col-sm-9
-                  VueEditor.ve(:id ="'bio'", v-model="speaker.bio" )
+                  VueEditor.ve(:id ="'bio'", v-model="speaker.bio" ,
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
                   br
                   br
               .form-group
                 labal.col-sm-3 QA
                 .col-sm-9
-                  VueEditor.ve(:id ="'qa'", v-model="speaker.qa" )
+                  VueEditor.ve(:id ="'qa'", v-model="speaker.qa" ,
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
                   br
                   br
               //.form-group

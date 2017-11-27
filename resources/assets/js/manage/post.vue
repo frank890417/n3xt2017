@@ -74,7 +74,9 @@
             .panel-body
               .form-group
                 .col-sm-12
-                  VueEditor.ve(:id ="'content'", v-model="post.content" )
+                  VueEditor.ve(:id ="'content'", v-model="post.content" ,
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
                   br
                   br
               //.form-group

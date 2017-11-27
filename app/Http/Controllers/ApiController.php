@@ -30,8 +30,7 @@ class ApiController extends Controller
         $input = Input::all();
         if(Input::file())
          {
-  
-  
+        //    dd( $input  );
            $image = Input::file('file');
            // $ext = $image->getClientOriginalExtension();
            $filename  =  date('Y_m_d_h_i_s').'_'. $_FILES['file']['name'] ;

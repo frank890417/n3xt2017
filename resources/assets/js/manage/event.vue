@@ -91,8 +91,12 @@
             .panel-body
               .form-group
                 labal.col-sm-3 Description
-                .col-sm-9
-                  VueEditor.ve(:id ="'description'", v-model="event.description" )
+                .col-sm-9 
+                  VueEditor.ve(
+                    :id ="'description'",
+                    v-model="event.description",
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
                   br
                   br
               //.form-group
@@ -162,20 +166,28 @@
                         .col-sm-2
                           h5 Description
                         .col-sm-10
-                          VueEditor.ve(:id ="'program_description_'+programId", v-model="program.description")                          
+                          VueEditor.ve(
+                            :id ="'program_description_'+programId", 
+                            v-model="program.description"
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )                          
                       .row.form-group
                         .col-sm-6
                           .row
                             .col-sm-3
                               h5 Start datetime
                             .col-sm-9
-                              input.form-control(v-model="program.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")                                       
+                              input.form-control(
+                                v-model="program.start_datetime", 
+                                placeholder="yyyy/mm/dd hh:mm:ss")                                       
                         .col-sm-6
                           .row
                             .col-sm-3
                               h5 End datetime
                             .col-sm-9
-                              input.form-control(v-model="program.end_datetime", placeholder="yyyy/mm/dd hh:mm:ss")    
+                              input.form-control(
+                                v-model="program.end_datetime", 
+                                placeholder="yyyy/mm/dd hh:mm:ss")    
                       
                       hr
                       br

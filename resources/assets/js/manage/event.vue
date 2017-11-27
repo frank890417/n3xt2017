@@ -299,7 +299,7 @@ export default {
           ...this.event
           
         }).then((res)=>{
-          this.setEvent(res.data)
+          // this.setEvent(res.data)
           alert("Create Success!")
         })
       }else{
@@ -308,7 +308,7 @@ export default {
           ...this.event
           
         }).then((res)=>{
-          this.setEvent(res.data)
+          // this.setEvent(res.data)
           alert("Save Success!")
         })
       }

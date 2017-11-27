@@ -63,7 +63,7 @@
     .row
       margin: 0
     .person
-      min-height: 300px
+      min-height: 400px
       background-image: url(http://www.indiewire.com/wp-content/uploads/2016/03/michael-b-jordan.jpg?w=780)
       background-size: cover
       background-position: center center
@@ -76,6 +76,7 @@
       // padding-bottom: 100%
       position: relative
       cursor: pointer
+      
       &:before
         content: ''
         display: block
@@ -86,6 +87,10 @@
         +trans
       &:hover
         background-size: cover
+        h3
+          opacity: 0.8
+        h4
+          opacity: 0.8
         &:before
           background-color: rgba($colorBlue,0.9)
       h3,h4
@@ -126,8 +131,9 @@
 
     .redBlock
       background-color: $colorRed
-      min-height: 300px
+      min-height: 400px
       padding: 20px
+      +flexCenter
       .hand
         position: absolute
         +size(100%)

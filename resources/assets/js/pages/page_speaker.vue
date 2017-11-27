@@ -45,7 +45,7 @@
           .infos
             h2 Some feature<br>speakers title<br>description
             p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 
-      
+
           .person.big
 
         .col-sm-3
@@ -61,19 +61,25 @@
           hr
           p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
         .col-sm-5
-          img.logo(src="/img/logoSymbolShadow.svg",:style="{transform: `translate(0,${parseInt(scrollTop/8)}px`}")
+          img.logo(src="/img/logoSymbolShadow.svg")
      
   section.sectionSpeakers.white   
     .row
-      .col-sm-3(v-for="speaker in speakers.slice(0,4)")
-        .person(:style="cssbg(speaker.headshot)")
+      router-link.col-sm-3(v-for="speaker in speakers.slice(0,4)",
+        :to="'/speaker/n/'+speaker.name")
+        .person.photoBlock(:style="cssbg(speaker.headshot)")
           h3 {{speaker.name}}
-          h4 {{speaker.position}}<br>{{speaker.company}}
+          h4 {{speaker.position}} , {{speaker.company}}
+          .content
+            p {{speaker.bio.slice(0,200)}}
     .row
-      .col-sm-3(v-for="speaker in speakers.slice(4,6)")
-        .person(:style="cssbg(speaker.headshot)")
+      router-link.col-sm-3(v-for="speaker in speakers.slice(4,6)",
+        :to="'/speaker/n/'+speaker.name")
+        .person.photoBlock(:style="cssbg(speaker.headshot)")
           h3 {{speaker.name}}
-          h4 {{speaker.position}}<br>{{speaker.company}}
+          h4 {{speaker.position}} , {{speaker.company}}
+          .content
+            p {{speaker.bio.slice(0,200)}}
     
 
       .col-sm-6
@@ -81,10 +87,13 @@
           .hand
           h2 Some Title<br>or Slogan<br>about n3xt or spirit
     .row
-      .col-sm-3(v-for="speaker in speakers.slice(6)")
-        .person(:style="cssbg(speaker.headshot)")
+      router-link.col-sm-3(v-for="speaker in speakers.slice(6)",
+        :to="'/speaker/n/'+speaker.name")
+        .person.photoBlock(:style="cssbg(speaker.headshot)")
           h3 {{speaker.name}}
-          h4 {{speaker.position}}<br>{{speaker.company}}
+          h4 {{speaker.position}} , {{speaker.company}}
+          .content
+            p {{ (""+speaker.bio).slice(0,200)}}
     
 
 

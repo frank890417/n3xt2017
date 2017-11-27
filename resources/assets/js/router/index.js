@@ -9,6 +9,7 @@ import page_index from '../pages/page_index.vue'
 import page_event from '../pages/page_event.vue'
 import page_event_list from '../pages/page_event_list.vue'
 import page_speaker from '../pages/page_speaker.vue'
+import page_speaker_indep from '../pages/page_speaker_indep.vue'
 import page_about from '../pages/page_about.vue'
 import page_blog from '../pages/page_blog.vue'
 import page_post from '../pages/page_post.vue'
@@ -24,6 +25,7 @@ const routes = [
   { path: '/home', component: page_index, props: true },
   { path: '/event', component: page_event_list, props: true },
   { path: '/speaker', component: page_speaker, props: true },
+  { path: '/speaker/n/:speakername', component: page_speaker_indep, props: true },
   { path: '/about', component: page_about },
   { path: '/blog', component: page_blog, props: true },
   { path: '/post/n/:title', component: page_post, props: true },
@@ -44,7 +46,10 @@ const router = new VueRouter({
   mode: "history"
 })
 router.beforeEach((to, from, next) => {
-  $("html,body").animate({ scrollTop: 0 },'slow');
+  setTimeout(() => {
+    document.body.scrollTo(0)
+  }, 500);
+  // $("html,body").animate({ scrollTop: 0 });
   next()
 })
 

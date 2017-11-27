@@ -28,7 +28,15 @@ div.manage_event_list
         .panel.panel-default
           .panel-heading Speaker List
           .panel-body
-            input(v-model="keyword")
+            
+            br
+            input.form-control(
+              v-model="keyword", 
+              placeholder="enter keyword...",
+              list="speakerlist")
+            datalist#speakerlist
+              option(:value="speaker.name" v-for="speaker in sortedSpeaker")
+            br
             ul.list-group
               .row
                 .col-sm-4(v-for = "(speaker,spid) in filteredSpeaker", style="height: 80px")
@@ -89,9 +97,18 @@ export default {
     
   },
   computed:{
+    sortedSpeaker(){
+       return this.speakers
+        .slice()
+        .sort((a,b)=>{
+          if(a.name < b.name) return -1;
+          if(a.name > b.name) return 1;
+          return 0;
+        } )
+    },
     filteredSpeaker(){
-      return this.speakers
-        .filter(speaker=>speaker.name.toLowerCase().indexOf(this.keyword.toLowerCase())!=-1)
+      return this.sortedSpeaker.filter(speaker=>speaker.name.toLowerCase().indexOf(this.keyword.toLowerCase())!=-1)
+       
     }
   }
 }

@@ -113,6 +113,18 @@ Vue.mixin({
                 // return '/event/'+event.id
             }
         },
+        getPostRoute(post,options){
+            let gen_options = Object.assign({ link: true }, options)
+            let prefix = '/post/n/'
+            if (!gen_options.link) prefix = ''
+
+            // if (post.routename) {
+            //     return prefix + event.routename
+            // } else {
+            return this.strip_tags(prefix + post.title).replace(/\s/g, "_")
+                // return '/event/'+event.id
+            // }
+        },
 
         getDateText(datetime){
             let time = new Date(datetime)

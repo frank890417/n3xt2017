@@ -26,6 +26,9 @@ Route::get('/speaker', function () {
 Route::get('/blog', function () {
     return view('layouts/app');
 });
+Route::get('/post/n/{routename}', function () {
+    return view('layouts/app');
+});
 Route::get('/event/n/{routename}', function () {
     return view('layouts/app');
 });

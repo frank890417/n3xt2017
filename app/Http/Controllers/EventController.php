@@ -70,6 +70,7 @@ class EventController extends Controller
         $inputs = Input::all();
         $inputs['tag'] = json_encode($inputs['tag']);
         $inputs['speaker'] = json_encode($inputs['speaker']);
+        $inputs['album'] = json_encode($inputs['album']);
         $event = Event::create($inputs);
         return $event;
     }

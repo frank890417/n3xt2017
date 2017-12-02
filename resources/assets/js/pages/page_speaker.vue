@@ -71,7 +71,7 @@
           h3 {{speaker.name}}
           h4 {{speaker.position}} , {{speaker.company}}
           .content
-            p {{speaker.bio.slice(0,200)}}
+            p(v-html="speaker.description?speaker.description: (''+speaker.bio).slice(0,200)")
     .row
       router-link.col-sm-3(v-for="speaker in speakers.slice(4,6)",
         :to="'/speaker/n/'+speaker.name")
@@ -79,7 +79,7 @@
           h3 {{speaker.name}}
           h4 {{speaker.position}} , {{speaker.company}}
           .content
-            p {{speaker.bio.slice(0,200)}}
+            p(v-html="speaker.description?speaker.description: (''+speaker.bio).slice(0,200)")
     
 
       .col-sm-6
@@ -93,7 +93,7 @@
           h3 {{speaker.name}}
           h4 {{speaker.position}} , {{speaker.company}}
           .content
-            p {{ (""+speaker.bio).slice(0,200)}}
+            p(v-html="speaker.description?speaker.description: (''+speaker.bio).slice(0,200)")
     
 
 

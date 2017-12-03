@@ -1,0 +1,50 @@
+.page.pageBlog
+
+  .sectionHero
+    padding-top: 30px
+    .row-cover
+      background-size: cover
+      min-height: 700px
+    .post
+      .col-info
+        margin-top: -200px
+        +colExtend("left")
+        
+        h2
+          font-size: 42px
+    padding-bottom: 0px
+
+  .sectionHero,.sectionPosts
+    .post
+      text-decoration: none
+      &:hover
+        .col-info
+          left: -15px
+          top: -15px
+      .btn
+        margin-left: auto
+        margin-right: auto
+        margin-top: 24px
+      .cover
+        min-height: 300px
+        position: relative
+        background-size: cover
+        background-position: center center
+        // top: -10px
+        +bxshadow
+      .col-info
+        padding: 20px
+        left: -10px
+        top: -10px
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        +bxshadow
+        +trans
+      h2 
+        font-size: 28px
+      hr
+        margin-top: 10px
+        margin-bottom: 10px

@@ -2,29 +2,42 @@
 .page.pagePost
   section.sectionHero.white
     //pre(v-html="titles")
+    .container.cover(:style="cssbg(post.cover)")
+
+
+  section.sectionContent.white
     .container(v-if="post")
       .row
         .col-sm-12
-          img(:src="post.cover")
+          //- img(:src="post.cover")
           h2 {{post.title}}
-          div(v-html="post.content")
+          h3.date {{ getDateText( post.updated_at ) }} 
+          hr
+          p(v-html="post.content")
+
 
   section.sectionNav.blue
     .container-fluid
       .row
         .col-sm-6
-          router-link(
-            v-if="nav.pre"
+          router-link.photoBlock(
+            :style="cssbg(nav.pre.cover)",
             :to="getPostRoute(nav.pre)" ,
-            :style="`background-image:url(${nav.pre.cover})`")
-            h3 {{nav.pre.title}}
+            v-if="nav.pre")
+            .content
+              hr
+              h3 Previous Post 
+              h2(v-html="nav.pre.title")
         .col-sm-6
-          router-link(
-            v-if="nav.post"
+          router-link.photoBlock(
+            :style="cssbg(nav.post.cover)",
             :to="getPostRoute(nav.post)" ,
-            :style="`background-image:url(${nav.post.cover})`")
-            h3 {{nav.post.title}}
-
+            v-if="nav.post")
+            .content
+              hr
+              h3 Next Post 
+              //h2 Building United Communities
+              h2(v-html="nav.post.title")
       //.row
         .col-sm-12(v-for="post in posts")
           router-link(:to="'/post/'+post.title")
@@ -53,14 +66,14 @@ export default {
     },
     post(){
       // console.log()
-      return this.posts.find(o=> this.strip_tags(o.title).replace(/\s/g, "_")==this.title )
+      return this.posts.find(o=> this.strip_tags(o.title).replace(/\s/g, "_").replace(/\?/g,"")==this.title )
     },
     nav(){
       let nowIndex = this.posts.map(o=>this.strip_tags(o.title).replace(/\s/g, "_") ).indexOf( this.title )
       let pre = this.posts[nowIndex-1]
       let post = this.posts[nowIndex+1]
       return {
-        pre,post
+        pre: pre,post: post
       }
     }
   }

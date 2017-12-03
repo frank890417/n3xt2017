@@ -39,6 +39,10 @@ Route::get('/event/{id}', function () {
     return view('layouts/app');
 });
 
+//contact record
+Route::post('/contact',"ContactrecordController@store");
+
+
 Auth::routes();
 
 Route::get('/home', function () {

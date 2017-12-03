@@ -102,23 +102,23 @@
         .col-sm-12
           slideIn.pull-right 
             h4 For Young Entrepreneurs <br>&amp; Professionals
-  section.sectionFeatureEvent.white
+  section.sectionFeatureEvent.white(v-if="spotEvent")
     .container
       .row
         .col-sm-6.col-event-info
           slideIn
             h2 Featured Event
             hr
-            h4 9/7/2017   THU.  6PM /  UCS EEB 132 
+            h4 {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}
             .event
-              h3 Some Subtitles here:<br>
-                span.big Idea in the Age of Tech
-            p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. 
-            router-link.btn.red(to="/event") RSVP Now
+              h3 {{ spotEvent.title.split(":")[0].trim() }} <br>
+                span.big {{ spotEvent.title.split(":")[1].trim() }}
+            p {{ strip_tags(spotEvent.description).slice(0,300)+"..." }}
+            router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})") RSVP Now
         .col-sm-6 
           slideIn.left.col-img
-            .block.blue
-            img(src="/img/20171023 Event Banner Idea in the Age of Tech-03.jpg", href="https://goo.gl/photos/QQxauWqGwsoWSQEEA" , target="_blank")
+            //- .block.blue
+            img(:src="spotEvent.cover",  target="_blank")
       
   section.sectionEvent.blue
     .container
@@ -194,7 +194,10 @@ export default {
       
     },
     computed:{
-      ...mapState(['scrollTop'])
+      ...mapState(['scrollTop','events']),
+      spotEvent(){
+        return this.events.find(o=>o.id==1)
+      }
     },
     methods:{
       incNumber(num){

@@ -12,8 +12,8 @@
       router-link.row.row-event(:to="getEventRoute(spotEvent,{link: true})")
         .col-sm-6.col-cover
           .cover(:style="`background-image: url(${spotEvent.cover})`")
-          h4 Spotlight Event
-            span.month {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}
+          h4 Spotlight Event 
+            span.month {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}            
 
         .col-sm-6.col-info.theme.white
           h3.eng {{ spotEvent.title.split(":")[0].trim() }}

@@ -25,7 +25,7 @@
               p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 
             .col-sm-3
               h1 200+<br>Speakers
-  section.sectionSpeakers
+  //section.sectionSpeakers
     .container-fluid
       .row
         .col-sm-3
@@ -53,7 +53,7 @@
           .person
 
 
-  section.sectionSmallDescription.white
+  //section.sectionSmallDescription.white
     .container
       .row
         .col-sm-7.colContent

@@ -40,7 +40,7 @@
               .time 06:00-06:30
               .content
                 p Check In & Pre Networking<br>Industry-trending brands that
-  section.sectionGuest.white
+  section.sectionGuest.white(v-if="event.speaker && event.speaker.length")
     .container
       .row
         .col-sm-6
@@ -115,7 +115,7 @@
           p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership. .col-sm-7
           .btn.blue Contact us
         .col-sm-7
-          iframe(src="https://www.eventbrite.com/tickets-external?eid=39386599379&ref=etckt")
+          iframe(:src="`https://www.eventbrite.com/tickets-external?eid=${ eventbriteId }&ref=etckt`")
 
   section.sectionRecommend      
     .container-fluid
@@ -214,6 +214,15 @@ export default {
       }else{
         return []
       }
+    },
+    eventbriteId(){
+      if (!this.event.ticketlink) return null
+      const regex = /tickets-([0-9]*)/;
+      const str = this.event.ticketlink
+      let m;
+
+      return str.match(regex)[1]
+
     }
   }
 }

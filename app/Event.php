@@ -8,7 +8,8 @@ class Event extends Model
 {
     //
     protected $fillable = [
-        'title','cover', 'subtitle','routename', 'tag', 'description','start_datetime','end_datetime','venue','address','speaker','album',
+        'title','cover', 'subtitle','routename', 'tag', 'description', 'ticketlink',
+        'start_datetime','end_datetime','venue','address','speaker','album',
     ];
 
     // public function speaker()

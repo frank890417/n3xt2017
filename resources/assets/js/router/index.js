@@ -45,10 +45,14 @@ const router = new VueRouter({
   routes,
   mode: "history"
 })
+
+import store from '../store'
+
 router.beforeEach((to, from, next) => {
+  
   setTimeout(() => {
-    document.body.scrollTo(0)
-  }, 500);
+    window.scrollTo(0, 0)
+  }, 400);
   // $("html,body").animate({ scrollTop: 0 });
   next()
 })

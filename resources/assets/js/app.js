@@ -10,6 +10,7 @@ import router from "./router"
 import App from "./App.vue"
 import AppManage from "./AppManage.vue"
 import $ from 'jquery'
+import slick from 'slick-carousel'
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import {mapState} from 'vuex'

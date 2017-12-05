@@ -126,14 +126,25 @@
         .col-sm-12
           h2 Annual Timeline
           hr
-        .row.event-row
-          .col-sm-6
-            slideIn.left.eventContainer
-              .event.purple
+        .col-sm-12
+          .row.event-row
+            .event-item(v-for="event in events")
+              router-link.event.purple(:to="getEventRoute(spotEvent,{link: true})")
                 .infos
-                  h4 9/7/2017   THU. 6PM
-                  h2 WORKSHOP
-                  p Starting any journey with the end in mind makes perfect sense. However when it comes to career kickstarts.. 
+                  h2 {{ event.title }}
+                  p {{ strip_tags(event.description).slice(0,100)+"..." }}
+                
+                .blockImg
+                  //- .block.purple
+                  .img(:style="cssbg(event.cover)" )
+        
+                .month {{getDurationText(event.start_datetime,event.end_datetime)}}
+
+            //.event.purple
+              .infos
+                h4 {{ getDurationText(event.start_datetime,event.end_datetime) }}
+                h2 {{ event.title }}
+                p {{ strip_tags(event.description).slice(0,100)+"..." }}
               .month Sep.
               .btn.ghost.white RSVP Now
               .blockImg
@@ -141,7 +152,7 @@
                 img(src="https://lh3.googleusercontent.com/E8xWYLExhL98VFZbINtVZcUkz-I0_0FZnniscXOVxCp_he-0vri6s9F6M1F0czfinhczdUsdwiSe051vv5jzm9DEz_8RGztwaAMztbz4GszHWbrHAF1rPokHSByrk8-szqvVmK9Plo_l3LQBfyNvhI0zr69lIl4MIIhrAxg8K6kZaJo_sKLxYGZUb0NOb_siPMcosfd091etgT07RobriCly84gKrZAc33g0mLgTVQuBNEKHY3Vy5qAT5mWCR2bAkIgc0Opqv3dZDUEqNW3AblMQlQKENgCrbq2HRvSrk20Od8PhBjRpFlRO-PKpN40TXhDvEiw_yJBOg8kOw7LJf-8_iKWpoHYonYS_km1CAhDO7Ucy4ApW-oA8BNK2n6OStPCoC7gb6ggYvP9wc0AsRIWLCnDrFGp5AC4B6NXDneOB2UP8xXiXFowoxwTYDnTer2_biWgo_C-wCToe5F4SbAozcCcj4jEiV9dseGl2OB-G2Zcqevmx3xvIYAInmjLa0pszN0LJEDqY-zdsW50CONFLhP69adyca2ogeE0-IXlvDfYWU4FWvQCB1z3HY558lN4IuTpiJNKZmrMV4lKnhBtSNuk09M3k2OMGdRaKmVwSZJ4Ckdz9cYw5zkifE-ScB_wmra_5e4M62gQiYsJ_ss7wazYL6VgOAUY=w1406-h937-no" , target="_blank")
       
           
-          .col-sm-6
+          //.col-sm-6
             slideIn.left.eventContainer
               .event.purple
                 .infos
@@ -174,6 +185,8 @@
 import {mapState} from 'vuex'
 import Rx from 'rxjs/Rx'
 import VueRx from 'vue-rx'
+import $ from 'jquery'
+import slick from 'slick-carousel'
 
 export default {
     metaInfo: {
@@ -187,6 +200,24 @@ export default {
       }).on('input', function () {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
+      });
+
+      //slick event
+      $('.event-row').slick({
+        autoplay: true,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots: true,
+        responsive: [
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 1,
+              
+            }
+          }
+        ]
       });
 
     },

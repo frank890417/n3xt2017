@@ -67,8 +67,11 @@
                 br
               .form-group
                 labal.col-sm-3 EndTime
+                
                 .col-sm-9
                   datePicker(v-model="event.end_datetime", name="event_end_time", :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")
+                  button.btn.btn-default(@click="event.end_datetime=event.start_datetime") Copy start date
+                br
                 br
                 br
               .form-group
@@ -99,6 +102,14 @@
                     @imageAdded="handleImageAdded" )
                   br
                   br
+              
+              .form-group
+                labal.col-sm-3 Event Brite Link
+                .col-sm-9
+                  input.form-control(v-model="event.ticketlink",
+                                    placeholder="paste eventbrite link")
+                br
+                br
               //.form-group
                 labal.col-sm-3 註冊資訊
                 .col-sm-9
@@ -203,8 +214,6 @@
             .panel-body
               .form-group
                 .row
-                  .col-sm-12
-                    label 相簿
                   .col-sm-12(v-for="(pic,picid) in event.album")
                     .row
                       .col-sm-9
@@ -250,7 +259,7 @@ export default {
       panel: "detail",
       nowProgramId: 0,
       event: {
-        type: "activity",
+        type: "talksnetworking",
         title: "",
         description: "",
         place: "",
@@ -263,9 +272,10 @@ export default {
       },
       temp_speaker_name: "",
       activityTypeOptions: [
-        {tag:'Workshop',value:'workshop'},
+        {tag:'Conference',value:'conference'},
+        {tag:'Talks & Networking',value:'talksnetworking'},
         {tag:'Event',value:'event'},
-        {tag:'Mentorship Program',value:'mentorship'},
+        {tag:'Mentorship',value:'mentorship'},
       ]
     }
   },
@@ -288,7 +298,10 @@ export default {
       }else{
         event.album = JSON.parse(event.album)
       }
-      console.log(event.album)
+      if (!event.speaker){
+        event.speaker=[]
+      }
+      // console.log(event.album)
       this.event = event
     },
     deleteActivity(){

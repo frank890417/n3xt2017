@@ -307,21 +307,31 @@
   section.sectionEvent
     .event
       position: relative
+      vertical-align: middle
+      display: flex
+
       
       h2
         background-color: white
         display: inline-block
         padding: 10px 20px
         padding-right: 0
+        
+        font-size: 32px
+        color: $colorBlue
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
       .infos
         position: relative
         z-index: 1
-      &.purple
-        h2
-          color: $colorPurple
-      &.red
-        h2
-          color: $colorRed
+        width: 400px
+        flex-shrink: 0
+        margin-top: 10px
+      // &.purple
+      //   h2
+      //     color: $colorPurple
+      // &.red
+      //   h2
+      //     color: $colorRed
       p
         width: 100%
         max-width: 320px
@@ -331,50 +341,108 @@
         // display: inline-block
 
   
-
+    .slick-dots
+      color: white
+      li
+        button
+          background-color: #fff
+          +size(10px)
+          color: none
+          border-radius: 50%
+          +trans
+        &.slick-active button
+          background-color: $colorRed
 
     // .row-event-list
       // display: inline-block
       // white-space: nowrap
 
     .event-row
-      width: 1800px
+      // width: 1800px
+      // overflow: hidden
+      display: block
+      margin-left: -160px
+      margin-right: -160px
+      padding-top: 30px
+      padding-bottom: 30px
+      // padding-left: 60px
+      // padding-right: 60px
+      // height: 500px
+      // width: 3000px
       // overflow-x: scroll
+      // white-space: nowrap
+      
+      // scroll-snap-destination: 0% 0%
+      // scroll-snap-type 
+      // max-width: 600px
+      // display: flex
+      // flex-wrap: nowrap
+
+    .event-item
+      display: inline-block
+      width: 100%
+      max-width: 1000px
+      margin-right: 150px
+      // padding-right: 300px
+      +trans
+      &:hover
+        transform: translate(-5px,-5px)
+        .blockImg
+          transform: translate(2px,2px)
+        .month
+          transform: translate(10px,10px)
+
+
+    a.event
+      text-decoration: none
+      color: white
+
     .month
-      position: absolute
-      right: 0
-      bottom: 0
+      position: relative
+      margin-left: -100px
       z-index: 4
       font-weight: 700 
-    .month
-      font-size: 160px
+      font-size: 110px
       font-family: 'Khula'
-    img
+      white-space: nowrap
+      position: absolute
+      right: 80px
+      bottom: -20px
+      text-shadow: 0px 0px 30px rgba(black,0.2)
+      
+      +trans
+
+    .img
       // transform: scaleX(-1)
       // mix-blend-mode: lighten
-      width: 630px
+      // width: 400px
       left: 0
-      clip-path: polygon(20% 0%, 100% 0%, 90% 100%, 10% 100%)
+      width: 700px
+      height: 400px
+      clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%)
     
-      position: absolute
-      bottom: 0
-      margin-left: 150px
+      position: relative
+      margin-left: -100px
+      // margin-top: 20px
       mix-blend-mode: lighten
+      background-size: cover
 
     .blockImg
       position: relative
+      margin-left: -300px
+      +trans
     .block
       width: 500px
       height: 450px
       transform: skewX(-10deg)
       background-color: #fff
-      position: absolute
-      bottom: 0
-      margin-left: 250px
-      &.blue
-        background-color: $colorLightBlue
-      &.purple
-        background-color: $colorPurple
+      position: relative
+      // bottom: 0
+      // margin-left: 250px
+      // &.blue
+      //   background-color: $colorLightBlue
+      // &.purple
+      //   background-color: $colorPurple
     h3
       background-color: $colorBlue
       color: white

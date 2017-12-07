@@ -16,10 +16,10 @@
             span.month {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}            
 
         .col-sm-6.col-info.theme.white
-          h3.eng {{ spotEvent.title.split(":")[0].trim() }}
-          h2 {{ spotEvent.title.split(":")[1].trim() }}
+          h3.eng {{ getTitleSplit (spotEvent.title).series }}
+          h2 {{ getTitleSplit (spotEvent.title).title }}
           hr  
-          p ​{{ spotEvent.description.slice(0,300)+"..." }}
+          p ​{{ strip_tags(spotEvent.description).slice(0,300)+"..." }}
           .btn.red RSVP Now
    
   section.sectionCata.blue
@@ -51,8 +51,8 @@
         slideIn.top.col-sm-12
           router-link.row.row-event(:to="getEventRoute(event,{link: true})" v-for="event in events")
             slideIn.col-sm-6.col-info.theme.white
-              h3.eng {{ event.title.split(":")[0].trim() }}
-              h2.title {{ event.title.split(":")[1].trim() }}
+              h3.eng {{ getTitleSplit (event.title).series }}
+              h2.title {{ getTitleSplit (event.title).title  }}
                 .date {{ getDurationText(event.start_datetime,event.end_datetime) }}   
               hr  
               p ​{{event.description.replace(/\<.*?\>/g,'').slice(0,200)}}
@@ -78,10 +78,11 @@ export default {
   computed:{
     ...mapState(['events']),
     spotEvent(){
-      return this.events.find(o=>o.id==1)
+      return this.events[0]
     }
   },
   methods: {
+    
   }
 }
 </script>

@@ -111,8 +111,8 @@
             hr
             h4 {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}
             .event
-              h3 {{ spotEvent.title.split(":")[0].trim() }} <br>
-                span.big {{ spotEvent.title.split(":")[1].trim() }}
+              h3 {{ getTitleSplit(spotEvent.title).series }} <br>
+                span.big {{  getTitleSplit(spotEvent.title).title }}
             p {{ strip_tags(spotEvent.description).slice(0,300)+"..." }}
             router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})") RSVP Now
         .col-sm-6 
@@ -131,7 +131,9 @@
             .event-item(v-for="event in events")
               router-link.event.purple(:to="getEventRoute(spotEvent,{link: true})")
                 .infos
-                  h2 {{ event.title }}
+                  h2 
+                    span {{ getTitleSplit(event.title).series }}
+                    span {{ getTitleSplit(event.title).title }}
                   p {{ strip_tags(event.description).slice(0,100)+"..." }}
                 
                 .blockImg

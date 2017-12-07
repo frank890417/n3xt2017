@@ -142,6 +142,19 @@ Vue.mixin({
                 return st+ "-"+ed.split(". ")[1]
             }
         },
+        getTitleSplit(title) {
+            if (title.indexOf(":") > -1) {
+                return {
+                    series: title.split(":")[0].trim(),
+                    title: title.split(":")[1].trim()
+                }
+            } else {
+                return {
+                    series: null,
+                    title: title
+                }
+            }
+        },
         cssbg(url) {
             let result = {
                 'background-image': `url("${url}")`

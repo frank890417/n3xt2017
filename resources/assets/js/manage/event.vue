@@ -102,7 +102,21 @@
                     @imageAdded="handleImageAdded" )
                   br
                   br
-              
+                 
+              .form-group
+                labal.col-sm-3 Venue
+                .col-sm-9
+                  input.form-control(v-model="event.venue",
+                                    placeholder="venue")
+                br
+                br
+              .form-group
+                labal.col-sm-3 Address
+                .col-sm-9
+                  input.form-control(v-model="event.address",
+                                    placeholder="address")
+                br
+                br   
               .form-group
                 labal.col-sm-3 Event Brite Link
                 .col-sm-9

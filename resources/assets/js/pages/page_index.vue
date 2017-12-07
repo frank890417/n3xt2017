@@ -229,7 +229,7 @@ export default {
     computed:{
       ...mapState(['scrollTop','events']),
       spotEvent(){
-        return this.events.find(o=>o.id==1)
+        return this.events[0]
       }
     },
     methods:{

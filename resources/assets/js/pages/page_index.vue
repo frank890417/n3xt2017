@@ -176,13 +176,11 @@
     .container
       .row
         .col-sm-12
-          slideIn
-            h2 STRATEGIC PARTNERS
+          h2 STRATEGIC PARTNERS
         .col-sm-12
-          slideIn
-            img.logo(src="http://www.crosscamp.us/wp-content/uploads/2015/03/CrossCampus.png")
-            img.logo(src="https://liaoyuanavatar.imgix.net/upload/feed/image/159911bb496-57ea9af32cb6a8ad7e63e2c1-a1412a8bb2bd8775?fit=max&w=960&h=600")
-            img.logo(src="http://media.marketwire.com/attachments/201005/598031_Logo_300dpi_noline_nochinese.jpg")
+          img.logo(src="http://www.crosscamp.us/wp-content/uploads/2015/03/CrossCampus.png")
+          img.logo(src="https://liaoyuanavatar.imgix.net/upload/feed/image/159911bb496-57ea9af32cb6a8ad7e63e2c1-a1412a8bb2bd8775?fit=max&w=960&h=600")
+          img.logo(src="http://media.marketwire.com/attachments/201005/598031_Logo_300dpi_noline_nochinese.jpg")
   section_contact
   section_footer
   </template>

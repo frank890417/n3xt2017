@@ -7,6 +7,9 @@
       min-height: 500px
       background-size: 100% auto
       background-position: center center
+      +rwd_sm
+        min-height: 250px
+        background-size: cover
     h2
 
   .sectionContent
@@ -29,8 +32,10 @@
       display: block
       position: relative
       min-height: 350px
+      +rwd_sm
+        min-height: 300px
     .photoBlock
-      &:hover
+      &:hover,&:focus
         .content
           background-color: rgba($colorBlue,0.9)
     .content
@@ -41,3 +46,5 @@
     h2 ,h3,hr
       opacity: 1
       font-size: 30px
+      +rwd_sm
+        font-size: 26px

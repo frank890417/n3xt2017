@@ -25,7 +25,7 @@
   section.sectionCata.blue
     .container
       .row
-        .col-sm-6
+        .col-sm-6.col-bar
           .bars
             slideIn.left.bar
               img(src="http://n3xt2017.dev/img/s2_people.png")
@@ -50,6 +50,9 @@
       .row
         slideIn.top.col-sm-12
           router-link.row.row-event(:to="getEventRoute(event,{link: true})" v-for="event in events")
+            
+            slideIn.right.col-sm-6.col-cover.visible-xs(:style="`background-image: url(${event.cover})`")
+              //img.cover(:src="event.cover", style='width: 100%')
             slideIn.col-sm-6.col-info.theme.white
               h3.eng {{ getTitleSplit (event.title).series }}
               h2.title {{ getTitleSplit (event.title).title  }}
@@ -58,7 +61,7 @@
               p ​{{event.description.replace(/\<.*?\>/g,'').slice(0,200)}}
               .btn.red RSVP Now
 
-            slideIn.right.col-sm-6.col-cover(:style="`background-image: url(${event.cover})`")
+            slideIn.right.col-sm-6.col-cover.hidden-xs(:style="`background-image: url(${event.cover})`")
               //img.cover(:src="event.cover", style='width: 100%')
 
 

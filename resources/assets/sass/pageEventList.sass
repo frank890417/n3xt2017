@@ -58,13 +58,22 @@
     .bars
       position: absolute
       right: 0px
+
+    .col-bar
+      margin-top: -100px
+      left: 30px
+      +rwd_sm
+        min-height: 500px
+
     .bar
       +size(50vw,200px)
       background-color: $colorBgRed
       margin-top: -25px
       transform: skewX(-10deg)
       +bxshadow
-      
+      +rwd_sm
+        +size(100vw,150px)
+
       &:nth-child(1)
         z-index: 3
         margin-top: 0
@@ -129,6 +138,8 @@
 
       .title
         font-size: 34px
+        +rwd_sm
+          font-size: 34px
         .date
           font-size: 22px
           font-weight: 700

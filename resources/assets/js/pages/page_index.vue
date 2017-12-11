@@ -105,6 +105,7 @@
   section.sectionFeatureEvent.white(v-if="spotEvent")
     .container
       .row
+      
         .col-sm-6.col-event-info
           slideIn
             h2 Featured Event
@@ -113,9 +114,13 @@
             .event
               h3 {{ getTitleSplit(spotEvent.title).series }} <br>
                 span.big {{  getTitleSplit(spotEvent.title).title }}
+            .col-sm-6.visible-xs
+              slideIn.left.col-img
+                //- .block.blue
+                img(:src="spotEvent.cover",  target="_blank")
             p {{ strip_tags(spotEvent.description).slice(0,300)+"..." }}
             router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})") RSVP Now
-        .col-sm-6 
+        .col-sm-6.hidden-xs
           slideIn.left.col-img
             //- .block.blue
             img(:src="spotEvent.cover",  target="_blank")

@@ -85,7 +85,7 @@
       .col-sm-6
         .redBlock
           .hand
-          h2 Some Title<br>or Slogan<br>about n3xt or spirit
+          h2 Some Title<br>or Slogan<br>Unleash the Future.
     .row
       router-link.col-sm-3(v-for="speaker in speakers.slice(6)",
         :to="'/speaker/n/'+speaker.name")

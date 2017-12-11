@@ -29,8 +29,11 @@
           .bars
             slideIn.left.bar
               img(src="http://n3xt2017.dev/img/s2_people.png")
+              h3 Event
             slideIn.left.bar
+              h3 Talks &amp; Networks
             slideIn.left.bar
+              h3 Mentorship
         slideIn.col-sm-6
           h3.eng People working with us
           h2 Events List

@@ -5,7 +5,7 @@
         .col-sm-12
           ol.breadcrumb
             li.breadcrumb-item 
-              router-link(to="/manage/event") Manage Event List
+              router-link(to="/manage/speaker") Manage Speaker List
             li.breadcrumb-item.active Event Edit
           h2(v-if="event_id") Edit- {{ strip_tags(speaker.name) }}
             

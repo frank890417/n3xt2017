@@ -49,10 +49,13 @@
         .col-sm-12
           ul.row.speakers
             li.col-sm-4(v-for="speaker in event.speaker")
-              .headshot(:style="{'background-image':`url(${speaker.headshot})`}" style="background-image: url(https://i.vimeocdn.com/portrait/6198925_300x300)")
+              router-link.headshot(
+                :style="cssbg(speaker.headshot)",
+                :to="`/speaker/n/${speaker.name}`")
               h4.place ​{{speaker.company}},  {{speaker.position}}
               h3.name {{speaker.name}}
-  section.sectionPhotos.white
+            
+  section.sectionPhotos.white(v-if="event.photo && event.photo.length")
     .container
       .row
         .col-sm-12
@@ -113,7 +116,7 @@
           h2 Registration
           hr
           p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership. .col-sm-7
-          .btn.blue Contact us
+          router-link.btn.blue(to="/about") Contact us
         .col-sm-7
           iframe(:src="`https://www.eventbrite.com/tickets-external?eid=${ eventbriteId }&ref=etckt`")
 

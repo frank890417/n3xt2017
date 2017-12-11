@@ -4,7 +4,9 @@
     padding-top: 30px
     .row-cover
       background-size: cover
-      min-height: 700px
+      min-height: 600px
+      +rwd_sm
+        min-height: 500px
     .post
       .col-info
         margin-top: -200px
@@ -17,6 +19,10 @@
     padding-bottom: 0px
 
   .sectionHero,.sectionPosts
+    .row-posts
+      [class*="col"]
+        margin-bottom: 50px
+      
     .post
       text-decoration: none
       &:hover

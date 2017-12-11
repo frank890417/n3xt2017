@@ -1,9 +1,9 @@
 <template lang="pug">
-.manage_speaker_list
+div.manage_event_list
   .container
     .row
       .col-sm-12
-        h1 Speaker List Manage
+        h1 Post List Manage
         .btn-group
           router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Manage Events
           router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Manage Speakers
@@ -11,28 +11,19 @@
         hr
       .col-sm-12
         .panel.panel-default
-          .panel-heading Speaker List
+          .panel-heading Post List
           .panel-body
-            router-link.btn.btn-primary(to="/manage/speaker/new") + Add New Speaker
-            input.form-control(
-              v-model="keyword", 
-              placeholder="enter keyword...",
-              list="speakerlist")
-            datalist#speakerlist
-              option(:value="speaker.name" v-for="speaker in sortedSpeaker")
             br
-            ul.list-group
-              .row
-                .col-sm-12
-                  
-                .col-sm-4(v-for = "(speaker,spid) in filteredSpeaker", style="height: 80px")
-                  .row
-                    .col-sm-3
-                      img(:src="speaker.headshot", style="width: 100%")
-                    .col-sm-9
-                      h4 {{spid+1}} | {{speaker.name}}
-                        router-link.btn.btn-primary.pull-right(:to="'/manage/speaker/'+speaker.id") Edit
-                
+            router-link.btn.btn-default(to="/manage/post/new") + Add Post
+            ul.list-group                 
+              li.list-group-item(v-for = "(post,spid) in posts")
+                .row
+                  .col-sm-1
+                    img(:src="post.cover", style="width: 100%")
+                  .col-sm-11
+                    h4 {{spid+1}} | {{post.title}}
+                      router-link.btn.btn-primary.pull-right(:to="'/manage/post/'+post.id") Edit
+    
 </template>
 
 <script>

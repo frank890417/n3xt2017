@@ -120,11 +120,19 @@
       display: flex
       list-style: none
       padding: 0
+      
+      +rwd_sm
+        display: block
+        li
+          margin-bottom: 30px
       .place,.name
         font-weight: 700
+      .name
+        margin-top: 0px
       .headshot
         min-height: 320px
         background-size: cover
+        display: block
         +bxshadow
         
       .place

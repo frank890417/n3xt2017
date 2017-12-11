@@ -16,6 +16,8 @@ import page_post from '../pages/page_post.vue'
 import manage_event from '../manage/event.vue'
 import manage_speaker from '../manage/speaker.vue'
 import manage_post from '../manage/post.vue'
+import manage_speaker_list from '../manage/speaker_list.vue'
+import manage_post_list from '../manage/post_list.vue'
 import manage_event_list from '../manage/event_list.vue'
 
 
@@ -39,6 +41,8 @@ const routes = [
   { path: '/manage/post/new', component: manage_post, props: true },
   { path: '/manage/post/:id', component: manage_post, props: true },
   { path: '/manage/event', component: manage_event_list },
+  { path: '/manage/post', component: manage_post_list },
+  { path: '/manage/speaker', component: manage_speaker_list },
   
 ]
 const router = new VueRouter({

@@ -5,7 +5,7 @@
         .col-sm-12
           ol.breadcrumb
             li.breadcrumb-item 
-              router-link(to="/manage/event") Manage Event List
+              router-link(to="/manage/post") Manage Post List
             li.breadcrumb-item.active Post Edit
           h2(v-if="post" ) Edit- {{ strip_tags(post.title) }}
             

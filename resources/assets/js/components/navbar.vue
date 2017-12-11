@@ -30,10 +30,10 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                <li><router-link to="/about">About</router-link></li>
-                <li><router-link to="/event">Events</router-link></li>
-                <li><router-link to="/speaker">Speakers</router-link></li>
-                <li><router-link to="/blog">Blog</router-link></li>
+                <li @click="toggleNav"><router-link to="/about">About</router-link></li>
+                <li @click="toggleNav"><router-link to="/event">Events</router-link></li>
+                <li @click="toggleNav"><router-link to="/speaker">Speakers</router-link></li>
+                <li @click="toggleNav"><router-link to="/blog">Blog</router-link></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span class="caret"></span>
@@ -68,6 +68,11 @@ export default {
     props: ['fixed'],
     computed:{
       ...mapState(['scrollTop'])
+    },
+    methods: {
+        toggleNav(){
+            $(".navbar-collapse").collapse('hide');
+        },
     }
 }
 </script>

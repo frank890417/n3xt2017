@@ -59,6 +59,8 @@
       position: absolute
       right: 0px
 
+
+
     .col-bar
       margin-top: 0px
       left: 30px
@@ -71,9 +73,31 @@
       background-color: $colorBgRed
       margin-top: -25px
       transform: skewX(-10deg)
+      position: relative
+      cursor: pointer
+      left: 0
       +bxshadow
       +rwd_sm
         +size(100vw,150px)
+      +trans
+      &:hover
+        left: 15px
+        
+        
+      h3
+        position: absolute
+        font-family: "Khula"
+        right: 30px
+        top: 50%
+        transform: translateY(-50%) skewX(10deg)
+        font-weight: 700
+        letter-spacing: 1px
+        font-size: 30px
+        margin: 0
+        // min-width: 300px
+        // text-align: left
+        
+
 
       &:nth-child(1)
         z-index: 3

@@ -8,11 +8,11 @@
           p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership.
           .infos.container-fluid
             .email.row 
-              .col-sm-2.col-label Email
-              .col-sm-10.col-text info@n3xtcon.com
+              .col-xs-2.col-label Email
+              .col-xs-10.col-text info@n3xtcon.com
             .call.row 
-              .col-sm-2.col-label Call
-              .col-sm-10.col-text (213) 536-1923
+              .col-xs-2.col-label Call
+              .col-xs-10.col-text (213) 536-1923
           
         .col-sm-6
           form.form-group#form_contact

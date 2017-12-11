@@ -24,6 +24,9 @@
       background-size: cover
       background-position: center center
       position: relative
+      +rwd_sm
+        width: 100vw
+        margin-left: 0px
       &:after
         content: ""
         position: absolute
@@ -72,7 +75,14 @@
       position: absolute
       left: -50px
       font-size: 18px
+      +rwd_sm
+        position: relative
+      
     .timeline
+      +rwd_sm
+        padding-left: 50px
+        margin-top: 30px
+
       li
         display: flex
         border-left: 1px solid white

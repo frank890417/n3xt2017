@@ -24,6 +24,10 @@ export default {
   methods:{
     updateElTop(){
       this.elTop= $(this.$el).offset().top - $(window).outerHeight()*0.8
+      if ($(window).outerHeight()<800){
+        this.elTop= $(this.$el).offset().top - $(window).outerHeight()*0.8-100
+      }
+
       console.log(this.elTop)
     }
   },

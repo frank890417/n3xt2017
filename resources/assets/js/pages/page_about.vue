@@ -45,24 +45,24 @@
           hr
           p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
           br
-          ul.numbers 
-            li 
+          ul.numbers.row
+            li.col-sm-4.col-xs-6
               .title Attendies
               .number 500+
-            li 
+            li.col-sm-4.col-xs-6
               .title Speakers
               .number 40+
-            li 
+            li.col-sm-4.col-xs-6
               .title Sessions
               .number 20+
-            li 
+            li.col-sm-4.col-xs-6
               .title Pitch Teams
               .number 10+
         .col-sm-4.colPic(:style="picParallax")
 
           img(src="http://n3xt2017.dev/img/s2_people.png")
 
-  section.sectionDo.blue
+  section.sectionTeam.blue
     .container
       .row
         .col-sm-6
@@ -87,18 +87,12 @@
       .row
         .col-sm-4
           ul.positionList
-            li
-              h3 Position Name
-              h4 A Sentence Describe about
-            li
-              h3 Position Name
-              h4 A Sentence Describe about
-            li
-              h3 Position Name
-              h4 A Sentence Describe about
+            li(v-for = "(job,job_id) in jobs", @click="now_job_id = job_id", @mouseenter="now_job_id = job_id")
+              h3 {{job.title}}
+              h4 {{job.description}}
         .col-sm-8
           .panel.white
-            p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
+            p ​{{ jobs[now_job_id].content }}
             .btn.red Apply
 
   section.sectionSponsor.blue
@@ -160,7 +154,25 @@ export default {
   },
   data(){
     return {
-      picTop: -1
+      picTop: -1,
+      jobs: [
+        {
+          title: "Position Name 1",
+          description: "A sectence to describe about",
+          content: "1futher contents ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders"
+        },
+        {
+          title: "Position Name 2",
+          description: "A sectence to describe about",
+          content: "2 events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders"
+        },
+        {
+          title: "Position Name 3",
+          description: "A sectence to describe about",
+          content: "3 startup founders, investors, and industry leaders startup founders, investors, and industry leaders"
+        }
+      ],
+      now_job_id: 0
     }
   },
   mounted(){

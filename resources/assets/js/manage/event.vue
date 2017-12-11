@@ -188,7 +188,7 @@
                         .col-sm-2
                           h5 Title
                         .col-sm-10
-                          input.form-control(v-model="program.title", placeholder="姓名")
+                          input.form-control(v-model="program.title", placeholder="Program Title")
 
                       .row.form-group
                         .col-sm-2
@@ -223,7 +223,7 @@
                       br
               .form-group
                 .col-sm-12
-                  .btn.btn-default.form-control(@click="newProgram") + 新增
+                  .btn.btn-default.form-control(@click="newProgram") + Add Program
                   br
                   br
                   br
@@ -240,16 +240,16 @@
                           .col-sm-3
                             img(:src="pic.image", style="width: 100%;background-color: #eee;")
                           .col-sm-9
-                            input.form-control(v-model="event.album[picid].image" ,placeholder="照片網址")
-                            textarea.form-control(v-model="event.album[picid].caption", placeholder="描述")
+                            input.form-control(v-model="event.album[picid].image" ,placeholder="Picture url")
+                            textarea.form-control(v-model="event.album[picid].caption", placeholder="Description")
                       
                       .col-sm-3
                         default_pic_selector(@select_pic="(obj)=>{event.album[picid].image=obj.url}")
-                        .btn.btn-danger(@click="event.album.splice(picid,1)") 刪除
+                        .btn.btn-danger(@click="event.album.splice(picid,1)") Delete
                       .col-sm-12
                         hr
                   .col-sm-12
-                    .btn.btn-primary(@click="event.album.push({image:'',caption:''})") 新增照片
+                    .btn.btn-primary(@click="event.album.push({image:'',caption:''})") + Add Photo
 
           .panel.panel-default(v-if="panel=='organizer'")
             .panel-heading Organizers

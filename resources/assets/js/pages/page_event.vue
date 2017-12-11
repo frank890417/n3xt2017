@@ -27,7 +27,7 @@
           ul.timeline
             .datetag Sep.7
             li(v-for="(p,pid) in event.program")
-              .time {{p.start_datetime.split(' ')[1].slice(0,5)}}- {{p.end_datetime.split(' ')[1].slice(0,5)}}
+              .time {{(p.start_datetime+ " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime+" ").split(' ')[1].slice(0,5)}}
               .content( @click="toggle('#des'+pid)")
                 h4 {{p.title}}
                   span(v-if="p.description")   ▾

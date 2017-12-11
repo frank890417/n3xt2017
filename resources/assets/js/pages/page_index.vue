@@ -16,7 +16,7 @@
             .btn.red Subscribe
             ul.numbers
               li 
-                .title Attendies
+                .title Attendees
                 .number {{ incNumber(500) }}+
               li 
                 .title Speakers
@@ -45,7 +45,7 @@
           slideIn
             hr
           slideIn
-            p We believe entrepreneurialspirit is an immutable individual trait that cannot be smothered. n3xt con’s missionis to establish an environment in which such spirit not only flourishes but inspires more people to make a long lasting impact in their lives and beyond.
+            p We believe entrepreneurial spirit is an immutable individual trait that cannot be smothered. n3xt con’s mission is to establish an environment in which such spirit not only flourishes but inspires more people to make a long lasting impact in their lives and beyond.
             router-link.btn.blue(to='/about') About us
   section.sectionLen.blue
     .container
@@ -78,7 +78,7 @@
           .circle.c6(:style="{transform: `translateY(#{scrollTop/5}px)`}")
         .col-sm-6 
           slideIn
-            h2 A platform for industry insight, and the newest technology trends.
+            h2 A platform for industry insights, and the newest technology trends.
           slideIn
             hr
             p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders

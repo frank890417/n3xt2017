@@ -47,7 +47,7 @@
           br
           ul.numbers.row
             li.col-sm-4.col-xs-6
-              .title Attendies
+              .title Attendees
               .number 500+
             li.col-sm-4.col-xs-6
               .title Speakers

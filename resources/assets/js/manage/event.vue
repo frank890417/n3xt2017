@@ -11,6 +11,9 @@
             
             button.btn.btn-danger.pull-right(@click="deleteActivity") Delete
             button.btn.btn-primary.pull-right(@click="updateActivity") Save
+            a.btn.btn-default.pull-right(
+                    :href="getEventRoute(event)",
+                    target="_blank") View Event
           h2(v-else) New Event - {{ strip_tags(event.title) }}
             button.btn.btn-primary.pull-right(@click="updateActivity") Save
           hr
@@ -202,17 +205,19 @@
                             .col-sm-3
                               h5 Start datetime
                             .col-sm-9
-                              input.form-control(
+                              datePicker(
                                 v-model="program.start_datetime", 
-                                placeholder="yyyy/mm/dd hh:mm:ss")                                       
+                                name="program_start_time", 
+                                :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")                                    
                         .col-sm-6
                           .row
                             .col-sm-3
                               h5 End datetime
                             .col-sm-9
-                              input.form-control(
+                              datePicker(
                                 v-model="program.end_datetime", 
-                                placeholder="yyyy/mm/dd hh:mm:ss")    
+                                name="program_end_time", 
+                                :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")    
                       
                       hr
                       br
@@ -385,6 +390,17 @@ export default {
     nowProgram(){
       return this.event.program[this.nowProgramId]
     }
+  },
+  watch: {
+    // "event.start_datetime": function(){
+    //   this.event.program.forEach(
+    //     program=>{
+    //       if (program.start_datetime=="" || !program.start_datetime){
+    //         program.start_datetime=this.event.program.start_datetime
+    //       }
+    //     }
+    //   )
+    // }
   }
 }
 </script>

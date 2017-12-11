@@ -11,6 +11,10 @@
             
             button.btn.btn-danger.pull-right(@click="deleteSpeaker") Delete
             button.btn.btn-primary.pull-right(@click="updateSpeaker") Save
+            a.btn.btn-default.pull-right(
+                    :href="'/manage/speaker/'+speaker.id",
+                    target="_blank") View Speaker
+            
           h2(v-else) New Event - {{ strip_tags(speaker.name) }}
             button.btn.btn-primary.pull-right(@click="updateSpeaker") Save
           hr

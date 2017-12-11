@@ -47,6 +47,44 @@
     top: 0
     z-index: 2
 
+
+//RWD
+
+=range_width($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-width: $min)
+      @content
+  @else
+    @media screen and (max-width: $max - 1px) and (min-width: $min) 
+      @content
+  
+
+=range_height($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-height: $min)
+      @content
+  @else
+    @media screen and (max-height: $max - 1px) and (min-height: $min) 
+      @content
+  
+$break_lg: 1600px
+$break_md: 1200px
+$break_sm: 800px
+$break_xs: 500px
+
+=rwd_md
+  +range_width(0px,$break_md)
+    @content
+=rwd_lg
+  +range_width($break_lg)
+    @content
+=rwd_sm
+  +range_width(0px,$break_sm)
+    @content
+=rwd_xs
+  +range_width(0px,$break_xs)
+    @content
+
 @import "./theme"
 @import "./pageLoading"
 @import "./pageIndex"
@@ -66,6 +104,8 @@ html,body
   overflow-x: hidden
 html
   overflow-y: scroll
+  overflow-x: hidden
+  max-width: 100vw
 body
   background-color: $colorBlue
   min-height: 100vh

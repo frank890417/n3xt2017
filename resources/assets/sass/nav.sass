@@ -6,6 +6,7 @@ nav.navbar.navbar-default
   border-bottom: rgba(white,0)
   padding-top: 5px
   padding-bottom: 5px
+  max-width: 100vw
   .logowraper
     position: relative
 
@@ -20,6 +21,12 @@ nav.navbar.navbar-default
       top: 0
       left: 0
   .navbar-header,.navbar-nav
+    .navbar-toggle
+      border: none
+      .icon-bar
+        height: 3px
+        background-color: #fff
+        margin: 4px
     a
       color: $colorBlue
       transition: 0.5s
@@ -52,6 +59,7 @@ nav.navbar.navbar-default
 
 .route_,.route_about
   nav.navbar.navbar-default
+
     &.at_top
       background-color: transparent
       padding-top: 15px
@@ -62,7 +70,6 @@ nav.navbar.navbar-default
         margin-top: -10px
         &.black
           opacity: 0
-
       .navbar-header,.navbar-nav
         a
           color: white
@@ -74,6 +81,8 @@ nav.navbar.navbar-default
   
         .dropdown-menu li a
           color: $colorBlue
+      .navbar-nav
+        background-color: $colorBlue
 
 [class^="route_event"]
   nav.navbar.navbar-default

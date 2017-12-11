@@ -9,6 +9,7 @@
     align-items: center
     padding-bottom: 50px
     overflow: hidden
+    position: relative
     z-index: 10
     .mountain
       position: absolute
@@ -22,6 +23,9 @@
       bottom: -100px
       // transform: translate(-50%,-50%)
       // opacity: 0.5
+      +rwd_sm
+        width: 120%
+        bottom: 0px
 
     .bgVideo
       position: absolute
@@ -59,6 +63,8 @@
     background: linear-gradient(104deg, #f4556f, #e8366b 87%, #e6336a 98%, #e6326a)
     padding-bottom: 0
     padding-top: 200px
+    +rwd_sm
+      padding-bottom: 30px
 
     .whiteCircle
       +size(150px)
@@ -79,6 +85,9 @@
         padding: 5px 10px
         display: inline-block
         margin-bottom: 20px
+    // img
+      // +rwd_sm
+        // width: 30%
 
   .sectionLen
     // padding-top: 0px
@@ -91,6 +100,13 @@
       height: 700px
 
       clip-path: polygon(15% 100%, 100% 100%, 85% 0%, 0% 0%)
+
+      +rwd_sm
+        margin-top: 30px
+    .block,img
+      +rwd_sm
+        height: 300px
+
 
   section.sectionPlatform
     padding-bottom: 300px
@@ -108,6 +124,10 @@
       cursor: pointer
       text-align: center
       position: relative
+      &.scale
+        position: relative
+        z-index: 1
+
       &:before
         content: ""
         display: block
@@ -180,9 +200,7 @@
         border: none
         right: 100px
         top: 550px
-
-
-
+        
   section.sectionPhoto
     margin-left: 80px
     margin-top: -150px
@@ -190,9 +208,15 @@
     padding-bottom: 20px
     background-color: $colorBgRed
 
+    +rwd_sm
+      margin-left: inherit
+      padding-top: 0
+
     .container-fluid
       padding-left: 50px
-    
+      +rwd_sm
+        padding-left: 15px
+        padding-right: 15px
     a.img
       width: 100%
       // display: block
@@ -243,6 +267,11 @@
         // width: auto
         height: calc( 100% + 10px)
         float: right
+        +rwd_sm
+          float: none
+          height: 200px
+          margin: 15px
+          width: calc( 100% - 30px)
       &.small
         width: calc( 100% - 30px)
         margin: 15px
@@ -250,12 +279,21 @@
         margin-left: -10px
         &:first-child
           margin-top: 0
+        +rwd_sm
+          height: 200px
+          margin-left: auto
+
 
     .rowPhoto
       transform: translateX(-140px)
       height: 800px
       .col-sm-8
         height: 100%
+        +rwd_sm
+          height: auto
+      +rwd_sm
+        transform: translateX(0px)
+        height: auto
     h4
       text-align: right
       opacity: 0.4
@@ -264,6 +302,8 @@
       font-weight: 900
       text-align: right
       font-style: italic
+      +rwd_sm
+        font-size: 50px
 
   section.sectionFeatureEvent
 

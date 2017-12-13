@@ -54,7 +54,10 @@
               router-link.headshot(
                 :style="cssbg(speaker.headshot)",
                 :to="`/speaker/n/${speaker.name}`")
-              h4.place ​{{speaker.company}},  {{speaker.position}}
+              h4.place 
+                span(v-if="speaker.company") ​{{speaker.company}}
+                span(v-if="speaker.company && speaker.position") ,  
+                span(v-if="speaker.position") {{speaker.position}}
               h3.name {{speaker.name}}
             
   section.sectionPhotos.white(v-if="event.photo && event.photo.length")

@@ -3,10 +3,12 @@
   section.sectionHero.blue
     .container
       .row
-        .col-sm-12
+        .col-sm-8
           h1 Events
           h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
           hr
+        .col-sm-4
+          img(src="/img/stars.svg")
   section.sectionSpot.blue(v-if="spotEvent")
     .container
       router-link.row.row-event(:to="getEventRoute(spotEvent,{link: true})")

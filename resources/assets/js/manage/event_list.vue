@@ -19,9 +19,10 @@ div.manage_event_list
                   .col-sm-2
                     img(:src="event.cover", style="width: 100%")
                   .col-sm-10
-                    h4 {{eid+1}} | {{event.title}}
+                    h4 {{ getDurationText(event.start_datetime,event.end_datetime) }}
+                      span &nbsp;&nbsp;/&nbsp;&nbsp;{{event.type}}
+                    h3 {{event.title}}
                       router-link.btn.btn-primary.pull-right(:to="'/manage/event/'+event.id") Edit
-                    p.disabled {{event.start_datetime}} - {{event.end_datetime}}
               li.list-group-item
                 router-link.btn.btn-default(to="/manage/event/new") + Add New Event
 
@@ -31,10 +32,10 @@ div.manage_event_list
 
 <script>
 import Axios from 'axios'
+import {mapState} from 'vuex'
 export default {
   data() {
     return {
-      events: [],
       speakers: [],
       posts: [],
       keyword: ""
@@ -44,9 +45,7 @@ export default {
   components:{
   },
   mounted(){
-    Axios.get("/api/event").then((res)=>{
-      this.events = res.data
-    })
+    
     Axios.get("/api/speaker").then((res)=>{
       this.speakers = res.data
     })
@@ -56,6 +55,7 @@ export default {
     
   },
   computed:{
+    ...mapState(['events']),
     sortedSpeaker(){
        return this.speakers
         .slice()

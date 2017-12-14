@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="557px" height="462px" viewBox="0 0 557 462" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Stars</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Event-List-Page-UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-834.000000, -140.000000)">
+        <g id="Stars" transform="translate(834.000000, 140.000000)">
+            <circle id="Oval-2" fill="#EF476D" fill-rule="evenodd" opacity="0.200000003" cx="277" cy="267" r="127"></circle>
+            <circle id="Oval-2" fill="#EF476D" fill-rule="evenodd" cx="277" cy="267" r="94"></circle>
+            <circle id="Oval-2" stroke="#FFFFFF" stroke-width="1" opacity="0.200000003" cx="277.5" cy="267.5" r="193.5"></circle>
+            <circle id="Oval-2-Copy-2" fill="#EF476D" fill-rule="evenodd" cx="106" cy="22" r="22"></circle>
+            <circle id="Oval-2-Copy-3" fill="#EF476D" fill-rule="evenodd" cx="518.5" cy="186.5" r="32.5"></circle>
+            <circle id="Oval-2-Copy-3" fill="#FFFFFF" fill-rule="evenodd" cx="551" cy="128" r="6"></circle>
+            <circle id="Oval-2-Copy-5" fill="#FFFFFF" fill-rule="evenodd" opacity="0.200000003" cx="513" cy="250" r="6"></circle>
+            <circle id="Oval-2-Copy-4" fill="#EF476D" fill-rule="evenodd" cx="32.5" cy="423.5" r="32.5"></circle>
+        </g>
+    </g>
+</svg>

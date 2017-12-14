@@ -4,6 +4,11 @@
     padding-bottom: 150px
     h3
       color: $colorRed
+    img
+      width: 150%
+      max-width: 600px
+      margin-bottom: -400px  
+  
 
   section.sectionSpot
     .row
@@ -27,6 +32,11 @@
         right: 0
         // transform: translateX(-10vw)
         //left: -50vw
+      +rwd_sm
+        .cover
+          position: relative
+          min-height: 300px
+          width: 100%
 
       h4
         margin-top: -60px

@@ -5,7 +5,7 @@
     //video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
     .container
       .row
-        .col-sm-12
+        .col-sm-8
           h1 Speaker
           h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
           hr
@@ -13,7 +13,8 @@
 
         img.logo.line(src="/img/logoSymbolLine.svg")
         //img.logo(src="/img/logoSymbolShadow.svg",:style="{transform: `translate(0,${parseInt(scrollTop/8)}px`}")
-        
+        .col-sm-4
+          img.coverPhoto(src="/img/SpeakerPageCover.png")
   section.sectionDescription.white
     .container
       .row

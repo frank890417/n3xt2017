@@ -33,7 +33,7 @@ class ProgramController extends Controller
         $inputs = Input::all();
         $program = Program::create($inputs);
         
-        $program = Program::find($program->id);
+        // $program = Program::find($program->id);
         return $program;
     }
 }

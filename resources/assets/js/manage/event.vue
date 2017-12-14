@@ -361,7 +361,7 @@ export default {
     },
     newProgram(){
       
-      Axios.post("/api/program/",{
+      Axios.post("/api/program",{
         _method: "POST",
         event_id: this.$route.params.id,
         title: "",

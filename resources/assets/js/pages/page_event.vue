@@ -24,14 +24,14 @@
           p Starting any journey with the end in mind makes perfect sense. For more detail please check below.
           .btn.white.ghost More Detail
         .col-sm-8
-          ul.timeline
-            .datetag Sep.7
-            li(v-for="(p,pid) in event.program")
+          ul.timeline(v-for="(programs,programdate) in programChunk")
+            .datetag {{ getDateText(programdate) }}
+            li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime+ " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime+" ").split(' ')[1].slice(0,5)}}
-              .content( @click="toggle('#des'+pid)")
+              .content( @click="toggle('#des'+pid+programdate)")
                 h4 {{p.title}}
                   span(v-if="p.description")   ▾
-                p(v-html="p.description",:id="'des'+pid")
+                p(v-html="p.description",:id="'des'+pid+programdate")
           //ul.timeline
             .datetag Sep.8
             li(v-for="i in 2")
@@ -155,6 +155,7 @@
 <script>
 import slideIn from '../components/slideIn'
 import section_footer from '../components/section_footer'
+import _ from 'lodash'
 import {mapState} from 'vuex'
 
 export default {
@@ -231,6 +232,10 @@ export default {
 
       return str.match(regex)[1]
 
+    },
+    programChunk(){
+      let result = _.groupBy(this.event.program,(program)=>program.start_datetime.split(" ")[0])
+      return result
     }
   }
 }

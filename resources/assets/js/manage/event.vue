@@ -389,7 +389,7 @@ export default {
     ...mapState(['speakers']),
     nowProgram(){
       return this.event.program[this.nowProgramId]
-    }
+    },
   },
   watch: {
     // "event.start_datetime": function(){

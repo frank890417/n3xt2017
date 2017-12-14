@@ -95,7 +95,7 @@
             p ​{{ jobs[now_job_id].content }}
             .btn.red Apply
 
-  section.sectionSponsor.blue
+  //section.sectionSponsor.blue
     .container
       .row
         .col-sm-12

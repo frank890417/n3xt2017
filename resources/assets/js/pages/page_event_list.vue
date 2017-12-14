@@ -29,7 +29,7 @@
           .bars
             slideIn.left.bar
               img(src="http://n3xt2017.dev/img/s2_people.png")
-              h3 Event
+              h3 Conference
             slideIn.left.bar
               h3 Talks &amp; Networks
             slideIn.left.bar
@@ -50,9 +50,15 @@
           hr  
           //- p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
           //- .btn.red Explore!
+        .col-sm-12
+          .btn.outline.white( v-for="cata in catalist",
+                              @click="switchCata(cata)", 
+                              :class="{active: nowCata==cata.value}") {{cata.label}}
+          p {{catas}}
+
       .row
         slideIn.top.col-sm-12
-          router-link.row.row-event(:to="getEventRoute(event,{link: true})" v-for="event in events")
+          router-link.row.row-event(:to="getEventRoute(event,{link: true})" v-for="event in filteredEvents")
             
             slideIn.right.col-sm-6.col-cover.visible-xs(:style="`background-image: url(${event.cover})`")
               //img.cover(:src="event.cover", style='width: 100%')
@@ -74,6 +80,25 @@
 <script>
 import {mapState} from 'vuex'
 export default {
+  data(){
+    return {
+      nowCata: "",
+      catalist: [
+        {
+          label: "Conference",
+          value: "conference"
+        },
+        {
+          label: "Talks & Networks",
+          value: "talksnetworking"
+        },
+        {
+          label: "Mentorship",
+          value: "mentorship"
+        }
+      ]
+    }    
+  },
   metaInfo: {
     title: 'Events', // set a title
     titleTemplate: require("../data/common").default.titleTemplate
@@ -85,10 +110,22 @@ export default {
     ...mapState(['events']),
     spotEvent(){
       return this.events[0]
+    },
+    catas(){
+      console.log(this.events.map(o=>o.type))
+    },
+    filteredEvents(){
+      return this.events.filter(o=>o.type==this.nowCata || this.nowCata=="")
     }
   },
   methods: {
-    
+    switchCata(cata){
+      if (this.nowCata==cata.value){
+        this.nowCata=""
+      }else{
+        this.nowCata=cata.value
+      }
+    }
   }
 }
 </script>

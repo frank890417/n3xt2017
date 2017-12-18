@@ -24,7 +24,7 @@ Vue.use(VueRx, Rx)
 
 import VueAnalytics from 'vue-analytics'
 
-if (document.domain != "zashare2017.dev") {
+if (document.domain != "n3xt2017.test") {
     Vue.use(VueAnalytics, {
         id: 'UA-52977512-23',
         router

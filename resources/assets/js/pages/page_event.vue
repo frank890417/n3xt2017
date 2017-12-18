@@ -120,7 +120,7 @@
         .col-sm-5
           h2 Registration
           hr
-          p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership. .col-sm-7
+          p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership.
           router-link.btn.blue(to="/about") Contact us
         .col-sm-7
           iframe(:src="`https://www.eventbrite.com/tickets-external?eid=${ eventbriteId }&ref=etckt`")

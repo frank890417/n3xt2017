@@ -60,7 +60,7 @@
               .number 10+
         .col-sm-4.colPic(:style="picParallax")
 
-          img(src="http://n3xt2017.dev/img/s2_people.png")
+          img(src="/img/s2_people.png")
 
   section.sectionTeam.blue
     .container

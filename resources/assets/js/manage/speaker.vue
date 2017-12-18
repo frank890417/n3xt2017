@@ -59,6 +59,12 @@
                   default_pic_selector(@select_pic="select_pic_headshot")
                 br
                 br
+              .form-group
+                labal.col-sm-3 Year
+                .col-sm-9
+                  input.form-control(v-model="speaker.year")
+                br
+                br
         .col-sm-8
           .panel.panel-default
             .panel-heading Detail
@@ -78,9 +84,33 @@
                   br
                   br
               .form-group
-                labal.col-sm-3 QA
+                labal.col-sm-3 Program book Bio
                 .col-sm-9
-                  VueEditor.ve(:id ="'qa'", v-model="speaker.qa" ,
+                  VueEditor.ve(:id ="'programbook_bio'", v-model="speaker.programbook_bio" ,
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
+                  br
+                  br
+              .form-group
+                labal.col-sm-3 [QA] 3 words to describe
+                .col-sm-9
+                  VueEditor.ve(:id ="'qa'", v-model="speaker.q_3word" ,
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
+                  br
+                  br
+              .form-group
+                labal.col-sm-3 [QA] job description in one sentence
+                .col-sm-9
+                  VueEditor.ve(:id ="'qa'", v-model="speaker.q_job" ,
+                    :useCustomImageHandler="true",
+                    @imageAdded="handleImageAdded" )
+                  br
+                  br
+              .form-group
+                labal.col-sm-3 [QA] suggesstion for entering
+                .col-sm-9
+                  VueEditor.ve(:id ="'qa'", v-model="speaker.q_suggestion" ,
                     :useCustomImageHandler="true",
                     @imageAdded="handleImageAdded" )
                   br

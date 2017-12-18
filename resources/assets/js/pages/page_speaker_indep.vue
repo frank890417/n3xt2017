@@ -25,6 +25,10 @@
               h3 {{speaker.position}} , {{speaker.company}}
               hr
               p(v-html="getHtml(speaker.bio)")
+  section
+    .container
+      router-link(to="/speaker").theme.blue
+        h3 < More Speakers
   section_footer
 </template>
 

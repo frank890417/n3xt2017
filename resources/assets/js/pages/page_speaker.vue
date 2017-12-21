@@ -21,9 +21,9 @@
         .col-sm-11.colContent
           .row
             .col-sm-9
-              h2 Title for Speakers of recent events 
+              h2 Speaker Lineup
               hr
-              p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 
+              p ​n3xtcon is dedicated to creating a platform for entrepreneurs and business professionals to share industry insights and connect with each other. Come meet our prestigious speakers from a variety industry and expand your network.
             .col-sm-3
               h1 200+<br>Speakers
   //section.sectionSpeakers
@@ -92,7 +92,7 @@
       .col-sm-6
         .redBlock
           .hand
-          h2 Some Title<br>or Slogan<br>Unleash the Future.
+          h2 The ones who are crazy enough to think that they can change the world, are the ones who do. --Steve Jobs
     .row
       router-link.col-sm-3(v-for="speaker in speakers.slice(6)",
         :to="'/speaker/n/'+speaker.name")

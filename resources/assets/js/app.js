@@ -130,8 +130,8 @@ Vue.mixin({
         getDateText(datetime){
             let time = new Date(datetime)
             var eng_tag = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-            var eng_month = eng_tag[ time.getMonth() -1 ]
-            return eng_month + ". " + time.getDay()
+            var eng_month = eng_tag[ time.getMonth() ]
+            return eng_month + ". " + time.getDate()
         },
         getDurationText(start_datetime, end_datetime) {
             let st = this.getDateText(start_datetime)

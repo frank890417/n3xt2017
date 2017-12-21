@@ -47,26 +47,29 @@ const routes = [
 ]
 const router = new VueRouter({
   routes,
-  mode: "history"
+  mode: "history",
+  saveScrollPosition: true,
 })
 
 import store from '../store'
-
+var lastY = null
+var lastPath = null
 router.beforeEach((to, from, next) => {
   
   setTimeout(() => {
     window.scrollTo(0, 0)
-  }, 400);
+  }, 300);
   // $("html,body").animate({ scrollTop: 0 });
   next()
+  lastPath = from.path
 })
 
 router.afterEach(() => {
   //for scroll observable to generate new value for created components
-  setTimeout(() => {
-    window.scrollTo(0, 1)
-    window.scrollTo(0, 0)
-  }, 1000)
+  // setTimeout(() => {
+  //   window.scrollTo(0, 1)
+  //   window.scrollTo(0, 0)
+  // }, 1000)
 })
 
 export default router

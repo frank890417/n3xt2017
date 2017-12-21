@@ -28,7 +28,7 @@
     .container
       .row
         slideIn.col-sm-6
-          img(src="https://lh3.googleusercontent.com/J97buJ0AuD6ZdTxg7EDG9k6pPkbFuXvuDpLb0ITWpcUCspIPrHkx5l2YNSFR_iwebAF23wP8-0acxTh-BK973FetsaBZ5F5UJmcZoL1Fg8WMsAZRmo0MFAOMNvvAUoSTXG2pWqmmnT0u9gz2Q9Zjy10b3muiTFNPYDaaLBFdaAsoBgolk6p6bZFpDAl31amXEvmq_rhV-2OfYnZKMBrsCQRqnmotuS7j95ipyBRHStYIBB0QJYMLpTo3n2Uzf31mkczMqj5GmywOAHgpQ-aVOVVfIyCLPpoIhb_5hchoYVNXM4GXYnBja8_bGUWVMX8479nIbORjIJZGtBBNFc8hCJffToH73EOwuhJ127nJHXYaTKfFbFCeL_d-GGo53DOZzaakk8ZXRl8-7sQJwpCQnjjUaqt1XZ44H5IDwBDBGOkbmcO4gF2M2ydRAeOVjgk2NmifrEXPK8v_G7m9RK-_Mm3jaGqRbmISa7UsZkFiLakmY9XaklFmFezF2UnFOhnpOoaCFGgzA9YVP4RApZTqoShT8Xxft_VIk8CwM-Queg5aewLxocP1PYCzGM1GVujRzApdchOTA7IdMcTKLI5PppxEb5LG-Wtfydl6tyuHW593SC5JuBx8D-DQK6g2SsE2qp_WLbbe_Pr-yY-8Y5ANYN0BvOdKT-wbjE8=w1442-h961-no" style="width: calc(100% - 50px)")
+          img(src="http://n3xt2017.test/Img/sitephoto/Pic03.jpg" style="width: calc(100% - 50px)")
           
         .col-sm-6
           slideIn

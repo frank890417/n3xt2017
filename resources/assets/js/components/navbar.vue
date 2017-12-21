@@ -34,7 +34,7 @@
                 <li @click="toggleNav"><router-link to="/event">Events</router-link></li>
                 <li @click="toggleNav"><router-link to="/speaker">Speakers</router-link></li>
                 <li @click="toggleNav"><router-link to="/blog">Blog</router-link></li>
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         <span class="caret"></span>
                     </a>
@@ -51,11 +51,11 @@
                             </a>
 
                             <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                                <!-- {{ csrf_field() }} -->
+                               
                             </form>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

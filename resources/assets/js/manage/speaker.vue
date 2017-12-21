@@ -94,7 +94,7 @@
               .form-group
                 labal.col-sm-3 [QA] 3 words to describe
                 .col-sm-9
-                  VueEditor.ve(:id ="'qa'", v-model="speaker.q_3word" ,
+                  VueEditor.ve(id ="qa_1", v-model="speaker.q_3word" ,
                     :useCustomImageHandler="true",
                     @imageAdded="handleImageAdded" )
                   br
@@ -102,7 +102,7 @@
               .form-group
                 labal.col-sm-3 [QA] job description in one sentence
                 .col-sm-9
-                  VueEditor.ve(:id ="'qa'", v-model="speaker.q_job" ,
+                  VueEditor.ve(id ="qa_2", v-model="speaker.q_job" ,
                     :useCustomImageHandler="true",
                     @imageAdded="handleImageAdded" )
                   br
@@ -110,7 +110,7 @@
               .form-group
                 labal.col-sm-3 [QA] suggesstion for entering
                 .col-sm-9
-                  VueEditor.ve(:id ="'qa'", v-model="speaker.q_suggestion" ,
+                  VueEditor.ve(id ="qa_3", v-model="speaker.q_suggestion" ,
                     :useCustomImageHandler="true",
                     @imageAdded="handleImageAdded" )
                   br

@@ -29,12 +29,12 @@
       .row
         .col-sm-6.col-bar
           .bars
-            slideIn.left.bar
-              img(src="http://n3xt2017.dev/img/s2_people.png")
+            slideIn.left.bar(@click="nowCata='conference'")
+              img(src="/img/s2_people.png")
               h3 Conference
-            slideIn.left.bar
+            slideIn.left.bar(@click="nowCata='talksnetworking'")
               h3 Talks &amp; Networks
-            slideIn.left.bar
+            slideIn.left.bar(@click="nowCata='mentorship'")
               h3 Mentorship
         slideIn.col-sm-6
           h3.eng People working with us

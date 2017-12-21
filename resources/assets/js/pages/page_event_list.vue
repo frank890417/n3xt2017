@@ -7,8 +7,9 @@
           h1 Events
           h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
           hr
-        .col-sm-4
-          img(src="/img/stars.svg")
+        .col-sm-4#container_star
+          //img(src="/img/stars.svg")
+          
   section.sectionSpot.blue(v-if="spotEvent")
     .container
       router-link.row.row-event(:to="getEventRoute(spotEvent,{link: true})")
@@ -81,6 +82,8 @@
 
 <script>
 import {mapState} from 'vuex'
+var PIXI = require('pixi.js');
+
 export default {
   data(){
     return {
@@ -106,9 +109,92 @@ export default {
     titleTemplate: require("../data/common").default.titleTemplate
   },
   mounted(){
+    var starAnimation = new PIXI.Application(800,800,{backgroundColor: 0x0A1744, antialias: true })
+    document.getElementById("container_star").appendChild(starAnimation.view);
+    var star1 = new PIXI.Graphics();
+    let cx=starAnimation.renderer.width/2;
+    let cy=starAnimation.renderer.height/2;
+
+    star1.beginFill(0xEF476D);
+    star1.drawCircle(cx,cy,100)
+    star1.endFill();
+
+    star1.beginFill(0xEF476D,0.6);
+    star1.drawCircle(cx,cy,150)
+    star1.endFill();
+
+    star1.lineStyle(1, 0xFFFFFF, 0.4);
+    star1.beginFill(0xFFFFFF, 0);
+    star1.drawCircle(cx,cy,240);
+    star1.endFill();
+
+    star1.lineStyle(1, 0xFFFFFF, 0.1);
+    star1.beginFill(0xFFFFFF, 0);
+    star1.drawCircle(cx,cy,400);
+    star1.endFill();
+
+
+    var star2 = new PIXI.Graphics()
+    star2.beginFill(0xEF476D);
+    star2.drawCircle(0,0,40);
+    star2.endFill()
     
-  },
-  computed:{
+    starAnimation.ticker.add(function(){
+      star2.x=cx+350*Math.cos(starAnimation.ticker.lastTime/5000)
+      star2.y=cy+350*Math.sin(starAnimation.ticker.lastTime/5000)
+    })
+
+
+    var star3 = new PIXI.Graphics()
+    star3.beginFill(0xEF476D);
+    star3.drawCircle(0,0,30);
+    star3.endFill()
+    
+    starAnimation.ticker.add(function(){
+      star3.x=cx+330*Math.cos(starAnimation.ticker.lastTime/8000 + Math.PI*0.7)
+      star3.y=cy+330*Math.sin(starAnimation.ticker.lastTime/8000+ Math.PI*0.7)
+    })
+
+
+
+    var star4 = new PIXI.Graphics()
+    star4.beginFill(0xEF476D);
+    star4.drawCircle(0,0,35);
+    star4.endFill()
+    
+    starAnimation.ticker.add(function(){
+      star4.x=cx+300*Math.cos(starAnimation.ticker.lastTime/6000+ Math.PI*1.4)
+      star4.y=cy+300*Math.sin(starAnimation.ticker.lastTime/6000+ Math.PI*1.4)
+    })
+
+    var star5 = new PIXI.Graphics()
+    star5.beginFill(0xffffff);
+    star5.drawCircle(0,0,5);
+    star5.endFill()
+    
+    starAnimation.ticker.add(function(){
+      star5.x=star4.x+100*Math.cos(starAnimation.ticker.lastTime/4000)
+      star5.y=star4.y+100*Math.sin(starAnimation.ticker.lastTime/4000)
+    })
+
+     var star6 = new PIXI.Graphics()
+    star6.beginFill(0xffffff,0.6);
+    star6.drawCircle(0,0,7);
+    star6.endFill()
+    
+    starAnimation.ticker.add(function(){
+      star6.x=star4.x+100*Math.cos(starAnimation.ticker.lastTime/4000+ Math.PI*0.9)
+      star6.y=star4.y+100*Math.sin(starAnimation.ticker.lastTime/4000+ Math.PI*0.9)
+    })
+
+    starAnimation.stage.addChild(star1);
+    starAnimation.stage.addChild(star2);
+    starAnimation.stage.addChild(star3);
+    starAnimation.stage.addChild(star4);
+    starAnimation.stage.addChild(star5);
+    starAnimation.stage.addChild(star6);
+
+  },computed:{
     ...mapState(['events']),
     spotEvent(){
       return this.events[0]
@@ -132,5 +218,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+  
 </style>

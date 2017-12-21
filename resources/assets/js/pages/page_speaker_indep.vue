@@ -1,14 +1,16 @@
 <template lang="pug">
-.page.pageSpeaker
+.page.pageSpeakerIndep
   section.sectionHero.blue
     //img.mountain(src="/img/mountain.svg", :style="{transform: `translateY(${scrollTop/10}px)`}")
     //video.bgVideo(src="http://taipeisoundscape.com/video/indexbgv_lower.mp4" autoplay muted loop)
     .container
       .row
         .col-sm-12
-          h1 Speaker
-          h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
-          hr
+          router-link(to="/speaker").theme.blue
+            h3 < Back
+          //h1 Speaker
+          //h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
+          //hr
           h5 
 
         //img.logo.line(src="/img/logoSymbolLine.svg")
@@ -27,8 +29,7 @@
               p(v-html="getHtml(speaker.bio)")
   section
     .container
-      router-link(to="/speaker").theme.blue
-        h3 < More Speakers
+      
   section_footer
 </template>
 

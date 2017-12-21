@@ -1,3 +1,41 @@
+.page.pageSpeakerIndep
+
+  section.sectionHero
+    padding-top: 150px
+    padding-bottom: 0px
+    a
+      // @extend .theme.white
+      // background-color: $colorBgRed
+      display: block
+      // margin-bottom: -30px
+      // padding-bottom: 50px
+
+  section.sectionDescription
+
+    background-color: transparent
+    padding-top: 0
+    padding-bottom: 0
+    h1
+      font-size: 50px
+    .colContent
+      padding-top: 50px
+      padding-bottom: 50px
+      padding-right: 50px
+      background-color: white
+      position: relative
+      z-index: 1
+      +bxshadow
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: white
+        right: 100%
+        top: 0
+        z-index: 2
+
+
 .page.pageSpeaker
   .sectionHero
     padding-top: 200px

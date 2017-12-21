@@ -28,7 +28,7 @@
     .container
       .row
         slideIn.col-sm-6
-          img(src="http://n3xt2017.test/Img/sitephoto/Pic03.jpg" style="width: calc(100% - 50px)")
+          img(src="/img/sitephoto/Pic03.jpg" style="width: calc(100% - 50px)")
           
         .col-sm-6
           slideIn
@@ -157,9 +157,9 @@ export default {
       picTop: -1,
       jobs: [
         {
-          title: "Position Name 1",
+          title: "Social Media Intern",
           description: "A sectence to describe about",
-          content: "1futher contents ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders"
+          content: "n3xtcon, SOCAL’s fast growing multi-discipline platform for entrepreneurs, is in search of a Social Media Intern to join our talented marketing team. Reporting to the Head of Marketing, interns will be responsible for coordinating and executing the company’s social media strategy, working across key social media channels including Facebook, Twitter, Instagram and LinkedIn. Responsibilities include content development, daily monitoring & engaging, as well as audience growth. This role will be instrumental in increasing our social media presence and gaining visibility for our brand among target audience."
         },
         {
           title: "Position Name 2",

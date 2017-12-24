@@ -19,6 +19,10 @@ import Vue from 'vue'
 import VueRx from 'vue-rx'
 import Rx from 'rxjs/Rx'
 
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
+Vue.use(ElementUI, { locale })
+// Vue.use(ElementUI)
 
 Vue.use(VueRx, Rx)
 

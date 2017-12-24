@@ -21,7 +21,7 @@
         .col-sm-4
           .panel.panel-primary
             .panel-heading Basic Infos
-            .panel-body
+            el-form.panel-body()
               .form-group
                 labal.col-sm-3 Type
                 .col-sm-9
@@ -62,21 +62,24 @@
                 br
                 br
               .form-group
-                labal.col-sm-3 StartTime
+                labal.col-sm-3 Start Time
                 .col-sm-9
-                  datePicker(v-model="event.start_datetime", name="event_start_time", :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")
-                  //- input.form-control(v-model="event.start_datetime", placeholder="yyyy/mm/dd hh:mm:ss")
-                br
-                br
+                  el-form-item
+                    el-date-picker(
+                      v-model="event.start_datetime",
+                      type="datetime",
+                      placeholder="start time",
+                      value-format="yyyy-MM-dd HH:mm:ss")
+
               .form-group
-                labal.col-sm-3 EndTime
-                
+                labal.col-sm-3 End Time
                 .col-sm-9
-                  datePicker(v-model="event.end_datetime", name="event_end_time", :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")
-                  button.btn.btn-default(@click="event.end_datetime=event.start_datetime") Copy start date
-                br
-                br
-                br
+                  el-form-item
+                    el-date-picker(
+                      v-model="event.end_datetime",
+                      type="datetime",
+                      placeholder="end time",
+                      value-format="yyyy-MM-dd HH:mm:ss")
               .form-group
                 labal.col-sm-3 Cover
                 .col-sm-9
@@ -200,25 +203,21 @@
                     :useCustomImageHandler="true",
                     @imageAdded="handleImageAdded" )                          
                       .row.form-group
-                        .col-sm-6
+                        el-form.col-sm-6(label-width="120px")
                           .row
-                            .col-sm-3
-                              h5 Start datetime
-                            .col-sm-9
-                              datePicker(
-                                v-model="program.start_datetime", 
-                                name="program_start_time", 
-                                :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")                                    
-                        .col-sm-6
+                            el-form-item(label="Start datetime")
+                              el-date-picker(
+                                v-model="program.start_datetime",
+                                type="datetime",
+                                placeholder="start time",
+                                value-format="yyyy-MM-dd HH:mm:ss")
                           .row
-                            .col-sm-3
-                              h5 End datetime
-                            .col-sm-9
-                              datePicker(
-                                v-model="program.end_datetime", 
-                                name="program_end_time", 
-                                :config="{format: 'YYYY-MM-DD HH:mm:ss',useCurrent: true}")    
-                      
+                            el-form-item(label="End datetime")
+                              el-date-picker(
+                                v-model="program.end_datetime",
+                                type="datetime",
+                                placeholder="end time",
+                                value-format="yyyy-MM-dd HH:mm:ss")
                       hr
                       br
               .form-group
@@ -406,5 +405,7 @@ export default {
 </script>
 
 <style>
-
+label{
+  text-align: right
+}
 </style>

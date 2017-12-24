@@ -160,8 +160,9 @@ Vue.mixin({
             }
         },
         cssbg(url) {
+            let use_url = (url && url != '') ? url : '/img/default.jpg'
             let result = {
-                'background-image': `url("${url}")`
+                'background-image': `url("${ use_url } ")`
             }
             // console.log(result)
             return result

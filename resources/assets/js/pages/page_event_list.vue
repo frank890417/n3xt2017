@@ -14,7 +14,7 @@
     .container
       router-link.row.row-event(:to="getEventRoute(spotEvent,{link: true})")
         .col-sm-6.col-cover
-          .cover(:style="`background-image: url(${spotEvent.cover})`")
+          .cover(:style="cssbg(spotEvent.cover)")
           h4 Spotlight Event 
             span.month {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}            
 
@@ -63,7 +63,7 @@
         slideIn.top.col-sm-12
           router-link.row.row-event(:to="getEventRoute(event,{link: true})" v-for="event in filteredEvents")
             
-            slideIn.right.col-sm-6.col-cover.visible-xs(:style="`background-image: url(${event.cover})`")
+            slideIn.right.col-sm-6.col-cover.visible-xs(:style="cssbg(event.cover)")
               //img.cover(:src="event.cover", style='width: 100%')
             slideIn.col-sm-6.col-info.theme.white
               h3.eng {{ getTitleSplit (event.title).series }}
@@ -73,7 +73,7 @@
               p ​{{event.description.replace(/\<.*?\>/g,'').slice(0,200)}}
               .btn.red RSVP Now
 
-            slideIn.right.col-sm-6.col-cover.hidden-xs(:style="`background-image: url(${event.cover})`")
+            slideIn.right.col-sm-6.col-cover.hidden-xs(:style="cssbg(event.cover)")
               //img.cover(:src="event.cover", style='width: 100%')
 
 

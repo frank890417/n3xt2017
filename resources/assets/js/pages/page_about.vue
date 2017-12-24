@@ -48,16 +48,16 @@
           ul.numbers.row
             li.col-sm-3.col-xs-6
               .title Attendees
-              .number 500+
+              .number 2000+
             li.col-sm-3.col-xs-6
               .title Speakers
-              .number 40+
+              .number 100+
             li.col-sm-3.col-xs-6
               .title Sessions
-              .number 20+
+              .number 50+
             li.col-sm-3.col-xs-6
               .title Pitch Teams
-              .number 10+
+              .number 20+
         .col-sm-4.colPic(:style="picParallax")
 
           img(src="/img/s2_people.png")
@@ -89,7 +89,7 @@
           ul.positionList
             li(v-for = "(job,job_id) in jobs", @click="now_job_id = job_id", @mouseenter="now_job_id = job_id")
               h3 {{job.title}}
-              h4 {{job.description}}
+              //- h4 {{job.description}}
         .col-sm-8
           .panel.white
             p ​{{ jobs[now_job_id].content }}

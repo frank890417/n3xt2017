@@ -17,16 +17,16 @@
             ul.numbers
               li 
                 .title Attendees
-                .number {{ incNumber(500) }}+
+                .number {{ incNumber(2000) }}+
               li 
                 .title Speakers
-                .number {{ incNumber(40) }}+
+                .number {{ incNumber(100) }}+
               li 
                 .title Sessions
-                .number {{ incNumber(20) }}+
+                .number {{ incNumber(50) }}+
               li 
                 .title Pitch Teams
-                .number {{ incNumber(10) }}+
+                .number {{ incNumber(20) }}+
   section.sectionCaption.red
     .container
       .row

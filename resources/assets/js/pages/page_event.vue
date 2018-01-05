@@ -102,7 +102,7 @@
               .photoBlock(:style='cssbg(event.album[3].image)')
                 .content
                   h3 {{ event.album[3].caption || "See More" }}
-  section.sectionOranizers.white
+  section.sectionOranizers.white(v-if="event.agencies && event.agencies.length")
     .container
       .row
         .col-sm-5
@@ -111,9 +111,9 @@
           p Industry-trending brands that have worked with n3xt con for positive impact.
         .col-sm-7
           ul.agencies
-            li.logo(v-for="i in 3")
-              a(href="http://vgsa.usc.edu/")
-                img(src="http://vgsa.usc.edu/wp-content/uploads/2016/03/vgsanew-1.png")
+            li.logo(v-for="ag in event.agencies")
+              a(:href="ag.link", :title="ag.name")
+                img(:src="ag.logo")
 
   section.sectionRegist.grey
     .container
@@ -184,11 +184,20 @@ export default {
     axios.get(apiurl).then(res=>{
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
       res.data.album = JSON.parse(res.data.album || "[]")
+      res.data.agencies = JSON.parse(res.data.agencies || "[]")
       this.event=res.data
 
       this.event.speaker.forEach((id,index)=>{
         axios.get("/api/speaker/"+id).then(res2=>{
           Vue.set(this.event.speaker,index,res2.data)
+          
+        })
+      })
+
+
+      this.event.agencies.forEach((id,index)=>{
+        axios.get("/api/agency/"+id).then(res2=>{
+          Vue.set(this.event.agencies,index,res2.data)
           
         })
       })

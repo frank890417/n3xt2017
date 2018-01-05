@@ -93,6 +93,7 @@
           .button-group
             .btn(@click="panel='detail'"  ,:class="{'btn-primary':panel=='detail' }") Detail
             .btn(@click="panel='speaker'" ,:class="{'btn-primary':panel=='speaker' }") Speaker
+            .btn(@click="panel='oganizer'" ,:class="{'btn-primary':panel=='oganizer' }") Organizers
             .btn(@click="panel='program'" ,:class="{'btn-primary':panel=='program' }") Program
             .btn(@click="panel='album'"   ,:class="{'btn-primary':panel=='album' }") Album
             .btn(@click="panel='organizer'"   ,:class="{'btn-primary':panel=='organizer' }") Organizer
@@ -137,6 +138,32 @@
                   VueEditor.ve(:id ="'register_info'", v-model="event.register_info")
                   br
                   br
+          .panel.panel-default(v-if="panel=='oganizer'")
+            .panel-heading Organizers
+            .panel-body
+              .row
+                .col-sm-12
+                  .form-group(style="margin-top: 10px")
+                    .container-fluid
+                      .row(v-for="(agency,sid) in event.agencies")
+                        .col-sm-12.list-group
+                          .list-group-item
+                            .row(v-if="agencies.find(o=>o.id==agency)")
+                              .col-sm-2
+                                img(:src="agencies.find(o=>o.id==agency).logo", style="width: 100%")
+                              .col-sm-10
+                                h4(style="width: 100%") {{sid+1}}. {{agencies.find(o=>o.id==agency).name}}
+                                  .btn.btn-danger.pull-right(@click="event.agencies.splice(sid,1)") -
+                  .form-group
+                    .row
+                      .col-sm-12
+                        .col-sm-6
+                          input.form-control( list = "agencies", v-model="temp_agency_name")
+                          datalist#agencies( v-if="agencies.length" )
+                            option(v-for="agency in agencies" :value="agency.name") 
+                        .col-sm-6
+                          .btn.btn-primary.pull-right(@click="event.agencies.push(agencies.find(o=>o.name==temp_agency_name).id);temp_agency_name=''") Add
+                  
           .panel.panel-default(v-if="panel=='speaker'")
             .panel-heading Speaker
             .panel-body
@@ -284,12 +311,14 @@ export default {
         place: "",
         tag: [],
         speaker: [],
+        agency: [],
         time_detail: "",
         register_info: "",
         cover: "",
         album: []
       },
       temp_speaker_name: "",
+      temp_agency_name: "",
       activityTypeOptions: [
         {tag:'Conference',value:'conference'},
         {tag:'Talks & Networking',value:'talksnetworking'},
@@ -310,8 +339,17 @@ export default {
   },
   methods: {
     setEvent(event){
-      event.tag = JSON.parse(event.tag)
-      event.speaker = JSON.parse(event.speaker)
+      if (event.tag ){
+        event.tag = JSON.parse(event.tag)
+      }
+      if (event.speaker){
+        event.speaker = JSON.parse(event.speaker)
+      }
+      if (event.agencies){
+        event.agencies = JSON.parse(event.agencies)
+      }else{
+        event.agencies = []
+      }
       if (!event.album){
         event.album=Array.from({length: 4},()=>({image: "",caption: ""}))
       }else{
@@ -386,7 +424,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['speakers']),
+    ...mapState(['speakers','agencies']),
     nowProgram(){
       return this.event.program[this.nowProgramId]
     },

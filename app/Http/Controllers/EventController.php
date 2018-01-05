@@ -46,6 +46,7 @@ class EventController extends Controller
         $inputs['tag'] = json_encode($inputs['tag']);
         $inputs['speaker'] = json_encode($inputs['speaker']);
         $inputs['album'] = json_encode($inputs['album']);
+        $inputs['agencies'] = json_encode($inputs['agencies']);
         $event = Event::find($id);
         $event->update($inputs);
         if ($inputs['program']){
@@ -71,6 +72,7 @@ class EventController extends Controller
         $inputs['tag'] = json_encode($inputs['tag']);
         $inputs['speaker'] = json_encode($inputs['speaker']);
         $inputs['album'] = json_encode($inputs['album']);
+        $inputs['agencies'] = json_encode($inputs['agencies']);
         $event = Event::create($inputs);
         return $event;
     }

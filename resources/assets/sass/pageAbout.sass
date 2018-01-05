@@ -115,10 +115,75 @@
         transform: scaleX(-1)
 
   .sectionTeam
+    .crews
+      padding-top: 0
+      padding-bottom: 0
+      padding-left: 0 
+      padding-right: 0
+      .container-fluid
+        padding-left: 0
+        padding-right: 0
+      [class^="col"]
+        padding: 0
+    
     img
       +rwd_sm
         width: 140%
         margin-top: 30px
+
+    a
+      text-decoration: none
+  
+    .person
+      min-height: 400px
+      background-image: url(http://www.indiewire.com/wp-content/uploads/2016/03/michael-b-jordan.jpg?w=780)
+      background-size: cover
+      background-position: center center
+      +trans
+      display: flex
+      justify-content: flex-end
+      flex-direction: column
+      padding: 20px
+      // padding-top: 0
+      // padding-bottom: 100%
+      position: relative
+      cursor: pointer
+      
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        +size(100%)
+        left: 0
+        top: 0
+        +trans
+      &:hover
+        background-size: cover
+        h3
+          opacity: 0.8
+        h4
+          opacity: 0.8
+        &:before
+          background-color: rgba($colorBlue,0.9)
+      h3,h4
+        position: relative
+        z-index: 1
+      h3
+        color: $colorRed
+        margin: 0
+        font-size: 24px
+        font-family: "Khula"
+        font-weight: 700
+        margin-bottom: -5px
+      h4
+        color: white
+        margin: 0
+        font-size: 16px
+      &.big
+        min-height: 600px
+        flex: 7
+        &:hover
+          flex: 4
 
 
   .sectionOpening

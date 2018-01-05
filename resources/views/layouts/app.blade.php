@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>n3xtcon - Unleash the Future.</title>
+    <!-- <meta name="description" content="SOCAL’s fast growing multi-discipline platform for entrepreneurs"> -->
+    <meta name="description" content="SOCAL’s fast growing multi-discipline platform for entrepreneurs">
 
     <meta property="og:title" content="n3xtcon">
     <meta property="og:type" content="website">

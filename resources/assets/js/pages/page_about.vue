@@ -74,6 +74,21 @@
 
         slideIn.col-sm-6.left
           img(src="/img/grapgicCircle.svg")
+    .container-fluid.crews
+      .row
+        a.col-sm-3(v-for="person in crews",
+          :href="person.link")
+          .person.photoBlock(:style="cssbg(person.headshot)")
+            h3 {{person.name}}
+            h4 
+              span {{person.position}}
+              //- span(v-if="speaker.position && speaker.company")  , 
+              //- span {{speaker.company}}
+              //- a.btn(:href="person.link") More
+        //.content
+          p(v-html="speaker.description?speaker.description: (speaker.bio|| '').slice(0,200)")
+    
+
 
   
   section.sectionOpening.blue
@@ -159,6 +174,7 @@
 <script>
 import {mapState} from 'vuex'
 import data_job from "../data/openning_job.js"
+import data_crew from "../data/crews.js"
 
 export default {
  
@@ -170,7 +186,8 @@ export default {
     return {
       picTop: -1,
       jobs: data_job,
-      now_job_id: 0
+      now_job_id: 0,
+      crews: data_crew
     }
   },
   mounted(){

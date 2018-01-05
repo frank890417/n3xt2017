@@ -1,6 +1,6 @@
 <template lang='jade'>
 .default_pic_selector
-  el-button.btn.btn-default.btn-dropzone(:data-hash="hash") Upload
+  .btn.btn-default.btn-dropzone(:data-hash="hash") Upload
     //.panel(v-show="status.open")
       .panel_body
         div(
@@ -50,17 +50,23 @@ export default {
         });
       }
 
-      gen_dz(`.btn-dropzone[data-hash='${this.hash}']`,function(evt,res){
-          // console.log(res);
-          var imgurl=res;
-          console.log(imgurl);
-          vobj.$emit("select_pic",{url: imgurl})
-          // vobj.$emit("update:output",imgurl)
-          if (vobj.update_obj){
-            console.log(vobj.update_obj)
-            vobj.update_obj.obj[vobj.update_obj.tagkey]=imgurl
-          }
-      });
+      Vue.nextTick(()=>{
+        setTimeout(()=>{
+          gen_dz(`.btn-dropzone[data-hash='${this.hash}']`,function(evt,res){
+              // console.log(res);
+              var imgurl=res;
+              console.log(imgurl);
+              vobj.$emit("select_pic",{url: imgurl})
+              // vobj.$emit("update:output",imgurl)
+              if (vobj.update_obj){
+                console.log(vobj.update_obj)
+                vobj.update_obj.obj[vobj.update_obj.tagkey]=imgurl
+              }
+          });
+        },500)
+
+
+      })
     },
     methods:{
       css_default_block(url){
@@ -99,3 +105,14 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+  .btn{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    /* color: transparent; */
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+</style>

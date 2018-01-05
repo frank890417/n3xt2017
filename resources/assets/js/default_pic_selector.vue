@@ -1,9 +1,7 @@
 <template lang='jade'>
-  div.default_pic_selector
-    .btn-groups
-      //.btn.btn-default(@click="status.open=!status.open") 選擇預設圖庫 {{status.open?'▲':'▼'}}
-      .btn.btn-default.btn-dropzone(:data-hash="hash") Upload Picture
-    .panel(v-show="status.open")
+.default_pic_selector
+  el-button.btn.btn-default.btn-dropzone(:data-hash="hash") Upload
+    //.panel(v-show="status.open")
       .panel_body
         div(
           v-for="pic in default_set.slice(now_index*16,(now_index+1)*16)",

@@ -5,9 +5,10 @@ div.manage_event_list
       .col-sm-12
         h1 Post List Manage
         .btn-group
-          router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Manage Events
-          router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Manage Speakers
-          router-link.btn.btn-default(to="/manage/post" :class="{active: $route.path=='/manage/post'}") Manage Posts
+          router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Events
+          router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Speakers
+          router-link.btn.btn-default(to="/manage/agency" :class="{active: $route.path=='/manage/agency'}") Agencies
+          router-link.btn.btn-default(to="/manage/post" :class="{active: $route.path=='/manage/post'}") Posts
         hr
       .col-sm-12
         .panel.panel-default

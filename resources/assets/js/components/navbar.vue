@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default" :class="{ 'at_top':!scrollTop, 'navbar-fixed-top': fixed }">
+  <nav class="navbar navbar-default" :class="{ 'at_top':scrollTop<=2, 'navbar-fixed-top': fixed }">
     <div class="container">
         <div class="navbar-header">
 

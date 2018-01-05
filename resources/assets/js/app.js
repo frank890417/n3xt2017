@@ -214,8 +214,11 @@ const app = new Vue({
       ...mapState(['scrollTop'])
     }
 });
+setTimeout(() => {
 
+    $(window).resize()
 
+}, 50);
 //smooth scroll
 
 

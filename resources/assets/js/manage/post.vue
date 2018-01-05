@@ -55,9 +55,9 @@
               .form-group
                 labal.col-sm-3 Cover
                 .col-sm-9
-                  input.form-control(v-model="post.cover")
                   img(:src="post.cover", style="width: 100%")
-                  default_pic_selector(@select_pic="select_pic_cover")
+                  el-input(v-model="post.cover")
+                    default_pic_selector( slot="append" @select_pic="select_pic_cover")
                 br
                 br
 

@@ -7,6 +7,7 @@ div.manage_event_list
         .btn-group
           router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Manage Events
           router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Manage Speakers
+          router-link.btn.btn-default(to="/manage/agency" :class="{active: $route.path=='/manage/agency'}") Manage Agencies
           router-link.btn.btn-default(to="/manage/post" :class="{active: $route.path=='/manage/post'}") Manage Posts
         hr
       .col-sm-12

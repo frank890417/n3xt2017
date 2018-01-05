@@ -13,12 +13,15 @@ import page_speaker_indep from '../pages/page_speaker_indep.vue'
 import page_about from '../pages/page_about.vue'
 import page_blog from '../pages/page_blog.vue'
 import page_post from '../pages/page_post.vue'
+
 import manage_event from '../manage/event.vue'
-import manage_speaker from '../manage/speaker.vue'
-import manage_post from '../manage/post.vue'
-import manage_speaker_list from '../manage/speaker_list.vue'
-import manage_post_list from '../manage/post_list.vue'
 import manage_event_list from '../manage/event_list.vue'
+import manage_speaker from '../manage/speaker.vue'
+import manage_speaker_list from '../manage/speaker_list.vue'
+import manage_post from '../manage/post.vue'
+import manage_post_list from '../manage/post_list.vue'
+import manage_agency from '../manage/agency.vue'
+import manage_agency_list from '../manage/agency_list.vue'
 
 
 
@@ -36,11 +39,14 @@ const routes = [
   { path: '/event/:id', component: page_event, props: true },
   { path: '/manage/event/new', component: manage_event, props: true },
   { path: '/manage/event/:id', component: manage_event, props: true },
+  { path: '/manage/agency/new', component: manage_agency, props: true },
+  { path: '/manage/agency/:id', component: manage_agency, props: true },
   { path: '/manage/speaker/new', component: manage_speaker, props: true },
   { path: '/manage/speaker/:id', component: manage_speaker, props: true },
   { path: '/manage/post/new', component: manage_post, props: true },
   { path: '/manage/post/:id', component: manage_post, props: true },
   { path: '/manage/event', component: manage_event_list },
+  { path: '/manage/agency', component: manage_agency_list },
   { path: '/manage/post', component: manage_post_list },
   { path: '/manage/speaker', component: manage_speaker_list },
   
@@ -48,7 +54,18 @@ const routes = [
 const router = new VueRouter({
   routes,
   mode: "history",
-  saveScrollPosition: true,
+  scrollBehavior(to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (savedPosition) {
+          resolve(savedPosition)
+        } else {
+          resolve({ x: 0, y: 0 })
+        }
+      }, 500)
+    })
+
+  }
 })
 
 import store from '../store'
@@ -56,9 +73,9 @@ var lastY = null
 var lastPath = null
 router.beforeEach((to, from, next) => {
   
-  setTimeout(() => {
-    window.scrollTo(0, 0)
-  }, 300);
+  // setTimeout(() => {
+  //   window.scrollTo(0, 0)
+  // }, 300);
   // $("html,body").animate({ scrollTop: 0 });
   next()
   lastPath = from.path
@@ -67,8 +84,8 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   //for scroll observable to generate new value for created components
   setTimeout(() => {
-    window.scrollTo(0, 2)
-    window.scrollTo(0, 0)
+    window.scrollTo(0, window.scrollY+1)
+    window.scrollTo(0, window.scrollY-1)
   }, 700)
 })
 

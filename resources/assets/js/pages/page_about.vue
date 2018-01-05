@@ -92,8 +92,20 @@
               //- h4 {{job.description}}
         .col-sm-8
           .panel.white
-            p ​{{ jobs[now_job_id].content }}
-            .btn.red Apply
+            .row
+              .col-sm-12
+
+                p(v-html="jobs[now_job_id].description")
+              .col-sm-6
+                h3 Responsibilities
+                ul
+                  li(v-for="l in jobs[now_job_id].responsibilities") {{l}}
+              .col-sm-6
+                ul
+                  h3 Qualifications
+                  li(v-for="l in jobs[now_job_id].qualifications") {{l}}
+
+            a.btn.red(href="mailto:info@n3xtcon.com") Apply
 
   //section.sectionSponsor.blue
     .container
@@ -146,6 +158,8 @@
 
 <script>
 import {mapState} from 'vuex'
+import data_job from "../data/openning_job.js"
+
 export default {
  
   metaInfo: {
@@ -155,23 +169,7 @@ export default {
   data(){
     return {
       picTop: -1,
-      jobs: [
-        {
-          title: "Social Media Intern",
-          description: "A sectence to describe about",
-          content: "n3xtcon, SOCAL’s fast growing multi-discipline platform for entrepreneurs, is in search of a Social Media Intern to join our talented marketing team. Reporting to the Head of Marketing, interns will be responsible for coordinating and executing the company’s social media strategy, working across key social media channels including Facebook, Twitter, Instagram and LinkedIn. Responsibilities include content development, daily monitoring & engaging, as well as audience growth. This role will be instrumental in increasing our social media presence and gaining visibility for our brand among target audience."
-        },
-        {
-          title: "Position Name 2",
-          description: "A sectence to describe about",
-          content: "2 events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders"
-        },
-        {
-          title: "Position Name 3",
-          description: "A sectence to describe about",
-          content: "3 startup founders, investors, and industry leaders startup founders, investors, and industry leaders"
-        }
-      ],
+      jobs: data_job,
       now_job_id: 0
     }
   },

@@ -5,16 +5,17 @@
       .col-sm-12
         h1 Speaker List Manage
         .btn-group
-          router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Manage Events
-          router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Manage Speakers
-          router-link.btn.btn-default(to="/manage/post" :class="{active: $route.path=='/manage/post'}") Manage Posts
+          router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Events
+          router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Speakers
+          router-link.btn.btn-default(to="/manage/agency" :class="{active: $route.path=='/manage/agency'}") Agencies
+          router-link.btn.btn-default(to="/manage/post" :class="{active: $route.path=='/manage/post'}") Posts
         hr
       .col-sm-12
         .panel.panel-default
           .panel-heading Speaker List
           .panel-body
             router-link.btn.btn-primary(to="/manage/speaker/new") + Add New Speaker
-            input.form-control(
+            input.forma-control(
               v-model="keyword", 
               placeholder="enter keyword...",
               list="speakerlist")

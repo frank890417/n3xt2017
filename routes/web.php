@@ -11,55 +11,49 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts/app');
-});
-Route::get('/event', function () {
-    return view('layouts/app');
-});
-Route::get('/about', function () {
-    return view('layouts/app');
-});
-Route::get('/speaker', function () {
-    return view('layouts/app');
-});
-Route::get('/blog', function () {
-    return view('layouts/app');
-});
-Route::get('/speaker/n/{routename}', function () {
-    return view('layouts/app');
-});
-Route::get('/post/n/{routename}', function () {
-    return view('layouts/app');
-});
-Route::get('/event/n/{routename}', function () {
-    return view('layouts/app');
-});
-Route::get('/event/{id}', function () {
-    return view('layouts/app');
-});
+$public_routes = [
+    '/',
+    '/event',
+    '/about',
+    '/speaker',
+    '/blog',
+    '/speaker/n/{routename}',
+    '/post/n/{routename}',
+    '/event/n/{routename}',
+    '/event/{id}',
+];
+
+$manage_routes = [
+    'event',
+    'post',
+    'speaker',
+    'agency'
+];
+
+
+foreach ($public_routes as $r){
+    Route::get($r, function () {
+        return view('layouts/app');
+    });
+}
 
 //contact record
 Route::post('/contact',"ContactrecordController@store");
-
-
 Auth::routes();
-
 Route::get('/home', function () {
     return redirect()->to('/manage/event');
 });
 Route::get('/manage', function () {
     return redirect()->to('/manage/event');
 });
-Route::get('/manage/event', 'HomeController@manage');
-Route::get('/manage/event/{id}', 'HomeController@manage');
-Route::get('/manage/event/new', 'HomeController@manage');
 
-Route::get('/manage/post', 'HomeController@manage');
-Route::get('/manage/post/{id}', 'HomeController@manage');
-Route::get('/manage/post/new', 'HomeController@manage');
+/* Generate Manage Routes */
+function generate_manage_route($modelname){
+    Route::get("/manage/$modelname", 'HomeController@manage');
+    Route::get("/manage/$modelname/{id}", 'HomeController@manage');
+    Route::get("/manage/$modelname/new", 'HomeController@manage');
+}
 
-
-Route::get('/manage/speaker', 'HomeController@manage');
-Route::get('/manage/speaker/{id}', 'HomeController@manage');
-Route::get('/manage/speaker/new', 'HomeController@manage');
+foreach ($manage_routes as $r){
+    generate_manage_route($r);
+}

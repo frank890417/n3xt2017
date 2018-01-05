@@ -26,6 +26,11 @@
 
 <script>
 export default {
+  data(){
+    return {
+      sending: false
+    }
+  },
   methods: {
     send_form(){
       var vobj=this;

@@ -20,51 +20,23 @@
           hr
 
         .col-sm-4
-          .panel.panel-primary
+          el-form.panel.panel-primary( label-width="100px")
             .panel-heading Basic Infos
             .panel-body
-              .form-group
-                labal.col-sm-3 Name
-                .col-sm-9
-                  input.form-control(v-model="speaker.name")
-                br
-                br
-              .form-group
-                labal.col-sm-3 Company
-                .col-sm-9
-                  input.form-control(v-model="speaker.company")
-                br
-                br
-              .form-group
-                labal.col-sm-3 Position
-                .col-sm-9
-                  input.form-control(v-model="speaker.position")
-                br
-                br
-              .form-group
-                labal.col-sm-3 Email
-                .col-sm-9
-                  //- input.form-control(v-model="speaker.tag")
-                  input.form-control(v-model="speaker.email")
-                  
-                br
-                br
-                br
-           
-              .form-group
-                labal.col-sm-3 Headshot
-                .col-sm-9
-                  input.form-control(v-model="speaker.headshot")
-                  img(:src="speaker.headshot", style="width: 100%")
-                  default_pic_selector(@select_pic="select_pic_headshot")
-                br
-                br
-              .form-group
-                labal.col-sm-3 Year
-                .col-sm-9
-                  input.form-control(v-model="speaker.year")
-                br
-                br
+              el-form-item(label="Name")
+                el-input(v-model="speaker.name")
+              el-form-item(label="Company")
+                el-input(v-model="speaker.company")
+              el-form-item(label="Position")
+                el-input(v-model="speaker.position")
+              el-form-item(label="Email")
+                el-input(v-model="speaker.email")
+              el-form-item(label="Headshot")  
+                img(:src="speaker.headshot", style="width: 100%;max-width: 100px")
+                el-input(v-model="speaker.headshot")
+                  default_pic_selector( slot="append" @select_pic="select_pic_headshot")
+              el-form-item(label="Year")
+                el-input(v-model="speaker.year")
         .col-sm-8
           .panel.panel-default
             .panel-heading Detail

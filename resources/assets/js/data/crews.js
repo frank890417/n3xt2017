@@ -17,14 +17,14 @@ var data = [
     "name": "Hsiang-Te Wu",
     "position": "Secretary",
     "email": "h.wu@n3xtcon.com",
-    "link": "linkedin.com/in/hsiang-te-wu-29046bb2/",
+    "link": "https://www.linkedin.com/in/hsiang-te-wu-29046bb2/",
     "headshot": "/img/crews/Hsiang Te Wu.jpg"
   },
   {
     "name": "Ashley Chang",
     "position": "Head of Marketing",
     "email": "ashley.chang@n3xtcon.com",
-    "link": "linkedin.com/in/ashleychuan/",
+    "link": "https://www.linkedin.com/in/ashleychuan/",
     "headshot": "/img/crews/Ashley Chang.jpg"
   },
   {
@@ -38,21 +38,21 @@ var data = [
     "name": "Trey Zhong",
     "position": "Director of Outreach",
     "email": "trey.zhong@n3xtcon.com",
-    "link": "linkedin.com/in/trey-zhong-76b59692/",
+    "link": "https://www.linkedin.com/in/trey-zhong-76b59692/",
     "headshot": "/img/crews/Trey Zhong.jpg"
   },
   {
     "name": "Brandon Lu",
     "position": "Director of Program",
     "email": "Brandon.Lu@n3xtcon.com",
-    "link": "linkedin.com/in/brandonlu",
+    "link": "https://www.linkedin.com/in/brandonlu",
     "headshot": "/img/crews/Brandon Lu.jpg"
   },
   {
     "name": "David Li",
     "position": "Director of Program",
     "email": "david@n3xtcon.com",
-    "link": "linkedin.com/in/davidzhaoli",
+    "link": "https://www.linkedin.com/in/davidzhaoli",
     "headshot": "/img/crews/David Li.png"
   }
 ]

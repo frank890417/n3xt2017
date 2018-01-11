@@ -112,7 +112,7 @@
         .col-sm-7
           ul.agencies
             li.logo(v-for="ag in event.agencies")
-              a(:href="ag.link", :title="ag.name")
+              a(:href="ag.link",target="_blank", :title="ag.name")
                 img(:src="ag.logo")
 
   section.sectionRegist.grey

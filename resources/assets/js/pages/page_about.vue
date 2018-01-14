@@ -120,7 +120,7 @@
                   h3 Qualifications
                   li(v-for="l in jobs[now_job_id].qualifications") {{l}}
 
-            a.btn.red(href="mailto:info@n3xtcon.com") Apply
+            a.btn.red(href="mailto:info@n3xtcon.com", target="_blank") Apply
 
   //section.sectionSponsor.blue
     .container

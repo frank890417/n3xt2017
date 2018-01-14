@@ -35,7 +35,7 @@ if (document.domain != "n3xt2017.test") {
     })
 }
 
-window.TweenMax=TweenMax
+window.TweenMax = TweenMax
 require('./bootstrap')
 
 window.Vue = require('vue')
@@ -132,7 +132,7 @@ Vue.mixin({
         },
 
         getDateText(datetime){
-            let time = new Date(datetime)
+            let time = new Date(datetime.replace(/-/g, "/"))
             var eng_tag = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
             var eng_month = eng_tag[ time.getMonth() ]
             return eng_month + ". " + time.getDate()

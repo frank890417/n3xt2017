@@ -67,9 +67,12 @@
     .container
       .row
         .col-sm-6
-          slideIn.scale.circle Event
-          slideIn.scale.circle Mentorship<br>Program
-          slideIn.scale.circle Workshop
+          slideIn.scale.circle 
+            router-link(to="/event") Event
+          slideIn.scale.circle 
+            router-link(to="/event") Mentorship<br>Program
+          slideIn.scale.circle  
+            router-link(to="/event") Workshop
           .circle.c1(:style="{transform: `translateY(#{scrollTop/5}px)`}")
           .circle.c2(:style="{transform: `translateY(#{scrollTop/5}px)`}")
           .circle.c3(:style="{transform: `translateY(#{scrollTop/5}px)`}")
@@ -198,6 +201,9 @@ export default {
       title: 'n3xtcon', // set a title
     },
     mounted() {
+      window.scrollTo(0, window.scrollY+1)
+      window.scrollTo(0, window.scrollY-1)
+
       console.log('Component mounted.')
       //autoresize textarea
       $('textarea').each(function () {

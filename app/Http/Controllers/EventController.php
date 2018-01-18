@@ -69,10 +69,18 @@ class EventController extends Controller
     }
     public function store(){
         $inputs = Input::all();
-        $inputs['tag'] = json_encode($inputs['tag']);
-        $inputs['speaker'] = json_encode($inputs['speaker']);
-        $inputs['album'] = json_encode($inputs['album']);
-        $inputs['agencies'] = json_encode($inputs['agencies']);
+        if (array_key_exists('tag',$inputs)){
+            $inputs['tag'] = json_encode($inputs['tag']);
+        }
+        if (array_key_exists('speaker',$inputs)){
+            $inputs['speaker'] = json_encode($inputs['speaker']);
+        }
+        if (array_key_exists('album',$inputs)){
+            $inputs['album'] = json_encode($inputs['album']);
+        }
+        if (array_key_exists('agencies',$inputs)){
+            $inputs['agencies'] = json_encode($inputs['agencies']);
+        }
         $event = Event::create($inputs);
         return $event;
     }

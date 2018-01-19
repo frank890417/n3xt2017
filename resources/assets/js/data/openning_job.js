@@ -69,16 +69,13 @@ Improve the operational systems, processes and policies in support of organizati
       "Capable of working effectively across all levels of the organization",
     ]
   }, {
-    title: "Operation",
-    description: "n3xtcon, SoCal’s fastest growing multi-discipline platform for entrepreneurs, is in search of members to join our operation team. This position's primary responsibility is ensuring organizational effectiveness by providing leadership for the organization's functions. Reporting to the Head of operation, director will be responsible for coordinating and executing the company’s operation strategy. Working with executive team, the position also contributes to the development and implementation of organizational strategies, policies and practices. This position will also interact with the Board of Directors. ",
+    title: "Director of Operations",
+    description: "you'll lead the operation and people responsible for all of the food and beverage venues/offerings to the thousands of guests that visit our locations every year.<br>n3xtcon, SoCal’s fastest growing multi - discipline platform for entrepreneurs, is in search of members to join our operation team.This position's primary responsibility is ensuring organizational effectiveness and event logistics, including coordinating event A/V setup, food and beverage venues/offerings, and venue setup. Reporting directly to the Head of Operation, director will be responsible for coordinating and executing the logistics and planning for events/ conferences. Working with executive team, the position also contributes to the development and implementation of organizational strategies, policies and practices.",
     responsibilities: 
-      `Contribute to short and long-term organizational planning and strategy as a member of the management team
-Play a significant role in long-term planning, including an initiative geared toward operational excellence
+      `Play a significant role in long-term planning, including an initiative geared toward operational excellence
 Improve the operational systems, processes and policies in support of organizations mission -- specifically, support better management reporting, information flow and management, business process and organizational planning.
 Manage and increase the effectiveness and efficiency of event detail flow
 Provide support to future events and conference
-Persuasive with details and facts
-Excels at operating in an fast pace, community environment
 `.split("\n").filter(o=>o)
 
     ,
@@ -88,6 +85,8 @@ Bachelor’s Degree
 1+ years’ experience in event planning
 Excellent oral and written communication skills
 High comfort level working in a diverse environment
+Persuasive with details and facts
+Excels at operating in an fast pace, community environment
 `.split("\n").filter(o=>o)
 
   }, {

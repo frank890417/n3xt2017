@@ -3,7 +3,7 @@ var data = [
     "name": "Shao-Hua Wu",
     "position": "CEO",
     "email": "s.wu@n3xtcon.com",
-    "link": "shaohuawu.com",
+    "link": "http://shaohuawu.com",
     "headshot": "/img/crews/Nick Wu.jpg"
   },
   {

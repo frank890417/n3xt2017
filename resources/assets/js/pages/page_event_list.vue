@@ -5,7 +5,7 @@
       .row
         .col-sm-8
           h1 Events
-          h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
+          h3 SOCAL’s fast growing multi-discipline platform for entrepreneurs
           hr
         .col-sm-4#container_star
           //img(src="/img/stars.svg")
@@ -22,7 +22,7 @@
           h3.eng {{ getTitleSplit (spotEvent.title).series }}
           h2 {{ getTitleSplit (spotEvent.title).title }}
           hr  
-          p ​{{ strip_tags(spotEvent.description).slice(0,300)+"..." }}
+          p ​{{ strip_tags(spotEvent.description || '').slice(0,300)+"..." }}
           .btn.red RSVP Now
    
   section.sectionCata.blue
@@ -70,7 +70,7 @@
               h2.title {{ getTitleSplit (event.title).title  }}
                 .date {{ getDurationText(event.start_datetime,event.end_datetime) }}   
               hr  
-              p ​{{event.description.replace(/\<.*?\>/g,'').slice(0,200)}}
+              p ​{{ (event.description || '').replace(/\<.*?\>/g,'').slice(0,200)}}
               .btn.red RSVP Now
 
             slideIn.right.col-sm-6.col-cover.hidden-xs(:style="cssbg(event.cover)")

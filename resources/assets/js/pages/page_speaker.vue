@@ -7,7 +7,7 @@
       .row
         .col-sm-8
           h1 Speaker
-          h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
+          h3 SOCAL’s fast growing multi-discipline platform for entrepreneurs
           hr
           h5 
 

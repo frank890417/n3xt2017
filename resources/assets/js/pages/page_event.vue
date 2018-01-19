@@ -8,8 +8,9 @@
         .col-sm-5
           .date {{getDurationText(event.start_datetime,event.end_datetime) }}
           h2 
-            span.small(v-text="getTitleSplit(event.title).series") Building United Communities:
-            | <br>{{ getTitleSplit(event.title).title }}
+            //- span.small(v-text="getTitleSplit(event.title).series") Building United Communities:
+            //- | {{ getTitleSplit(event.title).title }}
+            | {{ event.title }}
           h3 {{event.subtitle}}
           p(v-html="event.description") Starting any journey with the end in mind makes perfect sense.However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. <br><br> Most of the engineering graduate students will have to job-hunt after graduation. It is important to learn how to handle employee/ employer conflict (Department of Labor), what are the most-updated policies and regulations for working VISA/ immigration (USCIS), and get direct responses from the officials before you kickstart.
           .btn.blue(@click="scrollTo('.sectionRegist')") Register

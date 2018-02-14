@@ -23,12 +23,12 @@
           h2 SCHEDULE
           hr
           p Starting any journey with the end in mind makes perfect sense. For more detail please check below.
-          .btn.white.ghost More Detail
+          .btn.white.ghost More Details
         .col-sm-8
           ul.timeline(v-for="(programs,programdate) in programChunk")
             .datetag {{ getDateText(programdate) }}
             li(v-for="(p,pid) in programs")
-              .time {{(p.start_datetime+ " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime+" ").split(' ')[1].slice(0,5)}}
+              .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
               .content( @click="toggle('#des'+pid+programdate)")
                 h4 {{p.title}}
                   span(v-if="p.description")   ▾

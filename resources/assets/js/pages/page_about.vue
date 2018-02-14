@@ -102,7 +102,10 @@
       .row
         .col-sm-4
           ul.positionList
-            li(v-for = "(job,job_id) in jobs", @click="now_job_id = job_id", @mouseenter="now_job_id = job_id")
+            li(v-for = "(job,job_id) in jobs", 
+               @click="now_job_id = job_id", 
+               @mouseenter="now_job_id = job_id",
+               :class="{active:job_id==now_job_id}")
               h3 {{job.title}}
               //- h4 {{job.description}}
         .col-sm-8

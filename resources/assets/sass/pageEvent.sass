@@ -39,7 +39,7 @@
         box-shadow: inset 0px 10px 20px -10px rgba(0,0,0,0.5) 
         +size( 70%,20px)
         background-color: $colorRed
-
+      touch-action: auto
     .date
       font-size: 220px
       position: absolute
@@ -59,7 +59,15 @@
       display: block
       h2
         font-size: 32px
-
+    +rwd_sm
+      .content
+        opacity: 1
+        color: white
+        background-color: rgba($colorBlue,0.5)
+        h2,h3,hr
+          opacity: 1
+        hr
+          width: 50px
 
   .sectionSchedule
     position: relative
@@ -81,6 +89,7 @@
       font-size: 18px
       +rwd_sm
         position: relative
+        
       
     .timeline
       +rwd_sm
@@ -119,8 +128,15 @@
           p
             opacity: 0.8
 
-      display: flex
-      flex-direction: column
+        +rwd_sm
+          &:nth-child(2)
+            padding-top: 10px
+            &:before
+              top: 20px
+
+      // display: flex
+      // flex-direction: column
+      // align-items: center
 
   .sectionGuest
     position: relative
@@ -202,9 +218,10 @@
       display: flex
       list-style: none
       align-items: center
-    .row
-      display: flex
-      align-items: center
+      margin-top: 50px
+    // ul.agencies
+    //   display: flex
+    //   align-items: center
 
     .logo
       width: 150px
@@ -224,4 +241,5 @@
       min-height: 520px
       border: none
       background-color: transparent
-      
+      +rwd_sm
+        margin-top: 50px

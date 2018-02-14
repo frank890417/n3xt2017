@@ -54,9 +54,10 @@
           //- p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
           //- .btn.red Explore!
         .col-sm-12
-          .btn.outline.white( v-for="cata in catalist",
-                              @click="switchCata(cata)", 
-                              :class="{active: nowCata==cata.value}") {{cata.label}}
+          .btns
+            .btn.outline.white( v-for="cata in catalist",
+                                @click="switchCata(cata)", 
+                                :class="{active: nowCata==cata.value}") {{cata.label}}
           p {{catas}}
 
       .row
@@ -66,7 +67,7 @@
             slideIn.right.col-sm-6.col-cover.visible-xs(:style="cssbg(event.cover)")
               //img.cover(:src="event.cover", style='width: 100%')
             slideIn.col-sm-6.col-info.theme.white
-              h3.eng {{ getTitleSplit (event.title).series }}
+              h3.eng(v-if="getTitleSplit (event.title).series") {{ getTitleSplit (event.title).series }}
               h2.title {{ getTitleSplit (event.title).title  }}
                 .date {{ getDurationText(event.start_datetime,event.end_datetime) }}   
               hr  
@@ -110,6 +111,7 @@ export default {
   },
   mounted(){
     var starAnimation = new PIXI.Application(800,800,{backgroundColor: 0x0A1744, antialias: true })
+    starAnimation.renderer.plugins.interaction.autoPreventDefault = false
     document.getElementById("container_star").appendChild(starAnimation.view);
     var star1 = new PIXI.Graphics();
     let cx=starAnimation.renderer.width/2;

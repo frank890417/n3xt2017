@@ -76,8 +76,8 @@
       mix-blend-mode: screen
 
     h2.rotateCaption
-      transform: translateX(90px) rotate(90deg)
-      transform-origin: 0% 0%
+      transform-origin: 0% 100%
+      transform: rotate(90deg) translateX(-150px)
       margin-top: -150px
       span
         background-color: #fff
@@ -104,9 +104,10 @@
       +rwd_sm
         margin-top: 30px
     .block,img
+      
       +rwd_sm
         height: 300px
-
+        margin-top: 30px
 
   section.sectionPlatform
     padding-bottom: 300px
@@ -114,7 +115,6 @@
     .circle
       +size(150px)
       background-color: #fff
-      color: $colorBlue
       border-radius: 100%
       font-size: 17px
       display: flex
@@ -124,6 +124,8 @@
       cursor: pointer
       text-align: center
       position: relative
+      a
+        color: $colorBlue
       &.scale
         position: relative
         z-index: 1
@@ -139,7 +141,7 @@
         transition: 0.5s
         border: solid 1px white
         border-radius: 100%
-      &:hover
+      &:hover,&:active
         background-color: $colorBgRed
         color: white
         +size(110%)

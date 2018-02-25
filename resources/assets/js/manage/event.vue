@@ -132,6 +132,13 @@
                                     placeholder="paste eventbrite link")
                 br
                 br
+              .form-group
+                labal.col-sm-3 Album Link
+                .col-sm-9
+                  input.form-control(v-model="event.album_link",
+                                    placeholder="paste album link")
+                br
+                br
               //.form-group
                 labal.col-sm-3 註冊資訊
                 .col-sm-9
@@ -367,7 +374,7 @@ export default {
         Axios.post("/api/event/"+this.$route.params.id,{
           _method: "DELETE"
         }).then((res)=>{
-          alert("Delete Success!")
+          this.$message.success("Delete Success!")
         })
       }
 
@@ -383,7 +390,8 @@ export default {
           
         }).then((res)=>{
           // this.setEvent(res.data)
-          alert("Create Success!")
+          this.$message.success("Create Success!")
+          // alert("Create Success!")
         })
       }else{
         Axios.post("/api/event/"+this.$route.params.id,{
@@ -392,7 +400,7 @@ export default {
           
         }).then((res)=>{
           // this.setEvent(res.data)
-          alert("Save Success!")
+          this.$message.success("Save Success!")
         })
       }
       
@@ -418,7 +426,7 @@ export default {
           _method: "DELETE",
         }).then((res)=>{
           // this.setEvent(res.data)
-          alert("delete Success!")
+          this.$message.success("delete program Success!")
           this.event.program.splice(pid,1)
         })
       }

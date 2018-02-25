@@ -71,12 +71,12 @@
               hr
             .col-sm-6
               p Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017.
-              .btn.red View Events
+              router-link.btn.red(to="/event#eventlist") View Events
           br
           br
           br
     .container-fluid
-      .row.rowPhotos
+      a.row.rowPhotos(:href="event.album_link", target="_blank")
         .col-sm-8
           .photoBlock.left(:style='cssbg(event.album[0].image)')
             .content
@@ -208,13 +208,18 @@ export default {
     })
   },
   methods:{
+    goToAlbum(){
+      if (this.event.album_link){
+        window.open(this.event.album_link)
+      }
+    },
     toggle(sel){
       console.log(sel)
       $(sel).slideToggle(0)
     },
-    scrollTo(selector){
-      $("html,body").animate({scrollTop:$(selector).offset().top})
-    }
+    // scrollTo(selector){
+    //   $("html,body").animate({scrollTop:$(selector).offset().top})
+    // }
   },
   computed:{
     ...mapState(["events"]),

@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="/img/favicon.png" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+<meta name="google-site-verification" content="Vd9E0Nrpu9oCf8SsAU59ATsHzKnXdfm9y2QxT-4ayiU" />
     <title>n3xtcon - Unleash the Future.</title>
     <!-- <meta name="description" content="SOCAL’s fast growing multi-discipline platform for entrepreneurs"> -->
     <meta name="description" content="SOCAL'S fast growing multi-discipline platform for entrepreneurs. Connect to 1000+ startups and industry leaders. We empower, engage, and elevate the next generation of visionaries.">

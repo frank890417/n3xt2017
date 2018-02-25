@@ -77,6 +77,14 @@ router.beforeEach((to, from, next) => {
   //   window.scrollTo(0, 0)
   // }, 300);
   // $("html,body").animate({ scrollTop: 0 });
+
+  if (to.path.indexOf("/manage") == 0) {
+    window.softScrollDisable = true
+  } else {
+    window.softScrollDisable = false
+  }
+
+  
   next()
   lastPath = from.path
 })

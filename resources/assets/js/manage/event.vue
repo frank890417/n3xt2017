@@ -96,7 +96,7 @@
             .btn(@click="panel='oganizer'" ,:class="{'btn-primary':panel=='oganizer' }") Organizers
             .btn(@click="panel='program'" ,:class="{'btn-primary':panel=='program' }") Program
             .btn(@click="panel='album'"   ,:class="{'btn-primary':panel=='album' }") Album
-            .btn(@click="panel='organizer'"   ,:class="{'btn-primary':panel=='organizer' }") Organizer
+            //- .btn(@click="panel='organizer'"   ,:class="{'btn-primary':panel=='organizer' }") Organizer
           .panel.panel-default(v-show="panel=='detail'")
             .panel-heading Detail
             .panel-body
@@ -184,18 +184,14 @@
                     .row
                       .col-sm-12
                         .col-sm-6
-                          input.form-control( list = "speakers", v-model="temp_speaker_name")
-                          datalist#speakers(v-if="speakers.length")
-                            option(v-for="speaker in speakers" :value="speaker.name") 
+                         el-autocomplete.inline-input(
+                              v-model="temp_speaker_name"
+                              :fetch-suggestions="fetchSpeaker"
+                              placeholder="Please enter speaker name",
+                            @select="(item)=>{event.speaker.push(speakers.find(o=>o.name==item.value).id);temp_speaker_name=''}")
                         .col-sm-6
                           .btn.btn-primary.pull-right(@click="event.speaker.push(speakers.find(o=>o.name==temp_speaker_name).id);temp_speaker_name=''") Add
-                  //.form-group
-                    .col-sm-12
-                      .btn.btn-default.form-control(@click="event.speaker.push({name: '',description:'',headshot:''})") + Add
-                      br
-                      br
-                      br
-                      br
+
           .panel.panel-default(v-if="panel=='program'")
             .panel-heading Programs
             .panel-body
@@ -338,6 +334,11 @@ export default {
     })
   },
   methods: {
+    fetchSpeaker(qs,cb){
+      let result = this.speakers.map(o=>({value: o.name}))
+                              .filter(n=>n.value.toLowerCase().indexOf(qs)!=-1)
+      cb(result)
+    },
     setEvent(event){
       if (event.tag ){
         event.tag = JSON.parse(event.tag)

@@ -10,13 +10,12 @@
 
     <title>n3xtcon - Unleash the Future.</title>
     <!-- <meta name="description" content="SOCAL’s fast growing multi-discipline platform for entrepreneurs"> -->
-    <meta name="description" content="SOCAL’s fast growing multi-discipline platform for entrepreneurs">
-
+    <meta name="description" content="SOCAL'S fast growing multi-discipline platform for entrepreneurs. Connect to 1000+ startups and industry leaders. We empower, engage, and elevate the next generation of visionaries.">
     <meta property="og:title" content="n3xtcon">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:image" content="/img/Og.png">
-    <meta property="og:de·scription" content="n3xt con is a haven for creative and intellectual authenticity. We believe entrepreneurial spirit is an immutable individual trait that cannot be smothered. n3xt con’s mission is to establish an environment in which such spirit not only flourishes but inspires more people to make a long lasting impact in their lives and beyond.">
+    <meta property="og:description" content="SOCAL'S fast growing multi-discipline platform for entrepreneurs. Connect to 1000+ startups and industry leaders. We empower, engage, and elevate the next generation of visionaries.">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

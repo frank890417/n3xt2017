@@ -35,39 +35,16 @@ if (document.domain != "n3xt2017.test") {
     })
 }
 
+
+var softScroll = true
+import soft_scroll from './plugins/soft_scroll'
+softScroll && soft_scroll.init()
+
 window.TweenMax = TweenMax
 require('./bootstrap')
 
 window.Vue = require('vue')
 
-var softScroll=false;
-
-if (softScroll){
-
-    $(function(){ 
-        
-        var $window = $(window);
-        var scrollTime = 1;
-        var scrollDistance = 50;
-        
-        $window.on("mousewheel DOMMouseScroll", function(event){
-            
-            event.preventDefault(); 
-            
-            var delta = event.originalEvent.wheelDelta/40 || -event.originalEvent.detail/0.5;
-            var scrollTop = $window.scrollTop();
-            var finalScroll = scrollTop - parseInt(delta*scrollDistance);
-            
-            TweenMax.to($window, scrollTime, {
-                scrollTo : { y: finalScroll, autoKill:true },
-                ease: Power2.easeOut,
-                overwrite: 10             
-            });
-            // console.log(finalScroll);
-        });
-    });
-    
-}
     
     /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -188,7 +165,15 @@ Vue.mixin({
                 .catch((err) => {
                     console.log(err);
                 })
-        }
+        },
+        scrollTo(cname, custon_option) {
+            let options = Object.assign({
+                pan: 0
+            },
+                custon_option
+            )
+            $("html,body").animate({ scrollTop: $(cname).offset().top + options.pan })
+        },
     }
 })
 
@@ -222,28 +207,28 @@ setTimeout(() => {
 //smooth scroll
 
 
-import { TweenMax } from "gsap"
-import ScrollToPlugin from "gsap/ScrollToPlugin"
-window.TweenMax = TweenMax
-$(function () {
+// import { TweenMax } from "gsap"
+// import ScrollToPlugin from "gsap/ScrollToPlugin"
+// window.TweenMax = TweenMax
+// $(function () {
 
-    var $window = $(window);
-    var scrollTime = 1;
-    var scrollDistance = 50;
+//     var $window = $(window);
+//     var scrollTime = 1;
+//     var scrollDistance = 50;
 
-    $window.on("mousewheel DOMMouseScroll", function (event) {
+//     $window.on("mousewheel DOMMouseScroll", function (event) {
 
-        event.preventDefault();
+//         event.preventDefault();
 
-        var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail / 0.5;
-        var scrollTop = $window.scrollTop();
-        var finalScroll = scrollTop - parseInt(delta * scrollDistance);
+//         var delta = event.originalEvent.wheelDelta / 30 || -event.originalEvent.detail / 0.5;
+//         var scrollTop = $window.scrollTop();
+//         var finalScroll = scrollTop - parseInt(delta * scrollDistance);
 
-        TweenMax.to($window, scrollTime, {
-            scrollTo: { y: finalScroll, autoKill: true },
-            ease: Power2.easeOut,
-            overwrite: 10
-        });
-        // console.log(finalScroll);
-    });
-});
+//         TweenMax.to($window, scrollTime, {
+//             scrollTo: { y: finalScroll, autoKill: true },
+//             ease: Power2.easeOut,
+//             overwrite: 10
+//         });
+//         // console.log(finalScroll);
+//     });
+// });

@@ -170,7 +170,7 @@
               li Content 1 of something
               li Content 2 of blabal
             .btn.red Sponsor
-  section_contact
+  section_contact#contact
   section_footer
 </template>
 
@@ -195,6 +195,9 @@ export default {
   },
   mounted(){
     this.picTop = $(".colPic").offset().top 
+    if (window.location.hash){
+      this.scrollTo(window.location.hash)
+    }
   },
   computed:{
     ...mapState(['scrollTop']),

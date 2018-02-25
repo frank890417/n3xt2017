@@ -200,6 +200,8 @@
     .rowPhotos
       margin-left: -15px
       margin-right: -15px
+      cursor: pointer
+      display: block
 
     .photoBlock
       min-height: $pHeight
@@ -212,6 +214,8 @@
 
     .photoBlock.left
       min-height: $pHeight*3
+      +rwd_sm
+        min-height: $pHeight
 
   .sectionOranizers
     .agencies

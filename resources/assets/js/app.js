@@ -117,7 +117,7 @@ Vue.mixin({
         getDurationText(start_datetime, end_datetime) {
             let st = this.getDateText(start_datetime)
             let ed = this.getDateText(end_datetime)
-            console.log(st,ed)
+            // console.log(st,ed)
             if (st==ed){
                 return st
             }else{

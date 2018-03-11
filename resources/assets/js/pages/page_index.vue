@@ -119,7 +119,7 @@
                 //- .block.blue
                 img(:src="spotEvent.cover",  target="_blank")
             p {{ strip_tags(spotEvent.description).slice(0,300)+"..." }}
-            router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})") RSVP Now
+            router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})+'/rsvp'") RSVP Now
         .col-sm-6.hidden-xs
           slideIn.left.col-img
             //- .block.blue

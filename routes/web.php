@@ -20,6 +20,7 @@ $public_routes = [
     '/speaker/n/{routename}',
     '/post/n/{routename}',
     '/event/n/{routename}',
+    '/event/n/{routename}/rsvp',
     '/event/{id}',
 ];
 

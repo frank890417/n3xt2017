@@ -182,8 +182,8 @@ export default {
   mounted(){
     //if custom route exist then get by name, else get by id
     
-    if (window.location.hash){
-      this.scrollTo(window.location.hash)
+    if (this.$route.path.indexOf("rsvp")!=-1){
+      this.scrollTo(".sectionRegist")
     }
 
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`

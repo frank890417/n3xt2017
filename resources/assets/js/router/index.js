@@ -36,6 +36,7 @@ const routes = [
   { path: '/post/n/:title', component: page_post, props: true },
   { path: '/event', component: page_event_list, props: true },
   { path: '/event/n/:routename', component: page_event, props: true },
+  { path: '/event/n/:routename/rsvp', component: page_event, props: true },
   { path: '/event/:id', component: page_event, props: true },
   { path: '/manage/event/new', component: manage_event, props: true },
   { path: '/manage/event/:id', component: manage_event, props: true },

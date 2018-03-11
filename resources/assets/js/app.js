@@ -91,7 +91,7 @@ Vue.mixin({
             if (event.routename) {
                 return prefix + event.routename
             } else {
-                return this.strip_tags(prefix + event.title).replace(/\s/g, "_")
+                return prefix + this.strip_tags(event.title).replace(/\s/g, "_")
                 // return '/event/'+event.id
             }
         },

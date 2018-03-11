@@ -182,10 +182,7 @@ export default {
   mounted(){
     //if custom route exist then get by name, else get by id
     
-    if (this.$route.path.indexOf("rsvp")!=-1){
-      this.scrollTo(".sectionRegist")
-    }
-
+    
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
@@ -209,6 +206,10 @@ export default {
       })
       Vue.nextTick(()=>{
         this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+        if (this.$route.path.indexOf("rsvp")!=-1){
+          this.scrollTo(".sectionRegist")
+        }
+
       })
     })
   },

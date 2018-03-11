@@ -116,7 +116,7 @@
               a(:href="ag.link",target="_blank", :title="ag.name")
                 img(:src="ag.logo")
 
-  section.sectionRegist.grey
+  section.sectionRegist.grey#section_register
     .container
       .row
         .col-sm-5
@@ -181,6 +181,11 @@ export default {
   },
   mounted(){
     //if custom route exist then get by name, else get by id
+    
+    if (window.location.hash){
+      this.scrollTo(window.location.hash)
+    }
+
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
       res.data.speaker = JSON.parse(res.data.speaker || "[]")

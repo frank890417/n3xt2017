@@ -67,12 +67,9 @@
     .container
       .row
         .col-sm-6
-          slideIn.scale.circle 
-            router-link(to="/event") Event
-          slideIn.scale.circle 
-            router-link(to="/event") Mentorship<br>Program
-          slideIn.scale.circle  
-            router-link(to="/event") Workshop
+          router-link.scale.circle(to="/event#eventlist") Event
+          router-link.scale.circle(to="/event#eventlist") Mentorship<br>Program
+          router-link.scale.circle(to="/event#eventlist") Workshop
           .circle.c1(:style="{transform: `translateY(#{scrollTop/5}px)`}")
           .circle.c2(:style="{transform: `translateY(#{scrollTop/5}px)`}")
           .circle.c3(:style="{transform: `translateY(#{scrollTop/5}px)`}")

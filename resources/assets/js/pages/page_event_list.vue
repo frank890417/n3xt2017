@@ -42,7 +42,7 @@
           h2 Event Types
           hr  
           p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
-          .btn.red Explore!
+          .btn.red(@click="scrollTo('.sectionList')") Explore!
    
   section.sectionList.blue#eventlist
     .container

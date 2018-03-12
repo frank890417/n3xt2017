@@ -5,6 +5,12 @@ nav.navbar.navbar-default
   padding-top: 5px
   padding-bottom: 5px
   max-width: 100vw
+
+  .navbar-toggle.collapsed
+    .icon-bar
+      background-color: $colorBlue
+
+
   .logowraper
     position: relative
 
@@ -57,7 +63,6 @@ nav.navbar.navbar-default
 
 .route_,.route_about,.route_event,.route_blog,.route_speaker,[class^="route_speaker_n_"]
   nav.navbar.navbar-default
-
     &.at_top
       background-color: transparent
       padding-top: 15px
@@ -79,43 +84,53 @@ nav.navbar.navbar-default
   
         .dropdown-menu li a
           color: $colorBlue
-        .navbar-toggle
-          position: relative
-          z-index: 500
-          &:hover
-            background-color: rgba(white,0.1)
-          .icon-bar
-            background-color: #fff
-      .navbar-collapse
-        +rwd_sm
-          height: 100vh
-          opacity: 0
-          pointer-events: none
-          a
-            font-size: 24px
-            margin-bottom: 20px
-          +trans
-          &.in
-            opacity: 1
-            pointer-events: initial
 
-      .navbar-nav
-        
-        +rwd_sm
+
+      .navbar-toggle.collapsed
+        .icon-bar
+          background-color: #fff
+    .navbar-toggle
+      position: relative
+      z-index: 500
+      &:hover
+        background-color: rgba(white,0.1)
+      .icon-bar
+        background-color: white
+      &.collapsed .icon-bar
+        background-color: $colorBlue
+    .navbar-collapse
+      +rwd_sm
+        height: 100vh
+        opacity: 0
+        pointer-events: none
+        a
+          color: white
+          font-size: 24px
+          margin-bottom: 20px
+        +trans
+        &.in
+          opacity: 1
+          pointer-events: initial
+      &.collapsed
+        .icon-bar
           background-color: $colorBlue
-          position: fixed
-          width: 100vw
-          height: 100vh
-          top: 0
-          left: 0
-          display: flex
-          justify-content: center
-          align-items: center
-          // padding: 20px
-          box-sizing: border-box
-          flex-direction: column
-          margin: 0
-          
+
+    .navbar-nav
+      
+      +rwd_sm
+        background-color: $colorBlue
+        position: fixed
+        width: 100vw
+        height: 100vh
+        top: 0
+        left: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        // padding: 20px
+        box-sizing: border-box
+        flex-direction: column
+        margin: 0
 
 [class^="route_event"]
   nav.navbar.navbar-default

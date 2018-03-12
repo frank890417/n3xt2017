@@ -80,10 +80,42 @@ nav.navbar.navbar-default
         .dropdown-menu li a
           color: $colorBlue
         .navbar-toggle
+          position: relative
+          z-index: 500
+          &:hover
+            background-color: rgba(white,0.1)
           .icon-bar
             background-color: #fff
+      .navbar-collapse
+        +rwd_sm
+          height: 100vh
+          opacity: 0
+          pointer-events: none
+          a
+            font-size: 24px
+            margin-bottom: 20px
+          +trans
+          &.in
+            opacity: 1
+            pointer-events: initial
+
       .navbar-nav
-        // background-color: $colorBlue
+        
+        +rwd_sm
+          background-color: $colorBlue
+          position: fixed
+          width: 100vw
+          height: 100vh
+          top: 0
+          left: 0
+          display: flex
+          justify-content: center
+          align-items: center
+          // padding: 20px
+          box-sizing: border-box
+          flex-direction: column
+          margin: 0
+          
 
 [class^="route_event"]
   nav.navbar.navbar-default

@@ -75,14 +75,20 @@
       h2
         font-size: 32px
     +rwd_sm
-      .content
-        opacity: 1
-        color: white
-        background-color: rgba($colorBlue,0.5)
-        h2,h3,hr
-          opacity: 1
-        hr
-          width: 50px
+      .photoBlock
+        &:hover,&:active,&:focus
+          .content
+            opacity: 1
+            color: white
+            background-color: rgba($colorBlue,0.5)
+            h3
+              font-size: 20px
+            h2
+              font-size: 28px
+            h2,h3,hr
+              opacity: 1
+            hr
+              width: 50px
 
   .sectionSchedule
     position: relative

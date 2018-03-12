@@ -111,11 +111,11 @@
             h2 Featured Event
             hr
             h4 {{ getDurationText(spotEvent.start_datetime,spotEvent.end_datetime) }}
-            .event
+            router-link.event(:to="getEventRoute(spotEvent,{link: true})")
               h3.hidden-xs {{ getTitleSplit(spotEvent.title).series }} <br>
                 span.big {{  getTitleSplit(spotEvent.title).title }}
             .col-sm-6.visible-xs
-              slideIn.left.col-img
+              router-link.left.col-img(:to="getEventRoute(spotEvent,{link: true})")
                 //- .block.blue
                 img(:src="spotEvent.cover",  target="_blank")
             h3.visible-xs {{ getTitleSplit(spotEvent.title).series }} <br>

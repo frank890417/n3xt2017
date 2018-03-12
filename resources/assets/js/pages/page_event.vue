@@ -12,11 +12,13 @@
             //- span.small(v-text="getTitleSplit(event.title).series") Building United Communities:
             //- | {{ getTitleSplit(event.title).title }}
             | {{ event.title }}
+          h3 {{event.subtitle}}
+          h4(v-if="tags")
+            span.tag(v-for="tag in tags") {{tag}}
           h4 Time: {{getDurationText(event.start_datetime,event.end_datetime) }}
           h4(v-if="event.venue")
             span Venue: 
             a.venue(:href="'https://www.google.com/maps?q='+event.venue") {{ event.venue }}
-          h3 {{event.subtitle}}
           p(v-html="event.description") Starting any journey with the end in mind makes perfect sense.However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. <br><br> Most of the engineering graduate students will have to job-hunt after graduation. It is important to learn how to handle employee/ employer conflict (Department of Labor), what are the most-updated policies and regulations for working VISA/ immigration (USCIS), and get direct responses from the officials before you kickstart.
           .btn.blue(@click="scrollTo('.sectionRegist')") Register
         .col-sm-7.hidden-xs
@@ -267,6 +269,15 @@ export default {
     programChunk(){
       let result = _.groupBy(this.event.program,(program)=>(program.start_datetime+"").split(" ")[0])
       return result
+    },
+    tags(){
+      let t = this.event.tag
+      if (t){
+        return JSON.parse(t).map(o=> (o) )
+      }else{
+        return null
+      }
+      
     }
   }
 }

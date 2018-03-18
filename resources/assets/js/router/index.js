@@ -90,12 +90,14 @@ router.beforeEach((to, from, next) => {
   lastPath = from.path
 })
 
-router.afterEach(() => {
+router.afterEach((to,from) => {
   //for scroll observable to generate new value for created components
+  window.fromRoute = from
   setTimeout(() => {
     window.scrollTo(0, window.scrollY+1)
     window.scrollTo(0, window.scrollY-1)
   }, 700)
+  
 })
 
 export default router

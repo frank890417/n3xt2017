@@ -39,22 +39,34 @@ export default {
       send_data_array.forEach((obj)=>{
         send_data[obj.name]=obj.value
       })
-      // var send_data=$("#form_contact").submit();
-      console.log(send_data);
 
-      this.sending=true;
-      axios.post("/contact",send_data).then((res)=>{
-        if (res.data.status=="success"){
-          alert("Success! ")
-          setTimeout(()=>{
-            vobj.sending=false;
-          },1000)
-
-        }else{
-
-          alert("Send Fail...")
+      let empty_flag = false
+      Object.values(send_data).forEach(o=>{
+        if (o==""){
+          empty_flag=true
         }
-      });
+      })
+      if (empty_flag){
+        this.$message.warning("Please fill the form before sending")
+        return ""
+      }else{
+        var send_data=$("#form_contact").submit();
+        console.log(send_data);
+
+        this.sending=true;
+        axios.post("/contact",send_data).then((res)=>{
+          if (res.data.status=="success"){
+            alert("Success! ")
+            setTimeout(()=>{
+              vobj.sending=false;
+            },1000)
+
+          }else{
+
+            alert("Send Fail...")
+          }
+        });
+      }
 
     },
   }

@@ -6,7 +6,7 @@
     .container
       .row
         .col-sm-12
-          router-link(to="/speaker").theme.blue
+          router-link(:to="backRoute").theme.blue
             h3 < Back
           //h1 Speaker
           //h3 SOCAL'S FAST GROWING TECH COMMUNITY WITH LA SPIRIT
@@ -46,6 +46,9 @@ export default {
     ...mapState(['speakers','scrollTop']),
     speaker(){
       return this.speakers.find( sp=>sp.name == this.speakername )
+    },
+    backRoute(){
+      return (window.fromRoute.path!="/speaker" && window.fromRoute.path!="/")?window.fromRoute.path:"/speaker"
     }
   },
   methods:{

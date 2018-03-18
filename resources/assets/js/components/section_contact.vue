@@ -50,8 +50,8 @@ export default {
         this.$message.warning("Please fill the form before sending")
         return ""
       }else{
-        var send_data=$("#form_contact").submit();
-        console.log(send_data);
+        // var send_data=$("#form_contact").submit();
+        // console.log(send_data);
 
         this.sending=true;
         axios.post("/contact",send_data).then((res)=>{

@@ -57,6 +57,7 @@ export default {
         axios.post("/contact",send_data).then((res)=>{
           if (res.data.status=="success"){
             this.$message.success("Send success!")
+            $("input,textarea").val("")
             setTimeout(()=>{
               vobj.sending=false;
             },1000)

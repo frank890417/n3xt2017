@@ -56,14 +56,14 @@ export default {
         this.sending=true;
         axios.post("/contact",send_data).then((res)=>{
           if (res.data.status=="success"){
-            alert("Success! ")
+            this.$message.success("Send success!")
             setTimeout(()=>{
               vobj.sending=false;
             },1000)
 
           }else{
 
-            alert("Send Fail...")
+            this.$message.error("Send success!")
           }
         });
       }

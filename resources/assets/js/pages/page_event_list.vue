@@ -23,7 +23,7 @@
           h2 {{ getTitleSplit (spotEvent.title).title }}
           hr  
           p ​{{ strip_tags(spotEvent.description || '').slice(0,300)+"..." }}
-          .btn.red RSVP Now
+          router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})+'/rsvp'") RSVP Now
    
   section.sectionCata.blue
     .container
@@ -72,7 +72,7 @@
                 .date {{ getDurationText(event.start_datetime,event.end_datetime) }}   
               hr  
               p ​{{ (event.description || '').replace(/\<.*?\>/g,'').slice(0,200)}}
-              .btn.red RSVP Now
+              router-link.btn.red(:to="getEventRoute(event,{link: true})+'/rsvp'") RSVP Now
 
             slideIn.right.col-sm-6.col-cover.hidden-xs(:style="cssbg(event.cover)")
               //img.cover(:src="event.cover", style='width: 100%')

@@ -12,8 +12,10 @@
             h4 SOCAL’s fast growing multi-discipline platform for entrepreneurs
             hr
           slideIn  
-            h5 FOR UPDATES & EXCLUSIVE OFFERS
-            .btn.red Subscribe
+            .subscribePanel
+              h5 FOR UPDATES & EXCLUSIVE OFFERS
+              input.inputSubscribe(v-model="subscribeEmail", :placeholder="emailPlaceHolder")
+              .btn.red(@click="postSubscribe") {{subscribeBtnLabel}}
             ul.numbers
               li 
                 .title Attendees
@@ -197,6 +199,13 @@ import $ from 'jquery'
 import slick from 'slick-carousel'
 
 export default {
+    data(){
+      return {
+        subscribeEmail: "",
+        subscribeBtnLabel: "Subscribe",
+        emailPlaceHolder: "YOURMAIL@gmail.com"
+      }
+    },
     metaInfo: {
       title: 'n3xtcon', // set a title
     },
@@ -244,6 +253,34 @@ export default {
     methods:{
       incNumber(num){
         return Math.ceil(this.easeOutSource*num)
+      },
+      postSubscribe(){
+        if (this.subscribeEmail!=""){
+
+          if (this.subscribeEmail.indexOf("@")==-1 ){
+            this.$message.warning("Please Enter correct email to subscribe!")
+            return  
+          }
+
+          axios.post("/api/subscribe",{
+            email: this.subscribeEmail
+          }).then((res)=>{
+            this.$message.success("Send success!")
+            this.emailPlaceHolder=this.subscribeEmail
+            this.subscribeEmail=""
+
+            this.subscribeBtnLabel = "Subscribe successfully!"
+            setTimeout(()=>{
+              this.subscribeBtnLabel = "Subscribe"
+            },2000)
+
+          }).catch((res)=>{
+              this.$message.error("Subscribe Fail...")
+
+          });
+        }else{
+          this.$message.warning("Please Enter email to subscribe!")
+        }
       }
     },
     subscriptions(){

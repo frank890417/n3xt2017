@@ -2,12 +2,12 @@ var data = [
   {
     title: "Social Media Intern",
     description: "n3xtcon, SOCAL’s fast growing multi-discipline platform for entrepreneurs, is in search of a Social Media Intern to join our talented marketing team. Reporting to the Head of Marketing, interns will be responsible for coordinating and executing the company’s social media strategy, working across key social media channels including Facebook, Twitter, Instagram and LinkedIn. Responsibilities include content development, daily monitoring & engaging, as well as audience growth. This role will be instrumental in increasing our social media presence and gaining visibility for our brand among target audience.",
-    responsibilities:[
+    responsibilities:
       `Contribute to short and long-term organizational planning and strategy as a member of the management team
 Play a significant role in long-term planning, including an initiative geared toward operational excellence
 Improve the operational systems, processes and policies in support of organizations mission -- specifically, support better management reporting, information flow and management, business process and organizational planning.
 `.split("\n").filter(o=>o)
-    ],
+    ,
     qualifications:[
       "Bachelor’s Degree in Communications or related field",
       "1 + years’ experience in social media / marketing",

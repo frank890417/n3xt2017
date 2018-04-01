@@ -263,4 +263,29 @@ section.sectionFooter
     width: 100%
     max-width: 100px
     margin-bottom: 40px
-
+  .social_icons
+    padding: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    list-style: none
+    li
+      +size(40px)
+      border-radius: 50%
+      background-color: white
+      color: $colorBlue
+      margin: 10px
+      cursor: pointer
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 24px
+      a
+        color: inherit
+      &:hover
+        background-color: rgba(white,0.9)
+      &:active
+        border: solid 1px white
+        background-color: rgba(white,0.8)
+        color: $colorBlue
+      

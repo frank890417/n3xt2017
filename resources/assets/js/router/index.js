@@ -13,6 +13,7 @@ import page_speaker_indep from '../pages/page_speaker_indep.vue'
 import page_about from '../pages/page_about.vue'
 import page_blog from '../pages/page_blog.vue'
 import page_post from '../pages/page_post.vue'
+import page_conference from '../pages/page_conference.vue'
 
 import manage_event from '../manage/event.vue'
 import manage_event_list from '../manage/event_list.vue'
@@ -35,6 +36,7 @@ const routes = [
   { path: '/blog', component: page_blog, props: true },
   { path: '/post/n/:title', component: page_post, props: true },
   { path: '/event', component: page_event_list, props: true },
+  { path: '/conference', component: page_conference },
   { path: '/event/n/:routename', component: page_event, props: true },
   { path: '/event/n/:routename/rsvp', component: page_event, props: true },
   { path: '/event/:id', component: page_event, props: true },

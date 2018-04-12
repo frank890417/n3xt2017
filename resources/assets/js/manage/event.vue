@@ -7,7 +7,12 @@
             li.breadcrumb-item 
               router-link(to="/manage/event") Manage Event List
             li.breadcrumb-item.active Event Edit
-          h2(v-if="event" ) Edit- {{ strip_tags(event.title) }}
+          h2(v-if="event" ) Edit- {{ strip_tags(event.title) }}&nbsp;
+            span
+              span (
+              span {{ event.draft?"Draft":"Published"  }}
+              span )
+              
             
             button.btn.btn-danger.pull-right(@click="deleteActivity") Delete
             button.btn.btn-primary.pull-right(@click="updateActivity") Save
@@ -22,6 +27,12 @@
           .panel.panel-primary
             .panel-heading Basic Infos
             el-form.panel-body()
+              .form-group
+                labal.col-sm-3 Draft
+                .col-sm-9
+                  el-switch(v-model="event.draft")
+                br
+                br
               .form-group
                 labal.col-sm-3 Type
                 .col-sm-9
@@ -316,6 +327,7 @@ export default {
         title: "",
         description: "",
         place: "",
+        draft: true,
         tag: [],
         speaker: [],
         agency: [],
@@ -379,7 +391,9 @@ export default {
         event.speaker=[]
       }
       // console.log(event.album)
+
       this.event = event
+      this.$set(this.event,"draft",this.event.draft?true:false)
     },
     deleteActivity(){
       if (confirm("Are you sure to delete event?")){

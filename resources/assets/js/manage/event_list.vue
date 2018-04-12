@@ -15,7 +15,7 @@ div.manage_event_list
           .panel-heading Event List
           .panel-body
             ul.list-group
-              li.list-group-item(v-for = "(event,eid) in events")
+              li.list-group-item(v-for = "(event,eid) in allevents")
                 .row
                   .col-sm-2
                     img(:src="event.cover", style="width: 100%")
@@ -23,6 +23,7 @@ div.manage_event_list
                     h4 {{ getDurationText(event.start_datetime,event.end_datetime) }}
                       span &nbsp;&nbsp;/&nbsp;&nbsp;{{event.type}}
                     h3 {{event.title}}
+                      span.drafttag(v-if="event.draft") (Draft)
                       router-link.btn.btn-primary.pull-right(:to="'/manage/event/'+event.id") Edit
               li.list-group-item
                 router-link.btn.btn-default(to="/manage/event/new") + Add New Event
@@ -46,7 +47,7 @@ export default {
   components:{
   },
   mounted(){
-    
+    this.$store.dispatch("loadEvents")
     Axios.get("/api/speaker").then((res)=>{
       this.speakers = res.data
     })
@@ -56,7 +57,7 @@ export default {
     
   },
   computed:{
-    ...mapState(['events']),
+    ...mapState(['allevents']),
     sortedSpeaker(){
        return this.speakers
         .slice()
@@ -74,6 +75,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="sass?indentedSyntax">
+  .drafttag
+    padding: 5px 10px
+    margin-left: 10px
+    border-radius: 5px
+    background-color: #eee
 </style>

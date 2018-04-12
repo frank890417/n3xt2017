@@ -8,6 +8,7 @@ const store = new Vuex.Store({
   state: {
     scrollTop: 0,
     speakers: [],
+    allevents: [],
     events: [],
     posts: [],
     agencies: [],
@@ -24,12 +25,13 @@ const store = new Vuex.Store({
       state.speakers=value
     },
     setEvents(state,value){
-      state.events=value
-      state.events = state.events.sort( (a,b)=>{
+      state.allevents=value
+      state.allevents = state.allevents.sort( (a,b)=>{
         let st = new Date(a.start_datetime)
         let ed = new Date(b.start_datetime)
         return st < ed
       } )
+      state.events = state.allevents.filter(evt=>!evt.draft)
     },
     setPosts(state, value) {
       state.posts = value

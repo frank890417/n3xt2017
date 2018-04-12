@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EventAddPagetype extends Migration
+class EventAddDraft extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class EventAddPagetype extends Migration
     {
         //
         Schema::table('events',function($table){
-            $table->string("pagetype")->nullable();
+            $table->boolean("draft")->default(true);
         });
     }
 
@@ -28,7 +28,7 @@ class EventAddPagetype extends Migration
     {
         //
         Schema::table('events',function($table){
-            $table->dropColumn("pagetype");
+            $table->dropColumn("draft");
         });
     }
 }

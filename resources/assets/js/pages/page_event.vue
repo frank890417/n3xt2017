@@ -112,16 +112,21 @@
                   h3 {{ event.album[3].caption || "See More" }}
   section.sectionOranizers.white(v-if="event.agencies && event.agencies.length")
     .container
-      .row
+      .row(v-for="type in agencytypes",
+          v-if="agenciesChunk[type.value].length")
         .col-sm-5
-          h2 Organizers  &amp;<br>Co-organizers
+          h2 {{type.label}}s
           hr
-          p Industry-trending brands that have worked with n3xt con for positive impact.
+          p(v-if="type.value=='organizer'") Industry-trending brands that have worked with n3xt con for positive impact.
         .col-sm-7
-          ul.agencies
-            li.logo(v-for="ag in event.agencies")
-              a(:href="ag.link",target="_blank", :title="ag.name")
-                img(:src="ag.logo")
+          .row
+            //- pre {{agenciesChunk[type.value]}}
+            .col-sm-12
+              //- h1 {{type.label}}
+              ul.agencies
+                li.logo(v-for="ag in agenciesChunk[type.value]")
+                  a(:href="ag.data.link",target="_blank", :title="ag.data.name")
+                    img(:src="ag.data.logo")
 
   section.sectionRegist.grey#section_register
     .container
@@ -183,7 +188,12 @@ export default {
   },
   data(){
     return {
-      event: null
+      event: null,
+      agencytypes: [
+        { label: "Organizer", value: "organizer" },
+        { label: "Partner", value: "partner" },
+        { label: "Sponsor", value: "sponsor" }
+      ]
     }
   },
   mounted(){
@@ -204,10 +214,12 @@ export default {
         })
       })
 
-
-      this.event.agencies.forEach((id,index)=>{
-        axios.get("/api/agency/"+id).then(res2=>{
-          Vue.set(this.event.agencies,index,res2.data)
+      if (this.event.agencies.length && typeof this.event.agencies[0]!='object'){
+        this.event.agencies = this.event.agencies.map(id=>({id,type: 'organizer'}))
+      }
+      this.event.agencies.forEach((agency,index)=>{
+        axios.get("/api/agency/"+agency.id).then(res2=>{
+          Vue.set(this.event.agencies[index],"data",res2.data)
           
         })
       })
@@ -229,7 +241,7 @@ export default {
     toggle(sel){
       console.log(sel)
       $(sel).slideToggle(0)
-    },
+    }
     // scrollTo(selector){
     //   $("html,body").animate({scrollTop:$(selector).offset().top})
     // }
@@ -278,6 +290,14 @@ export default {
         return null
       }
       
+    },
+    agenciesChunk(){
+      return {
+        organizer: this.event.agencies.filter(ag=>ag.type=="organizer"),
+        partner: this.event.agencies.filter(ag=>ag.type=="partner"),
+        sponsor: this.event.agencies.filter(ag=>ag.type=="sponsor")
+
+      }
     }
   }
 }

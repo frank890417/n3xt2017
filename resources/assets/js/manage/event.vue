@@ -155,12 +155,16 @@
                       .row(v-for="(agency,sid) in event.agencies")
                         .col-sm-12.list-group
                           .list-group-item
-                            .row(v-if="agencies.find(o=>o.id==agency)")
+                            .row(v-if="agencies.find(o=>o.id==agency.id)")
                               .col-sm-2
-                                img(:src="agencies.find(o=>o.id==agency).logo", style="width: 100%")
-                              .col-sm-10
-                                h4(style="width: 100%") {{sid+1}}. {{agencies.find(o=>o.id==agency).name}}
-                                  .btn.btn-danger.pull-right(@click="event.agencies.splice(sid,1)") -
+                                img(:src="agencies.find(o=>o.id==agency.id).logo", style="width: 100%")
+                              .col-sm-5
+                                h4(style="width: 100%") {{sid+1}}. {{agencies.find(o=>o.id==agency.id).name}}
+                              .col-sm-5
+                                el-select(v-model="agency.type")
+                                  el-option(v-for="type in agencytypes", :label="type.label",:value="type.value")
+                                .btn.btn-danger.pull-right(@click="event.agencies.splice(sid,1)") -
+                                
                   .form-group
                     .row
                       .col-sm-12
@@ -327,6 +331,11 @@ export default {
         {tag:'Talks & Networking',value:'talksnetworking'},
         {tag:'Event',value:'event'},
         {tag:'Mentorship',value:'mentorship'},
+      ],
+      agencytypes: [
+        { label: "Organizer", value: "organizer" },
+        { label: "Partner", value: "partner" },
+        { label: "Sponsor", value: "sponsor" }
       ]
     }
   },
@@ -355,6 +364,9 @@ export default {
       }
       if (event.agencies){
         event.agencies = JSON.parse(event.agencies)
+        if (event.agencies.length>0 && typeof event.agencies[0] != 'object'){
+          event.agencies =  event.agencies.map(id=>({id,type: "organizer"}) )
+        }
       }else{
         event.agencies = []
       }

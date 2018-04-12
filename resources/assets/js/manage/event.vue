@@ -173,7 +173,7 @@
                           datalist#agencies( v-if="agencies.length" )
                             option(v-for="agency in agencies" :value="agency.name") 
                         .col-sm-6
-                          .btn.btn-primary.pull-right(@click="event.agencies.push(agencies.find(o=>o.name==temp_agency_name).id);temp_agency_name=''") Add
+                          .btn.btn-primary.pull-right(@click="event.agencies.push({id: agencies.find(o=>o.name==temp_agency_name).id , type: 'organizer'});temp_agency_name=''") Add
                   
           .panel.panel-default(v-if="panel=='speaker'")
             .panel-heading Speaker

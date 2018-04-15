@@ -30,13 +30,13 @@
       .row
         .col-sm-6.col-bar
           .bars
-            slideIn.left.bar(@click="nowCata='conference'")
+            .left.bar(@click="switchCata('conference');scrollTo('.sectionList')")
               img(src="/img/s2_people.png")
               h3 Conference
-            slideIn.left.bar(@click="nowCata='talksnetworking'")
-              h3 Talks &amp; Networks
-            slideIn.left.bar(@click="nowCata='mentorship'")
-              h3 Mentorship
+            .left.bar(@click="switchCata('talksnetworking');scrollTo('.sectionList')")
+                h3 Networks
+            .left.bar(@click="switchCata('mentorship');scrollTo('.sectionList')")
+                h3 Mentorship
         slideIn.col-sm-6
           h3.eng A networking platform for professionals
           h2 Event Types

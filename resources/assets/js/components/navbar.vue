@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 <li @click="toggleNav"><router-link to="/about">About</router-link></li>
-                <li @click="toggleNav"><router-link to="/conference">Conference</router-link></li>
+                <!-- <li @click="toggleNav"><router-link to="/conference">Conference</router-link></li> -->
                 <li @click="toggleNav"><router-link to="/event">Events</router-link></li>
                 <li @click="toggleNav"><router-link to="/speaker">Speakers</router-link></li>
                 <!-- <li @click="toggleNav"><router-link to="/blog">Blog</router-link></li> -->

@@ -77,7 +77,7 @@
               h2 Event<br>Photos
               hr
             .col-sm-6
-              p Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017.
+              //- p Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017.
               router-link.btn.red(to="/event#eventlist") View Events
           br
           br
@@ -117,7 +117,7 @@
         .col-sm-5
           h2 {{type.label}}s
           hr
-          p(v-if="type.value=='organizer'") Industry-trending brands that have worked with n3xt con for positive impact.
+          //- p(v-if="type.value=='organizer'") Industry-trending brands that have worked with n3xt con for positive impact.
         .col-sm-7
           .row
             //- pre {{agenciesChunk[type.value]}}

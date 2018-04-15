@@ -12,10 +12,12 @@
             h4 SOCAL’s fast growing multi-discipline platform for entrepreneurs
             hr
           slideIn  
-            .subscribePanel
+            .subscribePanel(:class="{active: subscribe_open}")
               h5 FOR UPDATES & EXCLUSIVE OFFERS
               input.inputSubscribe(v-model="subscribeEmail", :placeholder="emailPlaceHolder")
-              .btn.red(@click="postSubscribe") {{subscribeBtnLabel}}
+              .btn.red(@click="postSubscribe") 
+                span(v-if="subscribe_open") Submit Email
+                span(v-else) Subscribe
             ul.numbers
               li 
                 .title Attendees
@@ -203,7 +205,8 @@ export default {
       return {
         subscribeEmail: "",
         subscribeBtnLabel: "Subscribe",
-        emailPlaceHolder: "YOURMAIL@gmail.com"
+        subscribe_open: false,
+        emailPlaceHolder: "YOURMAIL@gmail.com",
       }
     },
     metaInfo: {
@@ -255,6 +258,10 @@ export default {
         return Math.ceil(this.easeOutSource*num)
       },
       postSubscribe(){
+        if (this.subscribe_open==false){
+          this.subscribe_open=true
+          return
+        }
         if (this.subscribeEmail!=""){
 
           if (this.subscribeEmail.indexOf("@")==-1 ){

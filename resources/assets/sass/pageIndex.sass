@@ -30,18 +30,31 @@
     .subscribePanel
       margin-top: 60px
 
+
       input.inputSubscribe
         display: inline-block
         border: solid 2px white
         border-radius: 50px
         background-color: transparent
         padding: 5px 20px
-        width: 80%
+        width: 0%
         max-width: 300px
         outline: none
-        margin-right: 20px
+        +trans
+        margin-right: 0
+        margin-left: 0
+        padding-left: 0
+        padding-right: 0
+        opacity: 0
         &:focus
           border-color: $colorRed
+
+      &.active
+        input
+          width: 100%
+          opacity: 1
+          margin-right: 20px
+          padding: 5px 20px
 
       .btn
         display: inline-block

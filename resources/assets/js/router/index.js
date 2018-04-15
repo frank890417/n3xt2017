@@ -11,6 +11,7 @@ import page_event_list from '../pages/page_event_list.vue'
 import page_speaker from '../pages/page_speaker.vue'
 import page_speaker_indep from '../pages/page_speaker_indep.vue'
 import page_about from '../pages/page_about.vue'
+import page_terms from '../pages/page_terms.vue'
 import page_blog from '../pages/page_blog.vue'
 import page_post from '../pages/page_post.vue'
 import page_conference from '../pages/page_conference.vue'
@@ -33,6 +34,7 @@ const routes = [
   { path: '/speaker', component: page_speaker, props: true },
   { path: '/speaker/n/:speakername', component: page_speaker_indep, props: true },
   { path: '/about', component: page_about },
+  { path: '/terms', component: page_terms, props: true },
   { path: '/blog', component: page_blog, props: true },
   { path: '/post/n/:title', component: page_post, props: true },
   { path: '/event', component: page_event_list, props: true },

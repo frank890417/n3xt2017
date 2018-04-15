@@ -15,6 +15,7 @@ $public_routes = [
     '/',
     '/event',
     '/about',
+    '/terms',
     '/speaker',
     '/blog',
     '/conference',

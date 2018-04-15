@@ -1,5 +1,5 @@
 <template lang="pug">
-.page.pageConference
+.page.pageEvent.pageConference(v-if="event")
   section.sectionHero.blue
     .container
       .row
@@ -10,7 +10,7 @@
           h1 n3xtcon 2018
           h3 ​SOCAL'S FAST GROWING TECH CONFERENCE WITH LA SPIRIT<br>PASADENA CONVENTION CENTER
           hr
-          .btn(@click="scrollTo('.sectionRegistration')") Book Tickets!
+          .btn(@click="scrollTo('.sectionRegistration')") Get Tickets
   section.sectionAsk.white
     .container
       .row
@@ -76,7 +76,7 @@
         .col-sm-10
           .row
             .col-sm-3(v-for="i in 4")
-  section.sectionSchedule.blue
+  //- section.sectionSchedule.blue
     .container
       .row
         .col-sm-12
@@ -98,7 +98,7 @@
           h2 Speaker
     .container-fluid.speakers
       .row
-        a.col-sm-3(v-for="person in crews",
+        a.col-sm-3(v-for="person in event.speaker",
           :href="person.link")
           .person.photoBlock(:style="cssbg(person.headshot)")
             h3 {{person.name}}
@@ -115,39 +115,170 @@
         .col-sm-7
           iframe(:src="`https://www.eventbrite.com/tickets-external?eid=${ eventbriteId }&ref=etckt`")
 
-  section.sectionPartner.white
+  section.sectionOranizers.white(v-if="event.agencies && event.agencies.length")
     .container
-      .row
-        .col-sm-12
-          h2 Organizer
+      .row(v-for="type in agencytypes",
+          v-if="agenciesChunk[type.value].length")
+        .col-sm-5
+          h2 {{type.label}}s
           hr
-  
-      .row
-        .col-sm-12
-          h2 Co-Organizer
-          hr
-  
-      .row
-        .col-sm-12
-          h2 Partner Infos
-          hr
+          p(v-if="type.value=='organizer'") Industry-trending brands that have worked with n3xt con for positive impact.
+        .col-sm-7
+          .row
+            //- pre {{agenciesChunk[type.value]}}
+            .col-sm-12
+              //- h1 {{type.label}}
+              ul.agencies
+                li.logo(v-for="ag in agenciesChunk[type.value]")
+                  a(:href="ag.data.link",target="_blank", :title="ag.data.name")
+                    img(:src="ag.data.logo")
   
 
 
+  section_footer
 
 </template>
 
+
 <script>
-import data_crew from "../data/crews.js"
+import slideIn from '../components/slideIn'
+import section_footer from '../components/section_footer'
+import _ from 'lodash'
+import {mapState} from 'vuex'
+
 export default {
+  
+  metaInfo() {
+    return {
+      title: ()=>this.event.title,
+      titleTemplate: require("../data/common").default.titleTemplate,
+    } // set a title
+  },
+  props: [
+    // 'routename'
+  ],
+  components: {
+    slideIn,section_footer
+  },
   data(){
     return {
-      speakers: [],
-      crews: data_crew
+      event: null,
+      agencytypes: [
+        { label: "Organizer", value: "organizer" },
+        { label: "Partner", value: "partner" },
+        { label: "Sponsor", value: "sponsor" }
+      ],
+      // id: 9,
+      routename: "n3xtconf_2018"
+    }
+  },
+  mounted(){
+    //if custom route exist then get by name, else get by id
+    
+    
+    let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
+    axios.get(apiurl).then(res=>{
+      res.data.speaker = JSON.parse(res.data.speaker || "[]")
+      res.data.album = JSON.parse(res.data.album || "[]")
+      res.data.agencies = JSON.parse(res.data.agencies || "[]")
+      this.event=res.data
+
+      this.event.speaker.forEach((id,index)=>{
+        axios.get("/api/speaker/"+id).then(res2=>{
+          Vue.set(this.event.speaker,index,res2.data)
+          
+        })
+      })
+
+      if (this.event.agencies.length && typeof this.event.agencies[0]!='object'){
+        this.event.agencies = this.event.agencies.map(id=>({id,type: 'organizer'}))
+      }
+      this.event.agencies.forEach((agency,index)=>{
+        axios.get("/api/agency/"+agency.id).then(res2=>{
+          Vue.set(this.event.agencies[index],"data",res2.data)
+          
+        })
+      })
+      Vue.nextTick(()=>{
+        this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+        if (this.$route.path.indexOf("rsvp")!=-1){
+          this.scrollTo(".sectionRegist")
+        }
+
+      })
+    })
+  },
+  methods:{
+    goToAlbum(){
+      if (this.event.album_link){
+        window.open(this.event.album_link)
+      }
+    },
+    toggle(sel){
+      console.log(sel)
+      $(sel).slideToggle(0)
+    }
+    // scrollTo(selector){
+    //   $("html,body").animate({scrollTop:$(selector).offset().top})
+    // }
+  },
+  computed:{
+    ...mapState(["events"]),
+    navEvent(){
+      let currentIndex = -1
+      if (this.events){
+        this.events.forEach((d,i)=>{
+          console.log(d.id,this.event.id  )
+          if (d.id==this.event.id){
+            currentIndex = i
+          }
+        })
+        let pre = this.events[currentIndex-1]
+        let post = this.events[currentIndex+1]
+        
+        return {
+          pre: pre,
+          post: post,
+          currentIndex
+        }        
+      }else{
+        return []
+      }
+    },
+    eventbriteId(){
+      if (!this.event.ticketlink) return null
+      const regex = /tickets-([0-9]*)/;
+      const str = this.event.ticketlink
+      let m;
+
+      return str.match(regex)[1]
+
+    },
+    programChunk(){
+      let result = _.groupBy(this.event.program,(program)=>(program.start_datetime+"").split(" ")[0])
+      return result
+    },
+    tags(){
+      let t = this.event.tag
+      if (t){
+        return JSON.parse(t).map(o=> (o) )
+      }else{
+        return null
+      }
+      
+    },
+    agenciesChunk(){
+      return {
+        organizer: this.event.agencies.filter(ag=>ag.type=="organizer"),
+        partner: this.event.agencies.filter(ag=>ag.type=="partner"),
+        sponsor: this.event.agencies.filter(ag=>ag.type=="sponsor")
+
+      }
     }
   }
 }
 </script>
+
 
 <style lang="sass">
 

@@ -7,8 +7,8 @@
           span
         .col-sm-5
           h4 2018 June 16-17
-          h1 n3xtcon 2018
-          h3 ​SOCAL'S FAST GROWING TECH CONFERENCE WITH LA SPIRIT<br>PASADENA CONVENTION CENTER
+          h1 N3XT CON 2018
+          h3 ​SOCAL'S FAST GROWING TECH CONFERENCE WITH LA SPIRIT<br>THE REGENT THEATER DTLA
           hr
           .btn(@click="scrollTo('.sectionRegistration')") Get Tickets
   section.sectionAsk.white
@@ -20,7 +20,7 @@
           p N3xt con 2018 brings together bright minds and visionaries to share ideas of innovation. Featuring a variety of themes including Humancentric Technology (bold), Omnipresence of Storytelling (bold), Frontier of Imagination (bold). Talk topics range from blockchain, brain-computer interface, AI, interactive media, to film production. <br><br>The conference provides an opportunity for attendees to get fresh perspective from industry leaders and futurists. Come, listen, get inspired and establish the network that may help you forge the path you have yet to discover.
 
         .col-sm-6
-          img(src="https://lh3.googleusercontent.com/hDSociyRZSrrgk5s01ut6cOG5-GkNB4QGtdu_8Ck2I76Yl-nmKNX8YFiODToEGsu5UxBkYKcRjYFGyRdSXZmgk-EjTmZVn9Ad65O8nCxi7oi4fBJoGTbVQG7Gm8JLlikwN1SMMS9a2A8Q23aj938OI8zetUxMdxuKZTZtnmf7S012e_Ou4EiT7RtneUqCdoPPDVkwJa_aHMgqfEksATw2lYJFUyZTdGWxtOWg60GMupbyzc9ut514Kffv2KzAaEzEW32nxYr2ZHVaEPwnl7OzpKHsdA4jP1pkWNmW_HYaFMOwVo9juERqoX-xfxSX6KbBJfKRDhAbKUUfHIHMq0qpSyLwmP_rwoKfWXrzIGUSqrptO3J-9XySrmX0ODUrEx8cHHaws1OvvIvudn0u9pw-wrKxB0tsb_waJIzg3hMJyyZhcN8z1pXJmpmOsqBj5-By7etTNdI7Bqz2lV_ZEn0T63iJ26NmyoJ1jssdofR_akiHRmjnp1Dxx78FVDvKfGqlWGm32Et2AUEUzhiQP3h2z8DM_ykYUczW-bckID6p-5fG0rqpD6_QGSkGgAwXShkN4hokuR435pUu777Hss9h3LLcS0kM6LetBTNFsGVNsRu7DOtVlHiVYyPhG8b8Innufwrb8LYk9umfQepQKAuuZY2ZdgjEtGp0TI=w1406-h937-no")
+          img(src="/img/logohexi.svg")
       .row
         .col-sm-6
           img(src="https://lh3.googleusercontent.com/hDSociyRZSrrgk5s01ut6cOG5-GkNB4QGtdu_8Ck2I76Yl-nmKNX8YFiODToEGsu5UxBkYKcRjYFGyRdSXZmgk-EjTmZVn9Ad65O8nCxi7oi4fBJoGTbVQG7Gm8JLlikwN1SMMS9a2A8Q23aj938OI8zetUxMdxuKZTZtnmf7S012e_Ou4EiT7RtneUqCdoPPDVkwJa_aHMgqfEksATw2lYJFUyZTdGWxtOWg60GMupbyzc9ut514Kffv2KzAaEzEW32nxYr2ZHVaEPwnl7OzpKHsdA4jP1pkWNmW_HYaFMOwVo9juERqoX-xfxSX6KbBJfKRDhAbKUUfHIHMq0qpSyLwmP_rwoKfWXrzIGUSqrptO3J-9XySrmX0ODUrEx8cHHaws1OvvIvudn0u9pw-wrKxB0tsb_waJIzg3hMJyyZhcN8z1pXJmpmOsqBj5-By7etTNdI7Bqz2lV_ZEn0T63iJ26NmyoJ1jssdofR_akiHRmjnp1Dxx78FVDvKfGqlWGm32Et2AUEUzhiQP3h2z8DM_ykYUczW-bckID6p-5fG0rqpD6_QGSkGgAwXShkN4hokuR435pUu777Hss9h3LLcS0kM6LetBTNFsGVNsRu7DOtVlHiVYyPhG8b8Innufwrb8LYk9umfQepQKAuuZY2ZdgjEtGp0TI=w1406-h937-no")
@@ -36,7 +36,7 @@
           p If you're a visionary, then this is for you. N3xt con 2018 attendees are comprised of hundreds of professionals and visionaries who come together to inspire each other and exchange knowledge. Attendees range from Fortune 500 companies to smaller tech companies.
           .btn.blue Get Ticket
         .col-sm-6
-          img(src="https://lh3.googleusercontent.com/hDSociyRZSrrgk5s01ut6cOG5-GkNB4QGtdu_8Ck2I76Yl-nmKNX8YFiODToEGsu5UxBkYKcRjYFGyRdSXZmgk-EjTmZVn9Ad65O8nCxi7oi4fBJoGTbVQG7Gm8JLlikwN1SMMS9a2A8Q23aj938OI8zetUxMdxuKZTZtnmf7S012e_Ou4EiT7RtneUqCdoPPDVkwJa_aHMgqfEksATw2lYJFUyZTdGWxtOWg60GMupbyzc9ut514Kffv2KzAaEzEW32nxYr2ZHVaEPwnl7OzpKHsdA4jP1pkWNmW_HYaFMOwVo9juERqoX-xfxSX6KbBJfKRDhAbKUUfHIHMq0qpSyLwmP_rwoKfWXrzIGUSqrptO3J-9XySrmX0ODUrEx8cHHaws1OvvIvudn0u9pw-wrKxB0tsb_waJIzg3hMJyyZhcN8z1pXJmpmOsqBj5-By7etTNdI7Bqz2lV_ZEn0T63iJ26NmyoJ1jssdofR_akiHRmjnp1Dxx78FVDvKfGqlWGm32Et2AUEUzhiQP3h2z8DM_ykYUczW-bckID6p-5fG0rqpD6_QGSkGgAwXShkN4hokuR435pUu777Hss9h3LLcS0kM6LetBTNFsGVNsRu7DOtVlHiVYyPhG8b8Innufwrb8LYk9umfQepQKAuuZY2ZdgjEtGp0TI=w1406-h937-no")
+          img(src="/img/cf01.jpg")
   section.sectionHighlight.blue
     .container
       .row
@@ -64,8 +64,19 @@
           hr
       .row
         .col-sm-6
-          .tag Theme
-          h3 How technology drives <br>the entertainment industry
+          .slick
+            div(v-for="keynote in slides")
+              img(src="/img/cf02.jpg")
+        .col-sm-6
+          .tag {{currentSlide.theme}}
+          h3 {{currentSlide.title}}
+          h4 {{currentSlide.speaker}}
+          //- h3 {{keynote.title}}
+          .btns
+            .btn-cir(@click="prev")
+              i.fa.fa-angle-left
+            .btn-cir(@click="next")
+              i.fa.fa-angle-right
 
   section.sectionSchedule.blue(v-if="programChunk && Object.keys(programChunk).length")
     .container
@@ -89,7 +100,7 @@
     .container
       .row
         .col-sm-12
-          h2 Speaker
+          h2 Speakers
     .container-fluid.speakers
       .row
         a.col-sm-3(v-for="person in event.speaker",
@@ -98,8 +109,8 @@
             h3 {{person.name}}
             h4 
               span {{person.position}}
-              
-  section.sectionRegistration.grey
+
+  section.sectionRegistration.grey(v-if="eventbriteId")
     .container
       .row
         .col-sm-5
@@ -140,6 +151,7 @@ import slideIn from '../components/slideIn'
 import section_footer from '../components/section_footer'
 import _ from 'lodash'
 import {mapState} from 'vuex'
+import slick from 'slick-carousel'
 
 export default {
   
@@ -164,7 +176,46 @@ export default {
         { label: "Sponsor", value: "sponsor" }
       ],
       // id: 9,
-      routename: "n3xtconf_2018"
+      routename: "n3xtconf_2018",
+      keynotes: [
+        {
+          theme: "Frontier of Imagination",
+          title: "Unlocking the Mysteries of Our Brain",
+          company: "Founder & CEO of Openwater, Former Executive of Facebook Oculus",
+          speaker: "Mary Lou Jepsen"
+        },
+
+        {
+          theme: "Omnipresence of Storytelling",
+          title: "Kick-Ass Asian Female Filmmakers",
+          company: "Award Winning Film Director",
+          speaker: "Livi Zheng"
+        },
+
+        {
+          theme: "Omnipresence of Storytelling",
+          title: "Future Home Entertainment - Vessel for Storytelling",
+          company: "Founder & CEO",
+          speaker: "William Wang"
+        },
+
+        {
+          theme: "Omnipresence of Storytelling",
+          title: "Kick-Ass Asian Female Filmmakers",
+          company: "Award Winning Film Director",
+          speaker: "Roxy Shih"
+        },
+      ],
+      slickOptions: {
+          slidesToShow: 1,
+          arrows: false,
+          autoplay: true,
+          dots: true,
+          fade: true
+          // Any other options that can be got from plugin documentation
+      },
+      slickEl: null,
+      currentSlideId: 0,
     }
   },
   mounted(){
@@ -202,8 +253,49 @@ export default {
 
       })
     })
+
+
+    //init keynote carousel
+     if (this.slides.length>0){
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
+
+          });
+        },500)
+      }else{
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
+
+          });
+        },1500)
+      }
   },
   methods:{
+    next() {
+        // console.log(this.slickEl)
+        // console.log($(".slick"))
+        $(".slick").slick("next");
+    },
+
+    prev() {
+        $(".slick").slick("prev");
+    },
     goToAlbum(){
       if (this.event.album_link){
         window.open(this.event.album_link)
@@ -218,6 +310,12 @@ export default {
     // }
   },
   computed:{
+    slides(){
+      return this.keynotes
+    },
+    currentSlide(){
+      return this.slides[this.currentSlideId]
+    },
     ...mapState(["events"]),
     navEvent(){
       let currentIndex = -1

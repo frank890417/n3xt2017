@@ -20,6 +20,7 @@ import VueRx from 'vue-rx'
 import Rx from 'rxjs/Rx'
 
 import ElementUI from 'element-ui'
+// import "slick-carousel/slick/slick.css"
 import locale from 'element-ui/lib/locale/lang/en'
 Vue.use(ElementUI, { locale })
 // Vue.use(ElementUI)

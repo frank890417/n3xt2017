@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 332.9 357.9" style="enable-background:new 0 0 332.9 357.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-4_2_);fill:#E6326A;}
+	.st3{filter:url(#Adobe_OpacityMaskFilter_1_);}
+	.st4{mask:url(#mask-6_2_);fill:#485FAA;}
+	.st5{filter:url(#Adobe_OpacityMaskFilter_2_);}
+	.st6{mask:url(#mask-8_2_);fill:#5753A1;}
+</style>
+<g id="Group-23">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0.1" y="0" width="333.6" height="358.5">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0.1" y="0" width="333.6" height="358.5" id="mask-4_2_">
+		<g class="st0">
+			<polygon id="path-3_2_" class="st1" points="0.1,358.5 333.7,358.5 333.7,0 0.1,0 			"/>
+		</g>
+	</mask>
+	<polygon id="Fill-21" class="st2" points="222.5,0 111.3,179.2 0.1,358.5 222.5,358.5 333.7,179.2 	"/>
+</g>
+<g id="Group-26">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="0.1" y="0" width="333.6" height="358.5">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0.1" y="0" width="333.6" height="358.5" id="mask-6_2_">
+		<g class="st3">
+			<polygon id="path-5_2_" class="st1" points="0.1,358.5 333.7,358.5 333.7,0 0.1,0 			"/>
+		</g>
+	</mask>
+	<polygon id="Fill-24" class="st4" points="222.5,0 0.1,0 111.3,179.2 222.5,358.5 333.7,179.2 	"/>
+</g>
+<g id="Group-29" transform="translate(16.193878, 0.000000)">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_2_" filterUnits="userSpaceOnUse" x="94.9" y="0" width="222" height="358.5">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="94.9" y="0" width="222" height="358.5" id="mask-8_2_">
+		<g class="st5">
+			<polygon id="path-7_2_" class="st1" points="94.9,358.5 316.9,358.5 316.9,0 94.9,0 			"/>
+		</g>
+	</mask>
+	<polygon id="Fill-27" class="st6" points="206,0 94.9,179.4 206,358.5 316.9,179.2 	"/>
+</g>
+</svg>

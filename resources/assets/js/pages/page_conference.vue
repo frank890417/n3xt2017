@@ -17,7 +17,13 @@
         .col-sm-6
           h2 Why?
           hr
-          p N3xt con 2018 brings together bright minds and visionaries to share ideas of innovation. Featuring a variety of themes including Humancentric Technology (bold), Omnipresence of Storytelling (bold), Frontier of Imagination (bold). Talk topics range from blockchain, brain-computer interface, AI, interactive media, to film production. <br><br>The conference provides an opportunity for attendees to get fresh perspective from industry leaders and futurists. Come, listen, get inspired and establish the network that may help you forge the path you have yet to discover.
+          p N3xt con 2018 brings together bright minds and visionaries to share ideas of innovation. Featuring a variety of themes including 
+            b Humancentric Technology
+            span , 
+            b Omnipresence of Storytelling
+            span , 
+            b Frontier of Imagination
+            span . Talk topics range from blockchain, brain-computer interface, AI, interactive media, to film production. <br><br>The conference provides an opportunity for attendees to get fresh perspective from industry leaders and futurists. Come, listen, get inspired and establish the network that may help you forge the path you have yet to discover.
 
         .col-sm-6
           img(src="/img/logohexi.svg")
@@ -67,11 +73,13 @@
           .slick
             div(v-for="keynote in slides")
               img(src="/img/cf02.jpg")
-        .col-sm-6
+        .col-sm-6.col-content
           .tag {{currentSlide.theme}}
           h3 {{currentSlide.title}}
           h4 {{currentSlide.speaker}}
           //- h3 {{keynote.title}}
+          br
+          br
           .btns
             .btn-cir(@click="prev")
               i.fa.fa-angle-left

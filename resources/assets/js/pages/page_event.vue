@@ -50,7 +50,7 @@
               .time 06:00-06:30
               .content
                 p Check In & Pre Networking<br>Industry-trending brands that
-  //section.sectionGuest.white(v-if="event.speaker && event.speaker.length")
+  section.sectionGuest.white(v-if="event.speaker && event.speaker.length")
     .container
       .row
         .col-sm-6

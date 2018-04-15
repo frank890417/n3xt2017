@@ -4,7 +4,7 @@
     .container
       .row
         .col-sm-7
-          h2
+          span
         .col-sm-5
           h4 2018 June 16-17
           h1 n3xtcon 2018
@@ -67,30 +67,24 @@
           .tag Theme
           h3 How technology drives <br>the entertainment industry
 
-  section.sectionGuests.red
+  section.sectionSchedule.blue(v-if="programChunk && Object.keys(programChunk).length")
     .container
       .row
-        .col-sm-2
-          h2 Guests
+        .col-sm-4
+          h2 SCHEDULE
           hr
-        .col-sm-10
-          .row
-            .col-sm-3(v-for="i in 4")
-  //- section.sectionSchedule.blue
-    .container
-      .row
-        .col-sm-12
-          h2 Program Schedule
-          hr
-        .col-sm-12
-          ul.schedules
-            li(v-for="i in 4")
-              div
-                h3.time 08:00-08:15
-                h2.title How Technology Drives <br>the Entertainment Industry
-                p.content Name…..<br>fdiogj iodfjg oidfjg i
-              .head(:style="cssbg('https://n3xtcon.com/img/Speaker%20Pictures/Abe%20Forman-Greenwald.jpg')")
-
+          p Starting any journey with the end in mind makes perfect sense. For more detail please check below.
+          .btn.white.ghost More Details
+        .col-sm-8
+          ul.timeline(v-for="(programs,programdate) in programChunk")
+            .datetag {{ getDateText(programdate) }}
+            li(v-for="(p,pid) in programs")
+              .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
+              .content( @click="toggle('#des'+pid+programdate)")
+                h4 {{p.title}}
+                  span(v-if="p.description")   ▾
+                p(v-html="p.description",:id="'des'+pid+programdate")
+                
   section.sectionSpeakers.white
     .container
       .row
@@ -104,6 +98,7 @@
             h3 {{person.name}}
             h4 
               span {{person.position}}
+              
   section.sectionRegistration.grey
     .container
       .row

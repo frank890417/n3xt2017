@@ -9,7 +9,7 @@
           h4 2018 June 16-17
           h1 N3XT CON 2018
           h3 ​
-            span SOCAL'S FAST GROWING TECH CONFERENCE WITH LA SPIRIT<br><br>
+            span Haven for Entrepreneurs and Storytellers<br><br>
             hr
             span
               i.fa.fa-map-marker  
@@ -70,7 +70,7 @@
     .container
       .row
         .col-sm-12
-          h2 Keynote
+          h2 Trending
           hr
       .row
         .col-sm-6
@@ -136,28 +136,28 @@
         .col-sm-5
           h2 Registration
           hr
-          p Feel free to contact us for any questions,  recommendations, speaking engagements, and inquiries about sponsorship and partnership.
+          p N3xt con 2018 is scheduled for June 16-17 2018 at the Regent Theater DTLA. Limited Tickets Available! Feel free to contact us for any questions, recommendations, speaking engagements, and inquiries about sponsorship and partnership.
           router-link.btn.blue(to="/about#contact") Contact us
         .col-sm-7
           iframe(:src="`https://www.eventbrite.com/tickets-external?eid=${ eventbriteId }&ref=etckt`")
 
   section.sectionOranizers.white(v-if="event.agencies && event.agencies.length")
-    .container
+    .container.text-center
       .row(v-for="type in agencytypes",
           v-if="agenciesChunk[type.value].length")
-        .col-sm-5
+        .col-sm-12
           h2 {{type.label}}s
-          hr
-          p(v-if="type.value=='organizer'") Industry-trending brands that have worked with n3xt con for positive impact.
-        .col-sm-7
+          hr(style="margin: auto")
+          //- p(v-if="type.value=='organizer'") Industry-trending brands that have worked with n3xt con for positive impact.
+        .col-sm-12
           .row
             //- pre {{agenciesChunk[type.value]}}
             .col-sm-12
               //- h1 {{type.label}}
-              ul.agencies
-                li.logo(v-for="ag in agenciesChunk[type.value]")
-                  a(:href="ag.data.link",target="_blank", :title="ag.data.name")
-                    img(:src="ag.data.logo")
+              //- ul.agencies
+              .logo(v-for="ag in agenciesChunk[type.value]")
+                a(:href="ag.data.link",target="_blank", :title="ag.data.name")
+                  img(:src="ag.data.logo")
   
 
 

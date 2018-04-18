@@ -84,7 +84,7 @@
           .speaker.fadeIn.animated
             .container.d-flex
               .col-head
-                img.head(:src="currentSlide.speakerData.headshot")
+                .head(:style="cssbg(currentSlide.speakerData.headshot)")
               .col-info
                 h4
                   span {{currentSlide.speakerData.name}}
@@ -203,7 +203,7 @@ export default {
           title: "Unlocking the Mysteries of Our Brain",
           company: "Founder & CEO of Openwater, Former Executive of Facebook Oculus",
           speaker: "Mary Lou Jepsen",
-          speakerId: 1,
+          speakerId: 123,
           cover: "/img/imag001.jpg"
         },
 

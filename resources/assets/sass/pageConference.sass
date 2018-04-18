@@ -1,4 +1,6 @@
 .pageConference
+  .btn
+    margin-bottom: 30px
   .sectionHero
     // background: url("")
     background-repeat: no-repeat
@@ -7,8 +9,14 @@
     padding-top: 0
     .col-info
       padding-top: 200px
+      +rwd_sm
+        padding-top: 50px
     .col-sm-7
       min-height: 100vh
+      +rwd_sm
+        margin-top: 100px
+        min-height: 50vh
+        height: auto
     img
       height: 90vh
       position: absolute
@@ -16,6 +24,8 @@
       top: 50%
       transform: translate(0,-50%)
       max-width: initial
+      +rwd_sm
+        height: 50vh
       
     // min-height: 80vh
     h1
@@ -33,6 +43,13 @@
       padding-bottom: 80px
     .row:nth-child(1)
       padding-top: 0px
+    .leftout
+      width: calc(100% + 100px)
+      max-width: initial
+      margin-left: -150px
+      +rwd_sm
+        margin-left: -50px
+      
 
   .sectionKeynote
     .d-flex

@@ -29,11 +29,11 @@
             b Frontier of Imagination
             span . Talk topics range from blockchain, brain-computer interface, AI, interactive media, to film production. <br><br>The conference provides an opportunity for attendees to get fresh perspective from industry leaders and futurists. Come, listen, get inspired and establish the network that may help you forge the path you have yet to discover.
 
-        .col-sm-6.wow.fadeInUp
+        .col-sm-6.wow.fadeIn
           img(src="/img/logohexi.svg")
       .row
-        .col-sm-6.wow.fadeInUp
-          img(src="https://lh3.googleusercontent.com/hDSociyRZSrrgk5s01ut6cOG5-GkNB4QGtdu_8Ck2I76Yl-nmKNX8YFiODToEGsu5UxBkYKcRjYFGyRdSXZmgk-EjTmZVn9Ad65O8nCxi7oi4fBJoGTbVQG7Gm8JLlikwN1SMMS9a2A8Q23aj938OI8zetUxMdxuKZTZtnmf7S012e_Ou4EiT7RtneUqCdoPPDVkwJa_aHMgqfEksATw2lYJFUyZTdGWxtOWg60GMupbyzc9ut514Kffv2KzAaEzEW32nxYr2ZHVaEPwnl7OzpKHsdA4jP1pkWNmW_HYaFMOwVo9juERqoX-xfxSX6KbBJfKRDhAbKUUfHIHMq0qpSyLwmP_rwoKfWXrzIGUSqrptO3J-9XySrmX0ODUrEx8cHHaws1OvvIvudn0u9pw-wrKxB0tsb_waJIzg3hMJyyZhcN8z1pXJmpmOsqBj5-By7etTNdI7Bqz2lV_ZEn0T63iJ26NmyoJ1jssdofR_akiHRmjnp1Dxx78FVDvKfGqlWGm32Et2AUEUzhiQP3h2z8DM_ykYUczW-bckID6p-5fG0rqpD6_QGSkGgAwXShkN4hokuR435pUu777Hss9h3LLcS0kM6LetBTNFsGVNsRu7DOtVlHiVYyPhG8b8Innufwrb8LYk9umfQepQKAuuZY2ZdgjEtGp0TI=w1406-h937-no")
+        .col-sm-6.wow.fadeIn
+          img.leftout(src="/img/conf_speaker.png")
         .col-sm-6
           h2.wow.fadeIn Speakers
           hr
@@ -45,7 +45,7 @@
           hr
           p.wow.fadeIn If you're a visionary, then this is for you. N3xt con 2018 attendees are comprised of hundreds of professionals and visionaries who come together to inspire each other and exchange knowledge. Attendees range from Fortune 500 companies to smaller tech companies.
           .btn.blue(@click="scrollTo('.sectionRegistration')")  Get Ticket
-        .col-sm-6.wow.fadeInUp
+        .col-sm-6.wow.fadeIn
           img(src="/img/cf01.jpg")
   section.sectionHighlight.blue
     .container
@@ -152,7 +152,7 @@
         .col-sm-12
           .row
             //- pre {{agenciesChunk[type.value]}}
-            .col-sm-12
+            .col-sm-12.logos
               //- h1 {{type.label}}
               //- ul.agencies
               .logo(v-for="ag in agenciesChunk[type.value]")

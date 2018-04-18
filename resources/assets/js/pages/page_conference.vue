@@ -4,12 +4,16 @@
     .container
       .row
         .col-sm-7
-          span
-        .col-sm-5
+          img(src="/img/theme1.svg")
+        .col-sm-5.col-info
           h4 2018 June 16-17
           h1 N3XT CON 2018
-          h3 ​SOCAL'S FAST GROWING TECH CONFERENCE WITH LA SPIRIT<br>THE REGENT THEATER DTLA
-          hr
+          h3 ​
+            span SOCAL'S FAST GROWING TECH CONFERENCE WITH LA SPIRIT<br><br>
+            hr
+            span
+              i.fa.fa-map-marker  
+              | &nbsp;THE REGENT THEATER DTLA
           .btn(@click="scrollTo('.sectionRegistration')") Get Tickets
   section.sectionAsk.white
     .container

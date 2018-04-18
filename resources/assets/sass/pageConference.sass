@@ -33,12 +33,26 @@
       padding-bottom: 80px
     .row:nth-child(1)
       padding-top: 0px
+
   .sectionKeynote
-    img
+    .d-flex
+      display: flex
+      align-items: center
+      h4
+        margin-bottom: 0
+      p 
+        margin-top: 10px
+    .cover
       // max-height: 200px
       box-shadow: -20px 20px 0px $colorRed
+    .head
+      +size(60px)
+      margin-right: 20px
+      border-radius: 50%
+      vertical-align: middle
     h3
       min-height: 3em
+      font-size: 32px
     .col-content
       padding-top: 50px
       padding-bottom: 50px

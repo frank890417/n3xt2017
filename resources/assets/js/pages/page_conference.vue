@@ -19,9 +19,9 @@
     .container
       .row
         .col-sm-6
-          h2 Why?
+          h2.wow.fadeIn n3xt con 2018
           hr
-          p N3xt con 2018 brings together bright minds and visionaries to share ideas of innovation. Featuring a variety of themes including 
+          p.wow.fadeIn N3xt con 2018 brings together bright minds and visionaries to share ideas of innovation. Featuring a variety of themes including 
             b Humancentric Technology
             span , 
             b Omnipresence of Storytelling
@@ -29,23 +29,23 @@
             b Frontier of Imagination
             span . Talk topics range from blockchain, brain-computer interface, AI, interactive media, to film production. <br><br>The conference provides an opportunity for attendees to get fresh perspective from industry leaders and futurists. Come, listen, get inspired and establish the network that may help you forge the path you have yet to discover.
 
-        .col-sm-6
+        .col-sm-6.wow.fadeInUp
           img(src="/img/logohexi.svg")
       .row
-        .col-sm-6
+        .col-sm-6.wow.fadeInUp
           img(src="https://lh3.googleusercontent.com/hDSociyRZSrrgk5s01ut6cOG5-GkNB4QGtdu_8Ck2I76Yl-nmKNX8YFiODToEGsu5UxBkYKcRjYFGyRdSXZmgk-EjTmZVn9Ad65O8nCxi7oi4fBJoGTbVQG7Gm8JLlikwN1SMMS9a2A8Q23aj938OI8zetUxMdxuKZTZtnmf7S012e_Ou4EiT7RtneUqCdoPPDVkwJa_aHMgqfEksATw2lYJFUyZTdGWxtOWg60GMupbyzc9ut514Kffv2KzAaEzEW32nxYr2ZHVaEPwnl7OzpKHsdA4jP1pkWNmW_HYaFMOwVo9juERqoX-xfxSX6KbBJfKRDhAbKUUfHIHMq0qpSyLwmP_rwoKfWXrzIGUSqrptO3J-9XySrmX0ODUrEx8cHHaws1OvvIvudn0u9pw-wrKxB0tsb_waJIzg3hMJyyZhcN8z1pXJmpmOsqBj5-By7etTNdI7Bqz2lV_ZEn0T63iJ26NmyoJ1jssdofR_akiHRmjnp1Dxx78FVDvKfGqlWGm32Et2AUEUzhiQP3h2z8DM_ykYUczW-bckID6p-5fG0rqpD6_QGSkGgAwXShkN4hokuR435pUu777Hss9h3LLcS0kM6LetBTNFsGVNsRu7DOtVlHiVYyPhG8b8Innufwrb8LYk9umfQepQKAuuZY2ZdgjEtGp0TI=w1406-h937-no")
         .col-sm-6
-          h2 Speakers
+          h2.wow.fadeIn Speakers
           hr
-          p High-quality programs and inspirational speakers. This year, we selected the best and brightest group of entrepreneurs, business investors, pioneers in technology, and industry leaders in the fields of technology, media, and entertainment.
-          .btn.blue(@click="scrollTo('.sectionSpeakers')") See more
+          p.wow.fadeIn High-quality programs and inspirational speakers. This year, we selected the best and brightest group of entrepreneurs, business investors, pioneers in technology, and industry leaders in the fields of technology, media, and entertainment.
+          .btn.blue(@click="scrollTo('.sectionSpeakers')") Speaker Lineup
       .row
         .col-sm-6
-          h2 Attendees
+          h2.wow.fadeIn Attendees
           hr
-          p If you're a visionary, then this is for you. N3xt con 2018 attendees are comprised of hundreds of professionals and visionaries who come together to inspire each other and exchange knowledge. Attendees range from Fortune 500 companies to smaller tech companies.
-          .btn.blue Get Ticket
-        .col-sm-6
+          p.wow.fadeIn If you're a visionary, then this is for you. N3xt con 2018 attendees are comprised of hundreds of professionals and visionaries who come together to inspire each other and exchange knowledge. Attendees range from Fortune 500 companies to smaller tech companies.
+          .btn.blue(@click="scrollTo('.sectionRegistration')")  Get Ticket
+        .col-sm-6.wow.fadeInUp
           img(src="/img/cf01.jpg")
   section.sectionHighlight.blue
     .container
@@ -55,17 +55,17 @@
           hr
       .row
         .col-sm-4
-          img(src="/img/theme1.svg")
-          h3 Humancentric Technology 
-          p Showcase innovations that bring form and purpose to our endless imaginations. A lineup of visionaries share the inner-workings of their explorations in engineering that enhance the human experience and connection in a global landscape.
+          img(src="/img/theme1.svg").wow.zoomIn
+          h3.wow.fadeIn Humancentric Technology 
+          p.wow.fadeIn Showcase innovations that bring form and purpose to our endless imaginations. A lineup of visionaries share the inner-workings of their explorations in engineering that enhance the human experience and connection in a global landscape.
         .col-sm-4
-          img(src="/img/theme2.svg")
-          h3 Omnipresence of Storytelling
-          p Storytelling allows us to establish trust and community, breaks down barriers, and bridges our souls with empathy. With technology, storytelling has taken new forms and deepened its cultural impact like never before. Creative movers and shapers in the heart of global entertainment unveil groundbreaking ways of continuing this ancient tradition in branding, film & television, and marketing.
+          img(src="/img/theme2.svg").wow.zoomIn
+          h3.wow.fadeIn Omnipresence of Storytelling
+          p.wow.fadeIn Storytelling allows us to establish trust and community, breaks down barriers, and bridges our souls with empathy. With technology, storytelling has taken new forms and deepened its cultural impact like never before. Creative movers and shapers in the heart of global entertainment unveil groundbreaking ways of continuing this ancient tradition in branding, film & television, and marketing.
         .col-sm-4
-          img(src="/img/theme3.svg")
-          h3 Frontier of Imagination
-          p Modern entrepreneurs are capturing imaginations by colonizing space, revolutionizing energy sources, and enhancing global interactions. Often times, the possible is built on ideas that once considered impossible. New generations of entrepreneurs discuss how they apply their imagination to disrupting ideas that fundamentally change us.
+          img(src="/img/theme3.svg").wow.zoomIn
+          h3.wow.fadeIn Frontier of Imagination
+          p.wow.fadeIn Modern entrepreneurs are capturing imaginations by colonizing space, revolutionizing energy sources, and enhancing global interactions. Often times, the possible is built on ideas that once considered impossible. New generations of entrepreneurs discuss how they apply their imagination to disrupting ideas that fundamentally change us.
   section.sectionKeynote.white
     .container
       .row
@@ -76,11 +76,19 @@
         .col-sm-6
           .slick
             div(v-for="keynote in slides")
-              img(src="/img/cf02.jpg")
+              img.cover(:src="keynote.cover")
         .col-sm-6.col-content
           .tag {{currentSlide.theme}}
           h3 {{currentSlide.title}}
-          h4 {{currentSlide.speaker}}
+          br
+          .speaker.fadeIn.animated
+            .container.d-flex
+              .col-head
+                img.head(:src="currentSlide.speakerData.headshot")
+              .col-info
+                h4
+                  span {{currentSlide.speakerData.name}}
+                p {{currentSlide.speakerData.position}}, {{currentSlide.speakerData.company}} 
           //- h3 {{keynote.title}}
           br
           br
@@ -115,7 +123,7 @@
           h2 Speakers
     .container-fluid.speakers
       .row
-        a.col-sm-3(v-for="person in event.speaker",
+        a.col-sm-3.wow.fadeIn(v-for="person in event.speaker",
           :href="person.link")
           .person.photoBlock(:style="cssbg(person.headshot)")
             h3 {{person.name}}
@@ -194,28 +202,36 @@ export default {
           theme: "Frontier of Imagination",
           title: "Unlocking the Mysteries of Our Brain",
           company: "Founder & CEO of Openwater, Former Executive of Facebook Oculus",
-          speaker: "Mary Lou Jepsen"
+          speaker: "Mary Lou Jepsen",
+          speakerId: 1,
+          cover: "/img/imag001.jpg"
         },
 
         {
           theme: "Omnipresence of Storytelling",
           title: "Kick-Ass Asian Female Filmmakers",
           company: "Award Winning Film Director",
-          speaker: "Livi Zheng"
+          speaker: "Livi Zheng",
+          speakerId: 127,
+          cover: "/img/imag002.jpg"
         },
 
         {
           theme: "Omnipresence of Storytelling",
           title: "Future Home Entertainment - Vessel for Storytelling",
           company: "Founder & CEO",
-          speaker: "William Wang"
+          speaker: "William Wang",
+          speakerId: 108,
+          cover: "/img/imag003.jpg"
         },
 
         {
           theme: "Omnipresence of Storytelling",
           title: "Kick-Ass Asian Female Filmmakers",
           company: "Award Winning Film Director",
-          speaker: "Roxy Shih"
+          speaker: "Roxy Shih",
+          speakerId: 129,
+          cover: "/img/imag004.jpg"
         },
       ],
       slickOptions: {
@@ -232,7 +248,7 @@ export default {
   },
   mounted(){
     //if custom route exist then get by name, else get by id
-    
+    new WOW().init();
     
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
@@ -241,6 +257,13 @@ export default {
       res.data.agencies = JSON.parse(res.data.agencies || "[]")
       this.event=res.data
 
+      this.keynotes.forEach((keynote)=>{
+
+        axios.get("/api/speaker/"+keynote.speakerId).then(res2=>{
+          Vue.set(keynote,"speakerData",res2.data)
+          
+        })
+      })
       this.event.speaker.forEach((id,index)=>{
         axios.get("/api/speaker/"+id).then(res2=>{
           Vue.set(this.event.speaker,index,res2.data)
@@ -266,37 +289,38 @@ export default {
       })
     })
 
+    Vue.nextTick(()=>{
+        //init keynote carousel
+        if (this.slides.length>0){
+            setTimeout(()=>{
+              this.$nextTick(() => {
+                this.slickEl=$(".slick").slick(
+                  this.slickOptions
+                )
+                let _this=this
+                $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                  console.log(nextSlide)
+                  _this.currentSlideId=nextSlide
+                })
 
-    //init keynote carousel
-     if (this.slides.length>0){
-        setTimeout(()=>{
-          this.$nextTick(() => {
-            this.slickEl=$(".slick").slick(
-              this.slickOptions
-            )
-            let _this=this
-            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
-              _this.currentSlideId=nextSlide
-            })
+              });
+            },500)
+          }else{
+            setTimeout(()=>{
+              this.$nextTick(() => {
+                this.slickEl=$(".slick").slick(
+                  this.slickOptions
+                )
+                let _this=this
+                $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                  console.log(nextSlide)
+                  _this.currentSlideId=nextSlide
+                })
 
-          });
-        },500)
-      }else{
-        setTimeout(()=>{
-          this.$nextTick(() => {
-            this.slickEl=$(".slick").slick(
-              this.slickOptions
-            )
-            let _this=this
-            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
-              _this.currentSlideId=nextSlide
-            })
-
-          });
-        },1500)
-      }
+              });
+            },2000)
+          }
+    })
   },
   methods:{
     next() {

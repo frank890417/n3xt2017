@@ -16,7 +16,8 @@
     <meta property="og:url" content="{{url()->current()}}">
     <meta property="og:image" content="/img/Og.png">
     <meta property="og:description" content="SOCAL'S fast growing multi-discipline platform for entrepreneurs. Connect to 1000+ startups and industry leaders. We empower, engage, and elevate the next generation of visionaries.">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>

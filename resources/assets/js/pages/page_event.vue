@@ -58,7 +58,7 @@
           //- p Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017.
         .col-sm-12
           ul.row.speakers
-            li.col-sm-3(v-for="speaker in event.speaker")
+            li.col-sm-3.col-speaker(v-for="speaker in event.speaker")
               router-link.headshot(
                 :style="cssbg(speaker.headshot)",
                 :to="`/speaker/n/${speaker.name}`")

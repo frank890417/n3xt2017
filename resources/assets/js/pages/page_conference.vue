@@ -289,37 +289,21 @@ export default {
       })
     })
 
-    Vue.nextTick(()=>{
+    this.$nextTick(()=>{
         //init keynote carousel
-        if (this.slides.length>0){
-            setTimeout(()=>{
-              this.$nextTick(() => {
-                this.slickEl=$(".slick").slick(
-                  this.slickOptions
-                )
-                let _this=this
-                $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                  console.log(nextSlide)
-                  _this.currentSlideId=nextSlide
-                })
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
 
-              });
-            },500)
-          }else{
-            setTimeout(()=>{
-              this.$nextTick(() => {
-                this.slickEl=$(".slick").slick(
-                  this.slickOptions
-                )
-                let _this=this
-                $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                  console.log(nextSlide)
-                  _this.currentSlideId=nextSlide
-                })
-
-              });
-            },2000)
-          }
+          });
+        },this.slides.length>0?500:1500)
     })
   },
   methods:{

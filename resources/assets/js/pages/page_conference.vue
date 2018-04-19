@@ -289,22 +289,28 @@ export default {
       })
     })
 
-    this.$nextTick(()=>{
-        //init keynote carousel
-        setTimeout(()=>{
-          this.$nextTick(() => {
-            this.slickEl=$(".slick").slick(
-              this.slickOptions
-            )
-            let _this=this
-            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
-              _this.currentSlideId=nextSlide
-            })
-
-          });
-        },this.slides.length>0?500:1500)
+    this.slickEl=$(".slick").slick(
+      this.slickOptions
+    )
+    let _this=this
+    $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+      console.log(nextSlide)
+      _this.currentSlideId=nextSlide
     })
+    //init keynote carousel
+    setTimeout(()=>{
+      this.$nextTick(() => {
+        
+          this.slickEl=$(".slick").slick(
+          this.slickOptions
+        )
+        let _this=this
+        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+          console.log(nextSlide)
+          _this.currentSlideId=nextSlide
+        })
+      });
+    },this.slides.length>0?500:1500)
   },
   methods:{
     next() {
@@ -328,6 +334,18 @@ export default {
     // scrollTo(selector){
     //   $("html,body").animate({scrollTop:$(selector).offset().top})
     // }
+  },
+  watch: {
+    slides(){
+      this.slickEl=$(".slick").slick(
+          this.slickOptions
+        )
+        let _this=this
+        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+          console.log(nextSlide)
+          _this.currentSlideId=nextSlide
+      })
+    }
   },
   computed:{
     slides(){

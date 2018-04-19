@@ -250,6 +250,29 @@ export default {
     //if custom route exist then get by name, else get by id
     new WOW().init();
     
+    this.slickEl=$(".slick").slick(
+      this.slickOptions
+    )
+    let _this=this
+    $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+      console.log(nextSlide)
+      _this.currentSlideId=nextSlide
+    })
+    //init keynote carousel
+    setTimeout(()=>{
+      this.$nextTick(() => {
+        
+          this.slickEl=$(".slick").slick(
+          this.slickOptions
+        )
+        let _this=this
+        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+          console.log(nextSlide)
+          _this.currentSlideId=nextSlide
+        })
+      });
+    },this.slides.length>0?500:1500)
+    
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
@@ -289,28 +312,6 @@ export default {
       })
     })
 
-    this.slickEl=$(".slick").slick(
-      this.slickOptions
-    )
-    let _this=this
-    $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-      console.log(nextSlide)
-      _this.currentSlideId=nextSlide
-    })
-    //init keynote carousel
-    setTimeout(()=>{
-      this.$nextTick(() => {
-        
-          this.slickEl=$(".slick").slick(
-          this.slickOptions
-        )
-        let _this=this
-        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-          console.log(nextSlide)
-          _this.currentSlideId=nextSlide
-        })
-      });
-    },this.slides.length>0?500:1500)
   },
   methods:{
     next() {

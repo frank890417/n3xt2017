@@ -74,7 +74,7 @@
           hr
       .row
         .col-sm-6
-          .keynote-slides
+          .slick
             div(v-for="keynote in slides")
               img.cover(:src="keynote.cover")
         .col-sm-6.col-content(v-if="currentSlide")
@@ -85,7 +85,7 @@
             .container.d-flex
               .col-head
                 .head(:style="cssbg(currentSlide.speakerData.headshot)")
-              .col-info
+              .col-info(v-if="currentSlide.speakerData")
                 h4
                   span {{currentSlide.speakerData.name}}
                 p {{currentSlide.speakerData.position}}, {{currentSlide.speakerData.company}} 
@@ -171,6 +171,7 @@ import slideIn from '../components/slideIn'
 import section_footer from '../components/section_footer'
 import _ from 'lodash'
 import {mapState} from 'vuex'
+import $ from 'jquery'
 import slick from 'slick-carousel'
 
 export default {
@@ -254,6 +255,7 @@ export default {
             this.slickEl=$(".slick").slick(
               this.slickOptions
             )
+            console.log(this.slickOptions)
             let _this=this
             $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
               console.log(nextSlide)
@@ -261,7 +263,7 @@ export default {
             })
 
           });
-        },0)
+        },1000)
       }else{
         setTimeout(()=>{
           this.$nextTick(() => {

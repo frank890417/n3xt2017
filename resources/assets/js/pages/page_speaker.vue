@@ -7,7 +7,7 @@
       .row
         .col-sm-8
           h1 Speaker
-          h3 SOCAL’s fast growing multi-discipline platform for entrepreneurs
+          h3 Haven for Entrepreneurs and Storytellers
           hr
           h5 
 

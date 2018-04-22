@@ -5,7 +5,7 @@
       .row
         .col-sm-8
           h1 Events
-          h3 SOCAL’s fast growing multi-discipline platform for entrepreneurs
+          h3 Haven for Entrepreneurs and Storytellers
           hr
         .col-sm-4#container_star
           //img(src="/img/stars.svg")

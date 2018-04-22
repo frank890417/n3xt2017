@@ -9,15 +9,16 @@
           slideIn
             h1 Unleash<br>the Future.
           slideIn
-            h4 SOCAL’s fast growing multi-discipline platform for entrepreneurs
+            h4 Haven for Entrepreneurs and Storytellers
             hr
           slideIn  
-            .subscribePanel(:class="{active: subscribe_open}")
+            //.subscribePanel(:class="{active: subscribe_open}")
               h5 FOR UPDATES & EXCLUSIVE OFFERS
               input.inputSubscribe(v-model="subscribeEmail", :placeholder="emailPlaceHolder")
               .btn.red(@click="postSubscribe") 
                 span(v-if="subscribe_open") Submit Email
                 span(v-else) Subscribe
+            router-link.btn.red(to="/conference") 2018 Conference
             ul.numbers
               li 
                 .title Attendees

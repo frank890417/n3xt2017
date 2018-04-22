@@ -176,7 +176,7 @@ export default {
   
   metaInfo() {
     return {
-      title: ()=>this.event.title,
+      // title: ()=>this.event.title,
       titleTemplate: require("../data/common").default.titleTemplate
     } // set a title
   },
@@ -202,6 +202,13 @@ export default {
     
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
+
+      if (res.data.type=="conference"){
+        this.$router.push("/conference")
+      }
+
+
+
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
       res.data.album = JSON.parse(res.data.album || "[]")
       res.data.agencies = JSON.parse(res.data.agencies || "[]")

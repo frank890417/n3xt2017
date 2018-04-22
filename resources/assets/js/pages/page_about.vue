@@ -7,7 +7,7 @@
       .row
         .col-sm-12
           h1 About us
-          h3 SOCAL’s fast growing multi-discipline platform for entrepreneurs
+          h3 Haven for Entrepreneurs and Storytellers
           hr
           h5 
 

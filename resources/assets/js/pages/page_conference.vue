@@ -248,28 +248,21 @@ export default {
   },
   mounted(){
     
-    this.slickEl=$(".keynote-slides").slick(
-      this.slickOptions
-    )
-    let _this=this
-    $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-      console.log(nextSlide)
-      _this.currentSlideId=nextSlide
-    })
+    let _this=this    
     //init keynote carousel
-    setTimeout(()=>{
-      this.$nextTick(() => {
-        
+    this.$nextTick(() => {
+      setTimeout(()=>{
           this.slickEl=$(".keynote-slides").slick(
-          this.slickOptions
-        )
-        let _this=this
-        $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-          console.log(nextSlide)
-          _this.currentSlideId=nextSlide
-        })
-      });
-    },this.slides.length>0?500:1500)
+            this.slickOptions
+          )
+          let _this=this
+          $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            console.log(nextSlide)
+            _this.currentSlideId=nextSlide
+          })
+        
+      },800)
+    });
     
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
@@ -301,7 +294,7 @@ export default {
           
         })
       })
-      Vue.nextTick(()=>{
+      this.$nextTick(()=>{
         this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
         if (this.$route.path.indexOf("rsvp")!=-1){
           this.scrollTo(".sectionRegist")

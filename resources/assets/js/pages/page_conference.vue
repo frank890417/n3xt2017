@@ -74,14 +74,14 @@
           hr
       .row
         .col-sm-6
-          .slick
+          .keynote-slides
             div(v-for="keynote in slides")
               img.cover(:src="keynote.cover")
-        .col-sm-6.col-content
+        .col-sm-6.col-content(v-if="currentSlide")
           .tag {{currentSlide.theme}}
           h3 {{currentSlide.title}}
           br
-          .speaker.fadeIn.animated
+          .speaker.fadeIn.animated(v-if="currentSlide.speakerData")
             .container.d-flex
               .col-head
                 .head(:style="cssbg(currentSlide.speakerData.headshot)")
@@ -177,8 +177,8 @@ export default {
   
   metaInfo() {
     return {
-      title: ()=>this.event.title,
-      titleTemplate: require("../data/common").default.titleTemplate,
+      // title: ()=>this.event.title,
+      // titleTemplate: require("../data/common").default.titleTemplate,
     } // set a title
   },
   props: [
@@ -247,14 +247,12 @@ export default {
     }
   },
   mounted(){
-    //if custom route exist then get by name, else get by id
-    new WOW().init();
     
-    this.slickEl=$(".slick").slick(
+    this.slickEl=$(".keynote-slides").slick(
       this.slickOptions
     )
     let _this=this
-    $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
       console.log(nextSlide)
       _this.currentSlideId=nextSlide
     })
@@ -262,11 +260,11 @@ export default {
     setTimeout(()=>{
       this.$nextTick(() => {
         
-          this.slickEl=$(".slick").slick(
+          this.slickEl=$(".keynote-slides").slick(
           this.slickOptions
         )
         let _this=this
-        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
           console.log(nextSlide)
           _this.currentSlideId=nextSlide
         })
@@ -311,17 +309,19 @@ export default {
 
       })
     })
+    //if custom route exist then get by name, else get by id
+    new WOW().init();
 
   },
   methods:{
     next() {
         // console.log(this.slickEl)
-        // console.log($(".slick"))
-        $(".slick").slick("next");
+        // console.log($(".keynote-slides"))
+        $(".keynote-slides").slick("next");
     },
 
     prev() {
-        $(".slick").slick("prev");
+        $(".keynote-slides").slick("prev");
     },
     goToAlbum(){
       if (this.event.album_link){
@@ -338,11 +338,11 @@ export default {
   },
   watch: {
     slides(){
-      this.slickEl=$(".slick").slick(
+      this.slickEl=$(".keynote-slides").slick(
           this.slickOptions
         )
         let _this=this
-        $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
           console.log(nextSlide)
           _this.currentSlideId=nextSlide
       })

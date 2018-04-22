@@ -81,7 +81,7 @@
           .tag {{currentSlide.theme}}
           h3 {{currentSlide.title}}
           br
-          .speaker.fadeIn.animated(v-if="currentSlide.speakerData")
+          .speaker.fadeIn.animated
             .container.d-flex
               .col-head
                 .head(:style="cssbg(currentSlide.speakerData.headshot)")
@@ -247,22 +247,37 @@ export default {
     }
   },
   mounted(){
+    console.log(this.slides)
+     if (this.slides.length>0){
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
+
+          });
+        },0)
+      }else{
+        setTimeout(()=>{
+          this.$nextTick(() => {
+            this.slickEl=$(".slick").slick(
+              this.slickOptions
+            )
+            let _this=this
+            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+              console.log(nextSlide)
+              _this.currentSlideId=nextSlide
+            })
+
+          });
+        },1500)
+      }
     
-    let _this=this    
-    //init keynote carousel
-    this.$nextTick(() => {
-      setTimeout(()=>{
-          this.slickEl=$(".keynote-slides").slick(
-            this.slickOptions
-          )
-          let _this=this
-          $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-            console.log(nextSlide)
-            _this.currentSlideId=nextSlide
-          })
-        
-      },800)
-    });
     
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
@@ -294,7 +309,7 @@ export default {
           
         })
       })
-      this.$nextTick(()=>{
+      Vue.nextTick(()=>{
         this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
         if (this.$route.path.indexOf("rsvp")!=-1){
           this.scrollTo(".sectionRegist")
@@ -309,12 +324,12 @@ export default {
   methods:{
     next() {
         // console.log(this.slickEl)
-        // console.log($(".keynote-slides"))
-        $(".keynote-slides").slick("next");
+        // console.log($(".slick"))
+        $(".slick").slick("next");
     },
 
     prev() {
-        $(".keynote-slides").slick("prev");
+        $(".slick").slick("prev");
     },
     goToAlbum(){
       if (this.event.album_link){
@@ -330,16 +345,16 @@ export default {
     // }
   },
   watch: {
-    slides(){
-      this.slickEl=$(".keynote-slides").slick(
-          this.slickOptions
-        )
-        let _this=this
-        $(".keynote-slides").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-          console.log(nextSlide)
-          _this.currentSlideId=nextSlide
-      })
-    }
+    // slides(){
+    //   this.slickEl=$(".slick").slick(
+    //       this.slickOptions
+    //     )
+    //     let _this=this
+    //     $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    //       console.log(nextSlide)
+    //       _this.currentSlideId=nextSlide
+    //   })
+    // }
   },
   computed:{
     slides(){

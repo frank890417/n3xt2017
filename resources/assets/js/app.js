@@ -188,10 +188,12 @@ Vue.mixin({
 import section_footer from './components/section_footer'
 import section_contact from './components/section_contact'
 import slideIn from './components/slideIn'
+import fullPage from './components/fullPage'
 //footer global
 Vue.component("section_footer", section_footer)
 Vue.component("section_contact", section_contact)
 Vue.component("slideIn", slideIn)
+Vue.component("fullPage", fullPage)
 const app = new Vue({
     el: '#app',
     router,

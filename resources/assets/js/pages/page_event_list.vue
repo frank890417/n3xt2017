@@ -49,7 +49,7 @@
       .row
         .col-sm-12
           //- h3.eng People working with us
-          h2 November
+          h2 Events
           hr  
           //- p ​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders
           //- .btn.red Explore!

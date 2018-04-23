@@ -3,7 +3,34 @@
   width: 100%
   overflow: hidden
   min-height: 100vh
-  
+    
+  .fullpage
+    position: fixed
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    background-color: rgba($colorBlue,0.9)
+    z-index: 2000
+    overflow-y: scroll
+    padding: 20px
+    padding-top: 60px
+    .cross
+      color: white
+      cursor: pointer
+      transform: scale(1.1)
+      font-size: 40px
+      +trans
+      &:hover
+        color: $colorRed
+
+
+  .cross
+    position: fixed
+    right: 40px
+    top: 40px
+    
+
   // padding-top: 60px
   h1,h2,h3
     font-family: 'Khula'

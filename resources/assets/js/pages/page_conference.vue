@@ -123,12 +123,22 @@
           h2 Speakers
     .container-fluid.speakers
       .row
-        a.col-sm-3.wow.fadeIn(v-for="person in event.speaker",
+        a.col-sm-3.wow.fadeIn(v-for="(person,pid) in event.speaker",
           :href="person.link")
-          .person.photoBlock(:style="cssbg(person.headshot)")
+          .person.photoBlock(:style="cssbg(person.headshot)",
+          @click="speakerShowIndep=true;speakerShowId=pid")
             h3 {{person.name}}
             h4 
               span {{person.position}}
+        fullPage(:show="speakerShowIndep && fullSpeaker", @closeFullpage = "()=>{speakerShowIndep=false}")
+          .container.colContent(v-if="fullSpeaker")
+            .row
+              .col-sm-12
+                img(:src="fullSpeaker.headshot", style='width: 200px')
+                h2 {{fullSpeaker.name}}
+                h3 {{fullSpeaker.position}} , {{fullSpeaker.company}}
+                hr
+                p(v-html="getHtml(fullSpeaker.bio)")
 
   section.sectionRegistration.grey(v-if="eventbriteId")
     .container
@@ -191,6 +201,8 @@ export default {
   data(){
     return {
       event: null,
+      speakerShowIndep: false,
+      speakerShowId: -1,
       agencytypes: [
         { label: "Organizer", value: "organizer" },
         { label: "Partner", value: "partner" },
@@ -341,6 +353,9 @@ export default {
     toggle(sel){
       console.log(sel)
       $(sel).slideToggle(0)
+    },
+    getHtml(text){
+      return (''+text).replace(/\r/g,'<br>')
     }
     // scrollTo(selector){
     //   $("html,body").animate({scrollTop:$(selector).offset().top})
@@ -359,6 +374,9 @@ export default {
     // }
   },
   computed:{
+    fullSpeaker(){
+      return this.event.speaker[this.speakerShowId]
+    },
     slides(){
       return this.keynotes
     },

@@ -188,7 +188,7 @@ export default {
   
   metaInfo() {
     return {
-      title: "n3xt con Conference",
+      title: "Conference",
       titleTemplate: require("../data/common").default.titleTemplate,
     } // set a title
   },

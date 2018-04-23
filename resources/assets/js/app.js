@@ -85,6 +85,11 @@ Vue.mixin({
         },
 
         getEventRoute(event,options) {
+
+            if (event.type=="conference"){
+                return "/conference"
+            }
+
             let gen_options = Object.assign({ link: true }, options)
             let prefix = '/event/n/'
             if (!gen_options.link) prefix = ''

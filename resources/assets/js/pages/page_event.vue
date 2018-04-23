@@ -203,11 +203,6 @@ export default {
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
     axios.get(apiurl).then(res=>{
 
-      if (res.data.type=="conference"){
-        this.$router.push("/conference")
-      }
-
-
 
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
       res.data.album = JSON.parse(res.data.album || "[]")

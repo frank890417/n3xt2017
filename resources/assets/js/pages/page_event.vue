@@ -176,7 +176,7 @@ export default {
   
   metaInfo() {
     return {
-      // title: ()=>this.event.title,
+      title: "Event",
       titleTemplate: require("../data/common").default.titleTemplate
     } // set a title
   },
@@ -253,7 +253,7 @@ export default {
     indexCta(){
       let overTime = (new Date() ) > (new Date(this.event.end_datetime))
       if (overTime){
-        if (this.album_link){
+        if (this.event.album_link){
           return {
             label: "See Photos",
             target: ".sectionPhotos"

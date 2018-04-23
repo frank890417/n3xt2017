@@ -178,8 +178,8 @@ export default {
   
   metaInfo() {
     return {
-      // title: ()=>this.event.title,
-      // titleTemplate: require("../data/common").default.titleTemplate,
+      title: "n3xt con Conference",
+      titleTemplate: require("../data/common").default.titleTemplate,
     } // set a title
   },
   props: [

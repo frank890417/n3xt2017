@@ -20,7 +20,7 @@
             span Venue: 
             a.venue(:href="'https://www.google.com/maps?q='+event.venue") {{ event.venue }}
           p(v-html="event.description") Starting any journey with the end in mind makes perfect sense.However when it comes to career kickstarts, changes and promotions, it’s important to think about the embarkation point and plan from there. <br><br> Most of the engineering graduate students will have to job-hunt after graduation. It is important to learn how to handle employee/ employer conflict (Department of Labor), what are the most-updated policies and regulations for working VISA/ immigration (USCIS), and get direct responses from the officials before you kickstart.
-          .btn.blue(@click="scrollTo('.sectionRegist')") Register
+          .btn.blue(v-if="indexCta" @click="scrollTo(indexCta.target)") {{indexCta.label}}
         .col-sm-7.hidden-xs
           .eventCover(:style="cssbg(event.cover)" style="background-image: url(https://lh3.googleusercontent.com/Z1bZXTqxs1XisADTjyREIsHdQ1JYHLyC0zL5WMeq5azeqxv9CphKGPE6nQqa1b6RiRRn9roKIjYtbpHkbxcAJ5eRZnfj1v_zRlCIWCJA6aSC95PziJPxn9xX5VR7PC-3H7UDlNGmTxkQbuEcv3sHHB3CfxV950dt847aaXFEABUwWPYj2o2dPw-3KyTA96enAcDHWWF7sf6jr8eX9HSmDWKgs2AwlFgYquuAEMiE4TJQx6ZbYdOI5Za5OeS6qbUO_-V16ztZ6Qp5-V6KWlNJXSOBJnfW87IlIjwZv9i1LrgRPhdPxgP6Q6Npdu8XUWWqlFcXz9RSa6tQA6FQ2woS95O1DeGKw6Npc2rfllfxGwIuUm96r5jiWhodXIF0Gs0cT2Hx93AvIdOqkFw6kuUtzg2JWyCUfL5GXuxyambdR4Iboe-cdVlzAc7tB6B4NyMOt655KTM2IeY__FV5Rx_qecL3MoZ1IgGtIn9-4OVWVp2RRO8ex4CkuFrBOopDfjT9I1opGnmqGqThjVZWdch7mYw9V9fXQYezEzBPBXuYDxz2feJAOnEkPuRvbzbQ264g5oZCMlNkOknbwM9Vquq4JXx5cutqpLqXFlT0wuqpjcSz9ugTAopFhwnZ2_0ZW2coGOxduh13lGodKD78pjhZMCzsm_XF9BuBnSE=w1370-h913-no)")
   section.sectionSchedule.blue(v-if="programChunk && Object.keys(programChunk).length")
@@ -250,6 +250,23 @@ export default {
   },
   computed:{
     ...mapState(["events"]),
+    indexCta(){
+      let overTime = (new Date() ) > (new Date(this.event.end_datetime))
+      if (overTime){
+        if (this.album_link){
+          return {
+            label: "See Photos",
+            target: ".sectionPhotos"
+          }
+        }
+      }else{
+        return {
+            label: "Register",
+            target: ".sectionRegist"
+          }
+      }
+      return null
+    },
     navEvent(){
       let currentIndex = -1
       if (this.events){

@@ -7,7 +7,7 @@
           img(src="/img/theme1.svg")
         .col-sm-5.col-info
           h4 2018 June 16-17
-          h1 N3XT CON 2018
+          h1 n3xt con 2018
           h3 ​
             span Haven for Entrepreneurs and Storytellers<br><br>
             hr

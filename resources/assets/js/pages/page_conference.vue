@@ -130,6 +130,8 @@
             h3 {{person.name}}
             h4 
               span {{person.position}}
+              span(v-if="person.position && person.company")  ,<br> 
+              span {{person.company}}
         fullPage(:show="speakerShowIndep && fullSpeaker", @closeFullpage = "()=>{speakerShowIndep=false}")
           .container.colContent(v-if="fullSpeaker")
             .row

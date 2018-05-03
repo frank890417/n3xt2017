@@ -145,7 +145,7 @@
               router-link.event.purple(:to="getEventRoute(spotEvent,{link: true})")
                 .infos
                   h2 
-                    span {{ getTitleSplit(event.title).series }}
+                    span.series(v-if="getTitleSplit(event.title).series") {{ getTitleSplit(event.title).series }}:
                     span {{ getTitleSplit(event.title).title }}
                   p {{ strip_tags(event.description).slice(0,100)+"..." }}
                 

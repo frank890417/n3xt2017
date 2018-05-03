@@ -23,8 +23,9 @@
           h2 {{ getTitleSplit (spotEvent.title).title }}
           hr  
           p ​{{ strip_tags(spotEvent.description || '').slice(0,300)+"..." }}
-          router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})+'/rsvp'") RSVP Now
-   
+          router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})+(getCta(spotEvent)?'/rsvp':'')",
+                          v-if="getCta(spotEvent)") {{getCta(spotEvent).label}}
+
   section.sectionCata.blue
     .container
       .row
@@ -72,7 +73,8 @@
                 .date {{ getDurationText(event.start_datetime,event.end_datetime) }}   
               hr  
               p ​{{ (event.description || '').replace(/\<.*?\>/g,'').slice(0,200)}}
-              router-link.btn.red(:to="getEventRoute(event,{link: true})+'/rsvp'") RSVP Now
+              router-link.btn.red(:to="getEventRoute(event,{link: true})+(getCta(event)?'/rsvp':'')",
+                          v-if="getCta(event)") {{getCta(event).label}}
 
             slideIn.right.col-sm-6.col-cover.hidden-xs(:style="cssbg(event.cover)")
               //img.cover(:src="event.cover", style='width: 100%')
@@ -220,7 +222,24 @@ export default {
       }else{
         this.nowCata=cata.value
       }
-    }
+    },
+    getCta(event){
+      let overTime = (new Date() ) > (new Date(event.end_datetime))
+      if (overTime){
+        if (event.album_link){
+          return {
+            label: "See Photos",
+            target: ".sectionPhotos"
+          }
+        }
+      }else{
+        return {
+            label: "RSVP Now",
+            target: ".sectionRegist"
+          }
+      }
+      return null
+    },
   }
 }
 </script>

@@ -74,14 +74,16 @@
           hr
       .row
         .col-sm-6
-          .slick
+          .cover
+            img(:src="currentSlide.cover" , :key="currentSlide.cover").animated.fadeIn
+          //- .slick
             div(v-for="keynote in slides")
               img.cover(:src="keynote.cover")
         .col-sm-6.col-content(v-if="currentSlide")
           .tag {{currentSlide.theme}}
           h3 {{currentSlide.title}}
           br
-          .speaker.fadeIn.animated
+          .speaker.fadeIn.animated(:key="currentSlide.title")
             .container.d-flex
               .col-head
                 .head(:style="cssbg(currentSlide.speakerData.headshot)")
@@ -192,6 +194,7 @@ export default {
     return {
       title: "Conference",
       titleTemplate: require("../data/common").default.titleTemplate,
+
     } // set a title
   },
   props: [
@@ -204,7 +207,7 @@ export default {
     return {
       event: null,
       speakerShowIndep: false,
-      speakerShowId: -1,
+      speakerShowId: 0,
       agencytypes: [
         { label: "Organizer", value: "organizer" },
         { label: "Partner", value: "partner" },
@@ -262,37 +265,42 @@ export default {
     }
   },
   mounted(){
-    console.log(this.slides)
-     if (this.slides.length>0){
-        setTimeout(()=>{
-          this.$nextTick(() => {
-            this.slickEl=$(".slick").slick(
-              this.slickOptions
-            )
-            console.log(this.slickOptions)
-            let _this=this
-            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
-              _this.currentSlideId=nextSlide
-            })
+    //current slideshow
+    setInterval(()=>{
+      this.keynoteSlideDelta(1)
+    },4000)
 
-          });
-        },1000)
-      }else{
-        setTimeout(()=>{
-          this.$nextTick(() => {
-            this.slickEl=$(".slick").slick(
-              this.slickOptions
-            )
-            let _this=this
-            $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-              console.log(nextSlide)
-              _this.currentSlideId=nextSlide
-            })
+    // console.log(this.slides)
+    //  if (this.slides.length>0){
+    //     setTimeout(()=>{
+    //       this.$nextTick(() => {
+    //         this.slickEl=$(".slick").slick(
+    //           this.slickOptions
+    //         )
+    //         console.log(this.slickOptions)
+    //         let _this=this
+    //         $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    //           console.log(nextSlide)
+    //           _this.currentSlideId=nextSlide
+    //         })
 
-          });
-        },1500)
-      }
+    //       });
+    //     },1000)
+    //   }else{
+    //     setTimeout(()=>{
+    //       this.$nextTick(() => {
+    //         this.slickEl=$(".slick").slick(
+    //           this.slickOptions
+    //         )
+    //         let _this=this
+    //         $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
+    //           console.log(nextSlide)
+    //           _this.currentSlideId=nextSlide
+    //         })
+
+    //       });
+    //     },1500)
+    //   }
     
     
     let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
@@ -341,11 +349,23 @@ export default {
     next() {
         // console.log(this.slickEl)
         // console.log($(".slick"))
-        $(".slick").slick("next");
+        // $(".slick").slick("next");
+        this.keynoteSlideDelta(1)
     },
 
     prev() {
-        $(".slick").slick("prev");
+        // $(".slick").slick("prev");
+        this.keynoteSlideDelta(-1)
+    },
+    keynoteSlideDelta(value){
+      let n = this.currentSlideId+value
+      if (n>this.keynotes.length-1){
+        n=0
+      }
+      if (n<0){
+        n=this.keynotes.length-1
+      }
+      this.currentSlideId=n
     },
     goToAlbum(){
       if (this.event.album_link){

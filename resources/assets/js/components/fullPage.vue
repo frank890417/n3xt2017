@@ -3,6 +3,7 @@ div
   transition(name="fade")
     .fullpage(v-if="show")
       slot
+      .closebg(@click="closeFullpage")
       .cross(@click="closeFullpage")
         i.fa.fa-times
 </template>

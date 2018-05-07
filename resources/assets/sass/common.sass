@@ -1,31 +1,54 @@
+
+.promo
+  max-height: 75vh
+.ad
+  display: flex
+  justify-content: center
+  align-items: center
+  .fullpage
+    display: flex
+    justify-content: center
+    align-items: center
+  
+.fullpage
+  position: fixed
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  background-color: rgba($colorBlue,0.9)
+  z-index: 2000
+  overflow-y: auto
+  padding: 20px
+  padding-top: 60px
+  .front
+    position: relative
+  .closebg
+    position: absolute
+    z-index: -1
+    +size(100%)
+    left: 0
+    top: 0
+  
+  .cross
+    color: white
+    cursor: pointer
+    transform: scale(1.1)
+    font-size: 40px
+    position: absolute
+    right: 20px
+    top: 20px
+    +trans
+    &:hover
+      color: $colorRed
+
 .page
   font-family: 'Source Sans Pro'
   width: 100%
   overflow: hidden
   min-height: 100vh
     
-  .fullpage
-    position: fixed
-    width: 100%
-    height: 100%
-    left: 0
-    top: 0
-    background-color: rgba($colorBlue,0.9)
-    z-index: 2000
-    overflow-y: scroll
-    padding: 20px
-    padding-top: 60px
-    .cross
-      color: white
-      cursor: pointer
-      transform: scale(1.1)
-      font-size: 40px
-      position: absolute
-      right: 20px
-      top: 20px
-      +trans
-      &:hover
-        color: $colorRed
+
     
 
   // padding-top: 60px

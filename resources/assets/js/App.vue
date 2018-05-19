@@ -2,9 +2,10 @@
 div(:class="app_class")
   fullpage.ad(:show="showAd", 
               @closeFullpage="()=>{showAd=false}")
-    router-link(to="/conference", @click="$ga.event('popup','conference','click')")
-      img.promo.hidden-xs(src="/img/Promo_Popup_-_Desktop.png",@click="showAd=false")
-      img.promo.visible-xs(src="/img/Promo_Popup_-_Mobile.png",@click="showAd=false")
+    div( @click="$ga.event('popup','conference','click')")
+      router-link(to="/conference")
+        img.promo.hidden-xs(src="/img/Promo_Popup_-_Desktop.png",@click="showAd=false")
+        img.promo.visible-xs(src="/img/Promo_Popup_-_Mobile.png",@click="showAd=false")
   transition(name='fade', mode='out-in')
     page_loading(v-if="loading")
   navbar(:fixed="fixed")

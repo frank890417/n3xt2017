@@ -18,7 +18,8 @@
               .btn.red(@click="postSubscribe") 
                 span(v-if="subscribe_open") Submit Email
                 span(v-else) Subscribe
-            router-link.btn.red(to="/conference") 2018 Conference
+            router-link.btn.red(to="/conference", 
+                  @click="$ga.event('index','conference','click')") 2018 Conference
             ul.numbers
               li 
                 .title Attendees

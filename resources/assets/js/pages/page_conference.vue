@@ -14,7 +14,7 @@
             span
               i.fa.fa-map-marker  
               | &nbsp;THE REGENT THEATER DTLA
-          .btn(@click="scrollTo('.sectionRegistration')") Get Tickets
+          .btn(@click="scrollTo('.sectionRegistration');$ga.event('conference','get tickets','click')") Get Tickets
   section.sectionAsk.white
     .container
       .row

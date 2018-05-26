@@ -84,13 +84,14 @@
           h3 {{currentSlide.title}}
           br
           .speaker.fadeIn.animated(:key="currentSlide.title")
-            .container.d-flex
-              .col-head
-                .head(:style="cssbg(currentSlide.speakerData.headshot)")
-              .col-info(v-if="currentSlide.speakerData")
+            .container.d-flex(v-for="speaker in getSpeakerListById([currentSlide.speakerId])",
+                              v-if="speaker")
+              .col-head(v-if="speaker")
+                .head(:style="cssbg(speaker.headshot)")
+              .col-info()
                 h4
-                  span {{currentSlide.speakerData.name}}
-                p {{currentSlide.speakerData.position}}, {{currentSlide.speakerData.company}} 
+                  span {{speaker.name}}
+                p {{speaker.position}}, {{speaker.company}} 
           //- h3 {{keynote.title}}
           br
           br
@@ -113,11 +114,15 @@
             .datetag {{ getDateText(programdate) }}
             li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
-              .content( @click="toggle('#des'+pid+programdate)")
-                h4 {{p.title}}
-                  span(v-if="p.description")   ▾
-                p(v-html="p.description",:id="'des'+pid+programdate")
-                
+              .content
+                h4(@click="toggle('#des'+pid+programdate)") {{p.title}}
+                  span(v-if="strip_tags(p.description)")   ▾
+                p.mb-3(v-if="strip_tags(p.description)", v-html="strip_tags(p.description)",:id="'des'+pid+programdate")
+                div.program-speakers
+                  .speaker(v-for="speaker in getSpeakerListById(p.speakers)",
+                          @click="speakerShowIndep=true;speakerShowId=speaker.id").mr-5
+                    .headshot(:style="cssbg(speaker.headshot)").mr-2
+                    span.name(style="opacity: 0.5") {{speaker.name}}
   section.sectionSpeakers.white
     .container
       .row
@@ -125,10 +130,9 @@
           h2 Speakers
     .container-fluid.speakers
       .row
-        a.col-sm-3.wow.fadeIn(v-for="(person,pid) in event.speaker",
-          :href="person.link")
+        a.col-sm-3.wow.fadeIn(v-for="(person,pid) in getSpeakerListById(event.speaker)")
           .person.photoBlock(:style="cssbg(person.headshot)",
-          @click="speakerShowIndep=true;speakerShowId=pid")
+          @click="speakerShowIndep=true;speakerShowId=person.id")
             h3 {{person.name}}
             h4 
               span {{person.position}}
@@ -142,7 +146,7 @@
                 h2 {{fullSpeaker.name}}
                 h3 {{fullSpeaker.position}} , {{fullSpeaker.company}}
                 hr
-                p(v-html="getHtml(fullSpeaker.bio)")
+                p(v-html="getHtml(fullSpeaker.bio)", v-if="fullSpeaker")
 
   section.sectionRegistration.grey(v-if="eventbriteId")
     .container
@@ -207,7 +211,7 @@ export default {
     return {
       event: null,
       speakerShowIndep: false,
-      speakerShowId: 0,
+      speakerShowId: -1,
       agencytypes: [
         { label: "Organizer", value: "organizer" },
         { label: "Partner", value: "partner" },
@@ -270,6 +274,11 @@ export default {
       this.keynoteSlideDelta(1)
     },4000)
 
+
+    setTimeout(()=>{
+      $("[id^='des']").slideUp(0)
+    },2000)
+
     // console.log(this.slides)
     //  if (this.slides.length>0){
     //     setTimeout(()=>{
@@ -308,21 +317,27 @@ export default {
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
       res.data.album = JSON.parse(res.data.album || "[]")
       res.data.agencies = JSON.parse(res.data.agencies || "[]")
+
+
+
       this.event=res.data
-
-      this.keynotes.forEach((keynote)=>{
-
-        axios.get("/api/speaker/"+keynote.speakerId).then(res2=>{
-          Vue.set(keynote,"speakerData",res2.data)
-          
-        })
+      this.event.program.forEach(p=>{
+        p.speakers = JSON.parse(p.speakers)
       })
-      this.event.speaker.forEach((id,index)=>{
-        axios.get("/api/speaker/"+id).then(res2=>{
-          Vue.set(this.event.speaker,index,res2.data)
+
+      // this.keynotes.forEach((keynote)=>{
+
+      //   axios.get("/api/speaker/"+keynote.speakerId).then(res2=>{
+      //     Vue.set(keynote,"speakerData",res2.data)
           
-        })
-      })
+      //   })
+      // })
+      // this.event.speaker.forEach((id,index)=>{
+      //   axios.get("/api/speaker/"+id).then(res2=>{
+      //     Vue.set(this.event.speaker,index,res2.data)
+          
+      //   })
+      // })
 
       if (this.event.agencies.length && typeof this.event.agencies[0]!='object'){
         this.event.agencies = this.event.agencies.map(id=>({id,type: 'organizer'}))
@@ -334,7 +349,10 @@ export default {
         })
       })
       Vue.nextTick(()=>{
-        this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+        this.event.program.forEach((p,pid)=>{
+          $("#des"+pid ).slideUp() 
+          
+        })
         if (this.$route.path.indexOf("rsvp")!=-1){
           this.scrollTo(".sectionRegist")
         }
@@ -346,6 +364,11 @@ export default {
 
   },
   methods:{
+    getSpeakerListById(list){
+      let result = list.map(id=>this.speakers.find(sp=>sp.id==id))
+      console.log(result)
+      return result
+    },
     next() {
         // console.log(this.slickEl)
         // console.log($(".slick"))
@@ -397,7 +420,7 @@ export default {
   },
   computed:{
     fullSpeaker(){
-      return this.event.speaker[this.speakerShowId]
+      return this.speakers.find(sp=>sp.id==this.speakerShowId)
     },
     slides(){
       return this.keynotes
@@ -405,7 +428,7 @@ export default {
     currentSlide(){
       return this.slides[this.currentSlideId]
     },
-    ...mapState(["events"]),
+    ...mapState(["events","speakers"]),
     navEvent(){
       let currentIndex = -1
       if (this.events){

@@ -198,6 +198,25 @@
         &:hover
           flex: 4
   .sectionSchedule
+    .program-speakers
+      
+      .speaker
+        display: inline-flex
+        align-items: center
+        margin-right: 40px
+        .headshot
+          +size(40px)
+          border-radius: 50%
+          display: inline-block
+          margin-right: 20px
+          background-size: cover
+          background-position: center center
+          
+        .name
+          opacity: 0.5
+        &:hover .name
+          opacity: 0.8
+
     .schedules
       padding: 0
       li

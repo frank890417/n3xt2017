@@ -71,7 +71,7 @@ Vue.mixin({
     },
     methods: {
         strip_tags(txt) {
-            let result = ("" + txt).replace(/(<([^>]+)>)/ig, "")
+            let result = (txt || "").replace(/(<([^>]+)>)/ig, "")
             return result
         },
         get_event_status_translate(txt) {

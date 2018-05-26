@@ -264,7 +264,15 @@
                                 type="datetime",
                                 placeholder="end time",
                                 value-format="yyyy-MM-dd HH:mm:ss")
-                      hr
+                          .row
+                            el-form-item(label="Speakers")
+                              el-select(
+                                multiple,
+                                v-model="program.speakers"
+
+                              )
+                                el-option(v-for="sp in speakers",
+                                          :label="sp.name", :value="sp.id")
                       br
               .form-group
                 .col-sm-12
@@ -390,6 +398,9 @@ export default {
       if (!event.speaker){
         event.speaker=[]
       }
+      event.program.forEach(p=>{
+        p.speakers = JSON.parse(p.speakers)
+      })
       // console.log(event.album)
 
       this.event = event
@@ -409,10 +420,16 @@ export default {
       this.event.cover = obj.url
     },
     updateActivity(){
+      //
+      let eventClone = JSON.parse(JSON.stringify(this.event))
+      eventClone.program.forEach(p=>p.speakers = JSON.stringify(p.speakers)) 
+
+
       if (this.$route.path=="/manage/event/new"){
+
         Axios.post("/api/event",{
           _method: "POST",
-          ...this.event
+          ...eventClone,
           
         }).then((res)=>{
           // this.setEvent(res.data)
@@ -422,7 +439,7 @@ export default {
       }else{
         Axios.post("/api/event/"+this.$route.params.id,{
           _method: "PATCH",
-          ...this.event
+          ...eventClone
           
         }).then((res)=>{
           // this.setEvent(res.data)

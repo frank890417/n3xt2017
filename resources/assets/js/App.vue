@@ -32,7 +32,7 @@ export default {
   mounted(){
     // if (){
     setTimeout(()=>{
-      this.showAd= this.$route.path!="/conference"
+      this.showAd= this.$route.path!="/conference" && this.$route.path.indexOf('/manage')!=0
     },2000)
     // }
     setInterval(()=>{

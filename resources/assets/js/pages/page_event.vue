@@ -58,7 +58,7 @@
           //- p Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017.
         .col-sm-12
           ul.row.speakers
-            li.col-sm-3.col-speaker(v-for="speaker in event.speaker")
+            li.col-sm-3.col-speaker(v-for="speaker in getSpeakerListById(event.speaker)")
               router-link.headshot(
                 :style="cssbg(speaker.headshot)",
                 :to="`/speaker/n/${speaker.name}`")
@@ -209,12 +209,12 @@ export default {
       res.data.agencies = JSON.parse(res.data.agencies || "[]")
       this.event=res.data
 
-      this.event.speaker.forEach((id,index)=>{
-        axios.get("/api/speaker/"+id).then(res2=>{
-          Vue.set(this.event.speaker,index,res2.data)
+      // this.event.speaker.forEach((id,index)=>{
+      //   axios.get("/api/speaker/"+id).then(res2=>{
+      //     Vue.set(this.event.speaker,index,res2.data)
           
-        })
-      })
+      //   })
+      // })
 
       if (this.event.agencies.length && typeof this.event.agencies[0]!='object'){
         this.event.agencies = this.event.agencies.map(id=>({id,type: 'organizer'}))
@@ -235,6 +235,9 @@ export default {
     })
   },
   methods:{
+    getSpeakerListById(list){
+      return list.map(id=>this.speakers.find(sp=>sp.id==id))
+    },
     goToAlbum(){
       if (this.event.album_link){
         window.open(this.event.album_link)
@@ -249,7 +252,7 @@ export default {
     // }
   },
   computed:{
-    ...mapState(["events"]),
+    ...mapState(["events","speakers"]),
     indexCta(){
       let overTime = (new Date() ) > (new Date(this.event.end_datetime))
       if (overTime){

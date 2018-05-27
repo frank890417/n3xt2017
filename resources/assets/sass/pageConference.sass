@@ -198,6 +198,25 @@
         &:hover
           flex: 4
   .sectionSchedule
+    .col-schedule-area
+      display: flex
+      +rwd_sm
+        flex-direction: column !important
+        li
+          flex-direction: column
+      ul.timeline
+        flex: 1
+        position: relative
+        padding-right: 5%
+        box-sizing: border-box
+
+        h4.title
+          font-size: 22px
+          font-weight: 700
+          margin-top: 0
+          +rwd_sm
+            font-size: 18px
+            font-weight: 500
     .program-speakers
       
       .speaker
@@ -227,9 +246,10 @@
         display: flex
         justify-content: space-between
         align-items: center
+
         &:hover,&:focus,&:active
           border: solid 1px rgba(white,0.5)
-          
+
         .time
           font-size: 20px
           opacity: 0.4
@@ -237,9 +257,9 @@
         .content
           margin-top: 0
           opacity: 0.6
-        .title
+        h4.title
           margin-top: 10px
-          font-size: 27px
+          font-size: 20px
           font-weight: 700
         .head
           float: right

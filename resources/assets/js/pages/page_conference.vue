@@ -104,18 +104,20 @@
   section.sectionSchedule.blue(v-if="programChunk && Object.keys(programChunk).length")
     .container
       .row
-        .col-sm-4
+        .col-sm-12
           h2 SCHEDULE
           hr
-          p Starting any journey with the end in mind makes perfect sense. For more detail please check below.
-          .btn.white.ghost More Details
-        .col-sm-8
-          ul.timeline(v-for="(programs,programdate) in programChunk")
+          p.mb-5 Starting any journey with the end in mind makes perfect sense. For more detail please check below.
+          //- .btn.white.ghost More Details
+          br
+          br
+        .col-sm-12.col-schedule-area
+          ul.timeline(v-for="(programs,programdate) in programChunk").mt-5
             .datetag {{ getDateText(programdate) }}
             li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
               .content
-                h4(@click="toggle('#des'+pid+programdate)") {{p.title}}
+                h4.title(@click="toggle('#des'+pid+programdate)") {{p.title}}
                   span(v-if="strip_tags(p.description)")   ▾
                 p.mb-3(v-if="strip_tags(p.description)", v-html="strip_tags(p.description)",:id="'des'+pid+programdate")
                 div.program-speakers

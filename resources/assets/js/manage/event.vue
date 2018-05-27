@@ -271,7 +271,7 @@
                                 v-model="program.speakers"
 
                               )
-                                el-option(v-for="sp in speakers",
+                                el-option(v-for="sp in orderedSpeakers",
                                           :label="sp.name", :value="sp.id")
                       br
               .form-group
@@ -480,6 +480,10 @@ export default {
     nowProgram(){
       return this.event.program[this.nowProgramId]
     },
+    orderedSpeakers(){
+      return this.speakers.slice().sort((a,b)=>a.name>b.name?1:-1)
+    }
+
   },
   watch: {
     // "event.start_datetime": function(){

@@ -87,7 +87,7 @@
             .container.d-flex(v-for="speaker in getSpeakerListById([currentSlide.speakerId])",
                               v-if="speaker")
               .col-head(v-if="speaker")
-                .head(:style="cssbg(speaker.headshot)")
+                .head(:style="cssbg(speaker.headshot)", v-if="speaker.headshot")
               .col-info()
                 h4
                   span {{speaker.name}}
@@ -130,19 +130,19 @@
           h2 Speakers
     .container-fluid.speakers
       .row
-        a.col-sm-3.wow.fadeIn(v-for="(person,pid) in getSpeakerListById(event.speaker)")
-          .person.photoBlock(:style="cssbg(person.headshot)",
-          @click="speakerShowIndep=true;speakerShowId=person.id")
-            h3 {{person.name}}
+        a.col-sm-3.wow.fadeIn(v-for="(speaker,pid) in getSpeakerListById(event.speaker)")
+          .person.photoBlock(:style="cssbg(speaker.headshot)",
+          @click="speakerShowIndep=true;speakerShowId=speaker.id")
+            h3 {{speaker.name}}
             h4 
-              span {{person.position}}
-              span(v-if="person.position && person.company")  ,<br> 
-              span {{person.company}}
-        fullPage(:show="speakerShowIndep && fullSpeaker", @closeFullpage = "()=>{speakerShowIndep=false}")
+              span {{speaker.position}}
+              span(v-if="speaker.position && speaker.company")  ,<br> 
+              span {{speaker.company}}
+        fullPage(:show="(speakerShowIndep && fullSpeaker)?true:false", @closeFullpage = "()=>{speakerShowIndep=false}")
           .container.colContent(v-if="fullSpeaker")
             .row
               .col-sm-12
-                img(:src="fullSpeaker.headshot", style='width: 200px')
+                img(:src="fullSpeaker.headshot", v-if="fullSpeaker.headshot", style='width: 200px')
                 h2 {{fullSpeaker.name}}
                 h3 {{fullSpeaker.position}} , {{fullSpeaker.company}}
                 hr
@@ -217,7 +217,7 @@ export default {
         { label: "Partner", value: "partner" },
         { label: "Sponsor", value: "sponsor" }
       ],
-      // id: 9,
+      id: 9,
       routename: "n3xtconf_2018",
       keynotes: [
         {
@@ -318,26 +318,10 @@ export default {
       res.data.album = JSON.parse(res.data.album || "[]")
       res.data.agencies = JSON.parse(res.data.agencies || "[]")
 
-
-
       this.event=res.data
       this.event.program.forEach(p=>{
         p.speakers = JSON.parse(p.speakers)
       })
-
-      // this.keynotes.forEach((keynote)=>{
-
-      //   axios.get("/api/speaker/"+keynote.speakerId).then(res2=>{
-      //     Vue.set(keynote,"speakerData",res2.data)
-          
-      //   })
-      // })
-      // this.event.speaker.forEach((id,index)=>{
-      //   axios.get("/api/speaker/"+id).then(res2=>{
-      //     Vue.set(this.event.speaker,index,res2.data)
-          
-      //   })
-      // })
 
       if (this.event.agencies.length && typeof this.event.agencies[0]!='object'){
         this.event.agencies = this.event.agencies.map(id=>({id,type: 'organizer'}))
@@ -365,7 +349,7 @@ export default {
   },
   methods:{
     getSpeakerListById(list){
-      let result = list.map(id=>this.speakers.find(sp=>sp.id==id))
+      let result = list.map(id=>this.speakers.find(sp=>sp.id==id)).filter(sp=>sp)
       console.log(result)
       return result
     },

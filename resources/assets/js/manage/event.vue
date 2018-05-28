@@ -456,6 +456,7 @@ export default {
         event_id: this.$route.params.id,
         title: "",
         description: "",
+        speakers: "[]"
       }).then((res)=>{
         console.log(res.data)
         this.event.program.push(res.data)

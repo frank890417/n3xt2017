@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  transition(name="fade")
+  transition(name="fadefullpage")
     .fullpage(v-if="show")
       slot.front
       .closebg(@click="closeFullpage")
@@ -27,4 +27,3 @@ export default {
   }
 }
 </script>
-

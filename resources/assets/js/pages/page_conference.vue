@@ -132,7 +132,7 @@
           h2 Speakers
     .container-fluid.speakers
       .row
-        a.col-sm-3.wow.fadeIn(v-for="(speaker,pid) in getSpeakerListById(event.speaker)")
+        a.col-sm-3.wow.fadeIn(v-for="(speaker,pid) in getSpeakerListById(event.speaker,true)")
           .person.photoBlock(:style="cssbg(speaker.headshot)",
           @click="speakerShowIndep=true;speakerShowId=speaker.id")
             h3 {{speaker.name}}
@@ -141,7 +141,7 @@
               span(v-if="speaker.position && speaker.company")  ,<br> 
               span {{speaker.company}}
         fullPage(:show="(speakerShowIndep && fullSpeaker)?true:false", @closeFullpage = "()=>{speakerShowIndep=false}")
-          .container.colContent(v-if="fullSpeaker")
+          .container.colContent(v-if="fullSpeaker").animated.fadeIn
             .row
               .col-sm-12
                 img(:src="fullSpeaker.headshot", v-if="fullSpeaker.headshot", style='width: 200px')
@@ -334,15 +334,17 @@ export default {
           
         })
       })
-      Vue.nextTick(()=>{
-        this.event.program.forEach((p,pid)=>{
-          $("#des"+pid ).slideUp() 
-          
-        })
-        if (this.$route.path.indexOf("rsvp")!=-1){
-          this.scrollTo(".sectionRegistration")
-        }
+      this.$nextTick(()=>{
+        setTimeout(()=>{
+          this.event.program.forEach((p,pid)=>{
+            $("#des"+pid ).slideUp() 
+          })
+          if (this.$route.path.indexOf("rsvp")!=-1){
+            this.scrollTo(".sectionRegistration")
+          }
 
+
+        },300)
       })
     })
     //if custom route exist then get by name, else get by id
@@ -350,8 +352,11 @@ export default {
 
   },
   methods:{
-    getSpeakerListById(list){
+    getSpeakerListById(list,order){
       let result = list.map(id=>this.speakers.find(sp=>sp.id==id)).filter(sp=>sp)
+      if (order){
+        result=result.sort((a,b)=>a.name>b.name?1:-1)
+      }
       console.log(result)
       return result
     },

@@ -16,11 +16,15 @@
   height: 100%
   left: 0
   top: 0
+  opacity: 1
   background-color: rgba($colorBlue,0.9)
   z-index: 2000
   overflow-y: auto
   padding: 20px
   padding-top: 60px
+
+  &>*
+    animation-delay: 0.3s
   .front
     position: relative
   .closebg
@@ -43,6 +47,15 @@
     +trans
     &:hover
       color: $colorRed
+
+    
+.fadefullpage-enter-active,.fadefullpage-leave-active
+  transition: 0.5s
+.fadefullpage-enter,.fadefullpage-leave-to
+  opacity: 0
+.fadefullpage-enter-to
+  opacity: 1
+
 
 .page
   font-family: 'Source Sans Pro'

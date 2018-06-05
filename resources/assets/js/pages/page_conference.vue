@@ -340,7 +340,7 @@ export default {
           
         })
         if (this.$route.path.indexOf("rsvp")!=-1){
-          this.scrollTo(".sectionRegist")
+          this.scrollTo(".sectionRegistration")
         }
 
       })

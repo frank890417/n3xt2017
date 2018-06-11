@@ -465,9 +465,9 @@ export default {
     },
     agenciesChunk(){
       return {
-        organizer: this.event.agencies.filter(ag=>ag.type=="organizer"),
-        partner: this.event.agencies.filter(ag=>ag.type=="partner"),
-        sponsor: this.event.agencies.filter(ag=>ag.type=="sponsor")
+        organizer: this.event.agencies.filter(ag=>ag.type=="organizer").sort((a,b)=>a.name>b.name?1:-1),
+        partner: this.event.agencies.filter(ag=>ag.type=="partner").sort((a,b)=>a.name>b.name?1:-1),
+        sponsor: this.event.agencies.filter(ag=>ag.type=="sponsor").sort((a,b)=>a.name>b.name?1:-1)
 
       }
     }

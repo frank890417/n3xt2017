@@ -218,49 +218,56 @@
             .panel-heading Programs
             .panel-body
               .row(v-if="event.program && event.program.length")
-                .col-sm-3
-                  ul.list-group(v-for="(program,programId) in event.program", style="margin-top: 10px")
-                    li.list-group-item(:class="{active: nowProgramId==programId}",
-                                       @click="nowProgramId=programId") 
+                .col-sm-12
+                  button.btn.btn-default(:class="{active: trackId-1==currentTrackId}",
+                         @click="currentTrackId=trackId-1",
+                         v-for="trackId in maxTrackCount") Track {{trackId}}
+                  button.btn.btn-primary(@click="maxTrackCount+=1;currentTrackId=maxTrackCount-1") + Add Track
+                  hr
+              .row 
+                .col-sm-4(style="max-height: 60vh;overflow-y: scroll;")
+                  .btn.btn-default.form-control(@click="newProgram(currentTrackId)") + Add Program
+                  ul.list-group(v-for="(program,programId) in currentTrack", style="margin-top: 10px")
+                    li.list-group-item(:class="{active: nowProgramId==program.id}",
+                                       @click="nowProgramId=program.id") 
                       h4 {{programId+1}}. {{program.title}}
-                        .btn.btn-danger.pull-right(@click="deleteProgram(program,programId)") -
-                      h5 {{program.start_datetime}}
-                .col-sm-9
-                  .form-group(
-                    v-if="event.program && event.program.length",
-                    v-for="(program,programId) in [event.program[nowProgramId]]", 
-                    style="margin-top: 10px")
+                        .btn.btn-danger.pull-right(@click="deleteProgram(program)") -
+                      p {{program.start_datetime}}
+                .col-sm-8
+                  .form-group.mt-2(
+                    v-if="nowProgram")
 
                     .container-fluid
-                      h4(style="width: 100%") {{program.title}}
+                      // pre {{nowProgram}}
+                      h4(style="width: 100%") [Track {{nowProgram.track+1}}] {{nowProgram.title}}
                       .row.form-group
                         .col-sm-2
                           h5 Title
                         .col-sm-10
-                          input.form-control(v-model="program.title", placeholder="Program Title")
+                          input.form-control(v-model="nowProgram.title", placeholder="Program Title")
 
                       .row.form-group
                         .col-sm-2
                           h5 Description
                         .col-sm-10
                           VueEditor.ve(
-                            :id ="'program_description_'+programId", 
-                            v-model="program.description"
-                    :useCustomImageHandler="true",
-                    @imageAdded="handleImageAdded" )                          
+                            :id ="'program_description_'+nowProgram.id", 
+                            v-model="nowProgram.description",
+                            :useCustomImageHandler="true",
+                            @imageAdded="handleImageAdded" )                          
                       .row.form-group
-                        el-form.col-sm-6(label-width="120px")
+                        el-form.col-sm-12(label-width="120px")
                           .row
                             el-form-item(label="Start datetime")
                               el-date-picker(
-                                v-model="program.start_datetime",
+                                v-model="nowProgram.start_datetime",
                                 type="datetime",
                                 placeholder="start time",
                                 value-format="yyyy-MM-dd HH:mm:ss")
                           .row
                             el-form-item(label="End datetime")
                               el-date-picker(
-                                v-model="program.end_datetime",
+                                v-model="nowProgram.end_datetime",
                                 type="datetime",
                                 placeholder="end time",
                                 value-format="yyyy-MM-dd HH:mm:ss")
@@ -268,19 +275,11 @@
                             el-form-item(label="Speakers")
                               el-select(
                                 multiple,
-                                v-model="program.speakers"
+                                v-model="nowProgram.speakers"
 
                               )
                                 el-option(v-for="sp in orderedSpeakers",
                                           :label="sp.name", :value="sp.id")
-                      br
-              .form-group
-                .col-sm-12
-                  .btn.btn-default.form-control(@click="newProgram") + Add Program
-                  br
-                  br
-                  br
-                  br
           .panel.panel-default(v-if="panel=='album'")
             .panel-heading Album
             .panel-body
@@ -344,6 +343,9 @@ export default {
         cover: "",
         album: []
       },
+      currentTrackId: 0,
+      maxTrackCount: 1,
+      
       temp_speaker_name: "",
       temp_agency_name: "",
       activityTypeOptions: [
@@ -449,40 +451,57 @@ export default {
       
 
     },
-    newProgram(){
+    newProgram(trackId){
       
       Axios.post("/api/program",{
         _method: "POST",
         event_id: this.$route.params.id,
         title: "",
         description: "",
-        speakers: "[]"
+        speakers: "[]",
+        track: trackId || 0
       }).then((res)=>{
         console.log(res.data)
         this.event.program.push(res.data)
+        this.nowProgramId=this.event.program.length-1
       })
       
     },
     deleteProgram(program,pid){
-      if (confirm("Are you sure to delete program?")){
-
+      this.$confirm("Are you sure to delete program?").then(()=>{
         Axios.post("/api/program/"+program.id,{
           _method: "DELETE",
         }).then((res)=>{
           // this.setEvent(res.data)
           this.$message.success("delete program Success!")
-          this.event.program.splice(pid,1)
+          this.event.program=this.event.program.filter(p=>p.id != program.id)
         })
-      }
+      })
     }
   },
   computed: {
     ...mapState(['speakers','agencies']),
     nowProgram(){
-      return this.event.program[this.nowProgramId]
+      return this.event.program.find(p=>p.id==this.nowProgramId)
     },
     orderedSpeakers(){
       return this.speakers.slice().sort((a,b)=>a.name>b.name?1:-1)
+    },
+    program_tracks(){
+      let result = _.groupBy(this.event.program,"track")
+      this.maxTrackCount = Object.keys(result).length
+      Object.values(result).forEach(track=>{
+        track=track.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      })
+      return result
+    },
+    currentTrack(){
+      return this.program_tracks[this.currentTrackId] || []
+    },
+    trackCount(){
+      let result = Math.max.apply(null,this.event.program.map(p=>p.track))+1
+      this.maxTrackCount=result
+      return result
     }
 
   },

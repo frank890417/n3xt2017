@@ -50,7 +50,7 @@ export default {
   },
   components:{
   },
-  mounted(){
+  created(){
     Axios.get("/api/event").then((res)=>{
       this.events = res.data
     })

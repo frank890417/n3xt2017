@@ -337,7 +337,8 @@ export default {
         draft: true,
         tag: [],
         speaker: [],
-        agency: [],
+        agencies: [],
+        program: [],
         time_detail: "",
         register_info: "",
         cover: "",
@@ -364,12 +365,18 @@ export default {
   components:{
     VueEditor , default_pic_selector, datePicker
   },
-  mounted(){
+  created(){
 
     store.dispatch("loadSpeakers");
-    Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
-      this.setEvent(res.data)
-    })
+    if (this.$route.params.id){
+      Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
+        if (res.data){
+          this.setEvent(res.data)
+
+        }
+      })
+
+    }
   },
   methods: {
     fetchSpeaker(qs,cb){
@@ -400,9 +407,12 @@ export default {
       if (!event.speaker){
         event.speaker=[]
       }
-      event.program.forEach(p=>{
-        p.speakers = JSON.parse(p.speakers)
-      })
+      if (typeof event.program == "object"){
+        event.program.forEach(p=>{
+          p.speakers = JSON.parse(p.speakers)
+        })
+
+      }
       // console.log(event.album)
 
       this.event = event
@@ -424,7 +434,9 @@ export default {
     updateActivity(){
       //
       let eventClone = JSON.parse(JSON.stringify(this.event))
-      eventClone.program.forEach(p=>p.speakers = JSON.stringify(p.speakers)) 
+      if (typeof eventClone.program=="object"){
+        eventClone.program.forEach(p=>p.speakers = JSON.stringify(p.speakers)) 
+      }
 
 
       if (this.$route.path=="/manage/event/new"){

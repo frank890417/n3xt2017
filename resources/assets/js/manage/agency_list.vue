@@ -50,7 +50,7 @@ export default {
   },
   components:{
   },
-  mounted(){
+  created(){
     Axios.get("/api/speaker").then((res)=>{
       this.speakers = res.data
     })

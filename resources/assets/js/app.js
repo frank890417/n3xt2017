@@ -115,6 +115,7 @@ Vue.mixin({
         },
 
         getDateText(datetime){
+            datetime=datetime || "1900-01-01"
             let time = new Date(datetime.replace(/-/g, "/"))
             var eng_tag = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
             var eng_month = eng_tag[ time.getMonth() ]

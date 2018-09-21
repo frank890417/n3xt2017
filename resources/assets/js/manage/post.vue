@@ -126,7 +126,7 @@ export default {
   components:{
     VueEditor , default_pic_selector, datePicker
   },
-  mounted(){
+  created(){
 
     store.dispatch("loadPosts");
     Axios.get("/api/post/"+this.$route.params.id).then((res)=>{

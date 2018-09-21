@@ -234,7 +234,7 @@ export default {
   components:{
     VueEditor , default_pic_selector
   },
-  mounted(){
+  created(){
     if (this.event_id){
       Axios.get("/api/speaker/"+this.$route.params.id).then((res)=>{
         this.setSpeaker(res.data)

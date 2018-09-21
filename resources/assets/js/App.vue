@@ -9,7 +9,7 @@ div(:class="app_class")
   transition(name='fade', mode='out-in')
     page_loading(v-if="loading")
   navbar(:fixed="fixed")
-  transition(name='fade', mode='out-in')
+  transition(:name='$route.path.indexOf("manage")==-1?"fade":"manage"', mode='out-in')
     router-view(:key="$route.path", v-if="!loading")
 </template>
 

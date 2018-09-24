@@ -39,7 +39,7 @@
               .content( @click="toggle('#des'+pid+programdate)")
                 h4 {{p.title}}
                   span(v-if="(p.description||'').trim()")   ▾
-                p(v-html="(p.description||'').description.trim()",:id="'des'+pid+programdate")
+                p(v-html="(p.description||'').trim()",:id="'des'+pid+programdate")
           //ul.timeline
             .datetag Sep.8
             li(v-for="i in 2")
@@ -230,12 +230,12 @@ export default {
         if (this.$route.path.indexOf("rsvp")!=-1){
           this.scrollTo(".sectionRegist")
         }
+        setTimeout(()=>{
+          console.log("hide again")
+          this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+        },3000)
 
       })
-      setTimeout(()=>{
-        console.log("hide again")
-        this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
-      },3000)
     })
   },
   methods:{

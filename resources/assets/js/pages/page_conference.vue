@@ -219,7 +219,7 @@ export default {
         { label: "Partner", value: "partner" },
         { label: "Sponsor", value: "sponsor" }
       ],
-      id: 9,
+      // id: 9,
       routename: "n3xtconf_2018",
       keynotes: [
         {

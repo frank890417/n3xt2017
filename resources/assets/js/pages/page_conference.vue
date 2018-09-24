@@ -283,8 +283,8 @@ export default {
     },2000)
     setTimeout(()=>{
       console.log("hide again")
-      this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
-    },3000)
+      $("[id^='des']").slideUp(0)
+    },5000)
 
     // console.log(this.slides)
     //  if (this.slides.length>0){

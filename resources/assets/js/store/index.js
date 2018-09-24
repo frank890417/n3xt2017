@@ -70,10 +70,10 @@ const store = new Vuex.Store({
     loadAgencies(context) {
       axios.get("/api/agency").then((res) => {
         let sortedData = res.data.sort((a,b)=>{
-          console.log(a.name,b.name)
+          // console.log(a.name,b.name)
           return a.name.toLowerCase()>b.name.toLowerCase()?1:-1
         })
-        console.log("sorted",sortedData.map(s=>s.name))
+        // console.log("sorted",sortedData.map(s=>s.name))
         context.commit("setAgencies", sortedData)
       })
     },

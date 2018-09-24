@@ -16,7 +16,8 @@
           
         .col-sm-6
           form.form-group#form_contact
-            input.form-control(placeholder="Name" name="name" required)
+            input.form-control(placeholder="First Name" name="name" required)
+            input.form-control(placeholder="Last Name" name="last_name" required)
             input.form-control(placeholder="Email" name="email" required ,pattern=".*@.*..*")
             textarea.form-control(placeholder="Message", name="message", rows="1" , required)
             

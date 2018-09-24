@@ -38,8 +38,8 @@
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
               .content( @click="toggle('#des'+pid+programdate)")
                 h4 {{p.title}}
-                  span(v-if="p.description")   ▾
-                p(v-html="p.description",:id="'des'+pid+programdate")
+                  span(v-if="(p.description||'').trim()")   ▾
+                p(v-html="(p.description||'').description.trim()",:id="'des'+pid+programdate")
           //ul.timeline
             .datetag Sep.8
             li(v-for="i in 2")
@@ -232,6 +232,10 @@ export default {
         }
 
       })
+      setTimeout(()=>{
+        console.log("hide again")
+        this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+      },3000)
     })
   },
   methods:{
@@ -244,7 +248,7 @@ export default {
       }
     },
     toggle(sel){
-      console.log(sel)
+      // console.log(sel)
       $(sel).slideToggle(0)
     }
     // scrollTo(selector){

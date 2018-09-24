@@ -278,8 +278,13 @@ export default {
 
 
     setTimeout(()=>{
+      console.log($("[id^='des']"))
       $("[id^='des']").slideUp(0)
     },2000)
+    setTimeout(()=>{
+      console.log("hide again")
+      this.event.program.forEach((p,pid)=>$("#des"+pid ).slideUp() )
+    },3000)
 
     // console.log(this.slides)
     //  if (this.slides.length>0){
@@ -331,7 +336,6 @@ export default {
       this.event.agencies.forEach((agency,index)=>{
         axios.get("/api/agency/"+agency.id).then(res2=>{
           Vue.set(this.event.agencies[index],"data",res2.data)
-          
         })
       })
       this.$nextTick(()=>{
@@ -342,7 +346,6 @@ export default {
           if (this.$route.path.indexOf("rsvp")!=-1){
             this.scrollTo(".sectionRegistration")
           }
-
 
         },300)
       })
@@ -357,7 +360,7 @@ export default {
       if (order){
         result=result.sort((a,b)=>a.name>b.name?1:-1)
       }
-      console.log(result)
+      // console.log(result)
       return result
     },
     next() {

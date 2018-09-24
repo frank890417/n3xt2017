@@ -37,7 +37,7 @@ class ContactrecordController extends Controller
         $contactrecord = Contactrecord::create($inputs);
         $send_data = [
             "id" => $contactrecord->id,
-            "contactname" => $contactrecord->name,
+            "contactname" => $contactrecord->name. ", ".$contactrecord->last_name,
             "email" => $contactrecord->email,
             "contactmessage" => $contactrecord->message
         ];
@@ -45,7 +45,7 @@ class ContactrecordController extends Controller
         
         Mail::send('emails.contact',  [
             "id" => $contactrecord->id,
-            "contactname" => $contactrecord->name,
+            "contactname" => $contactrecord->name. ", ".$contactrecord->last_name,
             "email" => $contactrecord->email,
             "contactmessage" => $contactrecord->message
         ] , function($message) use ($send_data){

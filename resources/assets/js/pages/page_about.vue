@@ -180,7 +180,7 @@ import data_job from "../data/openning_job.js"
 import data_crew from "../data/crews.js"
 
 export default {
- 
+  
   metaInfo: {
     title: 'About', // set a title,
     titleTemplate: require("../data/common").default.titleTemplate
@@ -190,7 +190,29 @@ export default {
       picTop: -1,
       jobs: data_job,
       now_job_id: 0,
-      crews: data_crew
+      crews: data_crew,
+      content: {
+        page_title: "About us",
+        page_sub_title: "Haven for Entrepreneurs and Storytellers",
+        section1: {
+          title: "What is n3xt con?",
+          content: "As globalization becomes the foundation to our future, it is important for tomorrow’s thought leaders to establish an apolitical vision today. n3xt con sees the future through an entrepreneurial lens. For us, a “startup” merely means a new way of doing things so there is no start-up that is too small or insignificant. On the one hand, we promote scalability while innovating on a global scale, but on the other hand, we want to emphasize the unlimited potential for any innovative problem-solving ideas in daily life."
+        },
+        section2: {
+          title: "Mission & Vision",
+          title_small: "About us",
+          content: "​To empower, engage, and elevate the next generation of visionaries by providing them with the resources they need to achieve longstanding success."
+        },
+        section3: {
+          title: "What We Do?",
+          content: "​​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders." 
+        },
+        section4: {
+          title_small: "Working With Us",
+          title: "Team & Culture",
+          content: "​Our team consists of individuals from creative, business, technology, and science backgrounds, and it is our dream to expand our community with such diversity across the world."
+        }
+      }
     }
   },
   mounted(){

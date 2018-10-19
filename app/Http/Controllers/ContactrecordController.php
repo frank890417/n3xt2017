@@ -9,9 +9,10 @@ use Mail;
 
 class ContactrecordController extends Controller
 {
+
     //
     public function index(){
-        return Contactrecord::all();
+        return Contactrecord::orderBy("created_at","desc")->get();
     }
     public function show($id){
         $result = Contactrecord::where("id",$id)

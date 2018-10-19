@@ -9,6 +9,10 @@ import store from "./store"
 import router from "./router"
 import App from "./App.vue"
 import AppManage from "./AppManage.vue"
+import manage_nav from "./manage/manage_nav.vue"
+Vue.component("manage_nav",manage_nav);
+
+
 import $ from 'jquery'
 import slick from 'slick-carousel'
 import {TweenMax} from "gsap"

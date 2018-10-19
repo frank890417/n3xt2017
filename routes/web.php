@@ -33,7 +33,8 @@ $manage_routes = [
     'event',
     'post',
     'speaker',
-    'agency'
+    'agency',
+    'contact'
 ];
 
 

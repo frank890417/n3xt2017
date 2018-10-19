@@ -3,15 +3,11 @@ div.manage_event_list
   .container
     .row
       .col-sm-12
-        h1 Event List Manage
-        .btn-group
-          router-link.btn.btn-default(to="/manage/event" :class="{active: $route.path=='/manage/event'}") Events
-          router-link.btn.btn-default(to="/manage/speaker" :class="{active: $route.path=='/manage/speaker'}") Speakers
-          router-link.btn.btn-default(to="/manage/agency" :class="{active: $route.path=='/manage/agency'}") Agencies
-          router-link.btn.btn-default(to="/manage/post" :class="{active: $route.path=='/manage/post'}") Posts
+        //- h1 Event List Manage
+        manage_nav
         hr
       .col-sm-12
-        .panel.panel-default
+        .panel.panel-primary
           .panel-heading Event List
           .panel-body
             ul.list-group

@@ -494,7 +494,11 @@ export default {
   computed: {
     ...mapState(['speakers','agencies']),
     nowProgram(){
-      return this.event.program.find(p=>p.id==this.nowProgramId)
+      let result = this.event.program.find(p=>p.id==this.nowProgramId)
+      if (result && result.speakers==null){
+        result.speakers=[]
+      }
+      return result
     },
     orderedSpeakers(){
       return this.speakers.slice().sort((a,b)=>a.name>b.name?1:-1)

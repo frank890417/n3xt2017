@@ -45,6 +45,8 @@ const routes = [
   { path: "/event", component: page_event_list, props: true },
   { path: "/conference", component: page_conference },
   { path: "/conference/rsvp", component: page_conference },
+  { path: "/conference/:year", component: page_conference },
+  { path: "/conference/:year/rsvp", component: page_conference },
   { path: "/event/n/:routename", component: page_event, props: true },
   { path: "/event/n/:routename/rsvp", component: page_event, props: true },
   { path: "/event/:id", component: page_event, props: true },

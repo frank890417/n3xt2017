@@ -19,7 +19,7 @@
                 span(v-if="subscribe_open") Submit Email
                 span(v-else) Subscribe
             div(@click="$ga.event('index','conference','click')")
-              router-link.btn.red(to="/conference") 2018 Conference
+              router-link.btn.red(:to="getEventRoute(spotEvent,{link: true})") Recent Event - {{ spotEvent.title }}
             ul.numbers
               li 
                 .title Attendees

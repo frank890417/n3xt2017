@@ -11,7 +11,7 @@ div.manage_contact_list
           .panel-heading Contact List
           .panel-body
             br
-            router-link.btn.btn-default(to="/manage/post/new") + Add Post
+            //- router-link.btn.btn-default(to="/manage/post/new") + Add Post
             el-table(:data = "records | orderDate")
                 el-table-column(prop="id" width="80")
                 el-table-column(prop="name" width="100")

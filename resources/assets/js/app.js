@@ -90,8 +90,12 @@ Vue.mixin({
 
         getEventRoute(event,options) {
 
+            let year = event.start_datetime.slice(0,4)
+            // if (year == (new Date()).getFullYear()){
+            //     return "/conference"
+            // }
             if (event.type=="conference"){
-                return "/conference"
+                return "/conference/"+event.start_datetime.slice(0,4)
             }
 
             let gen_options = Object.assign({ link: true }, options)

@@ -20,9 +20,9 @@
     .container
       .row
         .col-sm-9.colContent
-          h2 What is n3xt con?
+          h2 {{ content.section1.title }}
           hr
-          p As globalization becomes the foundation to our future, it is important for tomorrow’s thought leaders to establish an apolitical vision today. n3xt con sees the future through an entrepreneurial lens. For us, a “startup” merely means a new way of doing things so there is no start-up that is too small or insignificant. On the one hand, we promote scalability while innovating on a global scale, but on the other hand, we want to emphasize the unlimited potential for any innovative problem-solving ideas in daily life.
+          p {{ content.section1.content }}
         
   section.sectionDo.blue
     .container
@@ -32,18 +32,18 @@
           
         .col-sm-6
           slideIn
-            h3.titleSmall About us
-            h2 Mission & Vision
+            h3.titleSmall {{ content.section2.title_small }}
+            h2 {{ content.section2.title }}
             hr
-            p ​To empower, engage, and elevate the next generation of visionaries by providing them with the resources they need to achieve longstanding success.
+            p ​{{ content.section2.content }}
 
   section.sectionMission.white
     .container
       .row
         .col-sm-8.colContent
-          h2 What We Do?
+          h2 {{ content.section3.title }}
           hr
-          p ​​Each year, we host a variety of events including workshops, mentorship programs, networking events, mixers, and our annual national conference. In 2016 & 2017, we hosted one of the largest annual conferences in Southern California which attracted over 700 working professionals, startup founders, investors, and industry leaders.
+          p {{ content.section3.content }}
           br
           ul.numbers.row
             li.col-sm-3.col-xs-6
@@ -67,10 +67,10 @@
       .row
         .col-sm-6
           slideIn
-            h3.titleSmall Working With Us
-            h2 Team & Culture
+            h3.titleSmall {{ content.section4.title_small }}
+            h2 {{ content.section4.title }}
             hr
-            p ​Our team consists of individuals from creative, business, technology, and science backgrounds, and it is our dream to expand our community with such diversity across the world.
+            p {{ content.section4.content }}
 
         slideIn.col-sm-6.left
           img(src="/img/grapgicCircle.svg")

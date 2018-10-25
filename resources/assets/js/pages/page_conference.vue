@@ -6,14 +6,14 @@
         .col-sm-7
           img(src="/img/theme1.svg")
         .col-sm-5.col-info
-          h4 2018 June 16-17
-          h1 n3xt con 2018
+          h4 {{ getDurationText( event.start_datetime,event.end_datetime ) }}
+          h1 n3xt con {{ targetYear }}
           h3 ​
             span Haven for Entrepreneurs and Storytellers<br><br>
             hr
             span
               i.fa.fa-map-marker  
-              | &nbsp;THE REGENT THEATER DTLA
+              | &nbsp; {{event.venue}}
           .btn(@click="scrollTo('.sectionRegistration');$ga.event('conference','get tickets','click')") Get Tickets
   section.sectionAsk.white
     .container
@@ -286,40 +286,18 @@ export default {
       $("[id^='des']").slideUp(0)
     },5000)
 
-    // console.log(this.slides)
-    //  if (this.slides.length>0){
-    //     setTimeout(()=>{
-    //       this.$nextTick(() => {
-    //         this.slickEl=$(".slick").slick(
-    //           this.slickOptions
-    //         )
-    //         console.log(this.slickOptions)
-    //         let _this=this
-    //         $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    //           console.log(nextSlide)
-    //           _this.currentSlideId=nextSlide
-    //         })
-
-    //       });
-    //     },1000)
-    //   }else{
-    //     setTimeout(()=>{
-    //       this.$nextTick(() => {
-    //         this.slickEl=$(".slick").slick(
-    //           this.slickOptions
-    //         )
-    //         let _this=this
-    //         $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    //           console.log(nextSlide)
-    //           _this.currentSlideId=nextSlide
-    //         })
-
-    //       });
-    //     },1500)
-    //   }
+    let targetEvent =  this.events.find(evt=>{
+      // console.log(evt.title,evt.start_datetime.slice(0,4),evt.type)
+      return evt.start_datetime.slice(0,4)==this.targetYear && evt.type=="conference"
+    })
+    let targetId =targetEvent?targetEvent.id:this.id
     
+    let apiurl = `/api/event/${targetId}`
     
-    let apiurl = this.routename?`/api/event/n/${this.routename}`:`/api/event/${this.id}`
+    // ---------------------------------------------
+    // get Event Data
+    // ---------------------------------------------
+
     axios.get(apiurl).then(res=>{
       res.data.speaker = JSON.parse(res.data.speaker || "[]")
       res.data.album = JSON.parse(res.data.album || "[]")
@@ -356,12 +334,14 @@ export default {
   },
   methods:{
     getSpeakerListById(list,order){
-      let result = list.map(id=>this.speakers.find(sp=>sp.id==id)).filter(sp=>sp)
-      if (order){
-        result=result.sort((a,b)=>a.name>b.name?1:-1)
+      if (Array.isArray(list)){
+        let result = list.map(id=>this.speakers.find(sp=>sp.id==id)).filter(sp=>sp)
+        if (order){
+          result=result.sort((a,b)=>a.name>b.name?1:-1)
+        }
+        // console.log(result)
+        return result
       }
-      // console.log(result)
-      return result
     },
     next() {
         // console.log(this.slickEl)
@@ -401,18 +381,11 @@ export default {
     // }
   },
   watch: {
-    // slides(){
-    //   this.slickEl=$(".slick").slick(
-    //       this.slickOptions
-    //     )
-    //     let _this=this
-    //     $(".slick").on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    //       console.log(nextSlide)
-    //       _this.currentSlideId=nextSlide
-    //   })
-    // }
   },
   computed:{
+    targetYear(){
+      return this.$route.params.year || (new Date()).getFullYear()
+    },
     fullSpeaker(){
       return this.speakers.find(sp=>sp.id==this.speakerShowId)
     },

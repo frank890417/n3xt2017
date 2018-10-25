@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     //
     public function index(){
-        return Event::all();
+        return Event::orderBy("start_datetime","desc")->get();
     }
     public function show($id){
         $result = Event::where("id",$id)
@@ -84,4 +84,8 @@ class EventController extends Controller
         $event = Event::create($inputs);
         return $event;
     }
+
+    // public function getConference(){
+
+    // }
 }

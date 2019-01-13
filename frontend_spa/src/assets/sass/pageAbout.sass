@@ -1,0 +1,260 @@
+.page.pageAbout
+  
+  .sectionHero
+    padding-top: 200px
+    padding-bottom: 150px
+    +rwd_sm
+      padding-bottom: 300px
+    h3
+      color: $colorRed
+    .logo
+      position: absolute
+      right: 30px
+      top: 100px
+      width: 40min
+      z-index: 1
+      +rwd_sm
+        width: 80%
+        top: initial
+        bottom: -120px  
+      &.line
+        opacity: 0.15
+        right: 15vw
+        top: 140px
+        z-index: 0
+  .sectionWhat
+    padding-top: 0
+    padding-bottom: 0
+    background-color: $colorBlue
+    .colContent
+      padding-top: 50px
+      padding-bottom: 50px
+      padding-right: 50px
+      background-color: white
+      position: relative
+      z-index: 1
+      +bxshadow
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: white
+        right: 100%
+        top: 0
+        z-index: 2
+
+  .sectionDo
+    img
+      +rwd_sm
+        margin-bottom: 30px
+
+        
+  .sectionMission
+    padding-top: 0
+    padding-bottom: 0
+    background-color: $colorBlue
+
+    ul.numbers
+      list-style: none
+      padding: 15px
+      margin-top: 20px
+
+      // display: flex
+      li
+        // display: inline-block
+        padding: 10px 50px
+        padding-left: 0
+        flex: 1
+
+        .title 
+          opacity: 0.8
+          font-size: 24px
+          font-weight: bold
+          color: $colorRed
+          white-space: nowrap
+
+        .number
+          font-size: 42px
+          font-weight: 700
+          // color: white
+    .colContent
+      padding-top: 50px
+      padding-bottom: 50px
+      background-color: white
+      position: relative
+      +bxshadow
+      // z-index: 5
+      +rwd_sm
+        padding-bottom: 100px
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: white
+        right: 100%
+        top: 0
+        z-index: 2
+
+    .colPic
+      background-color: $colorBgRed
+      top: -100px
+      +rwd_sm
+        height: 350px
+      &:before
+        content: ""
+        position: absolute
+        width: calc(100% + 1200px)
+        height: 100%
+        background-color: $colorBgRed
+        left: 0
+        top: 0
+        +bxshadow
+      img
+        transform: scaleX(-1)
+
+  .sectionTeam
+    .crews
+      padding-top: 0
+      padding-bottom: 0
+      padding-left: 0 
+      padding-right: 0
+      .container-fluid
+        padding-left: 0
+        padding-right: 0
+      [class^="col"]
+        padding: 0
+    
+    img
+      +rwd_sm
+        width: 140%
+        margin-top: 30px
+
+    a
+      text-decoration: none
+  
+    .person
+      min-height: 400px
+      background-image: url(http://www.indiewire.com/wp-content/uploads/2016/03/michael-b-jordan.jpg?w=780)
+      background-size: cover
+      background-position: center center
+      +trans
+      display: flex
+      justify-content: flex-end
+      flex-direction: column
+      padding: 20px
+      // padding-top: 0
+      // padding-bottom: 100%
+      position: relative
+      cursor: pointer
+      
+      &:before
+        content: ''
+        display: block
+        position: absolute
+        +size(100%)
+        left: 0
+        top: 0
+        +trans
+      &:hover
+        background-size: cover
+        h3
+          opacity: 0.8
+        h4
+          opacity: 0.8
+        &:before
+          background-color: rgba($colorBlue,0.9)
+      h3,h4
+        position: relative
+        z-index: 1
+      h3
+        color: $colorRed
+        margin: 0
+        font-size: 24px
+        font-family: "Khula"
+        font-weight: 700
+        margin-bottom: -5px
+      h4
+        color: white
+        margin: 0
+        font-size: 16px
+      &.big
+        min-height: 600px
+        flex: 7
+        &:hover
+          flex: 4
+
+
+  .sectionOpening
+    .positionList
+      background-color: transparent
+      list-style: none
+      color: white
+      padding: 0
+      margin-right: -30px
+      h3,h4
+        margin: 0
+      h3
+        font-family: "khula"
+        font-weight: 900
+      h4
+        color: $colorRed
+      li
+        padding: 15px
+        cursor: pointer
+        transition: 0.5s
+
+        &:hover,&.active
+          background-color: #fff
+          h3
+            color: $colorBlue
+
+      +rwd_sm
+        display: flex
+        overflow-x: auto
+        li
+          flex: 180px
+          flex-shrink: 0
+          border-right: solid 2px rgba(white,0.2)
+        h3
+          font-size: 22px
+        width: 100%
+        margin-bottom: -10px
+      
+        
+  .sectionSponsor
+    .card
+      background-color: rgba(white,0.04)
+      padding: 40px 20px
+      margin: 0px
+      text-align: center
+      transition: 0.5s
+      box-shadow: 0px 0px 20px rgba(black,0.1)
+      cursor: pointer
+      margin-bottom: 20px
+
+      p
+        opacity: 1
+
+      ul
+        margin-top: 50px
+        opacity: 0.5
+        
+
+
+      h3
+        font-family: "khula"
+        font-weight: 900
+        white-space: nowrap
+
+      img
+        width: 80%
+        min-height: 120px
+        
+      ul,p
+        text-align: left
+      &:hover
+        transform: translate(-5px,-5px)
+        background-color: rgba(white,0.08)
+        box-shadow: 0px 0px 30px rgba(black,0.2)

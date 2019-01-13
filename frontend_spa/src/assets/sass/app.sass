@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Khula:300,400,600,700,800')
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i')
+@import url("https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.0.8/theme-chalk/index.css")
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css")
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600")
+// Variables
+@import "variables"
+
+//slick carousel
+@import "../../../node_modules/slick-carousel/slick/slick.scss"
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss"
+
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
+
+
+@mixin trans($s:0.5s)
+  transition: $s
+
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+
+@mixin ab_full
+  position: absolute
+  +size(100%)
+  
+@mixin bxshadow
+  box-shadow: 0px 0px 20px rgba(black,0.3)
+
+@mixin flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+
+=colExtend($direction: "right",$color: inherit)
+  &:before
+    content: ""
+    position: absolute
+    width: calc(100% + 1200px)
+    height: 100%
+    background-color: $color
+    @if ($direction=="right")
+      left: 100%
+    @else
+      right: 100%
+    top: 0
+    z-index: 2
+
+
+//RWD
+
+=range_width($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-width: $min)
+      @content
+  @else
+    @media screen and (max-width: $max - 1px) and (min-width: $min) 
+      @content
+  
+
+=range_height($min: 0,$max: $min)
+  @if ($max==$min)
+    @media screen and (min-height: $min)
+      @content
+  @else
+    @media screen and (max-height: $max - 1px) and (min-height: $min) 
+      @content
+  
+$break_lg: 1600px
+$break_md: 1200px
+$break_sm: 800px
+$break_xs: 500px
+
+=rwd_md
+  +range_width(0px,$break_md)
+    @content
+=rwd_lg
+  +range_width($break_lg)
+    @content
+=rwd_sm
+  +range_width(0px,$break_sm)
+    @content
+=rwd_xs
+  +range_width(0px,$break_xs)
+    @content
+
+@import "./theme"
+@import "./pageLoading"
+@import "./pageIndex"
+@import "./pageAbout"
+@import "./pageSpeaker"
+@import "./pageEvent"
+@import "./pageBlog"
+@import "./pagePost"
+@import "./pageEventList"
+@import "./pageConference"
+@import "./common"
+@import "./nav"
+
+*
+  font-family: 'Source Sans Pro'
+img
+  max-width: 100%
+html,body
+  overflow-x: hidden
+html
+  overflow-y: scroll
+  overflow-x: hidden
+  max-width: 100vw
+body
+  background-color: $colorBlue
+  min-height: 100vh
+body.manage
+  background-color: white
+
+.container
+  @media (min-width: 1200px)
+    width: 1280px
+
+#app
+  &.loading
+    max-height: 100vh
+    overflow: hidden
+
+.rowEvent
+  *
+    color: $colorBlue
+  p
+    opacity: 1
+    font-weight: 600
+  li
+    &:hover
+      background-color: #eee
+    .cover
+      margin: -15px
+    
+  h3
+    margin-top: 0
+
+
+.manage
+  .panel-heading
+    font-size: 24px
+    font-weight: bold
+//transition effect
+//-------------------------
+// .fade-enter-active,.fade-leave-active
+//   transition: opacity .3s
+
+// .fade-enter,.fade-leave-to
+//   opacity: 0
+// .fade-enter-to,.fade-leave
+//   opacity: 1
+
+// .fade-delay-enter-active
+//   transition: opacity .3s .3s
+// .fade-delay-leave-active
+//   transition: opacity .3s
+
+// .fade-delay-enter,.fade-delay-leave-to
+//   opacity: 0
+// .fade-delay-enter-to,.fade-delay-leave
+//   opacity: 1
+
+
+
+//-------------------------
+$page_trans_time: 0.5s
+.fade-enter-active,.fade-leave-active
+  transition: $page_trans_time
+  transition-timing-function: ease-in
+  position: relative
+  // min-height: 100vh
+  // opacity: 0
+  // &:before
+  //   transition: $page_trans_time
+  //   display: block
+  //   content: ""
+  //   width: 100%
+  //   background-color: white
+  //   height: 100vh
+  //   position: fixed
+  //   z-index: 10000
+  //   left: 0
+  //   top: 100vh
+  //   transition-timing-function: ease-in
+    // box-shadow: 0px 20px white
+  // &:after
+  //   display: block
+  //   content: ""
+  //   opacity: 0
+  //   transition: $page_trans_time
+  //   height: 100vh
+  //   position: fixed
+  //   z-index: 1
+  //   left: 0
+  //   width: 100%
+  //   top: 0
+  //   background-color: $colorBlue
+
+#app
+  overflow: hidden
+.fade-enter-active
+  opacity: 1
+  transition-timing-function: ease-out
+  min-height: 100vh
+  &:before
+    top: 0
+    transition-timing-function: ease-out
+    // box-shadow: 0px 20px white
+.fade-enter
+  opacity: 0
+  top: 30px
+.fade-enter-to
+  opacity: 1
+  top: 0px
+  // &:before
+  //   top: -100vh
+  // &:after
+  //   opacity: 0
+.fade-leave
+  opacity: 1
+  top: 0px
+.fade-leave-to
+  opacity: 0
+  top: -30px
+  &.page.pageIndex .sectionHero 
+    .line
+      top: 60%
+       
+      .d
+        opacity: 0
+
+  // &:before 
+  //   top: 0
+  // &:after
+  //   opacity: 1
+
+
+.fade-enter-to,.fade-leave
+  // opacity: 1

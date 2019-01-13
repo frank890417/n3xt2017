@@ -1,0 +1,50 @@
+.page.pagePost
+  .sectionHero
+    padding-top: 60px
+    padding-bottom: 0
+    .cover
+      
+      min-height: 500px
+      background-size: 100% auto
+      background-position: center center
+      +rwd_sm
+        min-height: 250px
+        background-size: cover
+    h2
+
+  .sectionContent
+    padding-top: 30px
+    h2
+      margin-bottom: 5px
+    h3.date
+      margin: 0
+      text-align: right
+    hr
+      margin-top: 20px
+
+    padding-bottom: 180px
+
+  .sectionNav
+    padding: 0
+    .col-sm-6
+      padding: 0
+    a
+      display: block
+      position: relative
+      min-height: 350px
+      +rwd_sm
+        min-height: 300px
+    .photoBlock
+      &:hover,&:focus
+        .content
+          background-color: rgba($colorBlue,0.9)
+    .content
+      opacity: 1
+      background-color: rgba($colorBlue,0.7)
+      hr,h2,h3
+        transform: translateY(0px)
+    h2 ,h3,hr
+      opacity: 1
+      font-size: 30px
+      +rwd_sm
+        font-size: 26px

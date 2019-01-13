@@ -1,0 +1,221 @@
+.pageEventList
+  section.sectionHero
+    padding-top: 200px
+    padding-bottom: 150px
+    h3
+      color: $colorRed
+    canvas
+      width: 150%
+      max-width: 600px
+      margin-top: -50px
+      margin-bottom: -400px  
+      pointer-events: none
+
+  section.sectionSpot
+    .row
+      display: flex
+      +rwd_sm
+        display: block
+      &:hover
+        text-decoration: none
+    .col-cover
+      background-size: cover
+      position: relative
+      top: 30px
+      padding: 0
+      .cover
+        position: absolute
+        +size(100%)
+        +bxshadow
+        background-size: cover
+        background-position: center center
+        width: calc(50vw)
+        right: 0
+        // transform: translateX(-10vw)
+        //left: -50vw
+      +rwd_sm
+        .cover
+          position: relative
+          min-height: 300px
+          width: 100%
+
+      h4
+        margin-top: -60px
+        color: white
+        font-size: 36px
+        font-weight: 700
+        .month
+          font-weight: 500
+          margin-left: 24px
+          font-size: 26px
+          opacity: 0.4
+
+      // margin-left: -350px
+    .col-info
+      padding: 30px 35px
+      +bxshadow
+      position: relative
+      top: -30px
+      .eng
+        @extend .theme.blue
+        padding: 15px
+        display: inline-block
+        margin: 0
+        line-height: 1em
+      +colExtend
+
+  section.sectionCata
+    position: relative
+    padding-top: 20px
+    .bars
+      position: absolute
+      transform: scale(0.8)
+      right: 0px
+      +rwd_sm
+        left: -80px
+        .bar
+          font-size: 20px
+          width: 120vw
+
+
+
+    .col-bar
+      margin-top: 0px
+      left: 30px
+      +rwd_sm
+        min-height: 450px
+        margin-top: -80px
+
+    .bar
+      +size(50vw,200px)
+      background-color: $colorBgRed
+      margin-top: -25px
+      transform: skewX(-10deg)
+      position: relative
+      cursor: pointer
+      left: 0
+      +bxshadow
+      +rwd_sm
+        +size(100vw,150px)
+      +trans
+      &:hover
+        left: 15px
+        
+        
+      h3
+        position: absolute
+        font-family: "Khula"
+        right: 30px
+        top: 50%
+        transform: translateY(-50%) skewX(10deg)
+        font-weight: 700
+        letter-spacing: 1px
+        font-size: 30px
+        margin: 0
+        // min-width: 300px
+        // text-align: left
+        
+
+
+      &:nth-child(1)
+        z-index: 3
+        margin-top: 0
+        overflow: hidden
+        img
+          width: 100%
+          transform: skewX(10deg)
+          margin-top: -50px
+      &:nth-child(2)
+        margin-right: 120px
+        background-color: $colorLightBlue
+        z-index: 2
+        transform: skewX(-10deg) translateX(-100px)
+      &:nth-child(3)
+        background-color: $colorPurple
+        z-index: 1
+        transform: skewX(-10deg) translateX(-200px)
+
+      
+
+  section.sectionList
+    hr
+      margin-bottom: 50px
+    .row
+      display: flex
+      margin-left: 0
+      margin-right: 0
+      +rwd_sm
+        display: block
+    .btns
+      display: flex
+      // justify-content: center
+      align-items: center
+      overflow-x: auto
+
+      +rwd_sm
+        padding-left: 20px
+        padding-right: 20px
+        margin-right: -30px
+        margin-left: -30px
+
+    .btn
+      margin-right: 10px
+      +rwd_sm
+        margin-top: 0
+    .btn.outline.white
+      &.active
+        background-color: white
+        color: $colorBlue
+    .row-event
+      margin-bottom: 80px
+
+      &:hover
+        text-decoration: none
+        .col-cover
+          transform: translate(-5px,-5px) scale(1.01)
+          background-size: auto 110%
+        .col-info
+          transform: translate(5px,5px)
+
+
+
+    .col-cover
+      background-size: auto 105%
+      background-position: center center
+      +bxshadow
+      position: relative
+      top: 10px
+      +rwd_sm
+        min-height: 200px
+      
+      // margin-left: -350px
+
+    .col-info
+      padding: 30px 35px
+      +bxshadow
+      position: relative
+      top: -10px
+      z-index: 1
+
+      +rwd_sm
+        padding: 15px 20px
+
+      .title
+        font-size: 34px
+        +rwd_sm
+          font-size: 34px
+        .date
+          font-size: 22px
+          font-weight: 700
+          
+      .eng
+        @extend .theme.blue
+        padding: 15px
+        display: inline-block
+        margin: 0
+        margin-left: -35px
+        padding-left: 20px
+        line-height: 1em
+        font-size: 24px
+        +rwd_sm
+          line-height: 1.2em

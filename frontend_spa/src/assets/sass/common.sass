@@ -1,0 +1,360 @@
+
+.promo
+  max-height: 80vh
+.ad
+  display: flex
+  justify-content: center
+  align-items: center
+  .fullpage
+    display: flex
+    justify-content: center
+    align-items: center
+  
+.fullpage
+  position: fixed
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  opacity: 1
+  background-color: rgba($colorBlue,0.9)
+  z-index: 2000
+  overflow-y: auto
+  padding: 20px
+  padding-top: 60px
+
+  &>*
+    animation-delay: 0.3s
+  .front
+    position: relative
+  .closebg
+    position: absolute
+    z-index: -1
+    +size(100%)
+    left: 0
+    top: 0
+  
+  .cross
+    color: white
+    cursor: pointer
+    transform: scale(1.1)
+    font-size: 40px
+    position: absolute
+    right: 20px
+    top: 20px
+    +rwd_sm
+      font-size: 24px
+    +trans
+    &:hover
+      color: $colorRed
+
+    
+.fadefullpage-enter-active,.fadefullpage-leave-active
+  transition: 0.5s
+.fadefullpage-enter,.fadefullpage-leave-to
+  opacity: 0
+.fadefullpage-enter-to
+  opacity: 1
+
+
+.page
+  font-family: 'Source Sans Pro'
+  width: 100%
+  overflow: hidden
+  min-height: 100vh
+    
+
+    
+
+  // padding-top: 60px
+  h1,h2,h3
+    font-family: 'Khula'
+    
+  section
+    padding-top: 100px
+    padding-bottom: 100px
+    
+
+    h1
+      font-size: 96px
+      font-weight: 700
+      //font-weight: 500
+      +rwd_sm
+        font-size: 72px
+    h2
+      font-size: 42px
+      font-weight: 800
+      line-height: 1.5
+      //font-weight: 500
+      +rwd_sm
+        font-size: 36px
+    h3
+      font-size: 28px
+      font-weight: 600
+      line-height: 1.5
+      //font-weight: 500
+      &.titleSmall
+        margin: 0
+        font-size: 22px
+        margin-bottom: -24px
+      +rwd_sm
+        font-size: 26px
+        &.titleSmall
+          font-size: 20px
+    h4
+      line-height: 1.5
+    
+    p
+      font-size: 18px
+      line-height: 1.67
+      // text-align: justify
+      // text-align-last: left
+      font-weight: 300
+      opacity: 0.55
+      margin-top: 24px
+      
+      +rwd_sm
+        font-size: 17px
+    hr
+      border: none
+      margin-top: 24px
+      margin-bottom: 24px
+      width: 60px
+      height: 12px
+      margin-left: 0
+
+    .block
+      width: 150%
+      height: 600px
+      transform: skewX(-10deg)
+      &.blue
+        background-color: $colorLightBlue
+
+    //buttons
+    .btn
+      padding: 6px 32px
+      border-radius: 80px
+      margin-top: 60px
+      line-height: 1.6
+      font-size: 16px
+      font-weight: 400
+      opacity: 0.9
+      &.red
+        background-color: $colorRed
+        color: white
+        &:hover
+          background-color: white
+          color: $colorBlue
+      &.blue
+        background-color: $colorBlue
+        color: white
+        &:hover
+          background-color: white
+          color: $colorBlue
+      &.white
+        background-color: transparent
+        color: white
+        &:hover
+          background-color: white
+          color: $colorBlue
+        &.ghost
+          background-color: transparent
+          border: solid 1px white
+          color: white
+          &:hover
+            background-color: white
+            color: $colorBlue
+            border: solid 1px white
+      &.white.outline
+        border: solid 1px white
+        &.active
+          background-color: #fff
+          color: $colorBlue
+
+
+    //color theme settings
+    &.blue
+      background-color: $colorBlue
+      color: white
+      hr
+        background-color: $colorRed
+      .titleSmall
+        color: $colorRed
+    &.red
+      background-color: $colorBgRed
+      color: white
+      hr
+        background-color: white
+      color: white
+      p
+        opacity: 1
+    &.white, &.grey
+      background-color: white
+      color: $colorBlue
+      .btn
+        &.red
+          &:hover
+            background-color: $colorBlue
+            color: white
+        &.blue
+          &:hover
+            background-color: lighten($colorBlue,5)
+            color: white
+
+      hr
+        background-color: $colorRed
+      p
+        font-weight: 500
+        opacity: 1
+    &.grey
+      background-color: #f2f2f2
+
+
+  .panel
+    padding: 20px
+    border-radius: 0
+    &.white
+      background-color: white
+      color: $colorBlue
+      p
+        font-weight: 500
+        opacity: 1
+
+
+//照片hover效果統一
+
+.photoBlock
+  min-height: 40vh
+  background-size: 120% auto
+  background-position: center center
+  cursor: pointer
+  position: relative
+  padding: 0
+  
+
+  +trans
+  .content
+    content: ""
+    background-color: $colorBlue
+    color: white
+    padding: 20px 50px
+    position: absolute
+    left: 0
+    top: 0
+    +size(100%,100%)
+    display: flex
+    justify-content: center
+    // align-items: center
+    flex-direction: column
+    +rwd_sm
+      padding: 10px 30px
+    hr
+      width: 0px
+      height: 8px
+      background-color: $colorRed
+    h2,h3,hr
+      opacity: 0
+      transform: translateY(40px)
+      +trans
+    hr
+      transform: none
+      transition-delay: 0.3s
+      margin-bottom: 25px
+    h3
+      color: $colorRed
+      margin: 0
+      transition-delay: 0.1s
+    h2 
+      transition-delay: 0.2s
+      margin: 0
+    +ab_full
+    opacity: 0
+    +trans
+  
+  &:hover
+    background-size: 130% auto
+    .content
+      background-color: rgba($colorBlue,0.85)
+      opacity: 1
+      h2,h3,hr
+        opacity: 1
+        transform: translateY(0)
+      hr
+        width: 40px
+
+
+section.sectionContact
+  input,textarea
+    margin-bottom: 12px
+    background-color: transparent
+    border: none
+    border-bottom: solid 3px white
+    color: white
+    outline: none
+    border-radius: 0
+    &:focus
+      border-bottom-color: $colorRed
+      outline: none
+  .form-control
+    &:focus
+      box-shadow: none
+      border-bottom-color: $colorRed
+      outline: none
+      
+  .col-label,.col-text
+    font-size: 18px
+    vertical-align: middle
+    padding-top: 5px
+
+  .col-label
+    border-right: solid 2px rgba(white,0.5)
+    padding: 5px 0px
+    text-align: right
+    padding-right: 30px
+    opacity: 0.5
+  .col-text
+
+  .form-group
+    margin-top: 150px
+    +rwd_sm
+      margin-top: 30px
+
+section.sectionFooter
+  padding-top: 100px
+  padding-bottom: 50px
+  font-weight: 300
+  
+  .link-terms
+    color: white
+    margin-bottom: 30px
+    font-size: 18px
+  .logo
+    width: 100%
+    max-width: 100px
+    margin-bottom: 40px
+  .social_icons
+    padding: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    list-style: none
+    li
+      +size(40px)
+      border-radius: 50%
+      background-color: white
+      color: $colorBlue
+      margin: 10px
+      cursor: pointer
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 24px
+      a
+        color: inherit
+      &:hover
+        background-color: rgba(white,0.9)
+      &:active
+        border: solid 1px white
+        background-color: rgba(white,0.8)
+        color: $colorBlue
+      

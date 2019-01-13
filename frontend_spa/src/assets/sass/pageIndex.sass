@@ -1,0 +1,621 @@
+
+
+.pageIndex
+  min-height: 100vh
+  background-color: $colorBlue
+  section.sectionHero
+    min-height: 100vh
+    display: flex
+    align-items: center
+    padding-bottom: 50px
+    overflow: hidden
+    position: relative
+    z-index: 10
+    .mountain
+      position: absolute
+      // width: 100%
+      height: auto
+      // left: 50%
+      // top: 50%
+      width: 100%
+      max-width: 900px
+      right: -50px
+      bottom: -100px
+      // transform: translate(-50%,-50%)
+      // opacity: 0.5
+      +rwd_sm
+        width: 120%
+        bottom: 0px
+
+    .subscribePanel
+      margin-top: 60px
+
+
+      input.inputSubscribe
+        display: inline-block
+        border: solid 2px white
+        border-radius: 50px
+        background-color: transparent
+        padding: 5px 20px
+        width: 0%
+        max-width: 300px
+        outline: none
+        +trans
+        margin-right: 0
+        margin-left: 0
+        padding-left: 0
+        padding-right: 0
+        opacity: 0
+        &:focus
+          border-color: $colorRed
+
+      &.active
+        input
+          width: 100%
+          opacity: 1
+          margin-right: 20px
+          padding: 5px 20px
+
+      .btn
+        display: inline-block
+        margin-top: 0
+        +rwd_sm
+          margin-top: 20px
+
+
+    .bgVideo
+      position: absolute
+      width: 100%
+      height: auto
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%)
+      mix-blend-mode: soft-light
+      opacity: 0.5
+
+    h4
+      font-size: 28px
+      color: $colorRed
+    ul.numbers
+      list-style: none
+      padding: 0
+      margin-top: 80px
+      li
+        display: inline-block
+        padding: 10px 50px
+        padding-left: 0
+
+        .title 
+          opacity: 0.8
+          font-size: 24px
+          font-weight: bold
+
+        .number
+          font-size: 42px
+          font-weight: 700
+          color: white
+
+  section.sectionCaption
+    background: linear-gradient(104deg, #f4556f, #e8366b 87%, #e6336a 98%, #e6326a)
+    padding-bottom: 0
+    padding-top: 200px
+    +rwd_sm
+      padding-bottom: 30px
+
+    .whiteCircle
+      +size(150px)
+      background-color: white
+      border-radius: 50%
+      position: absolute
+      left: 250px
+      top: 50px
+      mix-blend-mode: screen
+
+    h2.rotateCaption
+      transform-origin: 0% 100%
+      transform: rotate(90deg) translateX(-150px)
+      margin-top: -150px
+      span
+        background-color: #fff
+        color: $colorBlue
+        padding: 5px 10px
+        display: inline-block
+        margin-bottom: 20px
+    // img
+      // +rwd_sm
+        // width: 30%
+
+  .sectionLen
+    // padding-top: 0px
+    img
+      position: absolute
+      left: 0
+      top: 0px
+      transform: scaleX(-1)
+      mix-blend-mode: lighten
+      height: 700px
+      max-width: initial
+
+      clip-path: polygon(15% 100%, 100% 100%, 85% 0%, 0% 0%)
+
+      +rwd_sm
+        margin-top: 30px
+    .block,img
+      
+      +rwd_sm
+        height: 300px
+        margin-top: 30px
+
+  section.sectionPlatform
+    padding-bottom: 300px
+
+    .circle
+      +size(150px)
+      background-color: #fff
+      border-radius: 100%
+      font-size: 17px
+      display: flex
+      justify-content: center
+      align-items: center
+      font-weight: 900
+      cursor: pointer
+      text-align: center
+      position: relative
+      color: $colorBlue
+      a
+        color: $colorBlue
+      &.scale
+        position: relative
+        z-index: 1
+
+      &:before
+        content: ""
+        display: block
+        +size(100%)
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%,-50%)
+        transition: 0.5s
+        border: solid 1px white
+        border-radius: 100%
+      &:hover,&:active
+        background-color: $colorBgRed
+        color: white
+        +size(110%)
+        &:before
+          +size(150%)
+          border-color: $colorBgRed
+
+      &:nth-child(1)
+        +size(120px)
+        margin-left: 50px
+      &:nth-child(2)
+        +size(140px)
+        margin-left: 280px
+        +rwd_sm
+          margin-left: 200px
+      &:nth-child(3)
+        +size(160px)
+        margin-left: -10px
+
+      &.c1,&.c2,&.c3,&.c4,&.c5,&.c6
+        &:before
+          display: none
+        border: none
+        position: absolute
+      &.c1
+        +size(22px)
+        background-color: $colorBgRed
+        border: none
+        right: 100px
+        top: -5px
+
+      &.c2
+        +size(54px)
+        background-color: $colorBgRed
+        border: none
+        right: 250px
+        top: 30px
+
+      &.c3
+        +size(34px)
+        background-color: white
+        border: none
+        right: 50px
+        top: 80px
+      &.c4
+        +size(56px)
+        background-color: white
+        border: none
+        right: 450px
+        top: 550px
+      &.c5
+        +size(50px)
+        background-color: white
+        border: none
+        right: 250px
+        top: 400px
+      &.c6
+        +size(46px)
+        background-color: $colorBgRed
+        border: none
+        right: 100px
+        top: 550px
+        
+  section.sectionPhoto
+    margin-left: 80px
+    margin-top: -150px
+    padding-top: 20px
+    padding-bottom: 20px
+    background-color: $colorBgRed
+
+    +rwd_sm
+      margin-left: inherit
+      padding-top: 0
+
+    .container-fluid
+      padding-left: 50px
+      +rwd_sm
+        padding-left: 15px
+        padding-right: 15px
+    a.img
+      width: 100%
+      // display: block
+      
+      background-size: 140% auto
+      display: flex
+      justify-content: center
+      align-items: center
+      position: relative
+      cursor: pointer
+      background-position: center center
+      transition: 0.5s
+      text-decoration: none
+
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        background-color: $colorBlue
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        opacity: 0
+        transition: 0.5s
+        pointer-event: none
+
+
+      &:after
+        content: "See Photo  >"
+        display: block
+        color: white
+        opacity: 0
+        transition: 0.5s
+        position: relative
+        z-index: 2
+        font-size: 18px
+        letter-spacing: 1px
+
+      &:hover
+        background-size: 150% auto
+        &:before
+          opacity: 0.8
+        &:after
+          opacity: 1
+
+      &.big
+        // width: auto
+        height: calc( 100% + 10px)
+        float: right
+        +rwd_sm
+          float: none
+          height: 200px
+          margin: 15px
+          width: calc( 100% - 30px)
+      &.small
+        width: calc( 100% - 30px)
+        margin: 15px
+        height: 260px
+        margin-left: -10px
+        &:first-child
+          margin-top: 0
+        +rwd_sm
+          height: 200px
+          margin-left: auto
+
+
+    .rowPhoto
+      transform: translateX(-140px)
+      height: 800px
+      .col-sm-8
+        height: 100%
+        +rwd_sm
+          height: auto
+      +rwd_sm
+        transform: translateX(0px)
+        height: auto
+    h4
+      text-align: right
+      opacity: 0.4
+      font-family: SourceSansPro-It
+      font-size: 60px
+      font-weight: 900
+      text-align: right
+      font-style: italic
+      +rwd_sm
+        font-size: 50px
+
+  section.sectionFeatureEvent
+
+    .event
+
+      position: relative
+      z-index: 10
+    h3
+      background-color: $colorBlue
+      color: white
+      padding: 30px 20px
+      font-size: 36px
+      font-weight: 900
+      display: inline-block
+      position: relative
+      white-space: nowrap
+      z-index: 10
+      top: 0px
+      .big
+        font-size: 52px
+        margin-top: 50px
+      .block
+        background-image: url("/img/20171023 Event Banner Idea in the Age of Tech-03.jpg")
+      +rwd_sm
+        white-space: normal
+        display: none
+        // position: absolute
+        // top: 300px
+        font-size: 28px
+        padding: 20px
+        padding-left: 30px
+        margin-left: -30px
+        .big
+          font-size: 36px
+      
+    .col-event-info
+      position: relative
+      z-index: 2
+    .col-img
+      position: relative
+      z-index: 1
+      display: flex
+      justify-content: center
+      align-items: center
+      
+      +rwd_sm
+        // margin-left: -50px
+        // margin-bottom: 180px
+        img
+          clip-path: none
+          left: 0
+          position: relative
+        
+    img
+      position: absolute
+      left: -10vw
+      top: 0px
+      // transform: scaleX(-1)
+      // mix-blend-mode: lighten
+      height: 550px
+      max-width: initial
+
+      clip-path: polygon(25% 0%, 100% 0%, 90% 100%, 15% 100%)
+
+      +rwd_sm
+        position: relative
+        left: -30px
+        height: 300px
+
+  section.sectionEvent
+    .event
+      position: relative
+      vertical-align: middle
+      display: flex
+
+      
+      h2
+        background-color: white
+        display: inline-block
+        padding: 10px 20px
+        padding-right: 0
+        
+        font-size: 30px
+        color: $colorBlue
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
+      .infos
+        position: relative
+        z-index: 1
+        width: 400px
+        flex-shrink: 0
+        margin-top: 10px
+        +rwd_sm
+          margin-top: -50px
+          width: 100%
+      // &.purple
+      //   h2
+      //     color: $colorPurple
+      // &.red
+      //   h2
+      //     color: $colorRed
+      p
+        width: 100%
+        max-width: 320px
+        margin-top: 30px
+      //.eventContainer
+        // width: 400px
+        // display: inline-block
+
+  
+    .slick-dots
+      color: white
+      li
+        button
+          background-color: #fff
+          +size(10px)
+          color: none
+          border-radius: 50%
+          +trans
+        &.slick-active button
+          background-color: $colorRed
+
+    // .row-event-list
+      // display: inline-block
+      // white-space: nowrap
+
+    .event-row
+      // width: 1800px
+      // overflow: hidden
+      display: block
+      margin-left: -160px
+      margin-right: -160px
+      padding-top: 30px
+      padding-bottom: 30px
+      +rwd_sm
+        margin-left: 0
+        margin-right: 0
+      // padding-left: 60px
+      // padding-right: 60px
+      // height: 500px
+      // width: 3000px
+      // overflow-x: scroll
+      // white-space: nowrap
+      
+      // scroll-snap-destination: 0% 0%
+      // scroll-snap-type 
+      // max-width: 600px
+      // display: flex
+      // flex-wrap: nowrap
+
+    .event-item
+      display: inline-block
+      width: 100%
+      max-width: 1000px
+      margin-right: 150px
+      // padding-right: 300px
+      +trans
+      &:hover
+        
+        transform: translate(-5px,-5px)
+        .blockImg
+          transform: translate(2px,2px)
+          opacity: 0.8
+        .month
+          transform: translate(10px,10px)
+        p
+          opacity: 1
+      +rwd_sm
+        max-width: 100vw
+
+    a.event
+      text-decoration: none
+      color: white
+
+      +rwd_sm
+        flex-direction: column-reverse
+
+    .series
+      font-size: 24px
+      margin-right: 30px
+      display: block
+    .month
+      position: relative
+      margin-left: -100px
+      z-index: 4
+      font-weight: 700 
+      font-size: 110px
+      font-family: 'Khula'
+      white-space: nowrap
+      position: absolute
+      right: 80px
+      bottom: -20px
+      text-shadow: 0px 0px 30px rgba(black,0.2)
+      
+      +trans
+
+      +rwd_sm
+        position: relative
+        font-size: 40px
+        margin-right: 0
+        right: 0
+        bottom: 0
+        margin-left: 0
+        
+    .img
+      // transform: scaleX(-1)
+      // mix-blend-mode: lighten
+      // width: 400px
+      left: 0
+      width: 700px
+      height: 400px
+      clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%)
+      background-position: center center
+      background-size: cover
+      position: relative
+      margin-left: -100px
+      // margin-top: 20px
+      mix-blend-mode: lighten
+      background-size: cover
+
+      +rwd_sm
+        clip-path: none
+        width: 100%
+        margin-left: 0
+        height: 300px
+
+    .blockImg
+      position: relative
+      margin-left: -300px
+      +trans
+
+      +rwd_sm
+        width: 100%
+        margin-left: 0
+    .block
+      width: 500px
+      height: 450px
+      transform: skewX(-10deg)
+      background-color: #fff
+      position: relative
+
+      +rwd_sm
+        transform: none
+        width: 100%
+        height: 400px
+      // bottom: 0
+      // margin-left: 250px
+      // &.blue
+      //   background-color: $colorLightBlue
+      // &.purple
+      //   background-color: $colorPurple
+    h3
+      background-color: $colorBlue
+      color: white
+      padding: 40px 20px
+      font-size: 36px
+      font-weight: 900
+      display: inline-block
+      position: relative
+      z-index: 1
+      white-space: nowrap
+      padding-right: -50px
+      span.big
+        font-size: 52px
+        margin-top: 50px
+    p
+      +trans
+  .sectionPartner
+    .logo
+      width: 200px
+      filter: saturate(0%)
+      margin: 20px
+      &:hover
+        filter: saturate(100%)

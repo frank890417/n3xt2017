@@ -37,7 +37,7 @@
                 labal.col-sm-3 Type
                 .col-sm-9
                   select.form-control(v-if="event"  v-model="event.type")
-                    option(v-for="(op,opid) in activityTypeOptions", :value="op.value", :key="opid") {{op.tag}}
+                    option(v-for="op in activityTypeOptions", :value="op.value") {{op.tag}}
                 br
                 br
               .form-group

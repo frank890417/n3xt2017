@@ -107,6 +107,7 @@
             .btn(@click="panel='oganizer'" ,:class="{'btn-primary':panel=='oganizer' }") Organizers
             .btn(@click="panel='program'" ,:class="{'btn-primary':panel=='program' }") Program
             .btn(@click="panel='album'"   ,:class="{'btn-primary':panel=='album' }") Album
+            .btn(@click="panel='otherinfo'"   ,:class="{'btn-primary':panel=='otherinfo' }") Other Info
             //- .btn(@click="panel='organizer'"   ,:class="{'btn-primary':panel=='organizer' }") Organizer
           .panel.panel-default(v-show="panel=='detail'")
             .panel-heading Detail
@@ -303,16 +304,22 @@
                   .col-sm-12
                     .btn.btn-primary(@click="event.album.push({image:'',caption:''})") + Add Photo
 
-          .panel.panel-default(v-if="panel=='organizer'")
+          //.panel.panel-default(v-if="panel=='organizer'")
             .panel-heading Organizers
             .panel-body
               .form-group
                 .row
                   .col-sm-12
                     label 
-            br
-            br
-          </template>
+          .panel.panel-default(v-show="panel=='otherinfo'")
+            .panel-heading Other Info
+            .panel-body
+              .form-group
+                .row
+                  .col-sm-12(@keyup="updateJsonEditor")
+                    #jsoneditor
+          
+</template>
 
 <script>
 import default_pic_selector from '../default_pic_selector.vue'
@@ -321,7 +328,8 @@ import {mapState } from 'vuex'
 import Axios from 'axios'
 import store from '../store'
 import datePicker from 'vue-bootstrap-datetimepicker'
-
+// import JsonEditor from 'jsoneditor'
+// import JsonEditor from 'vue-json-ui-editor';
 export default {
   data() {
     return {
@@ -346,6 +354,7 @@ export default {
       },
       currentTrackId: 0,
       maxTrackCount: 1,
+      otherinfo: {},
       
       temp_speaker_name: "",
       temp_agency_name: "",
@@ -372,13 +381,16 @@ export default {
       Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
         if (res.data){
           this.setEvent(res.data)
-
         }
       })
 
     }
   },
   methods: {
+    updateJsonEditor(){
+      this.$set(this.event,"otherinfo",this.editor.get())
+      console.log("json updated")
+    },
     fetchSpeaker(qs,cb){
       let result = this.speakers.map(o=>({value: o.name}))
                               .filter(n=>n.value.toLowerCase().indexOf(qs)!=-1)
@@ -391,6 +403,12 @@ export default {
       if (event.speaker){
         event.speaker = JSON.parse(event.speaker)
       }
+      event.otherinfo = event.otherinfo?JSON.parse(event.otherinfo):{}
+      var container = document.getElementById("jsoneditor");
+      this.editor = new JSONEditor(container);
+      console.log(event.otherinfo)
+      this.editor.set(event.otherinfo);
+      
       if (event.agencies){
         event.agencies = JSON.parse(event.agencies)
         if (event.agencies.length>0 && typeof event.agencies[0] != 'object'){
@@ -413,7 +431,7 @@ export default {
         })
 
       }
-      // console.log(event.album)
+      console.log(event)
 
       this.event = event
       this.$set(this.event,"draft",this.event.draft?true:false)

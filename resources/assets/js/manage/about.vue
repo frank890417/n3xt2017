@@ -26,6 +26,7 @@ export default {
       console.log("json updated")
     },
     savePageData(page){
+      this.$set(this.about,"content",this.editor.get())
       console.log(page)
       let pageClone = JSON.parse(JSON.stringify(page))
       pageClone.content = JSON.stringify(pageClone.content)

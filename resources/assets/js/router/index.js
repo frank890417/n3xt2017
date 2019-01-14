@@ -16,6 +16,7 @@ import page_blog from '../pages/page_blog.vue'
 import page_post from '../pages/page_post.vue'
 import page_conference from '../pages/page_conference.vue'
 
+import manage_about from '../manage/about.vue'
 import manage_contact from '../manage/contact_list.vue'
 import manage_event from '../manage/event.vue'
 import manage_event_list from '../manage/event_list.vue'
@@ -52,6 +53,7 @@ const routes = [
   { path: "/event/:id", component: page_event, props: true },
 
 
+  { path: "/manage/about", component: manage_about, props: true },
   { path: "/manage/contact", component: manage_contact, props: true },
   { path: "/manage/event/new", component: manage_event, props: true },
   { path: "/manage/event/:id", component: manage_event, props: true },

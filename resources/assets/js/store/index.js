@@ -13,6 +13,7 @@ const store = new Vuex.Store({
     posts: [],
     agencies: [],
     loading: true,
+    pages: {},
     pageTemplate: " - n3xtcon",
     scrollStream$: Rx.Observable.fromEvent(document, 'scroll').startWith(0).map(e => window.scrollY),
     resizeStream$: Rx.Observable.fromEvent(window, 'resize').startWith(0)
@@ -35,6 +36,9 @@ const store = new Vuex.Store({
     },
     setPosts(state, value) {
       state.posts = value
+    },
+    setPages(state, value) {
+      state.pages = value
     },
     setAgencies(state, value) {
       state.agencies = value
@@ -61,6 +65,7 @@ const store = new Vuex.Store({
       context.dispatch("loadEvents")
       context.dispatch("loadPosts")
       context.dispatch("loadAgencies")
+      context.dispatch("loadPages")
     },
     loadSpeakers(context){
       axios.get("/api/speaker").then((res) => {
@@ -80,6 +85,13 @@ const store = new Vuex.Store({
     loadEvents(context) {
       axios.get("/api/event").then((res) => {
         context.commit("setEvents", res.data)
+
+      })
+    },
+
+    loadPages(context) {
+      axios.get("/api/page").then((res) => {
+        context.commit("setPages", res.data)
 
       })
     },

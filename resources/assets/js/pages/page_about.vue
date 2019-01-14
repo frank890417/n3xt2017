@@ -6,8 +6,8 @@
     .container
       .row
         .col-sm-12
-          h1 About us
-          h3 Haven for Entrepreneurs and Storytellers
+          h1 {{content.page_title}}
+          h3 {{content.page_sub_title}}
           hr
           h5 
 
@@ -188,8 +188,9 @@ export default {
   data(){
     return {
       picTop: -1,
-      jobs: data_job,
+      
       now_job_id: 0,
+      jobs: data_job,
       crews: data_crew,
       content: {
         page_title: "About us",
@@ -216,13 +217,24 @@ export default {
     }
   },
   mounted(){
-    this.picTop = $(".colPic").offset().top 
-    if (window.location.hash){
-      this.scrollTo(window.location.hash)
-    }
+    axios.get("/api/page/about").then((res)=>{
+      let r = JSON.parse(res.data.content)
+
+      this.$set(this,"content",r.content)
+      this.$set(this,"crews",r.crews)
+      this.$set(this,"jobs",r.jobs)
+    })
+    setTimeout(()=>{
+      this.picTop = $(".colPic").offset().top 
+      if (window.location.hash){
+        this.scrollTo(window.location.hash)
+      }
+
+    },1000)
+    
   },
   computed:{
-    ...mapState(['scrollTop']),
+    ...mapState(['scrollTop','pages']),
     picParallax(){
       if (this.picTop>-1){
         return {transform: `translateY(${parseInt((this.scrollTop-this.picTop)/20+30)}px)`}

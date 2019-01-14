@@ -32,6 +32,7 @@ $public_routes = [
 $manage_routes = [
     'event',
     'post',
+    'about',
     'speaker',
     'agency',
     'contact'

@@ -325,7 +325,7 @@
 import default_pic_selector from '../default_pic_selector.vue'
 import { VueEditor } from 'vue2-editor'
 import {mapState } from 'vuex'
-import Axios from 'axios'
+import axios from 'axios'
 import store from '../store'
 import datePicker from 'vue-bootstrap-datetimepicker'
 // import JsonEditor from 'jsoneditor'
@@ -378,7 +378,7 @@ export default {
 
     store.dispatch("loadSpeakers");
     if (this.$route.params.id){
-      Axios.get("/api/event/"+this.$route.params.id).then((res)=>{
+      axios.get("/api/event/"+this.$route.params.id).then((res)=>{
         if (res.data){
           this.setEvent(res.data)
         }
@@ -409,6 +409,8 @@ export default {
       console.log(event.otherinfo)
       this.editor.set(event.otherinfo);
       
+      this.editor.expandAll();
+
       if (event.agencies){
         event.agencies = JSON.parse(event.agencies)
         if (event.agencies.length>0 && typeof event.agencies[0] != 'object'){
@@ -438,7 +440,7 @@ export default {
     },
     deleteActivity(){
       if (confirm("Are you sure to delete event?")){
-        Axios.post("/api/event/"+this.$route.params.id,{
+        axios.post("/api/event/"+this.$route.params.id,{
           _method: "DELETE"
         }).then((res)=>{
           this.$message.success("Delete Success!")
@@ -459,7 +461,7 @@ export default {
 
       if (this.$route.path=="/manage/event/new"){
 
-        Axios.post("/api/event",{
+        axios.post("/api/event",{
           _method: "POST",
           ...eventClone,
           
@@ -469,7 +471,7 @@ export default {
           // alert("Create Success!")
         })
       }else{
-        Axios.post("/api/event/"+this.$route.params.id,{
+        axios.post("/api/event/"+this.$route.params.id,{
           _method: "PATCH",
           ...eventClone
           
@@ -483,7 +485,7 @@ export default {
     },
     newProgram(trackId){
       
-      Axios.post("/api/program",{
+      axios.post("/api/program",{
         _method: "POST",
         event_id: this.$route.params.id,
         title: "",
@@ -499,7 +501,7 @@ export default {
     },
     deleteProgram(program,pid){
       this.$confirm("Are you sure to delete program?").then(()=>{
-        Axios.post("/api/program/"+program.id,{
+        axios.post("/api/program/"+program.id,{
           _method: "DELETE",
         }).then((res)=>{
           // this.setEvent(res.data)

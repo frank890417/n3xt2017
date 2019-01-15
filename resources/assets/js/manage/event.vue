@@ -518,6 +518,9 @@ export default {
       if (result && result.speakers==null){
         result.speakers=[]
       }
+      if (result && result.speakers=="[]"){
+        result.speakers=[]
+      }
       return result
     },
     orderedSpeakers(){

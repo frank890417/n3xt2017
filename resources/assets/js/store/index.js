@@ -28,9 +28,11 @@ const store = new Vuex.Store({
     setEvents(state,value){
       state.allevents=value
       state.allevents = state.allevents.sort( (a,b)=>{
-        let st = new Date(a.start_datetime)
-        let ed = new Date(b.start_datetime)
-        return st < ed
+        //safari cannot parse date with slash symbol
+        let st = new Date(a.start_datetime.replace(/-/g, "/"))
+        let ed = new Date(b.start_datetime.replace(/-/g, "/"))
+
+        return st < ed?1:-1
       } )
       state.events = state.allevents.filter(evt=>!evt.draft)
     },

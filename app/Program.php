@@ -11,6 +11,7 @@ class Program extends Model
         'title', 'description','event_id', 'speakers',
         'start_datetime','end_datetime',
         'track',
-        'created_at','updated_at'
+        'created_at','updated_at',
+        'is_common_track'
     ];
 }

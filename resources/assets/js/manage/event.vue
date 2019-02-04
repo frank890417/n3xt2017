@@ -220,7 +220,7 @@
             .panel-body
               .row(v-if="event.program && event.program.length")
                 .col-sm-12
-                  button.btn.btn-default(:class="{active: trackId-1==currentTrackId}",
+                  button.btn.btn-default(:class="{active: trackId-1==currentTrackId }",
                          @click="currentTrackId=trackId-1",
                          v-for="trackId in maxTrackCount") Track {{trackId}}
                   button.btn.btn-primary(@click="maxTrackCount+=1;currentTrackId=maxTrackCount-1") + Add Track
@@ -229,9 +229,9 @@
                 .col-sm-4(style="max-height: 60vh;overflow-y: scroll;")
                   .btn.btn-default.form-control(@click="newProgram(currentTrackId)") + Add Program
                   ul.list-group(v-for="(program,programId) in currentTrack", style="margin-top: 10px")
-                    li.list-group-item(:class="{active: nowProgramId==program.id}",
+                    li.list-group-item(:class="{active: nowProgramId==program.id, 'list-group-item-info': program.is_common_track}",
                                        @click="nowProgramId=program.id") 
-                      h4 {{programId+1}}. {{program.title}}
+                      h5 {{programId+1}}. {{program.is_common_track?'[All]':'' }} {{program.title}}
                         .btn.btn-danger.pull-right(@click="deleteProgram(program)") -
                       p {{program.start_datetime}}
                 .col-sm-8
@@ -258,6 +258,14 @@
                             @imageAdded="handleImageAdded" )                          
                       .row.form-group
                         el-form.col-sm-12(label-width="120px")
+                          .row
+                            el-form-item(label="Is all track event?")
+                              el-switch(v-model="nowProgram.is_common_track")
+                              //el-date-picker(
+                                v-model="nowProgram.start_datetime",
+                                type="datetime",
+                                placeholder="start time",
+                                value-format="yyyy-MM-dd HH:mm:ss")
                           .row
                             el-form-item(label="Start datetime")
                               el-date-picker(
@@ -430,6 +438,7 @@ export default {
       if (typeof event.program == "object"){
         event.program.forEach(p=>{
           p.speakers = JSON.parse(p.speakers)
+          p.is_common_track = p.is_common_track?true:false
         })
 
       }
@@ -529,13 +538,25 @@ export default {
     program_tracks(){
       let result = _.groupBy(this.event.program,"track")
       this.maxTrackCount = Object.keys(result).length
+      let commonPrograms = this.event.program.filter(p=>p.is_common_track)
+      // console.log(commonPrograms)
       Object.values(result).forEach(track=>{
-        track=track.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+        track=track.concat(commonPrograms)
+        // console.log(track)
+        track=track.filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+        track.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
       })
       return result
     },
     currentTrack(){
-      return this.program_tracks[this.currentTrackId] || []
+      
+        // track=track
+      let result = this.program_tracks[this.currentTrackId] || []
+      let commonPrograms = this.event.program.filter(p=>p.is_common_track)
+      result=result.concat(commonPrograms)
+                   .filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+      result.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      return result
     },
     trackCount(){
       let result = Math.max.apply(null,this.event.program.map(p=>p.track))+1

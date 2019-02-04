@@ -7,7 +7,7 @@
           img(src="/img/theme1.svg")
         .col-sm-5.col-info
           h4 {{ getDurationText( event.start_datetime,event.end_datetime ) }}
-          h1 n3xt con {{ targetYear }}
+          h1 n3xt con 2018
           h3 ​
             span Haven for Entrepreneurs and Storytellers<br><br>
             hr
@@ -422,8 +422,8 @@ export default {
       const regex = /tickets-([0-9]*)/;
       const str = this.event.ticketlink
       let m;
-
-      return str.match(regex)[1]
+      let match = str.match(regex)
+      return match && match[1]
 
     },
     programChunk(){

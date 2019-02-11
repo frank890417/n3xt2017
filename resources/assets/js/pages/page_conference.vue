@@ -86,8 +86,10 @@
           //- .btn.white.ghost More Details
           br
           br
-        .col-sm-12.col-schedule-area
-          ul.timeline(v-for="(programs,programdate) in programChunk").mt-5
+        .col-schedule-area(v-for="(track,trackId) in programTracks",
+                           :class="'col-sm-'+12/trackCount")
+          ul.timeline(v-for="(programs,programdate) in getProgramChunk(track)").mt-5
+            h4 Track
             .datetag {{ getDateText(programdate) }}
             li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
@@ -312,10 +314,9 @@ export default {
 
     let targetEvent =  this.events.find(evt=>{
       // console.log(evt.title,evt.start_datetime.slice(0,4),evt.type)
-      return evt.start_datetime.slice(0,4)==this.targetYear && evt.type=="conference"
+      return evt.start_datetime.slice(0,4) == this.targetYear && evt.type=="conference"
     })
-    let targetId =targetEvent?targetEvent.id:this.id
-    
+    let targetId = targetEvent ? targetEvent.id : this.id
     let apiurl = `/api/event/${targetId}`
     
     // ---------------------------------------------
@@ -367,6 +368,10 @@ export default {
 
   },
   methods:{
+    getProgramChunk(track){
+      let result = _.groupBy(track,(program)=>(program.start_datetime+"").split(" ")[0])
+      return result
+    },
     getSpeakerListById(list,order){
       if (Array.isArray(list)){
         let result = list.map(id=>this.speakers.find(sp=>sp.id==id)).filter(sp=>sp)
@@ -428,6 +433,35 @@ export default {
     },
     currentSlide(){
       return this.slides[this.currentSlideId]
+    },
+
+    trackCount(){
+      let result = Math.max.apply(null,this.event.program.map(p=>p.track))+1
+      this.maxTrackCount=result
+      return result
+    },
+    programTracks(){
+      let result = _.groupBy(this.event.program,"track")
+      this.maxTrackCount = Object.keys(result).length
+      let commonPrograms = this.event.program.filter(p=>p.is_common_track)
+      // console.log(commonPrograms)
+      Object.values(result).forEach(track=>{
+        track=track.concat(commonPrograms)
+        // console.log(track)
+        track=track.filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+        track.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      })
+      return result
+    },
+    currentTrack(){
+      
+        // track=track
+      let result = this.program_tracks[this.currentTrackId] || []
+      let commonPrograms = this.event.program.filter(p=>p.is_common_track)
+      result=result.concat(commonPrograms)
+                   .filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+      result.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      return result
     },
     ...mapState(["events","speakers"]),
     navEvent(){

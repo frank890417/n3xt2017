@@ -35,7 +35,8 @@ $manage_routes = [
     'about',
     'speaker',
     'agency',
-    'contact'
+    'contact',
+    'media'
 ];
 
 

@@ -25,6 +25,7 @@ import manage_speaker_list from '../manage/speaker_list.vue'
 import manage_post from '../manage/post.vue'
 import manage_post_list from '../manage/post_list.vue'
 import manage_agency from '../manage/agency.vue'
+import manage_media from '../manage/media.vue'
 import manage_agency_list from '../manage/agency_list.vue'
 
 
@@ -66,7 +67,8 @@ const routes = [
   { path: "/manage/event", component: manage_event_list },
   { path: "/manage/agency", component: manage_agency_list },
   { path: "/manage/post", component: manage_post_list },
-  { path: "/manage/speaker", component: manage_speaker_list }
+  { path: "/manage/speaker", component: manage_speaker_list },
+  { path: "/manage/media", component: manage_media }
 ];
 const router = new VueRouter({
   routes,

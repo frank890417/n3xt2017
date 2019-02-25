@@ -1,10 +1,16 @@
 <template lang="pug">
   div.page_event_about
     .container
+      .row
+        .col-sm-12
+          //- h1 Event List Manage
+          manage_nav
+          hr
       .row.mb-2
         .col-sm-12
           button.btn.btn-primary(@click="savePageData(about)") Save
       .row(@keyup="updateJsonEditor")
+        
         .col-sm-12
           #jsoneditor
   

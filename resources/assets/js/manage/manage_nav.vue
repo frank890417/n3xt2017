@@ -6,6 +6,7 @@
         router-link.btn.btn-default(to="/manage/post" ,:class="{active: $route.path=='/manage/post'}") Posts
         router-link.btn.btn-default(to="/manage/about" ,:class="{active: $route.path=='/manage/about'}") About
         router-link.btn.btn-default(to="/manage/contact" ,:class="{active: $route.path=='/manage/contact'}") Contact
+        router-link.btn.btn-default(to="/manage/media" ,:class="{active: $route.path=='/manage/media'}") Media
 </template>
 
 <script>

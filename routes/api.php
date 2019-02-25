@@ -25,6 +25,7 @@ Route::resource('program',"ProgramController");
 Route::resource('speaker',"SpeakerController");
 Route::resource('agency',"AgencyController");
 Route::resource('post',"PostController");
+Route::resource('media',"MediaController");
 Route::resource('subscribe',"SubscribeController");
 
 Route::resource('contact',"ContactrecordController");

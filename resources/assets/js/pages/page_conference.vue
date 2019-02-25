@@ -86,10 +86,33 @@
           //- .btn.white.ghost More Details
           br
           br
-        .col-schedule-area(v-for="(track,trackId) in programTracks",
+
+      // there are one date that has more than 1 track
+      .row(v-for="(dayChunk,chunkDate) in programChunk",
+           v-if="!isAllDayProgramSingleTrack" )
+        .col-sm-12
+          h3 {{ getDateText(chunkDate) }}
+        .col-schedule-area(v-for="(track,trackId) in getProgramTrack(dayChunk)",
                            :class="'col-sm-'+12/trackCount")
           ul.timeline(v-for="(programs,programdate) in getProgramChunk(track)").mt-5
-            h4 Track
+            //- h4 Track
+
+            .datetag Track {{ parseInt(trackId) + 1 }}
+            li(v-for="(p,pid) in programs")
+              .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
+              .content
+                h4.title(@click="toggle('#des'+pid+programdate)") {{p.title}}
+                  span(v-if="strip_tags(p.description)")   ▾
+                p.mb-3(v-if="strip_tags(p.description)", v-html="strip_tags(p.description)",:id="'des'+pid+programdate")
+                div.program-speakers
+                  .speaker(v-for="speaker in getSpeakerListById(p.speakers)",
+                          @click="speakerShowIndep=true;speakerShowId=speaker.id").mr-5
+                    .headshot(:style="cssbg(speaker.headshot)").mr-2
+                    span.name(style="opacity: 0.5") {{speaker.name}}
+
+      .row(v-if ="isAllDayProgramSingleTrack")
+        .col-schedule-area
+          ul.timeline(v-for="(programs,programdate) in programChunk").mt-5
             .datetag {{ getDateText(programdate) }}
             li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
@@ -102,6 +125,9 @@
                           @click="speakerShowIndep=true;speakerShowId=speaker.id").mr-5
                     .headshot(:style="cssbg(speaker.headshot)").mr-2
                     span.name(style="opacity: 0.5") {{speaker.name}}
+
+
+
   section.sectionSpeakers.white
     .container
       .row
@@ -370,6 +396,37 @@ export default {
   methods:{
     getProgramChunk(track){
       let result = _.groupBy(track,(program)=>(program.start_datetime+"").split(" ")[0])
+
+      let commonPrograms = this.event.program.filter(p=>p.is_common_track)
+      //- result=result.concat(commonPrograms)
+      Object.keys(result).forEach(key=>{
+        result[key]=result[key].concat(commonPrograms).filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+        result[key]=result[key].sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      })
+      return result
+    },
+    //catorize programs with differen date
+  
+
+    getProgramTrack(programs){
+      let result = _.groupBy(programs,"track")
+      this.maxTrackCount = Object.keys(result).length
+      let commonPrograms = programs.filter(p=>p.is_common_track)
+
+      Object.values(result).forEach(track=>{
+        track=track.concat(commonPrograms)
+        track=track.filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+        track.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      })
+      return result
+    },
+    getTrackPrograms(trackId){
+        // track=track
+      let result = trackId || []
+      let commonPrograms = this.event.program.filter(p=>p.is_common_track)
+      result=result.concat(commonPrograms)
+                   .filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
+      result.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
       return result
     },
     getSpeakerListById(list,order){
@@ -444,12 +501,20 @@ export default {
       let result = _.groupBy(this.event.program,"track")
       this.maxTrackCount = Object.keys(result).length
       let commonPrograms = this.event.program.filter(p=>p.is_common_track)
-      // console.log(commonPrograms)
+
       Object.values(result).forEach(track=>{
         track=track.concat(commonPrograms)
-        // console.log(track)
         track=track.filter((d,i,arr)=>arr.map(p=>p.id).indexOf(d.id)==i)
         track.sort((a,b)=>a.start_datetime>b.start_datetime?1:-1)
+      })
+      return result
+    },
+    isAllDayProgramSingleTrack(){
+      let result = true
+      Object.values(this.programChunk).forEach(chunk=>{
+        if (Object.keys(this.getProgramTrack(chunk)).length>=2){
+          result=false
+        }
       })
       return result
     },

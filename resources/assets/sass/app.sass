@@ -87,6 +87,14 @@ $break_xs: 500px
   +range_width(0px,$break_xs)
     @content
 
+.visible_sm
+  +range_width($break_sm)
+    display: none !important
+
+.hidden_sm
+  +rwd_sm
+    display: none !important
+
 @import "./theme"
 @import "./pageLoading"
 @import "./pageIndex"

@@ -86,33 +86,59 @@
           //- .btn.white.ghost More Details
           br
           br
-
+      
       // there are one date that has more than 1 track
       .row(v-for="(dayChunk,chunkDate) in programChunk",
            v-if="!isAllDayProgramSingleTrack" )
-        .col-sm-12
+        .col-sm-12.hidden_sm
           h3 {{ getDateText(chunkDate) }}
-        .col-schedule-area(v-for="(track,trackId) in getProgramTrack(dayChunk)",
-                           :class="'col-sm-'+12/trackCount")
-          ul.timeline(v-for="(programs,programdate) in getProgramChunk(track)").mt-5
+        .col-sm-12
+          .btn-group.visible_sm
+            .btn.mt-1.white(v-for="(programs,programdate) in programChunk",
+                            @click="currentSelectedDate=programdate",
+                            :class="programdate!=currentSelectedDate?'outline':'fill'") {{programdate}}
+        .col-sm-12
+          .btn-group.visible_sm
+            .btn.mt-1.white(v-for="(track,trackId) in getProgramTrack(dayChunk)",
+                               @click="currentSelectedTrack=parseInt(trackId)",
+                               :class="(parseInt(trackId)!=currentSelectedTrack)?'outline':'fill'") Track {{ parseInt(trackId)+1 }}
+        .col-sm-12
+          h3.visible_sm {{ getDateText(chunkDate) }}
+        .col-schedule-area.fadeIn.animated(v-for="(track,trackId) in getProgramTrack(dayChunk)",
+                           :class="'col-sm-'+12/trackCount + ' ' + ( (parseInt(trackId)==currentSelectedTrack)?'':'hidden_sm')",
+                            :key="trackId")
+          ul.timeline(v-for="(programs,programdate) in getProgramChunk(track)",
+                      :class="programdate==currentSelectedDate?'':'hidden_sm'").mt-5
             //- h4 Track
 
             .datetag Track {{ parseInt(trackId) + 1 }}
             li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
               .content
-                h4.title(@click="toggle('#des'+pid+programdate)") {{p.title}}
+                h4.title(@click="toggle('#des'+pid+programdate + trackId)") {{p.title}}
                   span(v-if="strip_tags(p.description)")   ▾
-                p.mb-3(v-if="strip_tags(p.description)", v-html="strip_tags(p.description)",:id="'des'+pid+programdate")
+                p.mb-3(v-if="strip_tags(p.description)", v-html="strip_tags(p.description)",
+                          :id="'des'+pid+programdate+trackId")
                 div.program-speakers
                   .speaker(v-for="speaker in getSpeakerListById(p.speakers)",
                           @click="speakerShowIndep=true;speakerShowId=speaker.id").mr-5
                     .headshot(:style="cssbg(speaker.headshot)").mr-2
                     span.name(style="opacity: 0.5") {{speaker.name}}
+      
+      
+      
+      .row(v-if ="isAllDayProgramSingleTrack")
+        .col-sm-12
+          .btn-group.visible_sm
+            .btn.mt-1.white(v-for="(programs,programdate) in programChunk",
+                            @click="currentSelectedDate=programdate",
+                            :class="programdate!=currentSelectedDate?'outline':'fill'") {{programdate}}
 
       .row(v-if ="isAllDayProgramSingleTrack")
         .col-schedule-area
-          ul.timeline(v-for="(programs,programdate) in programChunk").mt-5
+          ul.timeline(v-for="(programs,programdate) in programChunk",
+                      :key="programdate",
+                      :class="programdate!=currentSelectedDate?'hidden_sm':''").fadeIn.animated.mt-5
             .datetag {{ getDateText(programdate) }}
             li(v-for="(p,pid) in programs")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
@@ -223,6 +249,8 @@ export default {
         { label: "Sponsor", value: "sponsor" }
       ],
       id: 9,
+      currentSelectedTrack: 0,
+      currentSelectedDate: 0,
       // routename: "n3xtconf_2018",
       contentData: {
         title: "n3xt con 2018",
@@ -562,6 +590,7 @@ export default {
     },
     programChunk(){
       let result = _.groupBy(this.event.program,(program)=>(program.start_datetime+"").split(" ")[0])
+      this.currentSelectedDate=Object.keys(result)[0]
       return result
     },
     tags(){

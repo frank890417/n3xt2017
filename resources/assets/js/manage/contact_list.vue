@@ -12,14 +12,17 @@ div.manage_contact_list
           .panel-body
             br
             //- router-link.btn.btn-default(to="/manage/post/new") + Add Post
-            el-table(:data = "records | orderDate")
-                el-table-column(prop="id" width="80")
-                el-table-column(prop="name" width="100")
-                el-table-column(prop="last_name" width="100")
-                el-table-column(prop="email" width="200")
-                el-table-column(prop="message" )
-                el-table-column(prop="created_at" width="140")
-                
+            el-table(:data = "records")
+              el-table-column(prop="id" label="Id"  width="80")
+              el-table-column(prop="name" label="Name" width="100")
+              el-table-column(prop="last_name" label="Last_name" width="100")
+              el-table-column(prop="email" label="Email" width="200")
+              el-table-column(prop="message" label="Message" )
+              el-table-column(prop="created_at" label="Created_at" width="140")
+              el-table-column(fixed="right" prop="id" label="Function" width="100")
+                template(slot-scope="scope")
+                  el-button(@click="deleteRecord(scope.row)",type="danger") Delete
+              
             //- ul.list-group                 
             //-   li.list-group-item(v-for = "(record,spid) in records")
             //-     .row
@@ -41,14 +44,29 @@ export default {
         }
     },
     created(){
-        axios.get(this.url).then(res=>{
-            this.records = res.data
-        })
+      this.loadRecords()
     },
     computed(){
-        // orderedRecords(){
-            // return this.records.sort((a,b)=>(   ))
-        // }
+        
+    },
+    methods: {
+      loadRecords(){
+        axios.get(this.url).then(res=>{
+            this.$set(this,"records" ,res.data)
+        })
+      },
+      deleteRecord(record){
+        this.$confirm("Are you sure to delete this record?").then(()=>{
+        axios.post("/api/contact/"+record.id,{
+          _method: "DELETE",
+        }).then((res)=>{
+          // this.setEvent(res.data)
+          this.$message.success("delete record Success!")
+          this.loadRecords()
+          // this.event.program=this.event.program.filter(p=>p.id != program.id)
+        })
+      })
+      }
     }
 }
 </script>

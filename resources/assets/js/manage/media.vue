@@ -19,16 +19,38 @@
           default_pic_selector( slot="append" @select_pic="select_pic_cover")
     .row.pt-3
       .col-sm-12
-        h3 Media List
-        hr
-        .list-group
-          .col-sm-12.list-group-item(v-for="media in medias").mt-2
-            .col-sm-2
-              img(:src="media.url", style="width: 100%;backgorund-color:#ddd;")
-            .col-sm-10.pt-3
-              h4 {{media.title}}
-              h5 {{media.created_at}}
-              el-input(v-model="media.url")
+        br
+        br
+        panel.panel-primary
+          .panel-heading Media List
+          .panel-body
+            el-table(:data="medias")
+              el-table-column(prop="id" label="Id"  width="80")
+              el-table-column(prop="url" label="Image", width="200")
+                template(slot-scope="scope")
+                  div
+                    //- h3 {{scope.row}}
+                    img(:src="scope.row.url", style="width: 100%;backgorund-color:#ddd;")
+                
+              el-table-column(prop="title" label="Title" width="100")
+              el-table-column(prop="created_at" label="Created at" width="100")
+              //- el-table-column(prop="url" label="Url")
+              el-table-column(prop="url" label="Url")
+                template(slot-scope="scope")
+                  el-input(v-model="scope.row.url")
+
+              el-table-column(fixed="right" label="Function" width="100")
+                template(slot-scope="scope")
+                  el-button(@click="deleteMedia(scope.row)",type="danger") Delete
+              
+        //- .list-group
+        //-   .col-sm-12.list-group-item(v-for="media in medias").mt-2
+        //-     .col-sm-2
+              
+        //-     .col-sm-10.pt-3
+        //-       h4 {{media.title}}
+        //-       h5 {{media.created_at}}
+        //-       el-input(v-model="media.url")
           
 </template>
 
@@ -62,6 +84,19 @@ export default {
         
       axios.get("/api/media").then(res=>{
         this.$set(this,"medias",res.data)
+      })
+    },
+
+    deleteMedia(media){
+        this.$confirm("Are you sure to delete this media?").then(()=>{
+        axios.post("/api/media/"+media.id,{
+          _method: "DELETE",
+        }).then((res)=>{
+          // this.setEvent(res.data)
+          this.$message.success("delete media Success!")
+          this.reloadAllMedias()
+          // this.event.program=this.event.program.filter(p=>p.id != program.id)
+        })
       })
     }
   },

@@ -34,10 +34,10 @@
                 <li @click="toggleNav" class="confList">
                      <li class="nav-item dropdown">
                         <router-link to="/conference" class="nav-link" href="#" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false">Conference</router-link>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <router-link class="dropdown-item" to="/conference/2018"/>
-                            <router-link class="dropdown-item" to="/conference/2017"/>
-                            <router-link class="dropdown-item" to="/conference/2016"/>
+                        <div @click="toggleNav" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <router-link class="dropdown-item" to="/conference/2018">2018</router-link>
+                            <router-link class="dropdown-item" to="/conference/2017">2017</router-link>
+                            <!-- <router-link class="dropdown-item" to="/conference/2016"></router-link> -->
 
                        </div>
                     </li>

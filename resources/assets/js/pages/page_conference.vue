@@ -206,7 +206,7 @@
               //- h1 {{type.label}}
               //- ul.agencies
               .logo(v-for="ag in agenciesChunk[type.value]")
-                a(:href="ag.data.link",target="_blank", :title="ag.data.name")
+                a(v-if="ag.data", :href="ag.data.link",target="_blank", :title="ag.data.name")
                   img(:src="ag.data.logo")
   
 

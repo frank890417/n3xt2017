@@ -49,6 +49,37 @@ nav.navbar.navbar-default
         left: 0
         top: 50%
         +trans
+    .dropdown-menu
+
+      background-color: $colorRed
+      // color: $colorRed
+      border: none
+      display: flex
+      justify-content: center
+      align-items: center
+      transition: opacity 0.5s
+      margin-top: 5px
+      box-shadow: 0px 0px 10px rgba(black,0.2)
+      // padding-top: 5px
+      // padding-bottom: 5px
+      &:hover
+        margin: 0
+        margin-top: 5px
+        display: flex
+        
+      a.dropdown-item
+        font-size: 1.8rem
+        margin: 5px 20px !important
+        font-weight: 600
+        color: $colorBlue !important
+        text-decoration: none
+        &:hover
+          color: $colorBlue !important
+          text-decoration: none
+        &.router-link-active
+          color: white !important
+          text-decoration: none
+
     li a.router-link-active
       color: $colorRed
       position: relative
@@ -57,11 +88,18 @@ nav.navbar.navbar-default
       &:before
         transform: translateY(-50%) rotate(20deg)
         background-color: $colorRed
+
+      &.dropdown-item
+        color: $colorBlue
+        margin-left: 20px
+
+        &:before
+          display: none
         
   .dropdown-menu li a
     color: $colorBlue
 
-.route_,.route_about,.route_event,.route_blog,.route_speaker,.route_conference,[class^="route_speaker_n_"]
+.route_,.route_about,.route_event,.route_blog,.route_speaker,.route_conference,[class^="route_speaker_n_"],[class^="route_conference"]
   nav.navbar.navbar-default
     &.at_top
       background-color: transparent

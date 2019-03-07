@@ -12,6 +12,7 @@ div.manage_contact_list
           .panel-body
             br
             //- router-link.btn.btn-default(to="/manage/post/new") + Add Post
+            vue_lazy_table.mt-5(:table_data="records", dataTitle="Contact record list", :hide_table="true")
             el-table(:data = "records")
               el-table-column(prop="id" label="Id"  width="80")
               el-table-column(prop="name" label="Name" width="100")
@@ -35,6 +36,7 @@ div.manage_contact_list
 </template>
 
 <script>
+import vue_lazy_table from "../data/vue_lazy_table"
 import axios from 'axios'
 export default {
     data(){
@@ -67,6 +69,9 @@ export default {
         })
       })
       }
+    },
+    components: {
+      vue_lazy_table
     }
 }
 </script>

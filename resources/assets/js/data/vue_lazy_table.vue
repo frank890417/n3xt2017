@@ -2,11 +2,12 @@
   .power_table
     div(v-if="conf.show_search")
       .form-group-inline
-        label Search: 
-        input(v-model="search_keyword")
-        .btn.btn-primary.pull-right(@click="export_csv") 匯出csv
+        div(v-if="!hide_table")
+          label Search: 
+          input(v-model="search_keyword")
+        el-button(@click="export_csv", type="primary") Export CSV
         
-    table.table.table-hover
+    table.table.table-hover(v-if="!hide_table")
       thead
         th(v-for = "row_key in (row_keys || default_row_keys)",
            @click = "set_sort_key(row_key)",
@@ -30,7 +31,7 @@
                 :class="{active: func_exec(btn.class,row)}",
                 v-if="get_show_status(btn,row)") {{btn.label}}
             //.btn.btn-danger 刪除
-    .page_nav
+    .page_nav(v-if="!hide_table")
       .btn-group
         .btn.grey.outline(v-if="pages.length>1",
                         v-for="p in pages",
@@ -43,7 +44,7 @@ import Vue from 'vue'
 // sorted -> sliced
 export default {
   name: 'vue_lazy_table',
-  props: ["table_data","row_keys","rows","configs","edit","dataTitle","edit_btn_text","btns"],
+  props: ["table_data","row_keys","rows","configs","edit","dataTitle","edit_btn_text","btns","hide_table"],
   data () {
     return {
       sort_key: null,
@@ -244,7 +245,7 @@ export default {
 
       var fileTitle = this.dataTitle || "資料匯出"; // or 'my-unique-title'
       let dateString = ( new Date().toLocaleDateString()).replace(/[\/\s\:]/g,"");
-      exportCSVFile(headers, this.sorted_data, fileTitle + dateString); 
+      exportCSVFile(headers, this.sorted_data, fileTitle+"_" + dateString); 
 
     },
     get_show_status(btn,row){

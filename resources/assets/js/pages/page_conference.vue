@@ -51,9 +51,10 @@
         .col-sm-6
           .cover
             img(:src="currentSlide.cover" , :key="currentSlide.cover").animated.fadeIn
-          //- .slick
+          div.preloadHiddenImage(style="display: none;")
             div(v-for="keynote in slides")
               img.cover(:src="keynote.cover")
+            
         .col-sm-6.col-content(v-if="currentSlide")
           .tag {{currentSlide.theme}}
           h3 {{currentSlide.title}}
@@ -66,7 +67,7 @@
               .col-info()
                 h4
                   span {{speaker.name}}
-                p {{speaker.position}}, {{speaker.company}} 
+                p {{speaker.position}}, {{speaker.company}}
           //- h3 {{keynote.title}}
           br
           br
@@ -348,12 +349,18 @@ export default {
       },
       slickEl: null,
       currentSlideId: 0,
+      manualChangeSlide: false
+
     }
   },
   mounted(){
     //current slideshow
     setInterval(()=>{
-      this.keynoteSlideDelta(1)
+      if (!this.manualChangeSlide){
+        this.keynoteSlideDelta(1)
+      }else{
+        this.manualChangeSlide=false
+      }
     },4000)
 
 
@@ -471,11 +478,13 @@ export default {
         // console.log(this.slickEl)
         // console.log($(".slick"))
         // $(".slick").slick("next");
+        this.manualChangeSlide=true
         this.keynoteSlideDelta(1)
     },
 
     prev() {
         // $(".slick").slick("prev");
+        this.manualChangeSlide=true
         this.keynoteSlideDelta(-1)
     },
     keynoteSlideDelta(value){

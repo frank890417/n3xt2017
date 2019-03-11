@@ -1,17 +1,6 @@
 .pageConference
   .btn
     margin-bottom: 30px
-  .fullpage
-    .colContent
-      background-color: white
-      padding: 40px
-      border-radius: 5px
-      box-shadow: 0px 0px 10px rgba(black,0.2)
-      max-height: calc(100vh - 160px)
-      overflow-y: scroll
-      position: relative
-      +rwd_sm
-        margin-top: 30px
     
   .sectionHero
     // background: url("")
@@ -207,6 +196,7 @@
         flex-direction: column !important
         li
           flex-direction: column
+
       ul.timeline
         flex: 1
         position: relative
@@ -290,3 +280,37 @@
         display: flex
         justify-content: center
         align-items: center
+
+  .fullpage
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    .colContent.container-fluid
+      background-color: white
+      padding: 50px
+      padding-top: 30px
+      border-radius: 5px
+      box-shadow: 0px 0px 10px rgba(black,0.2)
+      max-height: calc(100vh - 160px)
+      overflow-y: scroll
+      position: relative
+      max-width: 850px
+      z-index: 100
+      .col-sm-7
+        padding-left: 10px
+        p:first-child,
+          &,& p
+            margin-top: 0
+
+
+
+      h2
+        margin-top: 30px
+        margin-bottom: 0px
+        line-height: 1
+      h3
+        margin-top: -15px
+      +rwd_sm
+        padding: 30px
+        // margin-top: 30px

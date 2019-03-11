@@ -171,13 +171,14 @@
               span(v-if="speaker.position && speaker.company")  ,<br> 
               span {{speaker.company}}
         fullPage(:show="(speakerShowIndep && fullSpeaker)?true:false", @closeFullpage = "()=>{speakerShowIndep=false}")
-          .container.colContent(v-if="fullSpeaker").animated.fadeIn
+          .container-fluid.colContent(v-if="fullSpeaker").animated.fadeIn
             .row
-              .col-sm-12
+              .col-sm-5
                 img(:src="fullSpeaker.headshot", v-if="fullSpeaker.headshot", style='width: 200px')
                 h2 {{fullSpeaker.name}}
-                h3 {{fullSpeaker.position}} , {{fullSpeaker.company}}
+                h4 {{fullSpeaker.position}} , {{fullSpeaker.company}}
                 hr
+              .col-sm-7
                 p(v-html="getHtml(fullSpeaker.bio)", v-if="fullSpeaker")
 
   section.sectionRegistration.grey(v-if="eventbriteId")
@@ -507,7 +508,7 @@ export default {
       $(sel).slideToggle(0)
     },
     getHtml(text){
-      return (''+text).replace(/\r/g,'<br>')
+      return (''+text).replace(/\r/g,'<br>').replace(/<p><br><\/p>/g,"")
     }
     // scrollTo(selector){
     //   $("html,body").animate({scrollTop:$(selector).offset().top})

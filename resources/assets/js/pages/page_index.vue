@@ -181,7 +181,7 @@
                 .block.purple
                 img(src="https://lh3.googleusercontent.com/Y7TFjrgslGUqFAMB6AfKEoU23_TzElEC1LY1fOpEZyWfqGVktRuWDn4pzbk7ZQpN8R5_RO2sKuH9Wmq2LVhppfFYNnT4ylxMbYVALa1Qip73GGWsVAyBzyVqbsTIuL8wgmgZktIVo7gvZGs8HOwKkuQEuIFIFJ0f-JH09PmD5bpiczJFr4bs932h2ViX7VRwuKPu8PUOlVJzVfxy1L8D7emcMh-Yg5zLKCM8D02jvm0czbXt2EPaVN-EVRr8O2tQROnTR7YaHNX_XKlrKUa_8-QGjKog_sz8Ip36GI92-X1Bf432PAilixjprR4KavYMkjKr4jVX_oBY3-67wp7xwHf09Fc79dN0hQY1EJ5wNZGRLcYwlwvCGa4k_yfrrkS-VqW1P78OZUKWkDKYpQ_V6JcqI8vgPFWdmhYikfrPuYJKTNRM68fOg3UqVpR0xPQ0chujh1sENa4PpXS9MWAVNGrOOiMZXpATOpfZ5rYpbJPxa8Fv7q-Wue8F0uOlZSvI0ZUfTG5RtqpA6yXbV9NlEtE_tilKn5V_6vzJHwXnWciRDdVvoQqzO3tJ53znSGdBT3hKGFAEVA4_nPzcwQb3H4CdQM3kOB3pLkC2H0QTNNAn2IgQgW70_4wNTVYWWvoLup_Ssy8Jm5QnZvGmFe-wnRo0y4b3hKRY8XY=w1406-h937-no" , target="_blank")
       
-  section.sectionPartner.white.text-center
+  //section.sectionPartner.white.text-center
     .container
       .row
         .col-sm-12

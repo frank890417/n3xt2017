@@ -390,10 +390,7 @@ export default {
       res.data.album = JSON.parse(res.data.album || "[]")
       res.data.agencies = JSON.parse(res.data.agencies || "[]")
       
-
-
-
-      this.event=res.data
+      this.$set(this,"event",res.data)
       this.event.program.forEach(p=>{
         p.speakers = JSON.parse(p.speakers)
       })

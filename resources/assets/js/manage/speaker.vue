@@ -44,7 +44,8 @@
               .form-group
                 labal.col-sm-3 Short Description
                 .col-sm-9
-                  textarea.form-control(v-model="speaker.description")
+                  el-input(v-model="speaker.description", type="textarea")
+                  label(:style="{color:  (''+speaker.description).length>499?'#f24':'inherit' }") {{ (""+speaker.description).length }}/499 characters.
                   br
                   br
               .form-group

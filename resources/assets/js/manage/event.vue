@@ -93,6 +93,9 @@
                       value-format="yyyy-MM-dd HH:mm:ss")
               .form-group
                 labal.col-sm-3 Cover
+                  br
+                  | (18:10)
+                
                 .col-sm-9
                   img(:src="event.cover", style="width: 100%")
                   el-input(v-model="event.cover")

@@ -113,7 +113,8 @@
             //- h4 Track
 
             .datetag Track {{ parseInt(trackId) + 1 }}
-            li(v-for="(p,pid) in programs")
+            li(v-for="(p,pid) in programs",
+               :class="{common: trackId!=0 && p.is_common_track}")
               .time {{(p.start_datetime || " ").split(' ')[1].slice(0,5)}}- {{(p.end_datetime || " ").split(' ')[1].slice(0,5)}}
               .content
                 h4.title(@click="toggle('#des'+pid+programdate + trackId)") {{p.title}}

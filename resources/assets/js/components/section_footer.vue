@@ -19,7 +19,7 @@
               a(href="https://www.linkedin.com/company/n3xtcon/" target="_blank")
                 i.fa.fa-linkedin
           router-link.link-terms(to="/terms") Terms & Policy
-          p.text-center Copyright © 2017  |  n3xt con  |  Los Angeles, California<br>n3xt con is 501(c)(3) non-profit organization.
+          p.text-center Copyright © 2020  |  n3xt con  |  Los Angeles, California<br>n3xt con is 501(c)(3) non-profit organization.
                 
 </template>
 

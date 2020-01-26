@@ -68,8 +68,9 @@ const routes = [
   { path: "/manage/agency", component: manage_agency_list },
   { path: "/manage/post", component: manage_post_list },
   { path: "/manage/speaker", component: manage_speaker_list },
-  { path: "/manage/media", component: manage_media }
+  { path: "/manage/media", component: manage_media },
 ];
+
 const router = new VueRouter({
   routes,
   mode: "history",

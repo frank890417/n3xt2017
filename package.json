@@ -44,7 +44,7 @@
     "element-ui": "^2.0.8",
     "fast-csv": "^2.4.1",
     "gsap": "^1.20.3",
-    "jsoneditor": "^5.27.0",
+    "jsoneditor": "^9.5.6",
     "mammoth": "^1.4.3",
     "mysql": "^2.15.0",
     "pixi": "^0.3.1",
